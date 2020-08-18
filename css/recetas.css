@@ -1,0 +1,27 @@
+.navegacion-contenedor {
+font-size: 1.5rem ;
+color: var(--color-cuaternario);
+background-color: var(--color-primario);
+padding: 1rem 0;
+display: flex;
+justify-content: center;
+}
+
+.navegacion {
+    width: 38em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.links {
+    width: 10em ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.tamaño-icono-exit {
+    width : 1.5em ;
+    height : auto ; 
+}
