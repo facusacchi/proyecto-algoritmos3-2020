@@ -47,7 +47,6 @@ justify-content: center;
     background-color: var(--color-terciario);
     display: flex;
     justify-content: space-between;
-
 }
 
 .descripcion {
@@ -68,3 +67,52 @@ justify-content: center;
 .inadecuado {
     font-size: 0.8em ;
 }
+
+.editar-contenedor {
+    background-color: var(--color-cuaternario);
+}
+
+.inputs-contenedor {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1em;
+}
+
+.calorias {
+    font-size: 0.8em;
+    font-weight: 800;    
+}
+
+.dificultad {
+    font-size: 0.8em;
+    font-weight: 800;
+}
+
+.input {
+    width: 10em;
+    height: 2em;
+    padding: 0em;
+    border: 0.15em solid var(--color-terciario) ;
+}
+
+.tablas-contenedor {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.separacion {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+
+.tabla{
+    font-size: 0.8em;
+
+}
+
+
+
+
+
+
