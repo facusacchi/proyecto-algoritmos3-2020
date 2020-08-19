@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-primario: #ff8466;
+    --color-secundario:#ffea54;
+    --fuente-default: 'Baloo Tamma 2', cursive;
+    --borde-default: 3px solid var(--color-secundario);
+}
+
+body {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    font-size: 100%;
+    font-family: var(--fuente-default);
+    line-height: 1.5;
+    background-color: var(--color-primario);
+}
+
+.main-form {
+    background-color: white;
+    border: var(--borde-default);
+    border-radius: 10px;
+    padding: 1.5rem;
+    width: 15rem;
+    margin: 10rem 10rem 12.8rem 31.5rem;
+}
+
+.main-footer { 
+    background-color: #b8b0b0;
+    color: white;
+}
+
+.main-form__titulo {
+    color: red;
+    font-family: Brush Script MT;
+}
+
+.main-form__input {
+    border-color: #fff5a5;
+    font-family: var(--fuente-default);
+}
+
+.main-form__button {
+    background-color: var(--color-primario);
+    color: white;
+    border-color: var(--color-secundario);
+    border-radius: 0.5em;
+    font-family: var(--fuente-default);
+    font-size: 0.8em;
+    padding: 0.1em 1.2em;
+    margin: 1.2em 0.5em 0.5em 2em;
+}

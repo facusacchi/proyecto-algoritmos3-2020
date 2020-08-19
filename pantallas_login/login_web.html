@@ -3,21 +3,23 @@
     <head>
         <meta charset="UTF-8">
         <title>Iniciar sesion</title>
+        <link rel="stylesheet" href="..\css_login\css_login.css">
+        <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@500&display=swap" rel="stylesheet">
     </head>
     <body>
-        <form>
-            <h1>Food Overflow</h1>
+        <form class="main-form">
+            <h1 class="main-form__titulo">Food Overflow</h1>
             <div>
                 <label for="usuario">Usuario</label><br>
-                <input type="text" id="usuario" placeholder="Nombre de usuario">
+                <input type="text" id="usuario" placeholder="Nombre de usuario" class="main-form__input">
             </div>
             <div>
                 <label for="Contrasenia">Contraseña</label><br>
-                <input type="password" id="Contrasenia" placeholder="Contraseña">
+                <input type="password" id="Contrasenia" placeholder="Contraseña" class="main-form__input">
             </div>
-            <input type="submit" value="Ingresar">
+            <input type="submit" value="Ingresar" class="main-form__button">
         </form>
-        <footer>
+        <footer class="main-footer">
             <div>
                 <img src="icono_facebook.png" alt="image" width="25px" height="25px">
                 <small>Food Overflow \ 2020, Grupo 6 - All rights reserved</small>
