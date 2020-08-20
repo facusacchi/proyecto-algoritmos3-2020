@@ -1,6 +1,7 @@
 
 :root {
-    --color-primario: #ff8466;
+    /* --color-primario: #ff8466; */
+    --color-primario: #ffdbd5;
     --color-secundario: #ffda90 ;
     --fuente-default: 'Baloo Tamma 2', cursive;
     --borde-default: 3px solid var(--color-secundario);
@@ -42,8 +43,8 @@ body {
 }
 
 .main-form__button {
-    background-color: var(--color-primario);
-    color: white;
+    background-color: var(--color-secundario);
+    color: black;
     border-color: var(--color-secundario);
     border-radius: 0.5em;
     font-family: var(--fuente-default);
