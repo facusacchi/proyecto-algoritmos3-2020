@@ -3,22 +3,29 @@
 
 :root {
     --color-primario: #596475;
-    --color-secundario: #bc9ec1;
+    --color-secundario: #9d8189;
     --color-terciario: #e3bac6;
     --color-cuaternario : #fde8e9;
     --color-botones : #1f2232;
+    --color-botonprofe : #f79256;
     --tipografia : 'Lato', sans-serif;
+    --boton-cancelar : #aa4465;
 }
 
 html {
     font-family: var(--tipografia) ;
     font-size: 10px;
-    background-color: var(--color-secundario);
+    background-color: var(--color-cuaternario);
     
 }
 
 body {
     margin: 0;
+}
+
+.main-footer { 
+    background-color:#868584;
+    color: white;
 }
 
 

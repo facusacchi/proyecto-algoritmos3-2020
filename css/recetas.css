@@ -22,13 +22,15 @@ justify-content: center;
 }
 
 .tamaño-icono-exit {
-    width : 1.5em ;
+    width : 1.8em ;
     height : auto ; 
 }
 
 .img-fajita {
     width: 10em;
     height: auto;
+    border-radius: 0.5em;
+
 }
 
 .contenedor {
@@ -47,6 +49,7 @@ justify-content: center;
     background-color: var(--color-terciario);
     display: flex;
     justify-content: space-between;
+    border-radius: 0.5em;
 }
 
 .descripcion {
@@ -69,7 +72,7 @@ justify-content: center;
 }
 
 .editar-contenedor {
-    background-color: var(--color-cuaternario);
+    background-color: white;
 }
 
 .inputs-contenedor {
@@ -93,6 +96,7 @@ justify-content: center;
     height: 2em;
     padding: 0em;
     border: 0.15em solid var(--color-terciario) ;
+    box-sizing: border-box;
 }
 
 .tablas-contenedor {
@@ -108,11 +112,91 @@ justify-content: center;
 
 .tabla{
     font-size: 0.8em;
+}
+
+.img-eliminar {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.ancho-columna {
+    width: 8em ;
+}
+
+.tabla-pasos {
+    width: 25em;
+}
+
+.button {
+    background-color: var(--color-botonprofe);
+    color: white;
+    border: 0.15em solid #e2711d;
+    border-radius: 0.5em;
+    width: 6em;
+    height: 2.5em;
+}
+
+.espacio {
+    display: flex;
+    justify-content: space-between;
+    margin: 1.5em 3.4em;
+}
+
+.tabla-contenedor {
+    height: 4em; 
+    margin: 1.5em 3.4em;
+    border: 0.1em solid var(--color-secundario);
+    overflow-y: scroll; 
+}
+
+.tabla-colaboradores {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    font-size: 0.8em;
+}
+
+.tabla-colaboradores th {
+    background-color: var(--color-secundario);
+    color: white;
+}
+
+.tabla-colaboradores tr td {
+    border-top: 0.1em solid var(--color-secundario);
+}
+
+.aceptar-cancelar {
+    margin: 1.5em 3.4em;
+    display: flex;
+    justify-content: flex-end;
 
 }
 
+.boton-cancelar {
+    background-color: var(--boton-cancelar) ;
+    color: white;
+    border: 0.15em solid #5f0f40;
+    border-radius: 0.5em;
+    width: 6em;
+    height: 2.5em;
+    margin-bottom: 2em;
+}
 
+.horizontal {
+display: flex;
+}
 
+.centrado {
+    margin: auto;
+}
 
+.logo {
+    height: 2em;
+}
+
+.alinear {
+    display: flex;
+    align-items: center;
+}
 
 
