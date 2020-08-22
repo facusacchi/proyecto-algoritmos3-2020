@@ -1,6 +1,5 @@
 
 :root {
-    /* --color-primario: #ff8466; */
     --color-primario: #ffdbd5;
     --color-secundario: #ffda90 ;
     --fuente-default: 'Baloo Tamma 2', cursive;
@@ -8,10 +7,10 @@
 }
 
 body {
+    /* height: 100vh; */
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-
     font-size: 100%;
     font-family: var(--fuente-default);
     line-height: 1.5;

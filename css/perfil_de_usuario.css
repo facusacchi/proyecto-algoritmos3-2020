@@ -1,0 +1,219 @@
+
+:root {
+    --color-primario: #fff0f0 ;
+    --color-secundario: #ffc4c4;
+    --color-footer: white;
+    --color-titulo-primario: white;
+    --color-link: white;
+    --color-background-form: white;
+    --background-footer: #d1d1d1;
+    --fuente-titulo-primario: Brush Script MT;;
+    --fuente-default: 'Baloo Tamma 2', cursive;
+    --borde-default: 3px solid var(--color-secundario);
+}
+
+body {
+    height: 100vh;
+    box-sizing: border-box;
+    display: grid;
+    gap: 3px;
+    grid-template-rows: 2fr 5fr 1fr;
+    grid-template-columns: 1fr;
+    font-size: 100%;
+    font-family: var(--fuente-default);
+    line-height: 1.5;
+    background-color: var(--color-primario);
+    grid-template-areas: 
+    "header"
+    "contenido"
+    "footer"
+    ;
+}
+
+.main-header {
+    background-color: var(--color-secundario);
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-evenly;
+    grid-area: header;
+    margin: 0rem 0rem 2rem 0rem;
+}
+
+.main-contenido {
+    display: flex;
+    justify-content: center;
+    grid-area: contenido;
+}
+
+.main-footer {
+    background-color: var(--background-footer);
+    color: var(--color-footer);
+    grid-area: footer;
+    margin: 2rem 0rem 0rem 0rem;
+}
+
+.main-header__nav {
+   display: flex;
+   justify-content: space-between;
+   align-content: space-between;
+   align-items: center;
+   width: 10rem;
+}
+
+.main-header__nav-link {
+    color: var(--color-link);
+}
+
+.main-header__titulo {
+    color: var(--color-titulo-primario);
+    font-family: var(--fuente-titulo-primario);
+    font-size: 3rem;
+    padding: 0;
+    margin: 0;
+}
+
+.main-header__links {
+display: flex;
+justify-content: space-around;
+align-content: center;
+width: 9em;
+height: 2em;
+}
+
+.main-form {
+    background-color: var(--color-background-form);
+    border-radius: 3rem;
+    width: 60rem;
+}
+
+.main-form__header {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--color-secundario);
+    border-top-left-radius: 3rem;
+    border-top-right-radius: 3rem;
+    padding: 0.5rem 1rem 1rem 1rem;
+}
+
+.main-form__state {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    width: 11em;
+    margin: 1.5em;
+}
+
+.main-form__state-text {
+    font-size: 1.05em;
+    padding: 0.5em 0em 0em 0em;
+}
+
+.main-form__regular-inputs {
+    display: grid;
+    grid-template-rows: 2fr 1fr 2fr;
+    grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
+    grid-template-areas: 
+    ".  label-peso          input-peso          .   label-estatura      input-estatura    ."
+    ".  .                   .                   .   .                   .                 ."
+    ".  label-nacimiento    input-nacimiento    .   label-rutina        input-rutina      .";
+    padding: 1.3em;
+}
+
+.main-form__label-peso {
+    grid-area: label-peso;
+}
+
+.main-form__label-estatura {
+    grid-area: label-estatura;
+}
+
+.main-form__label-nacimiento {
+    grid-area: label-nacimiento;
+}
+
+.main-form__label-rutina {
+    grid-area: label-rutina;
+}
+
+.main-form__input-peso {
+    grid-area: input-peso;
+}
+
+.main-form__input-estatura {
+    grid-area: input-estatura;
+}
+
+.main-form__input-nacimiento {
+    grid-area: input-nacimiento;
+}
+
+.main-form__input-rutina {
+    grid-area: input-rutina;
+}
+
+.input {
+ border-color: var(--color-secundario);
+ border-radius: 0.3em;
+}
+
+.main-form__condiciones {
+    display:flex;
+    flex-direction: column;
+    margin: 0rem 2rem;
+}
+
+.main-form__checkboxes {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 2fr 3fr 2fr 3fr 2fr;
+    grid-template-areas: 
+    "input-diabetico    .    input-celiaco      .   input-vegano"
+    ".                  .    .                  .   ."
+    "input-hipertenso   .    input-vegetariano  .   .";
+    border-color: var(--color-secundario);
+    border-radius: 2em;
+    padding: 0rem 1rem;
+}
+
+.main-form__input-diabetico {
+    grid-area: input-diabetico;
+}
+
+.main-form__input-celiaco {
+    grid-area: input-celiaco;
+}
+
+.main-form__input-vegano {
+    grid-area: input-vegano;
+}
+
+.main-form__input-hipertenso {
+    grid-area: input-hipertenso;
+}
+
+.main-form__input-vegetariano {
+    grid-area: input-vegetariano;
+}
+
+
+
+
+/* .main-form__label-diabetico {
+    grid-area: label-diabetico;
+}
+
+.main-form__label-celiaco {
+    grid-area: label-celiaco;
+}
+
+.main-form__label-vegano {
+    grid-area: label-vegano;
+}
+
+.main-form__label-hipertenso {
+    grid-area: label-hipertenso;
+}
+
+.main-form__label-vegetariano {
+    grid-area: label-vegetariano;
+} */
