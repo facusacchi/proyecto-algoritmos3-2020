@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="..\css\perfil_de_usuario.css">
+        <link rel="stylesheet" href="..\images\icons-style.css">
         <title>Perfil de usuario</title>
     </head>
     <body>
@@ -22,7 +23,7 @@
             <form class="main-form">
                 <section class="main-form__header">
                     <div>
-                        <h2>Juan Carlos de la Hoya</h2>
+                        <h2 class="main-form__header-h2">Juan Carlos de la Hoya</h2>
                         <span>IMC:35</span>
                     </div>
                     <div class="main-form__state">
@@ -32,13 +33,13 @@
                 </section>
                 <section class="main-form__regular-inputs">
                             <label class="main-form__label-peso" for="peso">Peso (kgs.)</label>
-                            <input class="main-form__input-peso input" name="peso" id="peso" type="number" min="20" max="300" placeholder="introducir peso">
+                            <input class="main-form__input-peso main-form__input" name="peso" id="peso" type="number" min="20" max="300" placeholder="introducir peso">
                             <label class="main-form__label-estatura" for="estatura">Estatura</label>
-                            <input class="main-form__input-estatura input" name="estatura" id="estatura" type="number" min="1.1" max="2.5" step="0.1" placeholder="introducir estatura">
+                            <input class="main-form__input-estatura main-form__input" name="estatura" id="estatura" type="number" min="1.1" max="2.5" step="0.1" placeholder="introducir estatura">
                             <label class="main-form__label-nacimiento" for="nacimiento">Nacimiento</label>
-                            <input class="main-form__input-nacimiento input" name="nacimiento" id="nacimiento" type="date" placeholder="fecha de nacimiento">
+                            <input class="main-form__input-nacimiento main-form__input" name="nacimiento" id="nacimiento" type="date" placeholder="fecha de nacimiento">
                             <label class="main-form__label-rutina" for="rutina">Rutina</label>
-                            <select class="main-form__input-rutina input" name="rutina" id="rutina">
+                            <select class="main-form__input-rutina main-form__input" name="rutina" id="rutina">
                                 <option value="intensivo">Intensivo</option>
                                 <option value="equilibrado">Equilibrado</option>
                                 <option value="sedentario">Sedentario</option>
@@ -48,86 +49,100 @@
                     <h3>Condiciones</h3>
                     <div class="main-form__checkboxes">
                         <div class="main-form__input-diabetico">
+                            <input class="main-form__input main-form__input--checkbox" name="diabetico" id="diabetico" type="checkbox">
                             <label for="diabetico">Diabetico</label>
-                            <input name="diabetico" id="diabetico" type="checkbox">
                         </div>
                         <div class="main-form__input-celiaco">
+                            <input class="main-form__input main-form__input--checkbox"  name="celiaco" id="celiaco" type="checkbox">
                             <label for="celiaco">Celiaco</label>
-                            <input  name="celiaco" id="celiaco" type="checkbox">
                         </div>
                         <div class="main-form__input-vegano">
+                            <input class="main-form__input main-form__input--checkbox" name="vegano" id="vegano" type="checkbox">
                             <label for="vegano">Vegano</label>
-                            <input name="vegano" id="vegano" type="checkbox">
                         </div>
                         <div class="main-form__input-hipertenso">
+                            <input class="main-form__input main-form__input--checkbox" name="hipertenso" id="hipertenso" type="checkbox">
                             <label for="hipertenso">Hipertenso</label>
-                            <input name="hipertenso" id="hipertenso" type="checkbox">
                         </div>
                         <div class="main-form__input-vegetariano">
+                            <input class="main-form__input main-form__input--checkbox" name="vegetariano" id="vegetariano" type="checkbox">
                             <label for="vegetariano">Vegetariano</label>
-                            <input name="vegetariano" id="vegetariano" type="checkbox">
                         </div>
                     </div>
                 </section>
-                <section>
-                        <div>
-                            <h4>Alimentos preferidos</h4>
-                            <button>Agregar</button> <br>
-                            <table>
-                                <tr>
-                                    <th>Alimento</th>    
-                                </tr>
-                                <tr>
-                                    <td>Lentejas <button>Eliminar</button></td>
-                                </tr>
-                                <tr>
-                                    <td>Cebollas <button>Eliminar</button></td>
-                                </tr>
-                            </table>
+                <section class="main-form__alimentos">
+                        <div class="main-form__table-and-title">
+                            <div class="table__title-and-button">
+                                <h4>Alimentos preferidos</h4>
+                                <button class="main-form__button-table">Agregar</button> <br>
+                            </div>
+                            <div class="main-form__table">
+                                <div class="header-table">
+                                    <span>Alimento</span>
+                                </div>
+                                <div class="item-1-table item-table">
+                                    <span>Lentejas</span>
+                                    <button>Eliminar</button>
+                                </div>
+                                <div class="item-2-table item-table">
+                                    <span>Cebollas</span>
+                                    <button>Eliminar</button>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <h4>Alimentos no preferidos</h4>
-                            <button>Agregar</button> <br>
-                            <table>
-                                <tr>
-                                    <th>Alimento</th>
-                                </tr>
-                                <tr>
-                                    <td>Coliflor<button>Eliminar</button></td>
-                                </tr>
-                                <tr>
-                                    <td>Chauchas<button>Eliminar</button></td>
-                                </tr>
-                            </table>
+                        <div class="main-form__table-and-title">
+                            <div class="table__title-and-button">
+                                <h4>Alimentos no preferidos</h4>
+                                <button class="main-form__button-table">Agregar</button> <br>
+                            </div>
+                            <div class="main-form__table">
+                                <div class="header-table">
+                                    <span>Alimento</span>
+                                </div>
+                                <div class="item-1-table item-table">
+                                    <span>Coliflor</span>
+                                    <button>Eliminar</button>
+                                </div>
+                                <div class="item-2-table item-table">
+                                    <span>Chauchas</span>
+                                    <button>Eliminar</button>
+                                </div>
+                            </div>
                         </div>
                 </section>
                 <section>
                     <h5>Mis recetas</h5>
-                    <div>
-                        <h6>Asado al asador</h6>
-                        <img src="..\imagenes\asado.jpg" alt="image_food" width="40" height="40">
-                        <span>Calorias: 300</span> <br>
-                        <span>Dificultad: Alta</span> <br>
-                        <button>Editar</button>
-                        <button>Eliminar</button>
-                    </div>
-                    <div>
-                        <h6>Guiso de lentejas</h6>
-                        <img src="..\imagenes\guiso.jpg" alt="image_food" width="40" height="40">
-                        <span>Calorias: 520</span> <br>
-                        <span>Dificultad: Media</span> <br>
-                        <button>Editar</button>
-                        <button>Eliminar</button>
-                    </div>
-                    <div>
-                        <h6>Focaccia</h6>
-                        <img src="..\imagenes\focaccia.jpg" alt="image_food" width="40" height="40">
-                        <span>Calorias: 200</span> <br>
-                        <span>Dificultad: Media</span> <br>
-                        <button>Editar</button>
-                        <button>Eliminar</button>
+                    <div class="main-form__recetas">
+                        <div class="main-form__item-receta">
+                            <h6 class="receta-title">Asado al asador</h6>
+                            <img class="receta-image" src="..\imagenes\asado.jpg" alt="image_food">
+                            <span class="receta-calorias">Calorias: 300</span>
+                            <span class="receta-dificultad">Dificultad: Alta</span>
+                            <input class="receta-editar image-buttom" type="image" src="..\imagenes\edit.png">
+                            <input class="receta-borrar image-buttom" type="image" src="..\imagenes\delete.png">
+                        </div>
+                        <div class="main-form__item-receta">
+                            <h6 class="receta-title">Guiso de lentejas</h6>
+                            <img class="receta-image" src="..\imagenes\guiso.jpg" alt="image_food" width="40" height="40">
+                            <span class="receta-calorias">Calorias: 520</span> <br>
+                            <span class="receta-dificultad">Dificultad: Media</span> <br>
+                            <input class="receta-editar image-buttom" type="image" src="..\imagenes\edit.png">
+                            <input class="receta-borrar image-buttom" type="image" src="..\imagenes\delete.png">
+                        </div>
+                        <div class="main-form__item-receta">
+                            <h6 class="receta-title">Focaccia</h6>
+                            <img class="receta-image" src="..\imagenes\focaccia.jpg" alt="image_food" width="40" height="40">
+                            <span class="receta-calorias">Calorias: 200</span> <br>
+                            <span class="receta-dificultad">Dificultad: Media</span> <br>
+                            <input class="receta-editar image-buttom" type="image" src="..\imagenes\edit.png">
+                            <input class="receta-borrar image-buttom" type="image" src="..\imagenes\delete.png">
+                        </div>
                     </div>
                 </section>
+                <div class="buttoms-end-form">
+                    <button class="main-form__button-table">Aceptar</button>
+                    <button class="main-form__button-table main-form__button-table--secondary">Cancelar</button>
+                </div>
             </form>
         </div>
         <footer class="main-footer">

@@ -2,10 +2,10 @@
 :root {
     --color-primario: #fff0f0 ;
     --color-secundario: #ffc4c4;
-    --color-footer: white;
-    --color-titulo-primario: white;
-    --color-link: white;
-    --color-background-form: white;
+    --color-secundario-texto: white;
+    --color-background-form: var(--color-secundario-texto);
+    --color-background-button: #ffa857;
+    --color-background-button-secondary: #c07777;
     --background-footer: #d1d1d1;
     --fuente-titulo-primario: Brush Script MT;;
     --fuente-default: 'Baloo Tamma 2', cursive;
@@ -30,6 +30,8 @@ body {
     ;
 }
 
+/* header end */
+
 .main-header {
     background-color: var(--color-secundario);
     display: flex;
@@ -39,33 +41,20 @@ body {
     margin: 0rem 0rem 2rem 0rem;
 }
 
-.main-contenido {
-    display: flex;
-    justify-content: center;
-    grid-area: contenido;
-}
-
-.main-footer {
-    background-color: var(--background-footer);
-    color: var(--color-footer);
-    grid-area: footer;
-    margin: 2rem 0rem 0rem 0rem;
-}
-
 .main-header__nav {
-   display: flex;
-   justify-content: space-between;
-   align-content: space-between;
-   align-items: center;
-   width: 10rem;
-}
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+    align-items: center;
+    width: 10rem;
+ }
 
-.main-header__nav-link {
-    color: var(--color-link);
+ .main-header__nav-link {
+    color: var(--color-secundario-texto);
 }
 
 .main-header__titulo {
-    color: var(--color-titulo-primario);
+    color: var(--color-secundario-texto);
     font-family: var(--fuente-titulo-primario);
     font-size: 3rem;
     padding: 0;
@@ -80,19 +69,41 @@ width: 9em;
 height: 2em;
 }
 
+/* header end */
+
+.main-contenido {
+    display: flex;
+    justify-content: center;
+    grid-area: contenido;
+}
+
+.main-footer {
+    background-color: var(--background-footer);
+    color: var(--color-secundario-texto);
+    grid-area: footer;
+    margin: 2rem 0rem 0rem 0rem;
+}
+
 .main-form {
     background-color: var(--color-background-form);
     border-radius: 3rem;
     width: 60rem;
 }
 
+/* section 1 start */
+
 .main-form__header {
     display: flex;
     justify-content: space-between;
     background-color: var(--color-secundario);
-    border-top-left-radius: 3rem;
-    border-top-right-radius: 3rem;
-    padding: 0.5rem 1rem 1rem 1rem;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    padding: 1rem 2rem 1rem 1.5rem;
+    height: 4rem;
+}
+
+.main-form__header-h2 {
+    margin: 0;
 }
 
 .main-form__state {
@@ -106,8 +117,12 @@ height: 2em;
 .main-form__state-text {
     font-size: 1.05em;
     padding: 0.5em 0em 0em 0em;
+    height: 1.5em;
 }
 
+/* section 1 end */
+
+/* section 2 start */
 .main-form__regular-inputs {
     display: grid;
     grid-template-rows: 2fr 1fr 2fr;
@@ -151,9 +166,17 @@ height: 2em;
     grid-area: input-rutina;
 }
 
-.input {
- border-color: var(--color-secundario);
- border-radius: 0.3em;
+/* section 2 end */
+
+.main-form__input {
+    border-radius: 0.3em;
+    border-color: var(--color-secundario);
+}
+
+/* section 3 start */
+
+.main-form__input--checkbox {
+    outline: 1px solid var(--color-secundario);
 }
 
 .main-form__condiciones {
@@ -172,7 +195,8 @@ height: 2em;
     "input-hipertenso   .    input-vegetariano  .   .";
     border-color: var(--color-secundario);
     border-radius: 2em;
-    padding: 0rem 1rem;
+    padding: 1rem 1rem;
+    outline: 2px solid var(--color-secundario);
 }
 
 .main-form__input-diabetico {
@@ -195,25 +219,167 @@ height: 2em;
     grid-area: input-vegetariano;
 }
 
+/* section 3 end */
 
+/* section 4 start */
 
-
-/* .main-form__label-diabetico {
-    grid-area: label-diabetico;
+h4 {
+    font-size: 1em;
 }
 
-.main-form__label-celiaco {
-    grid-area: label-celiaco;
+.main-form__alimentos {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "alimentos-preferidos   alimentos-no-preferidos";
+    align-content: center;
 }
 
-.main-form__label-vegano {
-    grid-area: label-vegano;
+.main-form__table-and-title {
+    margin: 1em 3em;
 }
 
-.main-form__label-hipertenso {
-    grid-area: label-hipertenso;
+.table__title-and-button {
+    display: flex;
+    justify-content: space-evenly;
 }
 
-.main-form__label-vegetariano {
-    grid-area: label-vegetariano;
-} */
+.main-form__button-table {
+    width: 5em;
+    height: 2em;
+    margin: 1.5em 0em 0em 0em;
+    background-color: var(--color-background-button);
+    color: var(--color-secundario-texto);
+    border-radius: 0.5em;
+}
+
+.main-form__table {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "cell-header-table"
+    "cell-item-1-table"
+    "cell-item-2-table";
+    border-color: var(--color-secundario);
+    border-style: solid;
+}
+
+.header-table {
+    grid-area: cell-header-table;
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    background-color: var(--color-primario);
+    padding: 0.2em;
+    margin: 0.3em;
+    border-style: double;
+    border-color: var(--color-secundario);
+}
+
+.item-1-table {
+    grid-area: cell-item-1-table;
+}
+
+.item-2-table {
+    grid-area: cell-item-2-table;
+}
+
+.item-table {
+    padding: 0.2em;
+    margin: 0.3em;
+    border-color: var(--color-secundario);
+    display: flex;
+    justify-content: space-evenly;
+    border-color: var(--color-secundario);
+    border-style: solid;
+}
+
+/* section 4 end */
+
+/* section 5 start */
+
+h5 {
+    margin: 0em 0em 0em 3em;
+    font-size: 1em;
+}
+
+h6 {
+    font-size: 0.8em;
+}
+
+.main-form__recetas {
+    display: flex;
+    justify-content: space-around;
+}
+
+.main-form__item-receta {
+    display: grid;
+    border-color: var(--color-secundario);
+    border-style: solid;
+    border-radius: 0.8em;
+    grid-template-rows: 2fr 1fr 1fr;
+    grid-template-columns: 3fr 4fr 1fr;
+    grid-template-areas: 
+    "image  title       title"
+    "image  calorias    editar"
+    "image  dificultad  borrar";
+    height: 6em;
+    width: 15em;
+}
+
+.receta-image {
+    grid-area: image;
+    width: 4em;
+    height: 5em;
+    padding: 0.5em;
+    border-radius: 1em;
+}
+
+.receta-title {
+    grid-area: title;
+    font-size: 1em;
+    margin: 0;
+    padding: 0.3em;
+    height: 1.5em;
+}
+
+.receta-calorias {
+    grid-area: calorias;
+    font-size: 0.9em;
+    margin: 0em 1.2em 0.3em 0em;
+}
+
+.receta-dificultad {
+    grid-area: dificultad;
+    font-size: 0.9em;
+    margin: 0em 0em 0.7em 0em;
+}
+
+.receta-editar {
+    grid-area:editar;
+    height: 2em;
+    width: 2em;
+}
+
+.receta-borrar {
+    grid-area: borrar;
+}
+
+.image-buttom {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.main-form__button-table--secondary {
+    background-color: var(--color-background-button-secondary);
+}
+
+.buttoms-end-form {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+}
+
+/* section 5 end */
