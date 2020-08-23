@@ -4,45 +4,96 @@
 <head>
     <meta charset="UTF-8">
     <title>Agregar Alimento</title>
-    <link rel="stylesheet" href="../css/">
+    <link rel="stylesheet" href="../css/estilo_general.css">
+    <link rel="stylesheet" href="../css/agregar_alimento.css">
 </head>
 
 <body>
-    <header>
-        <h1>Food Overflow</h1>
-        <nav>
-            <a href="../html/busqueda_de_recetas.html">Home</a>
-            <a href="../html/perfi_de_usuario.html">Perfil</a>
-            <a href="../exit/"><img src="../imagenes/sign-out-alt-solid.svg" alt="Icono Exit" width="20px"
-                    height="20px"></a>
-        </nav>
-    </header>
-    <section>
-        <div>
-            <h2>Alimentos</h2>
-        </div>
-        <form>
-            <select id="alimentos" name="alimentos" size="6" multiple>
-                <option value="alimento">Alimento</option>
-                <option value="lentejas">Lentejas</option>
-                <option value="cebolla">Cebolla</option>
-                <option value="sal">Sal</option>
-                <option value="pimienta">Pimienta</option>
-                <option value="orégano">Orégano</option>
-                <option value="tomillo">Tomillo</option>
-            </select>
-        </form>
-        <div>
-            <input type="submit" id="aceptar" value="Aceptar">
-            <input type="button" id="cancelar" value="Cancelar" autofocus="true">
-        </div>
-    </section>
-    <footer>
-        <div>
-            <img src="../imagenes/facebook-square-brands.svg" alt="Icono Facebook" width="25px" height="25px">
-            <p>Food Overflow \ 2020. Grupo 6 - All rights reserved</p>
-        </div>
-    </footer>
+    <article>
+        <header class="header-container">
+            <div class="header">
+                <div class="header_logo_container">
+                    <img class="header_logo_imagen" src="../imagenes/logo_chef_2 (1).png">
+                    <div class="header_logo_titulo">Food Overflow</div>
+                </div>
+                <div class="header_links">
+                    <div>Home</div>
+                    <div>Perfil</div>
+                    <img class="header_icono_exit" src="../imagenes/sign-out-alt-solid.svg" alt="Icono Exit">
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="main_container">
+                <div class="main_contenidos">
+                    <div class="main_titulo">
+                        <div class="main_titulo_texto">Alimentos</div>
+                    </div>
+                    <form class="tabla_container">
+                        <div class="tabla-contenido">
+                            <table class="tabla-alimentos">
+                                <tr>
+                                    <th>Alimento</th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>Lentejas</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>Cebolla</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>Sal</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>Pimienta</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>Orégano</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>Tomillo</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="tabla_alimentos_botones">
+                            <input class="tabla_alimentos_button_aceptar" type="submit" id="aceptar" value="Aceptar">
+                            <input class="tabla_alimentos_button_cancelar" type="button" id="cancelar" value="Cancelar">
+                            <!--autofocus="true">-->
+                        </div>
+                    </form>
+                    <!--<form>
+                        <select class="selector_alimentos" id="alimentos" name="alimentos" size="6" multiple>
+                            <option class="selector_alimentos_opcion" value="alimento">Alimento</option>
+                            <option value="lentejas">Lentejas</option>
+                            <option value="cebolla">Cebolla</option>
+                            <option value="sal">Sal</option>
+                            <option value="pimienta">Pimienta</option>
+                            <option value="orégano">Orégano</option>
+                            <option value="tomillo">Tomillo</option>
+                        </select>
+                    </form>-->
+                </div>
+            </div>
+        </main>
+        <footer class="main-footer">
+            <div class="footer">
+                <img src="../imagenes/facebook-square-brands.svg" alt="Icono Facebook">
+                <div class="footer_texto">Food Overflow \ 2020. Grupo 6 - All rights reserved</div>
+            </div>
+        </footer>
+    </article>
 </body>
 
 </html>

@@ -1,0 +1,193 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ :root {
+    --ancho-default: 66vw;
+    --ancho-menor: 50vw;
+    --border-default: 0.2rem solid var(--color-secundario);
+    --border-menor: 0.1rem solid var(--color-secundario);
+}
+
+html,
+body {
+    font-size: 10px;
+    font-family: var(--tipografia);
+    background-color: var(--color-cuaternario);
+    width: 100%;
+    height: 100%;
+}
+
+article {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+main {
+    flex-grow: 1;
+}
+
+header,
+main,
+footer {
+    flex-shrink: 0;
+}
+
+.header-container {
+    color: white;
+    background-color: var(--color-primario);
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.header {
+    width: var(--ancho-default);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header_logo_container {
+    display: flex;
+    align-items: center;
+}
+
+.header_logo_imagen {
+    height: 3.2rem;
+    width: 3.2rem;
+}
+
+.header_logo_titulo {
+    font-size: 2.2rem;
+    margin: 1rem;
+}
+
+.header_links {
+    font-size: 2rem;
+    width: 9em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 1rem 0 0;
+}
+
+.header_icono_exit {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.main_container {
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.main_contenidos {
+    margin: 2em 0;
+    width: var(--ancho-default);
+    background-color: white;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.main_titulo {
+    height: 6.5rem;
+    font-weight: bold;
+    font-size: 3rem;
+    background-color: var(--color-terciario);
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.main_titulo_texto {
+    padding: 0.5rem 0 0 1.5rem;
+}
+
+.tabla_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tabla-contenido {
+    height: 9em;
+    margin: 1.5em 3.4em;
+    border: 0.1em solid var(--color-secundario);
+    overflow-y: scroll;
+    width: var(--ancho-menor);
+}
+
+.tabla-alimentos {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    font-size: 0.8em;
+}
+
+.tabla-alimentos th {
+    background-color: var(--color-secundario);
+    color: white;
+    padding: 0.5rem 0;
+}
+
+.tabla-alimentos tr td {
+    border-top: 0.1em solid var(--color-secundario);
+    padding: 0.5rem 0;
+}
+
+.tabla_alimentos_botones {
+    width: var(--ancho-menor);
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 3rem;
+}
+
+.tabla_alimentos_button_aceptar {
+    background-color: var(--color-botonprofe);
+    color: white;
+    border: 0.15em solid #e2711d;
+    border-radius: 0.5em;
+    width: 6em;
+    height: 2.5em;
+}
+
+.tabla_alimentos_button_cancelar {
+    background-color: var(--boton-cancelar);
+    color: white;
+    border: 0.15em solid #5f0f40;
+    border-radius: 0.5em;
+    width: 6em;
+    height: 2.5em;
+    margin-left: 1.5rem;
+}
+
+.main-footer {
+    background-color: #868584;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.footer {
+    width: var(--ancho-default);
+    padding: 1rem;
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.footer>img {
+    width: 2.2rem;
+    height: 2.2rem;
+    margin: 0.1rem;
+}
+
+.footer_texto {
+    margin-left: 1rem;
+}
