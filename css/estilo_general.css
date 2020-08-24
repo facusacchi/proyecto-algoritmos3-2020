@@ -1,32 +1,86 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
 
 :root {
-    --color-primario: #596475;
-    --color-secundario: #9d8189;
-    --color-terciario: #e3bac6;
-    --color-cuaternario : #fde8e9;
-    --color-botones : #1f2232;
-    --color-botonprofe : #f79256;
-    --tipografia : 'Lato', sans-serif;
-    --boton-cancelar : #aa4465;
+  --color-primario: #596475;
+  --color-secundario: #9d8189;
+  --color-terciario: #e3bac6;
+  --color-cuaternario: #fde8e9;
+  --color-botones: #1f2232;
+  --color-botonprofe: #f79256;
+  --tipografia: "Lato", sans-serif;
+  --boton-cancelar: #aa4465;
 }
 
 html {
-    font-family: var(--tipografia) ;
-    font-size: 10px;
-    background-color: var(--color-cuaternario);
-    
+  font-family: var(--tipografia);
+  font-size: 10px;
+  background-color: var(--color-cuaternario);
 }
 
 body {
-    margin: 0;
+  margin: 0;
 }
 
-.main-footer { 
-    background-color:#868584;
-    color: white;
+.main-footer {
+  background-color: #868584;
+  color: white;
 }
 
+/* BARRA DE NAVEGACION */
 
+.navegacion-contenedor {
+  font-size: 2rem;
+  color: var(--color-cuaternario);
+  background-color: var(--color-primario);
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.navegacion {
+  width: 45em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.links {
+  width: 10em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tamaño-icono-exit {
+  width: 1.8em;
+  height: auto;
+}
+
+.logo {
+    height: 2em;
+}
+
+.alinear {
+    display: flex;
+    align-items: center;
+}
+
+/* BOTONES CANCELAR Y AGREGAR */
+
+.button {
+  background-color: var(--color-botonprofe);
+  color: white;
+  border: 0.15em solid #e2711d;
+  border-radius: 0.5em;
+  width: 6em;
+  height: 2.5em;
+}
+
+.button-cancelar {
+  background-color: var(--boton-cancelar) ;
+  color: white;
+  border: 0.15em solid #5f0f40;
+  border-radius: 0.5em;
+  width: 6em;
+  height: 2.5em;
+}
 
