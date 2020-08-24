@@ -205,22 +205,27 @@ height: 2em;
 
 .main-form__input-diabetico {
     grid-area: input-diabetico;
+    display: flex;
 }
 
 .main-form__input-celiaco {
     grid-area: input-celiaco;
+    display: flex;
 }
 
 .main-form__input-vegano {
     grid-area: input-vegano;
+    display: flex;
 }
 
 .main-form__input-hipertenso {
     grid-area: input-hipertenso;
+    display: flex;
 }
 
 .main-form__input-vegetariano {
     grid-area: input-vegetariano;
+    display: flex;
 }
 
 /* section 3 end */
@@ -283,7 +288,6 @@ h4 {
     background-color: var(--color-secundario);
     padding: 0.2em;
     margin: 0.3em;
-    border-style: double;
     border-color: var(--color-secundario);
     color: white;
 }
@@ -342,6 +346,7 @@ h6 {
     "image  dificultad  borrar";
     height: 6em;
     width: 15em;
+    margin: 1em;
 }
 
 .receta-image {
@@ -438,4 +443,32 @@ h6 {
     display: flex;
     align-self: center;
     margin-right: 1em;
+}
+
+@media (max-width:966px) {
+    .main-form {
+        height: auto;
+        width: auto;
+    }
+}
+
+@media (max-width:843px) {
+    .main-form__recetas {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        padding-left: 8em;
+    }
+    h5 {
+        margin-left: 9em;
+    }
+}
+
+@media (max-width:757px) {
+    h4 {
+        font-size: 0.9em;
+    }
+
+    .main-form__recetas {
+        padding-left: 4em;
+    }
 }
