@@ -1,53 +1,90 @@
 
 :root {
-    --color-primario: #ffdbd5;
-    --color-secundario: #ffda90 ;
-    --fuente-default: 'Baloo Tamma 2', cursive;
-    --borde-default: 3px solid var(--color-secundario);
+    --color-primario: #596475;
+    --color-secundario: #9d8189;
+    --color-terciario: #e3bac6;
+    --color-cuaternario: #fde8e9;
+    --fuente-default: 'Lato', sans-serif;
+    --borde-default: var(--color-secundario);
 }
 
 body {
-    /* height: 100vh; */
+    height: 100vh;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     font-size: 100%;
     font-family: var(--fuente-default);
     line-height: 1.5;
-    background-color: var(--color-primario);
+    background-color: var(--color-cuaternario);
+    box-sizing: border-box;
+    
 }
 
 .main-form {
+    display: grid;
+    grid-template-rows: 1fr 2fr 2fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "titulo"
+    "usuario"
+    "password"
+    "ingresar";
     background-color: white;
     border: var(--borde-default);
     border-radius: 10px;
     padding: 0.4rem 0.4rem 1.6rem 1.8rem;
     width: 15rem;
+    height: 15em;
     margin: 9.9rem 9rem 10rem 30rem;
 }
 
-.main-footer { 
-    background-color:#868584;
+.main-form__titulo {
+    color: var(--color-terciario);
+    font-family: 'Baloo Tamma 2', cursive;
+    -webkit-text-stroke: 0.5px black; /* esto hace el texto con bordes */
+    grid-area: titulo;
+}
+
+.input-usuario {
+    grid-area: usuario;
+}
+
+.input-password {
+    grid-area: password;
+}
+
+.buttom-ingresar {
+    grid-area: ingresar;
+    width: 6em;
+    height: 2em;
+    margin-top: 1em;;
+    border-radius: 0.5em;
+    border-style: solid;
+    border-color: var(--color-terciario);
+    background-color: #f79256;
     color: white;
 }
 
-.main-form__titulo {
-    color: red;
-    font-family: Brush Script MT;
+.main-form__label {
+    font-family: 'Baloo Tamma 2', cursive;
 }
 
 .main-form__input {
-    border-color: #fff5a5;
+    border-color: var(--color-cuaternario);
     font-family: var(--fuente-default);
 }
 
-.main-form__button {
-    background-color: var(--color-secundario);
-    color: black;
-    border-color: var(--color-secundario);
-    border-radius: 0.5em;
-    font-family: var(--fuente-default);
-    font-size: 0.8em;
-    padding: 0.1em 1.2em;
-    margin: 1.2em 0.5em 0.5em 2em;
+.main-footer { 
+    display: flex;
+    justify-content: center;
+    background-color:#868584;
+    color: white;
+    margin: 2rem -1rem 0rem -1rem;
+}
+
+.main-footer__image {
+    display: flex;
+    align-self: center;
+    margin-right: 1em;
 }
