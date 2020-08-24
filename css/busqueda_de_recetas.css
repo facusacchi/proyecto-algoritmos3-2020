@@ -6,6 +6,9 @@
 
  :root {
     --ancho-default: 66vw;
+    --ancho-menor: 50vw;
+    --ancho-medio: 80vw;
+    --ancho-mayor: 90vw;
     --border-default: 0.2rem solid var(--color-secundario);
     --border-menor: 0.1rem solid var(--color-secundario);
 }
@@ -36,6 +39,81 @@ footer {
     flex-shrink: 0;
 }
 
+@media (min-width: 769px) {
+    .header,
+    .nav,
+    .card_grid_titulo,
+    .card_grid {
+        width: var(--ancho-default);
+    }
+    .card_grid {
+        justify-content: flex-start;
+        flex-direction: row;
+    }
+    .card_grid_item {
+        width: 26rem;
+        justify-content: flex-start;
+    }
+    .footer {
+        justify-content: flex-start;
+    }
+    .footer_texto:after {
+        content: attr(data-description);
+    }
+}
+
+@media all and (max-width: 768px) and (min-width: 401px) {
+    .header {
+        width: var(--ancho-mayor);
+    }
+    .nav {
+        width: var(--ancho-medio);
+    }
+    .card_grid_titulo {
+        width: var(--ancho-medio);
+    }
+    .card_grid {
+        width: var(--ancho-medio);
+        justify-content: space-around;
+        flex-direction: row;
+    }
+    .card_grid_item {
+        width: 26rem;
+        justify-content: flex-start;
+    }
+    .footer {
+        justify-content: center;
+    }
+    .footer_texto:after {
+        content: attr(data-description);
+    }
+}
+
+@media all and (max-width: 400px) {
+    .header,
+    .nav {
+        width: var(--ancho-mayor);
+    }
+    .card_grid_titulo {
+        width: var(--ancho-mayor);
+    }
+    .card_grid {
+        width: var(--ancho-mayor);
+        justify-content: flex-start;
+        flex-direction: column;
+    }
+    .card_grid_item {
+        width: var(--ancho-mayor);
+        justify-content: space-between;
+    }
+    .info_receta_descripcion_extra {
+        width: 60vw;
+    }
+    .footer {
+        justify-content: center;
+    }
+}
+
 .header-container {
     color: white;
     background-color: var(--color-primario);
@@ -45,7 +123,6 @@ footer {
 }
 
 .header {
-    width: var(--ancho-default);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -90,7 +167,6 @@ footer {
 }
 
 .nav {
-    width: var(--ancho-default);
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -143,37 +219,25 @@ footer {
 }
 
 .card_grid_titulo {
-    width: var(--ancho-default);
     margin: 4rem 0 0 3rem;
     font-size: 2rem;
     font-weight: bold;
 }
 
 .card_grid {
-    width: var(--ancho-default);
     display: flex;
-    justify-content: flex-start;
     flex-wrap: wrap;
-    flex-direction: row;
     align-content: space-around;
 }
 
 .card_grid_item {
     height: 10rem;
-    width: 26rem;
-    padding: 1rem;
+    padding: 1rem 0 1rem 1rem;
     margin: 1rem;
     border-radius: 1rem;
     display: flex;
     background-color: white;
-    justify-content: flex-start;
-}
-
-.card_grid_item>img {
-    width: 8rem;
-    height: 8rem;
-    border-radius: 1.5rem;
-    object-fit: cover;
+    justify-content: space-between;
 }
 
 .edicion_eliminar {
@@ -182,31 +246,54 @@ footer {
 
 .info_receta_container {
     display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.info_receta_container>img {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 1.5rem;
+    object-fit: cover;
+}
+
+.info_receta_descripcion {
+    display: flex;
     flex-direction: column;
-    padding: 0.5rem 0 0 1rem;
+    line-height: 2rem;
+    justify-content: center;
+    margin-left: 1rem;
 }
 
 .info_receta_titulo {
+    width: 15rem;
     font-size: 1.9rem;
     font-weight: bold;
 }
 
-.info_receta_descripcion {
-    width: 15rem;
+.info_receta_extra {
     display: flex;
-    line-height: 2rem;
     justify-content: space-between;
 }
 
 .info_receta_descripcion_texto {
-    margin: 0.5rem 0.5rem 0.5rem 0;
+    /*width: 10rem;*/
+    margin-top: 0.5rem;
     font-size: 1.5rem;
+}
+
+.info_receta_descripcion_extra {
+    display: flex;
+    justify-content: space-between;
+    /* flex-direction: column;
+    margin: 2.5rem 0.5rem 0 0;*/
 }
 
 .info_receta_descripcion_iconos {
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
-    margin: 0.1rem;
+    /*margin: 2.5rem 0.5rem 0 0;*/
 }
 
 .info_receta_descripcion_iconos>img {
@@ -241,7 +328,6 @@ footer {
     padding: 1rem;
     font-size: 1.4rem;
     display: flex;
-    justify-content: flex-start;
     align-items: center;
 }
 

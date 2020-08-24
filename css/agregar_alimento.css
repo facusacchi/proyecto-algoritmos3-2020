@@ -7,6 +7,8 @@
  :root {
     --ancho-default: 66vw;
     --ancho-menor: 50vw;
+    --ancho-medio: 80vw;
+    --ancho-mayor: 90vw;
     --border-default: 0.2rem solid var(--color-secundario);
     --border-menor: 0.1rem solid var(--color-secundario);
 }
@@ -37,6 +39,56 @@ footer {
     flex-shrink: 0;
 }
 
+@media (min-width: 769px) {
+    .header,
+    .main_contenidos {
+        width: var(--ancho-default);
+    }
+    .tabla-contenido,
+    .tabla_alimentos_botones {
+        width: var(--ancho-menor);
+    }
+    .footer {
+        justify-content: flex-start;
+    }
+    .footer_texto:after {
+        content: attr(data-description);
+    }
+}
+
+@media all and (max-width: 768px) and (min-width: 401px) {
+    .header {
+        width: var(--ancho-mayor);
+    }
+    .main_contenidos {
+        width: var(--ancho-medio);
+    }
+    .tabla-contenido,
+    .tabla_alimentos_botones {
+        width: var(--ancho-default);
+    }
+    .footer {
+        justify-content: center;
+    }
+    .footer_texto:after {
+        content: attr(data-description);
+    }
+}
+
+@media all and (max-width: 400px) {
+    .header,
+    .main_contenidos {
+        width: var(--ancho-mayor);
+    }
+    .tabla-contenido,
+    .tabla_alimentos_botones {
+        width: var(--ancho-medio);
+    }
+    .footer {
+        justify-content: center;
+    }
+}
+
 .header-container {
     color: white;
     background-color: var(--color-primario);
@@ -46,7 +98,6 @@ footer {
 }
 
 .header {
-    width: var(--ancho-default);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -89,7 +140,6 @@ footer {
 
 .main_contenidos {
     margin: 2em 0;
-    width: var(--ancho-default);
     background-color: white;
     border-radius: 0.5rem;
     display: flex;
@@ -119,7 +169,6 @@ footer {
     margin: 1.5em 3.4em;
     border: 0.1em solid var(--color-secundario);
     overflow-y: scroll;
-    width: var(--ancho-menor);
 }
 
 .tabla-alimentos {
@@ -141,7 +190,6 @@ footer {
 }
 
 .tabla_alimentos_botones {
-    width: var(--ancho-menor);
     display: flex;
     justify-content: flex-end;
     margin-bottom: 3rem;
@@ -178,7 +226,6 @@ footer {
     padding: 1rem;
     font-size: 1.4rem;
     display: flex;
-    justify-content: flex-start;
     align-items: center;
 }
 
