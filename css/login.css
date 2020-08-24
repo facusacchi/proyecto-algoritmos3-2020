@@ -9,10 +9,6 @@
 }
 
 body {
-    height: 100vh;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
     font-size: 100%;
     font-family: var(--fuente-default);
     line-height: 1.5;
@@ -36,7 +32,7 @@ body {
     padding: 0.4rem 0.4rem 1.6rem 1.8rem;
     width: 15rem;
     height: 15em;
-    margin: 9.9rem 9rem 10rem 30rem;
+    margin: 12rem 9rem 10.15rem 32rem;
 }
 
 .main-form__titulo {
@@ -80,7 +76,7 @@ body {
     justify-content: center;
     background-color:#868584;
     color: white;
-    margin: 2rem -1rem 0rem -1rem;
+    margin: 0 -0.5rem;
 }
 
 .main-footer__image {
