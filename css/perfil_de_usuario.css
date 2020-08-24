@@ -1,15 +1,23 @@
 
 :root {
-    --color-primario: #fff0f0 ;
-    --color-secundario: #ffc4c4;
+    /* --color-primario: #fff0f0;
+    --color-secundario: #ffc4c4; */
+    --color-primario: #596475;
+    --color-secundario: #9d8189;
+    --color-terciario: #e3bac6;
+    --color-cuaternario: #fde8e9;
     --color-secundario-texto: white;
     --color-background-form: var(--color-secundario-texto);
-    --color-background-button: #ffa857;
-    --color-background-button-secondary: #c07777;
+    --color-background-button: #f79256;
+    --color-background-button-secondary: #aa4465;
     --background-footer: #d1d1d1;
-    --fuente-titulo-primario: Brush Script MT;;
-    --fuente-default: 'Baloo Tamma 2', cursive;
+    /* --fuente-titulo-primario: Brush Script MT;
+    --fuente-default: 'Baloo Tamma 2', cursive; */
+    --fuente-titulo-primario: 'Lato', sans-serif;
+    --fuente-default: 'Lato', sans-serif;
     --borde-default: 3px solid var(--color-secundario);
+
+
 }
 
 body {
@@ -22,7 +30,7 @@ body {
     font-size: 100%;
     font-family: var(--fuente-default);
     line-height: 1.5;
-    background-color: var(--color-primario);
+    background-color: var(--color-cuaternario);
     grid-template-areas: 
     "header"
     "contenido"
@@ -33,12 +41,12 @@ body {
 /* header end */
 
 .main-header {
-    background-color: var(--color-secundario);
+    background-color: var(--color-primario);
     display: flex;
     box-sizing: border-box;
     justify-content: space-evenly;
     grid-area: header;
-    margin: 0rem 0rem 2rem 0rem;
+    margin: 0rem -1rem 2rem -1rem;
 }
 
 .main-header__nav {
@@ -54,7 +62,7 @@ body {
 }
 
 .main-header__titulo {
-    color: var(--color-secundario-texto);
+    color: var(--color-cuaternario);
     font-family: var(--fuente-titulo-primario);
     font-size: 3rem;
     padding: 0;
@@ -77,17 +85,12 @@ height: 2em;
     grid-area: contenido;
 }
 
-.main-footer {
-    background-color: var(--background-footer);
-    color: var(--color-secundario-texto);
-    grid-area: footer;
-    margin: 2rem 0rem 0rem 0rem;
-}
 
 .main-form {
     background-color: var(--color-background-form);
     border-radius: 3rem;
     width: 60rem;
+    height: 50rem;
 }
 
 /* section 1 start */
@@ -95,7 +98,7 @@ height: 2em;
 .main-form__header {
     display: flex;
     justify-content: space-between;
-    background-color: var(--color-secundario);
+    background-color: var(--color-terciario);
     border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
     padding: 1rem 2rem 1rem 1.5rem;
@@ -112,6 +115,7 @@ height: 2em;
     align-content: center;
     width: 11em;
     margin: 1.5em;
+    background-color: var(--color-terciario);
 }
 
 .main-form__state-text {
@@ -245,7 +249,7 @@ h4 {
     justify-content: space-evenly;
 }
 
-.main-form__button-table {
+.main-form__buttom-table {
     width: 5em;
     height: 2em;
     margin: 1.5em 0em 0em 0em;
@@ -264,6 +268,7 @@ h4 {
     "cell-item-2-table";
     border-color: var(--color-secundario);
     border-style: solid;
+    border-radius: 0.5rem;
 }
 
 .header-table {
@@ -271,11 +276,13 @@ h4 {
     width: 95%;
     display: flex;
     justify-content: center;
-    background-color: var(--color-primario);
+    background-color: var(--color-secundario);
     padding: 0.2em;
     margin: 0.3em;
     border-style: double;
     border-color: var(--color-secundario);
+    border-radius: 1em;
+    color: white;
 }
 
 .item-1-table {
@@ -294,6 +301,11 @@ h4 {
     justify-content: space-evenly;
     border-color: var(--color-secundario);
     border-style: solid;
+    border-radius: 1em;
+}
+
+.centrar-img {
+    margin: 0em 0.9em 0em 0em;
 }
 
 /* section 4 end */
@@ -372,14 +384,39 @@ h6 {
     height: 1.5em;
 }
 
-.main-form__button-table--secondary {
+.main-form__buttom-table--secondary {
     background-color: var(--color-background-button-secondary);
 }
 
 .buttoms-end-form {
-    display: flex;
-    justify-content: end;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns:  50fr 5fr 1fr 5fr 3fr;
+    grid-template-areas: 
+    ".  aceptar .   cancelar    .";
     width: 100%;
 }
 
+.aceptar-buttom {
+    grid-area: aceptar;
+}
+
+.cancelar-buttom {
+    grid-area: cancelar;
+}
+
 /* section 5 end */
+
+.main-footer {
+    display: flex;
+    justify-content: center;
+    background-color:#868584;
+    color: white;
+    grid-area: footer;
+    margin: 2rem -1rem 0rem -1rem;
+}
+.main-footer__image {
+    display: flex;
+    align-self: center;
+    margin-right: 1em;
+}
