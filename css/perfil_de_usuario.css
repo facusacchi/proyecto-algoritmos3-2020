@@ -258,6 +258,10 @@ h4 {
     border-radius: 0.5em;
 }
 
+.main-form__buttom-table:hover {
+    filter: brightness(75%);
+}
+
 .main-form__table {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
@@ -383,8 +387,16 @@ h6 {
     height: 1.5em;
 }
 
+.image-buttom:hover {
+    filter: brightness(75%);
+}
+
 .main-form__buttom-table--secondary {
     background-color: var(--color-background-button-secondary);
+}
+
+.main-form__buttom-table--secondary:hover {
+    filter: brightness(75%);
 }
 
 .buttoms-end-form {
@@ -400,8 +412,16 @@ h6 {
     grid-area: aceptar;
 }
 
+.aceptar-buttom:hover {
+    filter: brightness(75%);
+}
+
 .cancelar-buttom {
     grid-area: cancelar;
+}
+
+.cancelar-buttom:hover {
+    filter: brightness(75%);
 }
 
 /* section 5 end */

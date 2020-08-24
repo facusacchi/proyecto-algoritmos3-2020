@@ -62,6 +62,10 @@ body {
     color: white;
 }
 
+.buttom-ingresar:hover {
+    filter: brightness(75%);
+}
+
 .main-form__label {
     font-family: 'Baloo Tamma 2', cursive;
 }
