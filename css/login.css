@@ -87,7 +87,9 @@ body {
     justify-content: center;
     background-color:#868584;
     color: white;
-    margin: 0 -0.5rem;
+    margin: 1.6rem 0 0 0;
+    padding: 0.5rem;
+    font-size: 1rem;
 }
 
 .main-footer__image {
@@ -96,8 +98,9 @@ body {
     margin-right: 1em;
 }
 
-/* @media (max-width:966px) {
-    .main-form {
-        margin: auto;
+/* @media (max-width:1400px) {
+    body {
+        width: auto;
+        height: auto;
     }
 } */

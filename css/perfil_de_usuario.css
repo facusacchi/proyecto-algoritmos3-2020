@@ -22,6 +22,7 @@
 
 body {
     height: 100vh;
+    margin:0;
     box-sizing: border-box;
     display: grid;
     gap: 3px;
@@ -46,7 +47,7 @@ body {
     box-sizing: border-box;
     justify-content: space-evenly;
     grid-area: header;
-    margin: 0rem -1rem 2rem -1rem;
+    margin: 0rem 0rem 3rem 0rem;
 }
 
 .main-header__nav {
@@ -104,7 +105,8 @@ height: 2em;
     background-color: var(--color-background-form);
     border-radius: 3rem;
     width: 60rem;
-    height: 50rem;
+    height: 52rem;
+    margin: 0 0 3rem 0;
 }
 
 /* section 1 start */
@@ -451,7 +453,9 @@ h6 {
     background-color:#868584;
     color: white;
     grid-area: footer;
-    margin: 2rem -1rem 0rem -1rem;
+    margin: 1rem 0 0 0;
+    padding: 0.5rem;
+    font-size: 1rem;
 }
 .main-footer__image {
     display: flex;
