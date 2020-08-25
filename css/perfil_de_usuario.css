@@ -61,6 +61,10 @@ body {
     color: var(--color-secundario-texto);
 }
 
+.main-header__nav-link:hover {
+    filter: brightness(75%);
+}
+
 .main-header__titulo {
     color: var(--color-cuaternario);
     font-family: 'Baloo Tamma 2', cursive;
@@ -76,6 +80,15 @@ justify-content: space-around;
 align-content: center;
 width: 9em;
 height: 2em;
+}
+
+.img {
+    width: 2rem;
+    height: 2rem;
+}
+
+.img:hover {
+    filter: brightness(75%);
 }
 
 /* header end */
