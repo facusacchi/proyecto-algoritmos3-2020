@@ -80,13 +80,17 @@ body,
 
 @media all and (max-width: 400px) {
     .header,
-    .nav {
+    .nav,
+    .card_grid_titulo,
+    .card_grid,
+    .card_grid_agregar {
         width: var(--ancho-mayor);
     }
     body {
         overflow: hidden;
     }
-    .header-container {
+    .header-container,
+    .main-footer {
         flex: 0 0 auto;
     }
     .contenido {
@@ -94,11 +98,7 @@ body,
         position: relative;
         overflow-y: auto;
     }
-    .card_grid_titulo {
-        width: var(--ancho-mayor);
-    }
     .card_grid {
-        width: var(--ancho-mayor);
         justify-content: flex-start;
         flex-direction: column;
     }
@@ -108,15 +108,9 @@ body,
     .info_receta_descripcion_extra {
         width: 60vw;
     }
-    .card_grid_agregar {
-        width: var(--ancho-mayor);
-    }
     /*.footer {
         justify-content: center;
     }*/
-    .main-footer {
-        flex: 0 0 auto;
-    }
 }
 
 .header-container {
