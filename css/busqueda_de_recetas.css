@@ -103,7 +103,6 @@ body,
         flex-direction: column;
     }
     .card_grid_item {
-        width: var(--ancho-mayor);
         justify-content: space-between;
     }
     .info_receta_descripcion_extra {
@@ -267,7 +266,7 @@ body,
     flex-direction: column;
     line-height: 2rem;
     justify-content: center;
-    margin-left: 1rem;
+    margin: 0 0.5rem 0 1rem;
 }
 
 .info_receta_titulo {
