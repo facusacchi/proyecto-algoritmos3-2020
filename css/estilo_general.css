@@ -111,8 +111,8 @@ body {
 }
 
 .main-footer {
-  background-color: #868584;
-  color: white;
+  /*background-color: #868584;
+  color: white;*/
   display: flex;
   justify-content: center;
 }

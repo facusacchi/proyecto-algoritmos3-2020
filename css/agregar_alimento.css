@@ -15,9 +15,6 @@
 
 html,
 body {
-    font-size: 10px;
-    font-family: var(--tipografia);
-    background-color: var(--color-cuaternario);
     width: 100%;
     height: 100%;
 }
@@ -48,12 +45,12 @@ footer {
     .tabla_alimentos_botones {
         width: var(--ancho-menor);
     }
-    .footer {
+    /*.footer {
         justify-content: flex-start;
     }
     .footer_texto:after {
         content: attr(data-description);
-    }
+    }*/
 }
 
 @media all and (max-width: 768px) and (min-width: 401px) {
@@ -67,12 +64,12 @@ footer {
     .tabla_alimentos_botones {
         width: var(--ancho-default);
     }
-    .footer {
+    /*.footer {
         justify-content: center;
     }
     .footer_texto:after {
         content: attr(data-description);
-    }
+    }*/
 }
 
 @media all and (max-width: 400px) {
@@ -84,9 +81,9 @@ footer {
     .tabla_alimentos_botones {
         width: var(--ancho-medio);
     }
-    .footer {
+    /*.footer {
         justify-content: center;
-    }
+    }*/
 }
 
 .header-container {
@@ -214,8 +211,8 @@ footer {
     margin-left: 1.5rem;
 }
 
-.main-footer {
-    background-color: #868584;
+/*.main-footer {
+    /*background-color: #868584;
     color: white;
     display: flex;
     justify-content: center;
@@ -238,3 +235,4 @@ footer {
 .footer_texto {
     margin-left: 1rem;
 }
+*/
