@@ -71,6 +71,7 @@
     padding: 0em;
     border: 0.15em solid var(--color-terciario) ;
     box-sizing: border-box;
+    font-size: 1em;
 }
 
 .tablas-contenedor {
@@ -145,5 +146,16 @@ display: flex;
     margin: auto;
 }
 
+@media all and (min-width: 769px) and (max-width: 940px){
+    html {
+        font-size: 8px;
+    }
+}
+
+@media all and (min-width: 401px) and (max-width: 768px){
+    html {
+        font-size: 4px;
+    }
+}
 
 
