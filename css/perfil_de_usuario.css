@@ -63,8 +63,9 @@ body {
 
 .main-header__titulo {
     color: var(--color-cuaternario);
-    font-family: var(--fuente-titulo-primario);
+    font-family: 'Baloo Tamma 2', cursive;
     font-size: 3rem;
+    -webkit-text-stroke: 0.5px black; /* esto hace el texto con bordes */
     padding: 0;
     margin: 0;
 }
@@ -180,7 +181,7 @@ height: 2em;
 /* section 3 start */
 
 .main-form__input--checkbox {
-    outline: 1px solid var(--color-secundario);
+    /* outline: 1px solid var(--color-secundario); */
 }
 
 .main-form__condiciones {

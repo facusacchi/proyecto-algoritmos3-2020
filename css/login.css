@@ -88,3 +88,9 @@ body {
     align-self: center;
     margin-right: 1em;
 }
+
+@media (max-width:966px) {
+    .main-form {
+        margin: auto;
+    }
+}
