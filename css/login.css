@@ -98,9 +98,12 @@ body {
     margin-right: 1em;
 }
 
-/* @media (max-width:1400px) {
-    body {
-        width: auto;
-        height: auto;
+.main-footer__span {
+    display: contents;
+}
+
+@media (max-width:400px) {
+    .main-footer__span {
+        display: none;
     }
-} */
+}
