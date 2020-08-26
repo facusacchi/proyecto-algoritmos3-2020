@@ -11,8 +11,8 @@
 body {
     display: flex;
     flex-direction: column;
-    height: 97vh;
-    justify-content: space-between;
+    height: 100vh;
+    justify-content: center;
     font-size: 100%;
     font-family: var(--fuente-default);
     line-height: 1.5;
@@ -34,12 +34,10 @@ body {
     background-color: white;
     border: var(--borde-default);
     border-radius: 10px;
-    padding: 0.4rem 0.4rem 1.6rem 1.8rem;
     width: 15rem;
-    height: 15em;
-    /* margin: 12rem 9rem 10.15rem 32rem; */
+    height: 15rem;
     align-self: center;
-    margin: 10rem;
+    padding: 2rem;
 }
 
 .main-form__titulo {
@@ -47,6 +45,7 @@ body {
     font-family: 'Baloo Tamma 2', cursive;
     -webkit-text-stroke: 0.5px black; /* esto hace el texto con bordes */
     grid-area: titulo;
+    align-self: center;
 }
 
 .input-usuario {
@@ -78,13 +77,17 @@ body {
 }
 
 .main-form__input {
-    border-color: var(--color-cuaternario);
+    border: 2px solid var(--color-terciario);
     font-family: var(--fuente-default);
+    width: -moz-available;
 }
 
 .main-footer { 
     display: flex;
     justify-content: center;
+    position: fixed;
+    bottom: 0;
+    width: -moz-available;
     background-color:#868584;
     color: white;
     margin: 1.6rem 0 0 0;
@@ -106,4 +109,10 @@ body {
     .main-footer__span {
         display: none;
     }
+
+ /*    .main-form {
+        width: auto;
+        height: 20rem;
+        margin: auto;
+    } */
 }
