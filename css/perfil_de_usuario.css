@@ -196,7 +196,8 @@ height: 2em;
 /* section 3 start */
 
 .main-form__input--checkbox {
-    /* outline: 1px solid var(--color-secundario); */
+    border-radius: 0.5em;
+    
 }
 
 .main-form__condiciones {
@@ -213,10 +214,9 @@ height: 2em;
     "input-diabetico    .    input-celiaco      .   input-vegano"
     ".                  .    .                  .   ."
     "input-hipertenso   .    input-vegetariano  .   .";
-    border-color: var(--color-secundario);
-    border-radius: 2em;
+    border-radius: 0.5rem;
     padding: 1rem 1rem;
-    outline: 2px solid var(--color-secundario);
+    border: 2px solid var(--color-secundario);
 }
 
 .main-form__input-diabetico {

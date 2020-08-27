@@ -110,9 +110,10 @@ body {
         display: none;
     }
 
- /*    .main-form {
+    .main-form {
         width: auto;
-        height: 20rem;
         margin: auto;
-    } */
+        padding: 1rem;
+        font-size: 85%;
+    }
 }
