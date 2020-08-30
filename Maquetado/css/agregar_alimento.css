@@ -42,7 +42,6 @@ footer {
         width: 9em;
         display: flex;
         justify-content: space-between;
-        align-items: center;
         margin-right: 1rem;
     }
     .header_icono_home,
@@ -90,7 +89,6 @@ footer {
         width: 9em;
         display: flex;
         justify-content: space-between;
-        align-items: center;
         margin-right: 1rem;
     }
     .header_icono_home,

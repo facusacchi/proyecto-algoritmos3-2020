@@ -37,7 +37,6 @@ body,
         width: 9em;
         display: flex;
         justify-content: space-between;
-        align-items: center;
         margin-right: 1rem;
     }
     .header_icono_home,
@@ -86,7 +85,6 @@ body,
         width: 9em;
         display: flex;
         justify-content: space-between;
-        align-items: center;
         margin-right: 1rem;
     }
     .header_icono_home,
@@ -103,9 +101,11 @@ body,
     .card_grid {
         width: var(--ancho-medio);
     }
+    .card_grid {
+        justify-content: space-between;
+    }
     .card_grid_item {
         width: 26rem;
-        justify-content: flex-start;
     }
     .card_grid_agregar {
         margin: 2rem 0;
@@ -183,11 +183,8 @@ body,
         overflow-y: auto;
     }
     .card_grid {
-        justify-content: flex-start;
         flex-direction: column;
-    }
-    .card_grid_item {
-        justify-content: space-between;
+        align-content: space-around;
     }
     .info_receta_descripcion_extra {
         width: 60vw;
@@ -239,12 +236,6 @@ body,
     justify-content: center;
 }
 
-.nav {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-}
-
 .nav_titulo {
     font-size: 2.8rem;
     margin-bottom: 0.5rem;
@@ -285,7 +276,6 @@ body,
 
 .nav_checkbox_container {
     display: flex;
-    align-items: center;
     margin-top: 0.5rem;
 }
 
@@ -296,7 +286,6 @@ body,
 
 .card_grid_container {
     display: flex;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
 }
@@ -310,7 +299,6 @@ body,
 .card_grid {
     display: flex;
     flex-wrap: wrap;
-    align-content: space-around;
 }
 
 .card_grid_item {
@@ -320,7 +308,6 @@ body,
     border-radius: 1rem;
     display: flex;
     background-color: white;
-    justify-content: space-between;
 }
 
 .edicion_eliminar {
@@ -359,7 +346,6 @@ body,
 }
 
 .info_receta_descripcion_texto {
-    /*width: 10rem;*/
     margin-top: 0.5rem;
     font-size: 1.5rem;
 }
@@ -367,15 +353,11 @@ body,
 .info_receta_descripcion_extra {
     display: flex;
     justify-content: space-between;
-    /* flex-direction: column;
-    margin: 2.5rem 0.5rem 0 0;*/
 }
 
 .info_receta_descripcion_iconos {
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
-    /*margin: 2.5rem 0.5rem 0 0;*/
 }
 
 .info_receta_descripcion_iconos>img {
