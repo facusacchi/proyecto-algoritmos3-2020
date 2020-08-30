@@ -97,6 +97,7 @@ body {
 @media (min-width: 769px) {
   .footer {
       justify-content: flex-start;
+      width: 66vw;
   }
   .footer_texto:after {
       content: attr(data-description);
@@ -126,7 +127,6 @@ body {
 }
 
 .footer {
-  width: 66vw;
   padding: 1rem;
   font-size: 1.4rem;
   display: flex;
