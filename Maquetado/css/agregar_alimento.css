@@ -9,21 +9,17 @@
     --ancho-menor: 50vw;
     --ancho-medio: 80vw;
     --ancho-mayor: 90vw;
-    --border-default: 0.2rem solid var(--color-secundario);
-    --border-menor: 0.1rem solid var(--color-secundario);
 }
 
 html,
-body {
-    width: 100%;
+body,
+article {
     height: 100%;
 }
 
 article {
-    min-height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
 }
 
 main {
@@ -41,9 +37,36 @@ footer {
     .main_contenidos {
         width: var(--ancho-default);
     }
+    .header_links {
+        font-size: 2rem;
+        width: 9em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: 1rem;
+    }
+    .header_icono_home,
+    .header_icono_perfil,
+    .header_links_fila_menu,
+    .salir {
+        display: none;
+    }
+    .header_logo_titulo {
+        font-size: 2.7rem;
+        margin: 1rem;
+    }
+    .main_contenidos {
+        margin: 2em 0;
+    }
     .tabla-contenido,
     .tabla_alimentos_botones {
         width: var(--ancho-menor);
+    }
+    .tabla_alimentos_botones {
+    margin-bottom: 3rem;
+    }
+    .tabla-contenido {
+        height: 9em;
     }
     /*.footer {
         justify-content: flex-start;
@@ -57,12 +80,37 @@ footer {
     .header {
         width: var(--ancho-mayor);
     }
+    .header_logo_titulo {
+        font-size: 2.7rem;
+        margin: 1rem;
+    }
+    .header_links {
+        font-size: 2rem;
+        width: 9em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: 1rem;
+    }
+    .header_icono_home,
+    .header_icono_perfil,
+    .header_links_fila_menu,
+    .salir {
+        display: none;
+    }
     .main_contenidos {
         width: var(--ancho-medio);
+        margin: 2em 0;
     }
     .tabla-contenido,
     .tabla_alimentos_botones {
         width: var(--ancho-default);
+    }
+    .tabla_alimentos_botones {
+        margin-bottom: 3rem;
+    }
+    .tabla-contenido {
+        height: 9em;
     }
     /*.footer {
         justify-content: center;
@@ -77,9 +125,74 @@ footer {
     .main_contenidos {
         width: var(--ancho-mayor);
     }
+    .header_logo_titulo {
+        font-size: 2.2rem;
+        margin: 1rem 0;
+    }
+    .header_logo_imagen,
+    .header_icono_exit1 {
+        display: none;
+    }
+    .header_links {
+        font-size: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        right: 0;
+        top: 13px;
+        z-index: 1;
+        background-color: var(--color-primario);
+        border-radius: 0 0 0.5rem 0.5rem;
+    }
+    .header_links_fila>img,
+    .header_links_fila_menu>img {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    .header_links_fila,
+    .header_links_fila_menu {
+        width: 10rem;
+        display: flex;
+        justify-content: space-between;
+    }
+    .header_links_fila {
+        margin: 1.2rem 2rem;
+    }
+    .header_links_fila_menu {
+        justify-content: flex-end;
+        margin-bottom: 1.5rem;
+    }
+    .header_links_texto {
+        padding-top: 0.2rem;
+    }
+    .main_contenidos {
+        margin: 1.5em 0;
+    }
+    .main_titulo_texto {
+        font-size: 2.8rem;
+    }
     .tabla-contenido,
     .tabla_alimentos_botones {
         width: var(--ancho-medio);
+    }
+    .tabla_alimentos_botones {
+        margin-bottom: 1rem;
+    }
+    .tabla-contenido {
+        height: 100%;
+    }
+    body {
+        overflow: hidden;
+    }
+    .header-container,
+    .main-footer {
+        flex: 0 0 auto;
+    }
+    main {
+        flex: 1 1 auto;
+        position: relative;
+        overflow-y: auto;
     }
     /*.footer {
         justify-content: center;
@@ -112,20 +225,9 @@ footer {
 
 .header_logo_titulo {
     font-family: 'Lobster', cursive;
-    font-size: 2.7rem;
-    margin: 1rem;
 }
 
-.header_links {
-    font-size: 2rem;
-    width: 9em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 1rem 0 0;
-}
-
-.header_icono_exit {
+.header_links>img {
     width: 2.5rem;
     height: 2.5rem;
 }
@@ -137,7 +239,6 @@ footer {
 }
 
 .main_contenidos {
-    margin: 2em 0;
     background-color: white;
     border-radius: 0.5rem;
     display: flex;
@@ -163,7 +264,6 @@ footer {
 }
 
 .tabla-contenido {
-    height: 9em;
     margin: 1.5em 3.4em;
     border: 0.1em solid var(--color-secundario);
     overflow-y: scroll;
@@ -190,7 +290,6 @@ footer {
 .tabla_alimentos_botones {
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 3rem;
 }
 
 .tabla_alimentos_button_aceptar {
