@@ -24,11 +24,6 @@ body {
   margin: 0;
 }
 
-.main-footer {
-  background-color: #868584;
-  color: white;
-}
-
 /* BARRA DE NAVEGACION */
 
 .navegacion-contenedor {
@@ -131,8 +126,7 @@ body {
 
 @media (min-width: 769px) {
   .header {
-      width: 100%;
-      max-width: var(--ancho-default);
+      width: var(--ancho-default);
   }
   .header_links {
       font-size: 2rem;
@@ -228,7 +222,7 @@ body {
 @media (min-width: 769px) {
   .footer {
       justify-content: flex-start;
-      width: 66vw;
+      width: var(--ancho-default);
   }
   .footer_texto:after {
       content: attr(data-description);
@@ -251,8 +245,8 @@ body {
 }
 
 .main-footer {
-  /*background-color: #868584;
-  color: white;*/
+  background-color: #868584;
+  color: white;
   display: flex;
   justify-content: center;
 }
