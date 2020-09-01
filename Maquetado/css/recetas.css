@@ -149,16 +149,45 @@ display: flex;
 /* media queries para table*/
 
 @media all and (min-width: 769px) and (max-width: 940px){
-    html {
-        font-size: 8px;
-    }
+    .contenidos {
+        width: 36em;
+    }    
 }
 
 @media all and (min-width: 401px) and (max-width: 768px){
-    html {
-        font-size: 4px;
+    .contenidos {
+        width: 37em;
+        font-size: 0.5em;
     }
 }
+
+@media all and (max-width: 400px) {
+    .inadecuado b {
+        display: none;
+    }
+
+    .contenidos {
+        width: 20em;
+        font-size: 0.8em;
+    }
+
+    .inputs-contenedor, .tablas-contenedor {
+        flex-direction: column;
+    }
+
+    .tabla {
+        margin-bottom: 1em;
+    }
+
+    .input {
+        margin-bottom: 1em; 
+    }
+
+    
+
+
+}
+
 
 
 
