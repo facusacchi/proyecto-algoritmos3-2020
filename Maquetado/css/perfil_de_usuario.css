@@ -144,13 +144,15 @@ height: 2em;
 
 /* section 2 start */
 .main-form__regular-inputs {
-    display: grid;
+    /* display: grid;
     grid-template-rows: 2fr 1fr 2fr;
     grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
     grid-template-areas: 
     ".  label-peso          input-peso          .   label-estatura      input-estatura    ."
     ".  .                   .                   .   .                   .                 ."
-    ".  label-nacimiento    input-nacimiento    .   label-rutina        input-rutina      .";
+    ".  label-nacimiento    input-nacimiento    .   label-rutina        input-rutina      ."; */
+    display: flex;
+    justify-content: space-evenly;
     padding: 1.3em;
 }
 
@@ -193,6 +195,7 @@ height: 2em;
     border-color: var(--color-secundario);
     max-height: 1.5em;
     margin: 0 1em;
+    width: 58%;
 }
 
 /* section 3 start */
@@ -209,16 +212,19 @@ height: 2em;
 }
 
 .main-form__checkboxes {
-    display: grid;
+    /* display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 2fr 3fr 2fr 3fr 2fr;
     grid-template-areas: 
     "input-diabetico    .    input-celiaco      .   input-vegano"
     ".                  .    .                  .   ."
-    "input-hipertenso   .    input-vegetariano  .   .";
+    "input-hipertenso   .    input-vegetariano  .   ."; */
     border-radius: 0.5rem;
     padding: 1rem 1rem;
     border: 2px solid var(--color-secundario);
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .main-form__input-diabetico {
@@ -244,6 +250,24 @@ height: 2em;
 .main-form__input-vegetariano {
     grid-area: input-vegetariano;
     display: flex;
+}
+
+.checkboxes-start {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    align-items: start;
+    height: 4em;
+    justify-content: space-between;
+}
+
+.checkboxes-middle {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    align-items: start;
+    height: 4em;
+    justify-content: space-between;
 }
 
 /* section 3 end */
@@ -474,12 +498,25 @@ h6 {
     padding: 0.5rem;
     font-size: 1rem;
 }
+
 .main-footer__image {
     display: flex;
     align-self: center;
     margin-right: 1em;
 }
 
+.main-form__label-and-input {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-form__label-and-input--column {
+    display: flex;
+    flex-direction: column;
+    height: 4rem;
+    justify-content: space-between;
+    width: 16rem;
+}
 
 @media (max-width:768px) {
     .main-form__recetas {
@@ -565,8 +602,10 @@ h6 {
         justify-content:center;
     }
 
-    .main-form__regular-inputs {
+    /* .main-form__regular-inputs {
         display: flex;
         flex-direction: column;
-    }
+        justify-content: space-between;
+        height: 12%;
+    } */
 }
