@@ -22,8 +22,6 @@ body {
     ;
 }
 
-/* header end */
-
 .main-header {
     background-color: var(--color-primario);
     display: flex;
@@ -40,42 +38,6 @@ body {
     align-items: center;
     width: 10rem;
  }
-
- .main-header__nav-link {
-    color: var(--color-secundario-texto);
-}
-
-.main-header__nav-link:hover {
-    filter: brightness(75%);
-}
-
-.main-header__titulo {
-    color: var(--color-cuaternario);
-    font-family: 'Baloo Tamma 2', cursive;
-    font-size: 3rem;
-    -webkit-text-stroke: 0.5px black; /* esto hace el texto con bordes */
-    padding: 0;
-    margin: 0;
-}
-
-.main-header__links {
-display: flex;
-justify-content: space-around;
-align-content: center;
-width: 9em;
-height: 2em;
-}
-
-.img {
-    width: 2rem;
-    height: 2rem;
-}
-
-.img:hover {
-    filter: brightness(75%);
-}
-
-/* header end */
 
 .main-contenido {
     display: flex;
