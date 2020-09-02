@@ -1,25 +1,7 @@
 
 :root {
-    --color-primario: #596475;
-    --color-secundario: #9d8189;
-    --color-terciario: #e3bac6;
-    --color-cuaternario: #fde8e9;
     --color-secundario-texto: white;
     --color-background-form: var(--color-secundario-texto);
-    --color-background-button: #f79256;
-    --color-background-button-secondary: #aa4465;
-    --background-footer: #d1d1d1;
-    /* --fuente-titulo-primario: Brush Script MT;
-    --fuente-default: 'Baloo Tamma 2', cursive; */
-    --fuente-titulo-primario: 'Lato', sans-serif;
-    --fuente-default: 'Lato', sans-serif;
-    --borde-default: 3px solid var(--color-secundario);
-
-
-}
-
-html {
-    font-size: 16px;
 }
 
 body {
