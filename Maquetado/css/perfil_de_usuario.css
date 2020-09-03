@@ -12,7 +12,7 @@ body {
     gap: 3px;
     grid-template-rows: 2fr 5fr 1fr;
     grid-template-columns: 1fr;
-    font-family: var(--fuente-default);
+    font-family: var(--tipografia);
     line-height: 1.5;
     background-color: var(--color-cuaternario);
     grid-template-areas: 
@@ -32,7 +32,7 @@ body {
 .main-form {
     background-color: var(--color-background-form);
     border-radius: 3rem;
-    width: 90%;
+    width: 80%;
     height: auto;
     margin: 1em;
 }
@@ -43,76 +43,44 @@ body {
     display: flex;
     justify-content: space-between;
     background-color: var(--color-terciario);
-    border-top-left-radius: 2rem;
-    border-top-right-radius: 2rem;
-    padding: 1rem 2rem 1rem 1.5rem;
-    height: 4rem;
+    border-top-left-radius: 3.2rem;
+    border-top-right-radius: 3.2rem;
+    padding: 1.6rem 3.2rem 1.6rem 2.4rem;
+    height: 6.4rem;
 }
 
 .main-form__header-h2 {
     margin: 0;
+    font-size: 3rem;
+}
+
+.form__imc {
+    font-size: 1.5em;
+    font-weight: bold;
 }
 
 .main-form__state {
     display: flex;
     justify-content: space-between;
     align-content: center;
-    width: 11em;
+    min-width: 18em;
     background-color: var(--color-terciario);
 }
 
 .main-form__state-text {
-    font-size: 1.05em;
-    padding: 0.5em 0em 0em 0em;
-    height: 1.5em;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0.5em 0 0 1em;
+    min-width: 8em;
 }
 
 /* section 1 end */
 
 /* section 2 start */
 .main-form__regular-inputs {
-    /* display: grid;
-    grid-template-rows: 2fr 1fr 2fr;
-    grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr 2fr;
-    grid-template-areas: 
-    ".  label-peso          input-peso          .   label-estatura      input-estatura    ."
-    ".  .                   .                   .   .                   .                 ."
-    ".  label-nacimiento    input-nacimiento    .   label-rutina        input-rutina      ."; */
     display: flex;
     justify-content: space-evenly;
-    padding: 1.3em;
-}
-
-.main-form__label-peso {
-    grid-area: label-peso;
-}
-
-.main-form__label-estatura {
-    grid-area: label-estatura;
-}
-
-.main-form__label-nacimiento {
-    grid-area: label-nacimiento;
-}
-
-.main-form__label-rutina {
-    grid-area: label-rutina;
-}
-
-.main-form__input-peso {
-    grid-area: input-peso;
-}
-
-.main-form__input-estatura {
-    grid-area: input-estatura;
-}
-
-.main-form__input-nacimiento {
-    grid-area: input-nacimiento;
-}
-
-.main-form__input-rutina {
-    grid-area: input-rutina;
+    padding: 2.08em;
 }
 
 /* section 2 end */
@@ -125,7 +93,9 @@ body {
     width: 58%;
 }
 
-/* section 3 start */
+h3 {
+    font-size: 1.7em;
+}
 
 .main-form__input--checkbox {
     border-radius: 0.5em;
@@ -135,48 +105,21 @@ body {
 .main-form__condiciones {
     display:flex;
     flex-direction: column;
-    margin: 0rem 2rem;
+    margin: 0rem 3.2rem;
 }
 
 .main-form__checkboxes {
-    /* display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: 2fr 3fr 2fr 3fr 2fr;
-    grid-template-areas: 
-    "input-diabetico    .    input-celiaco      .   input-vegano"
-    ".                  .    .                  .   ."
-    "input-hipertenso   .    input-vegetariano  .   ."; */
-    border-radius: 0.5rem;
-    padding: 1rem 1rem;
+    border-radius: 0.8rem;
+    padding: 1.6rem 1.6rem;
     border: 2px solid var(--color-secundario);
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 
-.main-form__input-diabetico {
-    grid-area: input-diabetico;
+.main-form__label-and-chkbx {
     display: flex;
-}
-
-.main-form__input-celiaco {
-    grid-area: input-celiaco;
-    display: flex;
-}
-
-.main-form__input-vegano {
-    grid-area: input-vegano;
-    display: flex;
-}
-
-.main-form__input-hipertenso {
-    grid-area: input-hipertenso;
-    display: flex;
-}
-
-.main-form__input-vegetariano {
-    grid-area: input-vegetariano;
-    display: flex;
+    font-size: 1.4em;
 }
 
 .checkboxes-start {
@@ -184,7 +127,7 @@ body {
     flex-direction: column;
     width: 30%;
     align-items: start;
-    height: 4em;
+    height: 5em;
     justify-content: space-between;
 }
 
@@ -193,7 +136,7 @@ body {
     flex-direction: column;
     width: 30%;
     align-items: start;
-    height: 4em;
+    height: 5em;
     justify-content: space-between;
 }
 
@@ -202,14 +145,14 @@ body {
 /* section 4 start */
 
 h4 {
-    font-size: 1em;
+    font-size: 1.6em;
     min-width: 12em;
 }
 
 .main-form__alimentos {
     display: flex;
     justify-content: space-evenly;
-    margin: 0 0 1em 0;
+    margin: 0 0 2em 0;
 }
 
 .main-form__table-and-title {
@@ -229,6 +172,10 @@ h4 {
     color: var(--color-secundario-texto);
     border-radius: 0.5em;
     margin: 1.5em 0em 0em 0em;
+
+    background-color: var(--color-botonprofe);
+    color: white;
+    border: 0.15em solid #e2711d;
 }
 
 .main-form__buttom-table:hover {
@@ -246,11 +193,11 @@ h4 {
     border-color: var(--color-secundario);
     border-style: solid;
     border-radius: 0.5rem;
+    font-size: 1.4em;
 }
 
 .header-table {
     grid-area: cell-header-table;
-    width: 95%;
     display: flex;
     justify-content: center;
     background-color: var(--color-secundario);
@@ -258,6 +205,7 @@ h4 {
     margin: 0.3em;
     border-color: var(--color-secundario);
     color: white;
+    font-weight: bold;
 }
 
 .item-1-table {
@@ -280,7 +228,7 @@ h4 {
 
 .item-table__span {
     position: relative;
-    left: 35%;
+    left: 41%;
 }
 
 /* section 4 end */
@@ -399,6 +347,8 @@ h6 {
     background-color: var(--color-background-button);
     color: var(--color-secundario-texto);
     border-radius: 0.5em;
+    background-color: var(--color-botonprofe);
+    border: 0.15em solid #e2711d;
 }
 
 .aceptar-buttom:hover {
@@ -412,6 +362,8 @@ h6 {
     height: 2em;
     color: var(--color-secundario-texto);
     border-radius: 0.5em;
+    background-color: var(--boton-cancelar) ;
+    border: 0.15em solid #5f0f40;
 }
 
 .cancelar-buttom:hover {
@@ -440,14 +392,19 @@ h6 {
 .main-form__label-and-input {
     display: flex;
     justify-content: space-between;
+    font-size: 1.5em;
 }
 
 .main-form__label-and-input--column {
     display: flex;
     flex-direction: column;
-    height: 4rem;
+    height: 6.4rem;
     justify-content: space-between;
-    width: 16rem;
+    width: 30%;
+}
+
+.bottom-section {
+    font-size: 1.4em;
 }
 
 @media (max-width:768px) {

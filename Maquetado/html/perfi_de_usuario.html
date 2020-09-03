@@ -39,7 +39,7 @@
                 <section class="main-form__header">
                     <div>
                         <h2 class="main-form__header-h2">Juan Carlos de la Hoya</h2>
-                        <span>IMC:35</span>
+                        <span class="form__imc">IMC:35</span>
                     </div>
                     <div class="main-form__state">
                         <img src="..\imagenes\heart.svg" alt="image" width="40px" height="40px">        
@@ -49,22 +49,22 @@
                 <section class="main-form__regular-inputs">
                             <div class="main-form__label-and-input--column">
                                 <div class="main-form__label-and-input">
-                                    <label class="main-form__label-peso" for="peso">Peso (kgs.)</label>
-                                    <input class="main-form__input-peso main-form__input" name="peso" id="peso" type="number" min="20" max="300" placeholder="introducir peso">
+                                    <label for="peso">Peso (kgs.)</label>
+                                    <input class=" main-form__input" name="peso" id="peso" type="number" min="20" max="300" placeholder="introducir peso">
                                 </div>
                                 <div class="main-form__label-and-input">
-                                    <label class="main-form__label-estatura" for="estatura">Estatura</label>
-                                    <input class="main-form__input-estatura main-form__input" name="estatura" id="estatura" type="number" min="1.1" max="2.5" step="0.1" placeholder="introducir estatura">
+                                    <label for="estatura">Estatura</label>
+                                    <input class="main-form__input" name="estatura" id="estatura" type="number" min="1.1" max="2.5" step="0.1" placeholder="introducir estatura">
                                 </div>
                             </div>
                             <div class="main-form__label-and-input--column">
                                 <div class="main-form__label-and-input">
-                                    <label class="main-form__label-nacimiento" for="nacimiento">Nacimiento</label>
-                                    <input class="main-form__input-nacimiento main-form__input" name="nacimiento" id="nacimiento" type="date" placeholder="fecha de nacimiento">
+                                    <label for="nacimiento">Nacimiento</label>
+                                    <input class="main-form__input" name="nacimiento" id="nacimiento" type="date" placeholder="fecha de nacimiento">
                                 </div>
                                 <div class="main-form__label-and-input">
-                                    <label class="main-form__label-rutina" for="rutina">Rutina</label>
-                                    <select class="main-form__input-rutina main-form__input" name="rutina" id="rutina">
+                                    <label for="rutina">Rutina</label>
+                                    <select class="main-form__input" name="rutina" id="rutina">
                                         <option value="intensivo">Intensivo</option>
                                         <option value="equilibrado">Equilibrado</option>
                                         <option value="sedentario">Sedentario</option>
@@ -77,27 +77,27 @@
                     <div class="main-form__checkboxes">
                        
                         <div class="checkboxes-start">
-                            <div class="main-form__input-diabetico">
+                            <div class="main-form__label-and-chkbx">
                                 <input class="main-form__input main-form__input--checkbox" name="diabetico" id="diabetico" type="checkbox">
                                 <label for="diabetico">Diabetico</label>
                             </div>
-                            <div class="main-form__input-hipertenso">
+                            <div class="main-form__label-and-chkbx">
                                 <input class="main-form__input main-form__input--checkbox" name="hipertenso" id="hipertenso" type="checkbox">
                                 <label for="hipertenso">Hipertenso</label>
                             </div>
                         </div>
 
                         <div class="checkboxes-middle">
-                            <div class="main-form__input-celiaco">
+                            <div class="main-form__label-and-chkbx">
                                 <input class="main-form__input main-form__input--checkbox"  name="celiaco" id="celiaco" type="checkbox">
                                 <label for="celiaco">Celiaco</label>
                             </div>
-                            <div class="main-form__input-vegetariano">
+                            <div class="main-form__label-and-chkbx">
                                 <input class="main-form__input main-form__input--checkbox" name="vegetariano" id="vegetariano" type="checkbox">
                                 <label for="vegetariano">Vegetariano</label>
                             </div>
                         </div>
-                        <div class="main-form__input-vegano">
+                        <div class="main-form__label-and-chkbx">
                             <input class="main-form__input main-form__input--checkbox" name="vegano" id="vegano" type="checkbox">
                             <label for="vegano">Vegano</label>
                         </div>
@@ -144,7 +144,7 @@
                             </div>
                         </div>
                 </section>
-                <section>
+                <section class="bottom-section">
                     <h5>Mis recetas</h5>
                     <div class="main-form__recetas">
                         <div class="main-form__item-receta">
@@ -180,8 +180,10 @@
             </form>
         </div>
         <footer class="main-footer">
-            <img class="main-footer__image" src="..\imagenes\facebook-square-brands.svg" alt="image" width="20px" height="20px">
-            <small>Food Overflow \ 2020, Grupo 6 - All rights reserved</small>
+            <div class="footer">
+                <img src="../imagenes/facebook-square-brands.svg" alt="Icono Facebook">
+                <div class="footer_texto" data-description=" Grupo 6 - All rights reserved">Food Overflow \ 2020.</div>
+            </div>
         </footer>
     </body>
 </html>
