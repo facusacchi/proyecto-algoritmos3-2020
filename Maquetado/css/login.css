@@ -69,14 +69,7 @@ body {
 }
 
 .main-footer { 
-    display: flex;
-    justify-content: center;
     position: fixed;
     bottom: 0;
     width: -moz-available;
-    background-color:#868584;
-    color: white;
-    margin: 1.6rem 0 0 0;
-    padding: 0.5rem;
-    font-size: 1rem;
 }

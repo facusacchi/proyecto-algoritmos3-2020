@@ -372,23 +372,6 @@ h6 {
 
 /* section 5 end */
 
-.main-footer {
-    display: flex;
-    justify-content: center;
-    background-color:#868584;
-    color: white;
-    grid-area: footer;
-    margin: 1rem 0 0 0;
-    padding: 0.5rem;
-    font-size: 1rem;
-}
-
-.main-footer__image {
-    display: flex;
-    align-self: center;
-    margin-right: 1em;
-}
-
 .main-form__label-and-input {
     display: flex;
     justify-content: space-between;
