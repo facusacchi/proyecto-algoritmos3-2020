@@ -26,7 +26,7 @@ body {
 .main-form {
     background-color: var(--color-background-form);
     border-radius: 3rem;
-    width: 80%;
+    width: 90%;
     height: auto;
     margin: 1em;
 }
@@ -373,8 +373,8 @@ h6 {
     .main-form__alimentos {
         flex-direction: column;
         position: relative;
-        left: 15%;
-        width:70%;
+        left: 5%;
+        max-width:90%;
     }
 
     .main-form__table-and-title {
@@ -391,15 +391,10 @@ h6 {
         width: 14em;
         justify-content: space-evenly;
     }
-
-    .main-form__recetas {
-        font-size: 100%;
-    }
 }
 
 @media (max-width:552px) {
     .main-form__recetas {
-        font-size: 120%;
         justify-content:center;
     }
 
@@ -412,12 +407,11 @@ h6 {
     }
 
     .main-form__recetas {
-        font-size: 120%;
         justify-content:center;
     }
 }
 
-@media (max-width:400px) {
+@media (min-width:1px) and (max-width:400px) {
     .image-heart {
         height: 3em;
         width: 3em;
@@ -474,6 +468,38 @@ h6 {
 
     html {
         font-size: 11px;
+    }
+
+    h5 {
+        font-size: 1.5em;
+    }
+    
+    .main-form__label-and-input {
+        font-weight: bold;
+    }
+
+    .main-form__label-and-chkbx {
+        font-size: 1.5em;
+    }
+
+    .header-table {
+        font-size: 1.2em;
+    }
+
+    .item-table__span {
+        font-size: 1.2em;
+    }
+    /* ------------------------------------------------ */
+    .card_grid_item {
+        width: 85%;
+    }
+
+    .info_receta_descripcion_texto {
+        font-size: 1.1em;
+    }
+
+    .info_receta_titulo {
+        font-size: 1.6em;
     }
 }
 
