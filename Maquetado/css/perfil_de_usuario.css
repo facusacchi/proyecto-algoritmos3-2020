@@ -10,7 +10,7 @@ body {
     box-sizing: border-box;
     display: flex;
     font-family: var(--tipografia);
-    line-height: 1.5;
+    /* line-height: 1.5; */
     background-color: var(--color-cuaternario);
     flex-direction: column;
     justify-content: space-between;
@@ -40,7 +40,7 @@ body {
     border-top-left-radius: 3.2rem;
     border-top-right-radius: 3.2rem;
     padding: 1.6rem 3.2rem 1.6rem 2.4rem;
-    height: 9rem;
+    height: 6rem;
 }
 
 .main-form__header-h2 {
@@ -170,6 +170,7 @@ h4 {
     background-color: var(--color-botonprofe);
     color: white;
     border: 0.15em solid #e2711d;
+    align-self: center;
 }
 
 .main-form__buttom-table:hover {
@@ -232,6 +233,8 @@ h4 {
 h5 {
     margin: 0em 0em 0em 3em;
     font-size: 1em;
+    position: relative;
+    left: 5%;
 }
 
 h6 {
@@ -322,6 +325,8 @@ h6 {
 
 .bottom-section {
     font-size: 1.4em;
+    display: flex;
+    flex-direction: column;5
 }
 
 .image-heart {
@@ -352,6 +357,12 @@ h6 {
 @media (max-width:850px) {
     .main-form__recetas {
         font-size: 85%;
+        position: relative;
+        left: 5%;
+    }
+
+    .main-form__label-and-input--column {
+        width: 45%;
     }
 }
 
