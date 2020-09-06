@@ -5,10 +5,7 @@
 }
 
  :root {
-    /* --ancho-default: 66vw; */
     --ancho-medio: 85vw;
-    /* --ancho-mayor: 90vw; */
-    --border-default: 0.2rem solid var(--color-secundario);
     --border-menor: 0.1rem solid var(--color-secundario);
 }
 
@@ -308,7 +305,7 @@ body,
     flex-wrap: wrap;
 }
 
-.card_grid_item {
+/* .card_grid_item {
     height: 10rem;
     padding: 1rem 0 1rem 1rem;
     margin: 1rem;
@@ -371,7 +368,7 @@ body,
     width: 2.2rem;
     height: 2.2rem;
     margin: 0.1rem;
-}
+} */
 
 .card_grid_agregar {
     display: flex;
