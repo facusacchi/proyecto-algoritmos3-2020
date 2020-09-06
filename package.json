@@ -1,12 +1,11 @@
 {
-  "name": "eg-proyecto-ts",
+  "name": "foodoverflow-grupo-6-1",
   "version": "1.0.0",
-  "description": "Proyecto de Ejemplo para Algo 3",
+  "description": "Food Overflow - Grupo 6",
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "lint": "eslint --fix src/**/*.ts scripts/**/*.ts test/**/*.ts",
-    "clean": "rm -rf ./images && rm README.md && touch README.md"
+    "lint": "eslint --fix src/**/*.ts scripts/**/*.ts test/**/*.ts"
   },
   "author": "",
   "license": "ISC",
