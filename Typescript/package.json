@@ -1,0 +1,27 @@
+{
+  "name": "eg-proyecto-ts",
+  "version": "1.0.0",
+  "description": "Proyecto de Ejemplo para Algo 3",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint --fix src/**/*.ts scripts/**/*.ts test/**/*.ts",
+    "clean": "rm -rf ./images && rm README.md && touch README.md"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^26.0.5",
+    "jest": "^26.1.0",
+    "ts-jest": "^26.1.3",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.158",
+    "@typescript-eslint/eslint-plugin": "^3.7.1",
+    "@typescript-eslint/parser": "^3.7.1",
+    "eslint": "^7.5.0",
+    "lodash": "^4.17.19",
+    "ts-node": "^8.10.2"
+  }
+}
