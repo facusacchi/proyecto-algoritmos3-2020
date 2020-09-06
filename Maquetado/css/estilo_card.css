@@ -1,3 +1,7 @@
+:root {
+    --border-default: 0.2rem solid var(--color-secundario);
+}
+
 .card_grid_item {
     padding: 1rem 0 1rem 1rem;
     margin: 1rem;
@@ -7,7 +11,7 @@
 }
 
 .edicion_eliminar {
-    border: 0.2rem solid var(--color-secundario);
+    border: var(--border-default);
 }
 
 .info_receta_container {

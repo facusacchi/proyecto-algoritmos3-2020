@@ -191,6 +191,10 @@ body,
     .info_receta_descripcion_extra {
         width: 60vw;
     }
+    .card_grid_agregar {
+        position: fixed;
+        bottom: 4.5rem;
+    }
     /*.footer {
         justify-content: center;
     }*/
