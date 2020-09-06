@@ -324,6 +324,14 @@ h6 {
     font-size: 1.4em;
 }
 
+.image-heart {
+
+}
+
+.input-bottom {
+
+}
+
 @media (max-width:768px) {
     .main-form__recetas {
         justify-content: flex-start;
@@ -399,7 +407,7 @@ h6 {
 }
 
 @media (max-width:529px) {
-    body {
+        body {
         min-width: 100vw;
     }
 
@@ -408,3 +416,64 @@ h6 {
         justify-content:center;
     }
 }
+
+@media (max-width:400px) {
+    .image-heart {
+        height: 3em;
+        width: 3em;
+        position: relative;
+        left: 7%;
+    }
+
+    .main-form__state {
+        position: relative;
+        top: 50%;
+        right: 50%;
+        height: 3em;
+    }
+
+    .form__imc {
+        position: relative;
+        top: 10%;
+    }
+
+    .main-form__header-h2 {
+        margin: 0;
+        font-size: 2rem;
+        width: 11em;
+    }
+
+    .main-form__regular-inputs {
+        flex-direction: column;
+    }
+
+    .main-form__label-and-input--column {
+        width: -moz-available;
+        height: 5.5em;
+    }
+
+    .main-form__label-and-input {
+        width: -moz-available;
+    }
+
+    .input-bottom {
+        margin-top: 1em;
+    }
+
+    .main-form__condiciones {
+        margin: 0rem 1.2rem;   
+    }
+
+    .main-form__checkboxes {
+        padding: 0.5rem 0.5rem;
+    }
+
+    .main-form__table-and-title {
+        margin-top: 2em;
+    }
+
+    html {
+        font-size: 11px;
+    }
+}
+
