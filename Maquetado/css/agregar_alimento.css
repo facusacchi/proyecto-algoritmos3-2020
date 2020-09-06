@@ -312,25 +312,6 @@ footer {
     justify-content: flex-end;
 }
 
-.tabla_alimentos_button_aceptar {
-    background-color: var(--color-botonprofe);
-    color: white;
-    border: 0.15em solid #e2711d;
-    border-radius: 0.5em;
-    width: 6em;
-    height: 2.5em;
-}
-
-.tabla_alimentos_button_cancelar {
-    background-color: var(--boton-cancelar);
-    color: white;
-    border: 0.15em solid #5f0f40;
-    border-radius: 0.5em;
-    width: 6em;
-    height: 2.5em;
-    margin-left: 1.5rem;
-}
-
 /*.main-footer {
     /*background-color: #868584;
     color: white;
