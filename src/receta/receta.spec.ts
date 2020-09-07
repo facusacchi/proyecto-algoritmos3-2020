@@ -28,4 +28,9 @@ describe('dada una receta...', () => {
         receta.agregarColaborador(usuario)
         expect(true).toBe(receta.esEditablePor(usuario))
     })
+
+    test('un usuario que no es autor ni colaborador, no puede editarla', () => {
+        expect(false).toBe(receta.esEditablePor(usuario))
+    })
+
 })
