@@ -42,11 +42,11 @@ export class Usuario {
     }
 
     tieneGrasasEnSusAlimentosPreferidos() {
-        return this.alimentosPreferidos.some(alimento => alimento.esDeGrupo(Grupo.ACEITES_GRASAS_AZUCARES))
+        return this.alimentosPreferidos.some(alimento => alimento.esDeGrupo('ACEITES_GRASAS_AZUCARES'))
     }
 
     tieneAlMenosDosFrutasEnSusAlimentosPreferidos() {
-        return this.alimentosPreferidos.filter(alimento => alimento.esDeGrupo(Grupo.HORTALIZAS_FRUTAS_SEMILLAS)).length >= 2
+        return this.alimentosPreferidos.filter(alimento => alimento.esDeGrupo('HORTALIZAS_FRUTAS_SEMILLAS')).length >= 2
     }
 
     tieneRutina(rutina: Rutina) {
@@ -59,10 +59,12 @@ export class Usuario {
 
 }
 
-export enum Rutina {
+export type Rutina = 'LEVE' | 'NADA' | 'MEDIANO' | 'INTENSIVO' | 'ACTIVA'
+
+/* export enum Rutina {
     'LEVE',
     'NADA',
     'MEDIANO',
     'INTENSIVO',
     'ACTIVA'
-}
+} */

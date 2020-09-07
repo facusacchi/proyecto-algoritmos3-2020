@@ -1,4 +1,4 @@
-import { Usuario, Rutina } from "./usuario";
+import { Usuario, Rutina } from "./usuario"
 
 export interface CondicionAlimenticia {
 	subsanaCondicion(usuario: Usuario): boolean

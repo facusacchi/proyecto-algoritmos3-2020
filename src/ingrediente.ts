@@ -1,4 +1,4 @@
-import { Alimento } from "./alimento";
+import { Alimento } from "./alimento"
 
 export class Ingrediente {
 	constructor(public alimento: Alimento, public cantidad: string) { }
