@@ -14,7 +14,7 @@ describe('dada una receta...', () => {
     beforeEach(() => {
         condiciones.push(vegetariano)
         alimentosGustados.push(alimento)
-        receta = new Receta
+        receta = new Receta(usuario)
         alimento = new Alimento('papaya', 'dorada', 'HORTALIZAS_FRUTAS_SEMILLAS', condiciones)
         usuario = new Usuario('lolo', 80, 175, new Date(), condiciones, alimentosGustados, 'LEVE')
     })

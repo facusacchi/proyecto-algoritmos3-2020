@@ -5,9 +5,11 @@ import { flatMap } from "lodash";
 
 export class Receta {
 
-    public autor: Usuario
-    public colaboradores: Array<Usuario> = []
-    public ingredientes: Array<Ingrediente> = []
+    constructor(
+      public autor: Usuario
+      ) {}
+      public colaboradores: Array<Usuario> = []
+      public ingredientes: Array<Ingrediente> = []
 
     esEditablePor(usuario: Usuario): Boolean {
       return usuario === this.autor || this.colaboradores.includes(usuario)
