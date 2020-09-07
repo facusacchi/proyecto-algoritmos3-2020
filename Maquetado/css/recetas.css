@@ -226,4 +226,8 @@
       height:2em;
       filter: brightness(2);
   }
+
+  .aceptar-cancelar {
+      margin: 0;
+  }
 }
