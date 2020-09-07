@@ -25,7 +25,7 @@ export class Receta {
 		  this.ingredientes.push(ingrediente)
     }
     
-    condicionesInadecuadasReceta(): CondicionAlimenticia {
+    condicionesInadecuadasReceta() {
       return (this.ingredientes.flatMap( ingrediente => { ingrediente.condicionesInadecuadasIngrediente() } ))
     }
     

@@ -1,18 +1,31 @@
 import { Receta } from './Receta'
 import { Usuario } from '../usuario'
+import { Alimento } from '../alimento'
+import { CondicionAlimenticia, vegetariano, vegano } from '../condicionAlimenticia'
 
 let receta: Receta
-let usuarioAutor: Usuario
+let usuario: Usuario
+let alimento: Alimento
+let condiciones: Array<CondicionAlimenticia> = []
+let alimentosGustados: Array<Alimento> = []
 
 describe('dada una receta...', () => {
     
     beforeEach(() => {
+        condiciones.push(vegetariano)
+        alimentosGustados.push(alimento)
         receta = new Receta
-        usuarioAutor = new Usuario('lolo', 80, 175)
+        alimento = new Alimento('papaya', 'dorada', 'HORTALIZAS_FRUTAS_SEMILLAS', condiciones)
+        usuario = new Usuario('lolo', 80, 175, new Date(), condiciones, alimentosGustados, 'LEVE')
     })
 
     test('puede ser editada por un autor', () => {
-        receta.agregarAutor(usuarioAutor)
-        expect(true).toBe(receta.esEditablePor(usuarioAutor))
-    }
+        receta.agregarAutor(usuario)
+        expect(true).toBe(receta.esEditablePor(usuario))
+    }) 
+    
+    test('puede ser editada por un colaborador', () => {
+        receta.agregarColaborador(usuario)
+        expect(true).toBe(receta.esEditablePor(usuario))
+    })
 })
