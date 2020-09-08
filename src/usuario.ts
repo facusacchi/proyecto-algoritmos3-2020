@@ -8,10 +8,10 @@ export class Usuario {
         public nombreYApellido: string,
         public peso: number,
         public estatura: number,
-        public fechaDeNacimiento: Date,
         public condicionesAlimenticias: CondicionAlimenticia[] = [],
+        public fechaDeNacimiento: Date = new Date(),
         public alimentosPreferidos: Alimento[] = [],
-        public rutina: Rutina) { }
+        public rutina: Rutina = 'NADA') { }
 
     indiceMasaCorporal(): number {
         return this.peso / Math.pow(this.estatura, 2)
