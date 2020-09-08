@@ -21,6 +21,10 @@ export class Usuario {
         this.condicionesAlimenticias.push(condicion)
     }
 
+    agregarAlimentoPreferido(alimento: Alimento) {
+		this.alimentosPreferidos.push(alimento)
+	}
+
     imcEsSaludable(): boolean {
         return this.indiceMasaCorporal() > 18 && this.indiceMasaCorporal() < 30
     }
