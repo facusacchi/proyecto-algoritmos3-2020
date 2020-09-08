@@ -22,7 +22,7 @@ export const vegano = new Vegano()
 
 class Hipertenso implements CondicionAlimenticia {
 	public subsanaCondicion(usuario: Usuario) {
-		return usuario.tieneRutina(Rutina.INTENSIVO)
+		return usuario.tieneRutina('INTENSIVO')
 		// usuario.rutina.equals(Rutina.INTENSIVO)
 	}
 }
@@ -31,7 +31,7 @@ export const hipertenso = new Hipertenso()
 
 class Diabetico implements CondicionAlimenticia {
 	public subsanaCondicion(usuario: Usuario) {
-		return usuario.tieneRutina(Rutina.ACTIVA) || usuario.pesaMenosDe(71)
+		return usuario.tieneRutina('ACTIVA') || usuario.pesaMenosDe(71)
 		// usuario.rutina.equals(Rutina.ACTIVA)
 	}
 }
