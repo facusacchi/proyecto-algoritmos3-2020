@@ -27,6 +27,24 @@ export class Receta {
     
     condicionesInadecuadasReceta() {
       return (this.ingredientes.flatMap( ingrediente => { ingrediente.condicionesInadecuadasIngrediente() } ))
-    }
-    
+    }    
+}
+
+export class RecetaCompuesta extends Receta{
+  public subrecetas: Array<Receta> = []
+
+  agregarSubreceta(subreceta: Receta) {
+    this.subrecetas.push(subreceta)
+  }
+
+  condicionesInadecuadasReceta() {
+    return this.getIngredientes().flatMap(ingrediente => { ingrediente.condicionesInadecuadasIngrediente() })
+  }
+
+  getIngredientes() {
+    var _ingredientes = []
+    _ingredientes.push(this.ingredientes)
+    _ingredientes.push(this.subrecetas.flatMap(receta => { receta.getIngredientes() }))
+    return _ingredientes
+  }
 }
