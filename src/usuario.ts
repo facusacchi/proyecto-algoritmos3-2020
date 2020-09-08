@@ -30,7 +30,7 @@ export class Usuario {
     }
 
     esSaludable(): boolean {
-        return this.imcEsSaludable() && (this.condicionesAlimenticias.length > 0 || this.subsanaCondicionesPreexistentes())
+        return this.imcEsSaludable() && (this.condicionesAlimenticias.length == 0 || this.subsanaCondicionesPreexistentes())
     }
 
     subsanaCondicionesPreexistentes(): boolean {
