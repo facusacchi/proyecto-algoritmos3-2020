@@ -1,5 +1,5 @@
 import { Receta } from './Receta'
-import { Usuario } from '../usuario'
+import { Usuario, Rutina } from '../usuario'
 import { Alimento } from '../alimento'
 import { CondicionAlimenticia, vegetariano } from '../condicionAlimenticia'
 
@@ -16,7 +16,7 @@ describe('dada una receta...', () => {
         alimentosGustados.push(alimentoParaNoVegetarianos)
         receta = new Receta(usuarioVegetariano)
         alimentoParaNoVegetarianos = new Alimento('papaya', 'dorada', 'HORTALIZAS_FRUTAS_SEMILLAS', condiciones)
-        usuarioVegetariano = new Usuario('lolo', 80, 175,  condiciones)
+        usuarioVegetariano = new Usuario('lolo', 80, 175,  condiciones, new Date, alimentosGustados, 'LEVE')
     })
 
     test('puede ser editada por un autor', () => {

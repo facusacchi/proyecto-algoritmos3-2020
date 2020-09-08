@@ -28,6 +28,10 @@ export class Receta {
     condicionesInadecuadasReceta() {
       return (this.ingredientes.flatMap( ingrediente => { ingrediente.condicionesInadecuadasIngrediente() } ))
     }    
+
+    getIngredientes() {
+      return this.ingredientes
+    }
 }
 
 export class RecetaCompuesta extends Receta{
