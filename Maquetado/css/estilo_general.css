@@ -79,6 +79,10 @@ body {
   font-size: 1.2rem;
 }
 
+.button:hover {
+  filter: brightness(75%);
+}
+
 .button-cancelar {
   background-color: var(--boton-cancelar) ;
   color: white;
@@ -88,6 +92,10 @@ body {
   height: 3rem;
   font-size: 1.2rem;
   margin-left: 1.5rem;
+}
+
+.button-cancelar:hover {
+  filter: brightness(75%);
 }
 
 /* HEADER MOBILE */
