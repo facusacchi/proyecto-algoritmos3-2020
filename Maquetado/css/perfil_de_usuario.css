@@ -31,8 +31,6 @@ body {
     margin: 1em;
 }
 
-/* section 1 start */
-
 .main-form__header {
     display: flex;
     justify-content: space-between;
@@ -68,16 +66,11 @@ body {
     min-width: 8em;
 }
 
-/* section 1 end */
-
-/* section 2 start */
 .main-form__regular-inputs {
     display: flex;
     justify-content: space-evenly;
     padding: 2.08em;
 }
-
-/* section 2 end */
 
 .main-form__input {
     border-radius: 0.3em;
@@ -134,10 +127,6 @@ h3 {
     justify-content: space-between;
 }
 
-/* section 3 end */
-
-/* section 4 start */
-
 h4 {
     font-size: 1.6em;
     min-width: 12em;
@@ -161,20 +150,7 @@ h4 {
 }
 
 .main-form__buttom-table {
-    width: 5em;
-    height: 2em;
-    background-color: var(--color-background-button);
-    color: var(--color-secundario-texto);
-    border-radius: 0.5em;
-
-    background-color: var(--color-botonprofe);
-    color: white;
-    border: 0.15em solid #e2711d;
     align-self: center;
-}
-
-.main-form__buttom-table:hover {
-    filter: brightness(75%);
 }
 
 .main-form__table {
@@ -226,10 +202,6 @@ h4 {
     left: 41%;
 }
 
-/* section 4 end */
-
-/* section 5 start */
-
 h5 {
     margin: 0em 0em 0em 3em;
     font-size: 1em;
@@ -260,54 +232,12 @@ h6 {
     filter: brightness(75%);
 }
 
-.main-form__buttom-table--secondary {
-    background-color: var(--color-background-button-secondary);
-}
-
-.main-form__buttom-table--secondary:hover {
-    filter: brightness(75%);
-}
-
 .buttoms-end-form {
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns:  50fr 5fr 1fr 5fr 3fr;
-    grid-template-areas: 
-    ".  aceptar .   cancelar    .";
-    width: 100%;
+    display: flex;
+    width: 95%;
+    justify-content: end;
+    height: 4em;
 }
-
-.aceptar-buttom {
-    grid-area: aceptar;
-    margin: 1rem 0;
-    width: 5em;
-    height: 2em;
-    color: var(--color-secundario-texto);
-    border-radius: 0.5em;
-    background-color: var(--color-botonprofe);
-    border: 0.15em solid #e2711d;
-}
-
-.aceptar-buttom:hover {
-    filter: brightness(75%);
-}
-
-.cancelar-buttom {
-    grid-area: cancelar;
-    margin: 1rem 0;
-    width: 5em;
-    height: 2em;
-    color: var(--color-secundario-texto);
-    border-radius: 0.5em;
-    background-color: var(--boton-cancelar) ;
-    border: 0.15em solid #5f0f40;
-}
-
-.cancelar-buttom:hover {
-    filter: brightness(75%);
-}
-
-/* section 5 end */
 
 .main-form__label-and-input {
     display: flex;
