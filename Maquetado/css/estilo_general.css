@@ -72,21 +72,21 @@ body {
 .button {
   background-color: var(--color-botonprofe);
   color: white;
-  border: 0.15em solid #e2711d;
-  border-radius: 0.5em;
-  width: 6em;
-  height: 2.5em;
-  font-size: 0.6em;
+  border: 0.1rem solid #e2711d;
+  border-radius: 0.6rem;
+  width: 7.2rem;
+  height: 3rem;
+  font-size: 1.2rem;
 }
 
 .button-cancelar {
   background-color: var(--boton-cancelar) ;
   color: white;
-  border: 0.15em solid #5f0f40;
-  border-radius: 0.5em;
-  width: 6em;
-  height: 2.5em;
-  font-size: 0.6em;
+  border: 0.1rem solid #5f0f40;
+  border-radius: 0.6rem;
+  width: 7.2rem;
+  height: 3rem;
+  font-size: 1.2rem;
   margin-left: 1.5rem;
 }
 
