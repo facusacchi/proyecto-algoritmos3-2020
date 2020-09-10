@@ -43,15 +43,7 @@ body {
 }
 
 .button-ingresar {
-    grid-area: ingresar;
-    width: 6em;
-    height: 2em;
-    margin-top: 1em;;
-    border-radius: 0.5em;
-    background-color: var(--color-botonprofe);
-    color: white;
-    border: 0.15em solid #e2711d;
-    border-radius: 0.5em;
+    margin-top: 1em;
 }
 
 .button-ingresar:hover {
