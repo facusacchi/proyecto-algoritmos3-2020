@@ -1,7 +1,7 @@
 import { Receta } from './Receta'
-import { Usuario, Rutina } from '../usuario'
-import { Alimento } from '../alimento'
-import { CondicionAlimenticia, vegetariano } from '../condicionAlimenticia'
+import { Usuario, Rutina } from './usuario'
+import { Alimento } from './alimento'
+import { CondicionAlimenticia, vegetariano } from './condicionAlimenticia'
 
 let receta: Receta
 let usuarioVegetariano: Usuario
@@ -20,7 +20,7 @@ describe('dada una receta...', () => {
   })
 
   test('puede ser editada por un autor', () => {
-    receta.agregarAutor(usuarioVegetariano)
+    receta.setearAutor(usuarioVegetariano)
     expect(true).toBe(receta.esEditablePor(usuarioVegetariano))
   }) 
     

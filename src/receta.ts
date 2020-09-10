@@ -1,6 +1,6 @@
-import { CondicionAlimenticia } from '../condicionAlimenticia'
-import { Ingrediente } from '../ingrediente'
-import { Usuario } from '../usuario'
+import { CondicionAlimenticia } from './condicionAlimenticia'
+import { Ingrediente } from './ingrediente'
+import { Usuario } from './usuario'
 
 export class Receta {
 
