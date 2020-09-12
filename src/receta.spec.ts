@@ -8,19 +8,17 @@ let receta: Receta
 let usuarioVegetariano: Usuario
 let alimentoParaNoVegetarianos: Alimento
 let ingredienteParaNoVegetarianos: Ingrediente
-const condiciones: CondicionAlimenticia[] = []
 const alimentosGustados: Alimento[] = []
 
 describe('dada una receta...', () => {
     
   beforeEach(() => {
-    /* condiciones.push(vegetariano) */ // -> esto me da problemas aqui por usar el singleton
     alimentosGustados.push(alimentoParaNoVegetarianos)
     receta = new Receta(usuarioVegetariano)
     ingredienteParaNoVegetarianos = new Ingrediente(alimentoParaNoVegetarianos,'125')
     receta.agregarIngrediente(ingredienteParaNoVegetarianos)
-    alimentoParaNoVegetarianos = new Alimento('papaya', 'dorada', 'HORTALIZAS_FRUTAS_SEMILLAS', condiciones)
-    usuarioVegetariano = new Usuario('lolo', 80, 175,  condiciones, new Date, alimentosGustados, 'LEVE')
+    alimentoParaNoVegetarianos = new Alimento('papaya', 'dorada', 'HORTALIZAS_FRUTAS_SEMILLAS', [vegetariano])
+    usuarioVegetariano = new Usuario('lolo', 80, 175,  [vegetariano], new Date, alimentosGustados, 'LEVE')
   })
 
   test('puede ser editada por un autor', () => {
@@ -38,8 +36,7 @@ describe('dada una receta...', () => {
   })
 
   test('si le pregunto por sus condiciones inadecuadas, me devuelve los valores que coincidan con dichas condiciones', () => {
-    condiciones.push(vegetariano)
-    expect(receta.condicionesInadecuadasReceta()).toBe([vegetariano])
+    expect(receta.condicionesInadecuadasReceta()).toStrictEqual([vegetariano])
   })
 
 })
