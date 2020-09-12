@@ -5,8 +5,8 @@ import { Usuario } from './usuario'
 export class Receta {
 
   constructor(public autor: Usuario) {}
-    public colaboradores: Array<Usuario> = []
-    public ingredientes: Array<Ingrediente> = []
+    public colaboradores: Usuario[] = []
+    public ingredientes: Ingrediente[] = []
 
     esEditablePor(usuario: Usuario): boolean {
       return usuario === this.autor || this.colaboradores.includes(usuario)
