@@ -150,7 +150,7 @@ body,
 
 .nav_button_icono:hover {
     filter: brightness(75%);
-  }
+}
 
 .nav_checkbox_container {
     display: flex;
@@ -188,4 +188,8 @@ body,
 .card_grid_agregar_icono>img {
     width: 3.5rem;
     height: 3.5rem;
+}
+
+.card_grid_agregar_icono:hover {
+    filter: brightness(75%);
 }
