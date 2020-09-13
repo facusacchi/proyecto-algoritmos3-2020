@@ -1,4 +1,4 @@
-import { Receta, RecetaCompuesta } from './Receta'
+import { Receta, RecetaCompuesta } from './receta'
 import { Usuario } from './usuario'
 import { Alimento } from './alimento'
 import { vegetariano, vegano } from './condicionAlimenticia'
