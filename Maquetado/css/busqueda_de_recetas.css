@@ -76,7 +76,7 @@ body,
     .card_grid_agregar {
         width: var(--ancho-mayor);
     }
-    .nav_button {
+    .button {
         display: none;
     }
     body {
@@ -121,6 +121,7 @@ body,
 
 .nav_busqueda {
     display: flex;
+    align-items: center;
 }
 
 .nav_barra {
@@ -131,13 +132,10 @@ body,
     border-radius: 0.3em;
 }
 
-.nav_button {
-    background-color: var(--color-botonprofe);
-    color: white;
-    border: 0.15em solid #e2711d;
-    border-radius: 0.5em;
+.button {
     width: 10em;
     height: 2.5em;
+    font-size: 1.3rem;
     margin-left: 1rem;
 }
 
@@ -149,6 +147,10 @@ body,
     width: 6.5rem;
     height: 2.5em;
 }
+
+.nav_button_icono:hover {
+    filter: brightness(75%);
+  }
 
 .nav_checkbox_container {
     display: flex;
