@@ -1,17 +1,17 @@
-import { Alimento } from "./alimento"
+import { Alimento } from './alimento'
 
 describe('cuando un alimento', () => {
   let alimentoHortaliza: Alimento
 
   beforeEach(() => {
-    alimentoHortaliza = new Alimento('HORTALIZAS_FRUTAS_SEMILLAS')
+    alimentoHortaliza = new Alimento('', '', 'HORTALIZAS_FRUTAS_SEMILLAS')
   })
 
   test('pertenece al grupo por el que se le pregunta', () => {
-    expect(true).toBe(alimentoHortaliza.esDeGrupo('HORTALIZAS_FRUTAS_SEMILLAS'))
+    expect(alimentoHortaliza.esDeGrupo('HORTALIZAS_FRUTAS_SEMILLAS')).toBe(true)
   })
 
   test('no pertenece al grupo por el que se le pregunta', () => {
-    expect(false).toBe(alimentoHortaliza.esDeGrupo('LACTEOS_DERIVADOS'))
+    expect(alimentoHortaliza.esDeGrupo('LACTEOS_DERIVADOS')).toBe(false)
   })
 })
