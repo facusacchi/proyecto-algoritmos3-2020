@@ -19,7 +19,7 @@ body {
     border: var(--borde-default);
     border-radius: 10px;
     width: auto;
-    height: 40%;
+    max-height: 40%;
     align-self: center;
     padding: 2rem;
     font-size: 1.6em;
@@ -43,15 +43,7 @@ body {
 }
 
 .button-ingresar {
-    grid-area: ingresar;
-    width: 6em;
-    height: 2em;
-    margin-top: 1em;;
-    border-radius: 0.5em;
-    background-color: var(--color-botonprofe);
-    color: white;
-    border: 0.15em solid #e2711d;
-    border-radius: 0.5em;
+    margin-top: 1em;
 }
 
 .button-ingresar:hover {
@@ -59,7 +51,7 @@ body {
 }
 
 .main-form__label {
-    font-family: 'Baloo Tamma 2', cursive;
+    font-family: var(--tipografia);
 }
 
 .main-form__input {
@@ -69,14 +61,7 @@ body {
 }
 
 .main-footer { 
-    display: flex;
-    justify-content: center;
     position: fixed;
     bottom: 0;
-    width: -moz-available;
-    background-color:#868584;
-    color: white;
-    margin: 1.6rem 0 0 0;
-    padding: 0.5rem;
-    font-size: 1rem;
+    width: 100vw;
 }

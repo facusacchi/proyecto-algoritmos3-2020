@@ -1,194 +1,233 @@
-
 .img-fajita {
-    width: 10em;
-    height: auto;
-    border-radius: 0.5em;
-
+  width: 10em;
+  height: auto;
+  border-radius: 0.5em;
 }
 
 .contenedor {
-    display: flex;
-    justify-content: center;
-    font-size: 2rem ;
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
 }
 
 .contenidos {
-    margin: 2em 0;
-    /* border : 2px solid blue; */
-    width: 45em ;
+  margin: 2em 0;
+  /* border : 2px solid blue; */
+  width: 45em;
 }
 
 .titulo-contenedor {
-    background-color: var(--color-terciario);
-    display: flex;
-    justify-content: space-between;
-    border-radius: 0.5em;
+  background-color: var(--color-terciario);
+  display: flex;
+  justify-content: space-between;
+  border-radius: 0.5em;
 }
 
 .descripcion {
-    text-align: right;
-    margin-right: 1em ;
+  text-align: right;
+  margin-right: 1em;
 }
 
 .titulo {
-    font-size: 1.5em;
-    font-weight: 600;
+  font-size: 1.5em;
+  font-weight: 600;
 }
 
 .autor {
-    font-size: 0.8em;
-    margin-bottom: 2em;
+  font-size: 0.8em;
+  margin-bottom: 2em;
 }
 
 .inadecuado {
-    font-size: 0.8em ;
+  font-size: 0.8em;
 }
 
 .editar-contenedor {
-    background-color: white;
-    padding-bottom: 1em;
+  background-color: white;
+  padding-bottom: 1em;
 }
 
 .inputs-contenedor {
-    display: flex;
-    justify-content: space-evenly;
-    padding: 1em;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1em;
 }
 
 .calorias {
-    font-size: 0.8em;
-    font-weight: 800;    
+  font-size: 0.8em;
+  font-weight: 800;
 }
 
 .dificultad {
-    font-size: 0.8em;
-    font-weight: 800;
+  font-size: 0.8em;
+  font-weight: 800;
 }
 
 .input {
-    width: 10em;
-    height: 2em;
-    padding: 0em;
-    border: 0.15em solid var(--color-terciario) ;
-    box-sizing: border-box;
-    font-size: 1em;
+  width: 10em;
+  height: 2em;
+  padding: 0em;
+  border: 0.15em solid var(--color-terciario);
+  box-sizing: border-box;
+  font-size: 1em;
 }
 
 .tablas-contenedor {
-    display: flex;
-    justify-content: space-evenly;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .separacion {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1em;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
 }
 
-.tabla{
-    font-size: 0.8em;
+.tabla {
+  font-size: 0.8em;
 }
 
 .img-eliminar {
-    width: 1.5em;
-    height: 1.5em;
+  width: 1.5em;
+  height: 1.5em;
 }
 
 .ancho-columna {
-    width: 8em ;
+  width: 8em;
 }
 
 .tabla-pasos {
-    width: 25em;
+  width: 25em;
 }
 
 .espacio {
-    display: flex;
-    justify-content: space-between;
-    margin: 1.5em 3.4em;
+  display: flex;
+  justify-content: space-between;
+  margin: 1.5em 3.4em;
 }
 
 .tabla-contenedor {
-    height: 4em; 
-    margin: 1.5em 3.4em;
-    border: 0.1em solid var(--color-secundario);
-    overflow-y: scroll; 
+  height: 4em;
+  margin: 1.5em 3.4em;
+  border: 0.1em solid var(--color-secundario);
+  overflow-y: scroll;
 }
 
 .tabla-colaboradores {
-    width: 100%;
-    text-align: center;
-    border-collapse: collapse;
-    font-size: 0.8em;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+  font-size: 0.8em;
 }
 
 .tabla-colaboradores th {
-    background-color: var(--color-secundario);
-    color: white;
+  background-color: var(--color-secundario);
+  color: white;
 }
 
 .tabla-colaboradores tr td {
-    border-top: 0.1em solid var(--color-secundario);
+  border-top: 0.1em solid var(--color-secundario);
 }
 
 .aceptar-cancelar {
-    margin: 1.5em 3.4em;
-    display: flex;
-    justify-content: flex-end;
-
+  margin: 1.5em 3.4em;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .horizontal {
-display: flex;
+  display: flex;
 }
 
 .centrado {
-    margin: auto;
+  margin: auto;
+}
+
+.button-mobile {
+  display: none;
 }
 
 /* media queries para table*/
 
-@media all and (min-width: 769px) and (max-width: 940px){
-    .contenidos {
-        width: 36em;
-    }    
+@media all and (min-width: 769px) and (max-width: 940px) {
+  .contenidos {
+    width: 36em;
+  }
 }
 
-@media all and (min-width: 401px) and (max-width: 768px){
-    .contenidos {
-        width: 37em;
-        font-size: 0.5em;
-    }
+@media all and (min-width: 401px) and (max-width: 768px) {
+  .contenidos {
+    width: 37em;
+    font-size: 0.5em;
+  }
 }
 
 @media all and (max-width: 400px) {
-    .inadecuado b {
-        display: none;
-    }
+  .inadecuado b {
+    display: none;
+  }
 
-    .contenidos {
-        width: 20em;
-        font-size: 0.8em;
-    }
+  .contenidos {
+    width: 20em;
+    font-size: 0.8em;
+  }
 
-    .inputs-contenedor, .tablas-contenedor {
-        flex-direction: column;
-    }
+  .inputs-contenedor,
+  .tablas-contenedor {
+    flex-direction: column;
+  }
 
-    .tabla {
-        margin-bottom: 1em;
-    }
+  .tabla {
+    margin-bottom: 1.5em;
+    width: 100%;
+  }
 
-    .input {
-        margin-bottom: 1em; 
-    }
+  .input {
+    margin-bottom: 1em;
+  }
 
-    
+  .editar-contenedor {
+    padding: 0.7em;
+  }
 
+  .ancho-columna {
+    width: auto;
+  }
 
+  .espacio {
+    margin: 0;
+  }
+
+  .tabla-contenedor {
+    margin: 1.5em 0;
+  }
+
+  .calorias,
+  .dificultad {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .button-mobile {
+    display: block;
+    background-color: var(--color-botonprofe);
+    border: 0.15em solid #e2711d;
+    border-radius: 0.5em;
+    width: 4em;
+    height: 2.5em;
+    font-size: 0.6em;
+  }
+
+  .button-escritorio {
+    display: none;
+  }
+
+  .signo-mas {
+      height:2em;
+      filter: brightness(2);
+  }
+
+  .aceptar-cancelar {
+      margin: 0;
+  }
 }
-
-
-
-
-

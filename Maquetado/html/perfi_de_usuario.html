@@ -2,9 +2,11 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="..\css\estilo_general.css">
         <link rel="stylesheet" href="..\css\perfil_de_usuario.css">
         <link rel="stylesheet" href="..\images\icons-style.css">
+        <link rel="stylesheet" href="../css/estilo_card.css">
         <title>Perfil de usuario</title>
     </head>
     <body>
@@ -42,7 +44,7 @@
                         <span class="form__imc">IMC:35</span>
                     </div>
                     <div class="main-form__state">
-                        <img src="..\imagenes\heart.svg" alt="image" width="40px" height="40px">        
+                        <img src="..\imagenes\heart.svg" class="image-heart" alt="image" width="40px" height="40px">        
                         <span class="main-form__state-text">Estado saludable</span>
                     </div>
                 </section>
@@ -57,7 +59,7 @@
                                     <input class="main-form__input" name="estatura" id="estatura" type="number" min="1.1" max="2.5" step="0.1" placeholder="introducir estatura">
                                 </div>
                             </div>
-                            <div class="main-form__label-and-input--column">
+                            <div class="main-form__label-and-input--column input-bottom">
                                 <div class="main-form__label-and-input">
                                     <label for="nacimiento">Nacimiento</label>
                                     <input class="main-form__input" name="nacimiento" id="nacimiento" type="date" placeholder="fecha de nacimiento">
@@ -108,7 +110,7 @@
                         <div class="main-form__table-and-title">
                             <div class="table__title-and-button">
                                 <h4>Alimentos preferidos</h4>
-                                <button class="main-form__buttom-table">Agregar</button> <br>
+                                <button class="main-form__buttom-table button">Agregar</button> <br>
                             </div>
                             <div class="main-form__table">
                                 <div class="header-table">
@@ -127,7 +129,7 @@
                         <div class="main-form__table-and-title">
                             <div class="table__title-and-button">
                                 <h4>Alimentos no preferidos</h4>
-                                <button class="main-form__buttom-table">Agregar</button> <br>
+                                <button class="main-form__buttom-table button">Agregar</button> <br>
                             </div>
                             <div class="main-form__table">
                                 <div class="header-table">
@@ -147,35 +149,61 @@
                 <section class="bottom-section">
                     <h5>Mis recetas</h5>
                     <div class="main-form__recetas">
-                        <div class="main-form__item-receta">
-                            <h6 class="receta-title">Asado al asador</h6>
-                            <img class="receta-image" src="..\imagenes\asado.jpg" alt="image_food">
-                            <span class="receta-calorias">Calorias: 300</span>
-                            <span class="receta-dificultad">Dificultad: Alta</span>
-                            <input class="receta-editar image-buttom__card" type="image" src="..\imagenes\edit.png">
-                            <input class="receta-borrar image-buttom__card" type="image" src="..\imagenes\delete.png">
+                        <div class="card_grid_item edicion_eliminar">
+                            <div class="info_receta_container">
+                                <img src="../imagenes/asado_al_asador.jpg" alt="Asado al asador">
+                                <div class="info_receta_descripcion">
+                                    <div class="info_receta_titulo">Asado al asador</div>
+                                    <div class="info_receta_descripcion_extra">
+                                        <div class="info_receta_descripcion_texto">Calorías: 300<br>Dificultad: Alta
+                                        </div>
+                                        <div class="info_receta_descripcion_iconos">
+                                            <img src="../imagenes/edit-regular.svg" alt="Editar">
+                                            <img src="../imagenes/trash-alt-solid.svg" alt="Eliminar">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="main-form__item-receta">
-                            <h6 class="receta-title">Guiso de lentejas</h6>
-                            <img class="receta-image" src="..\imagenes\guiso.jpg" alt="image_food" width="40" height="40">
-                            <span class="receta-calorias">Calorias: 520</span> <br>
-                            <span class="receta-dificultad">Dificultad: Media</span> <br>
-                            <input class="receta-editar image-buttom__card" type="image" src="..\imagenes\edit.png">
-                            <input class="receta-borrar image-buttom__card" type="image" src="..\imagenes\delete.png">
+
+                        <div class="card_grid_item edicion_eliminar">
+                            <div class="info_receta_container">
+                                <img src="../imagenes/asado_al_asador.jpg" alt="Asado al asador">
+                                <div class="info_receta_descripcion">
+                                    <div class="info_receta_titulo">Guiso de lentejas</div>
+                                    <div class="info_receta_descripcion_extra">
+                                        <div class="info_receta_descripcion_texto">
+                                            Calorías: 520<br>Dificultad: Media
+                                        </div>
+                                        <div class="info_receta_descripcion_iconos">
+                                            <img src="../imagenes/edit-regular.svg" alt="Editar">
+                                            <img src="../imagenes/trash-alt-solid.svg" alt="Eliminar">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="main-form__item-receta">
-                            <h6 class="receta-title">Focaccia</h6>
-                            <img class="receta-image" src="..\imagenes\focaccia.jpg" alt="image_food" width="40" height="40">
-                            <span class="receta-calorias">Calorias: 200</span> <br>
-                            <span class="receta-dificultad">Dificultad: Media</span> <br>
-                            <input class="receta-editar image-buttom__card" type="image" src="..\imagenes\edit.png">
-                            <input class="receta-borrar image-buttom__card" type="image" src="..\imagenes\delete.png">
+                        <div class="card_grid_item edicion_eliminar">
+                            <div class="info_receta_container">
+                                <img src="../imagenes/focaccia2.jpg" alt="Focaccia">
+                                <div class="info_receta_descripcion">
+                                    <div class="info_receta_titulo">Focaccia</div>
+                                    <div class="info_receta_descripcion_extra">
+                                        <div class="info_receta_descripcion_texto">Calorías: 200<br>Dificultad: Media
+                                        </div>
+                                        <div class="info_receta_descripcion_iconos">
+                                            <img src="../imagenes/edit-regular.svg" alt="Editar">
+                                            <img src="../imagenes/trash-alt-solid.svg" alt="Eliminar">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
                 <div class="buttoms-end-form">
-                    <button class="aceptar-buttom">Aceptar</button>
-                    <button class="cancelar-buttom main-form__buttom-table--secondary">Cancelar</button>
+                    <button class="button">Aceptar</button>
+                    <button class="button-cancelar">Cancelar</button>
                 </div>
             </form>
         </div>
