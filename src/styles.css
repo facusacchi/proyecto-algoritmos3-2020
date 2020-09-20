@@ -1,1 +1,281 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+:root {
+  --color-primario: #596475;
+  --color-secundario: #9d8189;
+  --color-terciario: #e3bac6;
+  --color-cuaternario: #fde8e9;
+  --color-botones: #1f2232;
+  --color-botonprofe: #f79256;
+  --tipografia: "Lato", sans-serif;
+  --boton-cancelar: #aa4465;
+  --ancho-default: 66vw;
+  --ancho-mayor: 90vw;
+}
+
+html {
+  font-family: var(--tipografia);
+  font-size: 10px;
+  background-color: var(--color-cuaternario);
+}
+
+body {
+  margin: 0;
+}
+
+/* BARRA DE NAVEGACION */
+
+.navegacion-contenedor {
+  font-size: 2rem;
+  color: var(--color-cuaternario);
+  background-color: var(--color-primario);
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.navegacion {
+  width: 45em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.links {
+  width: 10em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tamaño-icono-exit {
+  width: 1.8em;
+  height: auto;
+}
+
+.logo {
+    height: 2em;
+}
+
+.alinear {
+    display: flex;
+    align-items: center;
+}
+
+.nombre-pagina {
+  font-family: 'Lobster', cursive;
+  font-size: 1.5em;
+}
+
+/* BOTONES CANCELAR Y AGREGAR */
+
+.button {
+  background-color: var(--color-botonprofe);
+  color: white;
+  border: 0.1rem solid #e2711d;
+  border-radius: 0.6rem;
+  width: 7.2rem;
+  height: 3rem;
+  font-size: 1.2rem;
+}
+
+.button:hover {
+  filter: brightness(75%);
+}
+
+.button-cancelar {
+  background-color: var(--boton-cancelar) ;
+  color: white;
+  border: 0.1rem solid #5f0f40;
+  border-radius: 0.6rem;
+  width: 7.2rem;
+  height: 3rem;
+  font-size: 1.2rem;
+  margin-left: 1.5rem;
+}
+
+.button-cancelar:hover {
+  filter: brightness(75%);
+}
+
+/* HEADER MOBILE */
+
+.header-container {
+  color: white;
+  background-color: var(--color-primario);
+  padding: 0.3rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header_logo_container {
+  display: flex;
+  align-items: center;
+}
+
+.header_logo_imagen {
+  height: 3.2rem;
+  width: 3.2rem;
+}
+
+.header_logo_titulo {
+  font-family: 'Lobster', cursive;
+}
+
+.header_links>img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+@media (min-width: 769px) {
+  .header {
+      width: var(--ancho-default);
+  }
+  .header_links {
+      font-size: 2rem;
+      width: 9em;
+      display: flex;
+      justify-content: space-between;
+      margin-right: 1rem;
+  }
+  .header_icono_home,
+  .header_icono_perfil,
+  .header_links_fila_menu,
+  .salir {
+      display: none;
+  }
+  .header_logo_titulo {
+      font-size: 2.7rem;
+      margin: 1rem;
+  }
+}
+
+@media all and (max-width: 768px) and (min-width: 401px) {
+  .header {
+      width: var(--ancho-mayor);
+  }
+  .header_logo_titulo {
+      font-size: 2.1rem;
+      margin: 1rem;
+  }
+  .header_links {
+      font-size: 2rem;
+      width: 9em;
+      display: flex;
+      justify-content: space-between;
+      margin-right: 1rem;
+  }
+  .header_icono_home,
+  .header_icono_perfil,
+  .header_links_fila_menu,
+  .salir {
+      display: none;
+  }
+}
+
+@media all and (max-width: 400px) {
+  .header {
+      width: var(--ancho-mayor);
+  }  
+  .header_logo_titulo {
+      font-size: 2.2rem;
+      margin: 1rem 0;
+  }
+  .header_logo_imagen,
+  .header_icono_exit1 {
+      display: none;
+  }
+  .header_links {
+      font-size: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: absolute;
+      right: 0;
+      top: 13px;
+      z-index: 1;
+      background-color: var(--color-primario);
+      border-radius: 0 0 0.5rem 0.5rem;
+  }
+  .header_links_fila>img,
+  .header_links_fila_menu>img {
+      width: 2.5rem;
+      height: 2.5rem;
+  }
+  .header_links_fila,
+  .header_links_fila_menu {
+      width: 10rem;
+      display: flex;
+      justify-content: space-between;
+  }
+  .header_links_fila {
+      margin: 1.2rem 2rem;
+  }
+  .header_links_fila_menu {
+      justify-content: flex-end;
+      margin-bottom: 1.5rem;
+  }
+  .header_links_texto {
+      padding-top: 0.2rem;
+  }
+}
+
+/* FOOTER */
+
+@media (min-width: 769px) {
+  .footer {
+      justify-content: flex-start;
+      width: var(--ancho-default);
+  }
+  .footer_texto:after {
+      content: attr(data-description);
+  }
+}
+
+@media all and (max-width: 768px) and (min-width: 401px) {
+  .footer {
+      justify-content: center;
+  }
+  .footer_texto:after {
+      content: attr(data-description);
+  }
+}
+
+@media all and (max-width: 400px) {
+  .footer {
+      justify-content: center;
+  }
+}
+
+.main-footer {
+  background-color: #868584;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.footer {
+  padding: 1rem;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.footer>img {
+  width: 2.2rem;
+  height: 2.2rem;
+  margin: 0.1rem;
+}
+
+.footer_texto {
+  margin-left: 1rem;
+}

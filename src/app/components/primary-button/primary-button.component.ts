@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-primary-button',
@@ -7,15 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrimaryButtonComponent implements OnInit {
 
+  @Input() nombre: String
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  nombre: string = 'Ingresar'
-  status: string = 'No logueado'
-
-  loguearse() {
-    this.status = 'Te has logueado correctamente!'
-  }
 }

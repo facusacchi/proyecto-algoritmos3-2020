@@ -3,11 +3,15 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { PrimaryButtonComponent } from './components/primary-button/primary-button.component';
+import { HeaderComponent } from './components/header/header.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PrimaryButtonComponent
+    PrimaryButtonComponent,
+    HeaderComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
