@@ -8,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class LoginFormComponent implements OnInit {
 
   constructor() { }
+  
 
   ngOnInit(): void {
   }
-
+  userValue: String = ''
+  password: string = ''
 }

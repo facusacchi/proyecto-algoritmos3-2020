@@ -3,12 +3,13 @@
         <h1 class="main-form__titulo">Food Overflow</h1>
         <div class="input-usuario">
             <label class="main-form__label" for="usuario">Usuario</label><br>
-            <input type="text" id="usuario" placeholder="Nombre de usuario" class="main-form__input">
+            <input (value)="userValue" type="text" id="usuario" placeholder="Nombre de usuario" class="main-form__input">
         </div>
         <div class="input-password">
             <label class="main-form__label" for="Contrasenia">Contraseña</label><br>
-            <input type="password" id="Contrasenia" placeholder="Contraseña" class="main-form__input">
+            <input (value)="password" type="password" id="Contrasenia" placeholder="Contraseña" class="main-form__input">
         </div>
         <app-primary-button [nombre]="'Ingresar'"></app-primary-button>
     </form>
 </div>
+
