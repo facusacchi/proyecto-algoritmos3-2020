@@ -1,4 +1,4 @@
-:root {
+:host {
     --color-secundario-texto: white;
     --color-background-form: var(--color-secundario-texto);
 }

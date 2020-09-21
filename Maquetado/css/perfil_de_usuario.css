@@ -260,11 +260,11 @@ h6 {
 }
 
 .image-heart {
-
+    margin: 0;
 }
 
 .input-bottom {
-
+    margin-top: 0;
 }
 
 @media (max-width:768px) {
