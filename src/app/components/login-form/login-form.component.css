@@ -32,6 +32,7 @@
     grid-area: titulo;
     align-self: center;
     font-size: 4rem;
+    height: 15%;
 }
 
 .button-ingresar {

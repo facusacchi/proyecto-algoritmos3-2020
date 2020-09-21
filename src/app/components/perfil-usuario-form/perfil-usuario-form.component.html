@@ -1,0 +1,171 @@
+<div class="main-contenido">
+    <form class="main-form">
+        <section class="main-form__header">
+            <div>
+                <h2 class="main-form__header-h2">Juan Carlos de la Hoya</h2>
+                <span class="form__imc">IMC:35</span>
+            </div>
+            <div class="main-form__state">
+                <img src="..\imagenes\heart.svg" class="image-heart" alt="image" width="40px" height="40px">        
+                <span class="main-form__state-text">Estado saludable</span>
+            </div>
+        </section>
+        <section class="main-form__regular-inputs">
+                    <div class="main-form__label-and-input--column">
+                        <div class="main-form__label-and-input">
+                            <label for="peso">Peso (kgs.)</label>
+                            <input class=" main-form__input" name="peso" id="peso" type="number" min="20" max="300" placeholder="introducir peso">
+                        </div>
+                        <div class="main-form__label-and-input">
+                            <label for="estatura">Estatura</label>
+                            <input class="main-form__input" name="estatura" id="estatura" type="number" min="1.1" max="2.5" step="0.1" placeholder="introducir estatura">
+                        </div>
+                    </div>
+                    <div class="main-form__label-and-input--column input-bottom">
+                        <div class="main-form__label-and-input">
+                            <label for="nacimiento">Nacimiento</label>
+                            <input class="main-form__input" name="nacimiento" id="nacimiento" type="date" placeholder="fecha de nacimiento">
+                        </div>
+                        <div class="main-form__label-and-input">
+                            <label for="rutina">Rutina</label>
+                            <select class="main-form__input" name="rutina" id="rutina">
+                                <option value="intensivo">Intensivo</option>
+                                <option value="equilibrado">Equilibrado</option>
+                                <option value="sedentario">Sedentario</option>
+                            </select>
+                        </div>
+                    </div>
+        </section>
+        <section class="main-form__condiciones">
+            <h3>Condiciones</h3>
+            <div class="main-form__checkboxes">
+               
+                <div class="checkboxes-start">
+                    <div class="main-form__label-and-chkbx">
+                        <input class="main-form__input main-form__input--checkbox" name="diabetico" id="diabetico" type="checkbox">
+                        <label for="diabetico">Diabetico</label>
+                    </div>
+                    <div class="main-form__label-and-chkbx">
+                        <input class="main-form__input main-form__input--checkbox" name="hipertenso" id="hipertenso" type="checkbox">
+                        <label for="hipertenso">Hipertenso</label>
+                    </div>
+                </div>
+
+                <div class="checkboxes-middle">
+                    <div class="main-form__label-and-chkbx">
+                        <input class="main-form__input main-form__input--checkbox"  name="celiaco" id="celiaco" type="checkbox">
+                        <label for="celiaco">Celiaco</label>
+                    </div>
+                    <div class="main-form__label-and-chkbx">
+                        <input class="main-form__input main-form__input--checkbox" name="vegetariano" id="vegetariano" type="checkbox">
+                        <label for="vegetariano">Vegetariano</label>
+                    </div>
+                </div>
+                <div class="main-form__label-and-chkbx">
+                    <input class="main-form__input main-form__input--checkbox" name="vegano" id="vegano" type="checkbox">
+                    <label for="vegano">Vegano</label>
+                </div>
+
+            </div>
+        </section>
+        <section class="main-form__alimentos">
+                <div class="main-form__table-and-title">
+                    <div class="table__title-and-button">
+                        <h4>Alimentos preferidos</h4>
+                        <button class="main-form__buttom-table button">Agregar</button> <br>
+                    </div>
+                    <div class="main-form__table">
+                        <div class="header-table">
+                            <span>Alimento</span>
+                        </div>
+                        <div class="item-1-table item-table">
+                            <span class="item-table__span">Lentejas</span>
+                            <input class="image-buttom__table" type="image" src="..\imagenes\eliminar.png">
+                        </div>
+                        <div class="item-2-table item-table">
+                            <span class="item-table__span">Cebollas</span>
+                            <input class="image-buttom__table" type="image" src="..\imagenes\eliminar.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="main-form__table-and-title">
+                    <div class="table__title-and-button">
+                        <h4>Alimentos no preferidos</h4>
+                        <button class="main-form__buttom-table button">Agregar</button> <br>
+                    </div>
+                    <div class="main-form__table">
+                        <div class="header-table">
+                            <span>Alimento</span>
+                        </div>
+                        <div class="item-1-table item-table">
+                            <span class="item-table__span">Coliflor</span>
+                            <input class="image-buttom__table" type="image" src="..\imagenes\eliminar.png">
+                        </div>
+                        <div class="item-2-table item-table">
+                            <span class="item-table__span">Chauchas</span>
+                            <input class="image-buttom__table" type="image" src="..\imagenes\eliminar.png">
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <section class="bottom-section">
+            <h5>Mis recetas</h5>
+            <div class="main-form__recetas">
+                <div class="card_grid_item edicion_eliminar">
+                    <div class="info_receta_container">
+                        <img src="../imagenes/asado_al_asador.jpg" alt="Asado al asador">
+                        <div class="info_receta_descripcion">
+                            <div class="info_receta_titulo">Asado al asador</div>
+                            <div class="info_receta_descripcion_extra">
+                                <div class="info_receta_descripcion_texto">Calorías: 300<br>Dificultad: Alta
+                                </div>
+                                <div class="info_receta_descripcion_iconos">
+                                    <img src="../imagenes/edit-regular.svg" alt="Editar">
+                                    <img src="../imagenes/trash-alt-solid.svg" alt="Eliminar">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card_grid_item edicion_eliminar">
+                    <div class="info_receta_container">
+                        <img src="../imagenes/asado_al_asador.jpg" alt="Asado al asador">
+                        <div class="info_receta_descripcion">
+                            <div class="info_receta_titulo">Guiso de lentejas</div>
+                            <div class="info_receta_descripcion_extra">
+                                <div class="info_receta_descripcion_texto">
+                                    Calorías: 520<br>Dificultad: Media
+                                </div>
+                                <div class="info_receta_descripcion_iconos">
+                                    <img src="../imagenes/edit-regular.svg" alt="Editar">
+                                    <img src="../imagenes/trash-alt-solid.svg" alt="Eliminar">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card_grid_item edicion_eliminar">
+                    <div class="info_receta_container">
+                        <img src="../imagenes/focaccia2.jpg" alt="Focaccia">
+                        <div class="info_receta_descripcion">
+                            <div class="info_receta_titulo">Focaccia</div>
+                            <div class="info_receta_descripcion_extra">
+                                <div class="info_receta_descripcion_texto">Calorías: 200<br>Dificultad: Media
+                                </div>
+                                <div class="info_receta_descripcion_iconos">
+                                    <img src="../imagenes/edit-regular.svg" alt="Editar">
+                                    <img src="../imagenes/trash-alt-solid.svg" alt="Eliminar">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="buttoms-end-form">
+            <button class="button">Aceptar</button>
+            <button class="button-cancelar">Cancelar</button>
+        </div>
+    </form>
+</div>

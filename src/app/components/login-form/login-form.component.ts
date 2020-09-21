@@ -9,9 +9,9 @@ export class LoginFormComponent implements OnInit {
 
   constructor() { }
   
-
   ngOnInit(): void {
   }
+
   userValue: String = ''
   password: string = ''
 }

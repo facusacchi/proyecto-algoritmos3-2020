@@ -2,7 +2,11 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "src",
+    /* "paths": {
+      "@imagenes/*": ["../Maquetado/imagenes/*"],
+      "@css/*": ["../Maquetado/css/*"]
+    }, */
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,

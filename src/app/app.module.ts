@@ -6,6 +6,7 @@ import { PrimaryButtonComponent } from './components/primary-button/primary-butt
 import { HeaderComponent } from './components/header/header.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { PerfilUsuarioFormComponent } from './components/perfil-usuario-form/perfil-usuario-form.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { FooterComponent } from './components/footer/footer.component';
     PrimaryButtonComponent,
     HeaderComponent,
     LoginFormComponent,
-    FooterComponent
+    FooterComponent,
+    PerfilUsuarioFormComponent
   ],
   imports: [
     BrowserModule,
