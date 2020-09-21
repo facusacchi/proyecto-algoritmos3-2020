@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-secondary-button',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./secondary-button.component.css']
 })
 export class SecondaryButtonComponent implements OnInit {
+
+  @Input() nombreSecondary: String
 
   constructor() { }
 
