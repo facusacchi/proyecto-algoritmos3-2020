@@ -12,8 +12,7 @@ export class PerfilUsuarioFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  usuario: Usuario = new Usuario("Pepe Palala", 95, 175, [], null, null)
+  usuario: Usuario = new Usuario("Pepe Palala", 95, 175, [], new Date(1991, 1, 28), [], null)
   status: String = "Estado Saludable" /* falta validar, si es saludable o no, cambiaria el string del status */
 
-  
 }
