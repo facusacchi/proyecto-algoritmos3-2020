@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Usuario } from '../../../../Dominio/src/usuario';
 @Component({
   selector: 'app-perfil-usuario-form',
   templateUrl: './perfil-usuario-form.component.html',
@@ -12,4 +12,8 @@ export class PerfilUsuarioFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  usuario: Usuario = new Usuario("Pepe Palala", 95, 175, [], null, null)
+  status: String = "Estado Saludable" /* falta validar, si es saludable o no, cambiaria el string del status */
+
+  
 }
