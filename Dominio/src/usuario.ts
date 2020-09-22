@@ -1,5 +1,5 @@
 import { CondicionAlimenticia } from "./condicionAlimenticia"
-import moment = require('moment');
+import * as moment from 'moment';
 import { Alimento } from "./alimento";
 
 export class Usuario {
