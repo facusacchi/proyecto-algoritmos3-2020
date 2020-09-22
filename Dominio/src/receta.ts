@@ -4,7 +4,7 @@ import { Usuario } from './usuario'
 
 export class Receta {
 
-  constructor(public autor: Usuario) {}
+  constructor(public autor: Usuario, public nombreDelPlato = '', public dificultad: Dificultad = 'FACIL', public calorias: number = 0) {}
     public colaboradores: Usuario[] = []
     public ingredientes: Ingrediente[] = []
 
@@ -51,3 +51,5 @@ export class RecetaCompuesta extends Receta{
     return _ingredientes
   }
 }
+
+export type Dificultad = 'FACIL' | 'MEDIA' | 'DIFICIL'
