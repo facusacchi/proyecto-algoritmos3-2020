@@ -9,17 +9,19 @@ import { FooterComponent } from './components/footer/footer.component';
 import { PerfilUsuarioFormComponent } from './components/perfil-usuario-form/perfil-usuario-form.component';
 import { SecondaryButtonComponent } from './components/secondary-button/secondary-button.component';
 import { CardRecetaComponent } from './components/card-receta/card-receta.component';
+/* import { AppRoutinModule } from './components/app-routing.module'; */
 
 @NgModule({
   declarations: [
     AppComponent,
+    /* AppRoutinModule, */
     PrimaryButtonComponent,
     HeaderComponent,
     LoginFormComponent,
     FooterComponent,
     PerfilUsuarioFormComponent,
     SecondaryButtonComponent,
-    CardRecetaComponent
+    CardRecetaComponent,
   ],
   imports: [
     BrowserModule,
