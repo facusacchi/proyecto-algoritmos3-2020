@@ -1,0 +1,15 @@
+
+.button-cancelar {
+    background-color: var(--boton-cancelar) ;
+    color: white;
+    border: 0.1rem solid #5f0f40;
+    border-radius: 0.6rem;
+    width: 7.2rem;
+    height: 3rem;
+    font-size: 1.2rem;
+    margin-left: 1.5rem;
+  }
+  
+  .button-cancelar:hover {
+    filter: brightness(75%);
+  }

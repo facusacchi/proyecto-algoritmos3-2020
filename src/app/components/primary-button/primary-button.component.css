@@ -1,0 +1,14 @@
+
+.button {
+    background-color: var(--color-botonprofe);
+    color: white;
+    border: 0.1rem solid #e2711d;
+    border-radius: 0.6rem;
+    width: 7.2rem;
+    height: 3rem;
+    font-size: 1.2rem;
+  }
+  
+  .button:hover {
+    filter: brightness(75%);
+  }
