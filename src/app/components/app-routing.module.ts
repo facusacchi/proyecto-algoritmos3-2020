@@ -6,7 +6,8 @@ import { PerfilUsuarioFormComponent } from './perfil-usuario-form/perfil-usuario
 export const routes: Routes = [
     { path: 'login', component: LoginFormComponent },
     { path: 'perfilDeUsuario', component: PerfilUsuarioFormComponent },
-    { path: '**', redirectTo: '', pathMatch: 'full'}
+    { path: '', redirectTo: 'login', pathMatch: 'full' },
+    { path: '**', redirectTo: 'login', pathMatch: 'full'}
 ];
 
 @NgModule({
@@ -15,3 +16,8 @@ export const routes: Routes = [
 })
 
 export class AppRoutinModule {}
+
+export const routingComponents = [
+    LoginFormComponent,
+    PerfilUsuarioFormComponent,
+]

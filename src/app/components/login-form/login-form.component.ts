@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
@@ -7,11 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
   
   ngOnInit(): void {
   }
 
   userValue: String = ''
   password: string = ''
+
+  navegarHaciaPrefilUsuario() {
+    this.router.navigate(['/perfilDeUsuario'])
+  }
 }
