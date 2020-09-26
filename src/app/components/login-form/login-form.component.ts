@@ -12,9 +12,6 @@ export class LoginFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  userValue: String = ''
-  password: string = ''
-
   navegarHaciaPrefilUsuario() {
     this.router.navigate(['/perfilDeUsuario'])
   }
