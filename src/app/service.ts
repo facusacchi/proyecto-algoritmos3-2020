@@ -23,7 +23,8 @@ export class Service {
         ]
     }
 
-    buscarUsuarios() {
+    buscarUsuarios(): Usuario[] {
         return this.usuarios
     }
+    
 }
