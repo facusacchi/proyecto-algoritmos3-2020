@@ -12,7 +12,7 @@ export class LoginFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  navegarHaciaPrefilUsuario() {
+  navegarHaciaPerfilUsuario() {
     this.router.navigate(['/perfilDeUsuario'])
   }
 }
