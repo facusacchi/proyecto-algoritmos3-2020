@@ -30,7 +30,7 @@ export const hipertenso = new Hipertenso()
 
 class Diabetico implements CondicionAlimenticia {
   public subsanaCondicion(usuario: Usuario) {
-    return usuario.tieneRutina('ACTIVA') || usuario.pesaMenosDe(71)
+    return usuario.tieneRutina('ACTIVO') || usuario.pesaMenosDe(71)
   }
 }
 
