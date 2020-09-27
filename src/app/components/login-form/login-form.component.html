@@ -3,11 +3,11 @@
         <h1 class="main-form__titulo">Food Overflow</h1>
         <div class="input-usuario">
             <label class="main-form__label" for="usuario">Usuario</label><br>
-            <input [(ngModel)]="userName" name="userName" type="text" id="usuario" placeholder="Nombre de usuario" class="main-form__input">
+            <input [(ngModel)]="userName" name="usuario" type="text" id="usuario" placeholder="Nombre de usuario" class="main-form__input">
         </div>
         <div class="input-password">
-            <label class="main-form__label" for="Contrasenia">Contraseña</label><br>
-            <input [(ngModel)]="password" name="password" type="password" id="Contrasenia" placeholder="Contraseña" class="main-form__input">
+            <label class="main-form__label" for="contrasenia">Contraseña</label><br>
+            <input [(ngModel)]="password" name="contrasenia" type="password" id="Contrasenia" placeholder="Contraseña" class="main-form__input">
         </div>
         <app-primary-button [nombre]="'Ingresar'" (click)="onIngresar()"></app-primary-button>
         <label *ngIf="mostrarLabel" class="labelInvalidez">Usuario invalido</label>

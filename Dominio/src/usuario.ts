@@ -62,4 +62,4 @@ export class Usuario {
     }
 }
 
-export type Rutina = 'LEVE' | 'NADA' | 'MEDIANO' | 'INTENSIVO' | 'ACTIVA'
+export type Rutina = 'LEVE' | 'NADA' | 'MEDIANO' | 'INTENSIVO' | 'ACTIVO'
