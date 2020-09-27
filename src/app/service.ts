@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core'
     providedIn: 'root',
   })
 
-export class Service {
+class Service {
     private usuarios: Usuario[] = []
     private alimentos: Alimento[] = []
     papa: Alimento
@@ -23,8 +23,14 @@ export class Service {
         ]
     }
 
-    buscarUsuarios(): Usuario[] {
-        return this.usuarios
+    buscarPorUsername(username: String): Usuario {
+        return this.usuarios.find(user => this.sacarEspaciosYpasarAMinuscula(user.nombreYApellido) == this.sacarEspaciosYpasarAMinuscula(username))
+    }
+
+    sacarEspaciosYpasarAMinuscula(username: String): String {
+        return username.trim().toLowerCase()
     }
     
 }
+
+export const service = new Service

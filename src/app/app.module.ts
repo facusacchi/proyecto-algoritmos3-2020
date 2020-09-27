@@ -10,6 +10,7 @@ import { PerfilUsuarioFormComponent } from './components/perfil-usuario-form/per
 import { SecondaryButtonComponent } from './components/secondary-button/secondary-button.component';
 import { CardRecetaComponent } from './components/card-receta/card-receta.component';
 import { AppRoutinModule, routingComponents } from './components/app-routing.module';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AppRoutinModule, routingComponents } from './components/app-routing.mod
     SecondaryButtonComponent,
     CardRecetaComponent,
     routingComponents,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

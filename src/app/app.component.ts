@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Usuario } from '../../Dominio/src/usuario';
-import { Service } from './service';
 
 @Component({
   selector: 'app-root',
@@ -11,9 +10,9 @@ export class AppComponent {
   
 usuarios: Usuario[] = []
 
-  constructor(public service: Service) { }
+  constructor() { }
   
   ngOnInit(): void {
-    this.usuarios = this.service.buscarUsuarios()
+    
   } 
 }
