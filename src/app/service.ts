@@ -27,6 +27,10 @@ class Service {
         return this.usuarios.find(user => this.sacarEspaciosYpasarAMinuscula(user.nombreYApellido) == this.sacarEspaciosYpasarAMinuscula(username))
     }
 
+    contieneUsuario(username: String): boolean {
+        return this.usuarios.some(user => this.sacarEspaciosYpasarAMinuscula(user.nombreYApellido) == this.sacarEspaciosYpasarAMinuscula(username))        
+    }
+
     sacarEspaciosYpasarAMinuscula(username: String): String {
         return username.trim().toLowerCase()
     }

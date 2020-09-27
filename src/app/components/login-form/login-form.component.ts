@@ -10,10 +10,17 @@ export class LoginFormComponent implements OnInit {
 
 userName: String
 password: String
+mostrarLabel: boolean = false
 
   constructor(private router: Router) { }
   
   ngOnInit(): void {
+  }
+
+  onIngresar() {
+    if(service.contieneUsuario(this.userName)) {
+      this.navegarHaciaHome()
+    } else { this.mostrarLabel = true }
   }
 
   navegarHaciaHome(): void {
