@@ -9,9 +9,7 @@
             <label class="main-form__label" for="Contrasenia">Contraseña</label><br>
             <input type="password" id="Contrasenia" placeholder="Contraseña" class="main-form__input">
         </div>
-        <app-primary-button [nombre]="'Ingresar'"></app-primary-button>
+        <app-primary-button [nombre]="'Ingresar'" (click)="navegarHaciaHome()"></app-primary-button>
     </form>
 </div>
-
-<button (click)="navegarHaciaPerfilUsuario()">Navegar a perfil de usuario</button>
 

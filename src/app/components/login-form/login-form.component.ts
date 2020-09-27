@@ -16,11 +16,7 @@ password: String
   ngOnInit(): void {
   }
 
-  /* navegarHaciaHome() {
-    
-  } */
-
-  navegarHaciaPerfilUsuario(): void {
-    this.router.navigate(['/perfilDeUsuario'])
+  navegarHaciaHome(): void {
+    this.router.navigate(['/home'])
   }
 }
