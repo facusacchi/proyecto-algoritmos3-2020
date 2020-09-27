@@ -1,1 +1,19 @@
-<p>home works!</p>
+<body>
+    <div class="page">
+        <!-- header -->
+        <div class="contenido">
+            <nav class="nav_container">
+                <app-nav-busqueda></app-nav-busqueda>
+            </nav>
+            <div class="card_grid_container">
+                <div class="card_grid_titulo">Resultados de la búsqueda</div>
+                <div class="card_grid" *ngFor="let elemento of recetas | recetaFilter: recetaABuscar">
+                    <app-card-receta [receta]="elemento"></app-card-receta>
+                </div>
+                <div class="card_grid_agregar">
+                    <div class="card_grid_agregar_icono">
+                        <img src="assets/imagenes/plus-circle-solid.svg" alt="Agregar">
+                    </div>
+                </div>
+            </div>
+        </div>

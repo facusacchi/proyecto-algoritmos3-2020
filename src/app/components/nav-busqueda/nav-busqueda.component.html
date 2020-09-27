@@ -1,0 +1,17 @@
+<nav class="nav_container">
+  <div class="nav">
+      <div class="nav_titulo">Búsqueda de Recetas</div>
+      <form>
+          <div class="nav_busqueda">
+              <input class="nav_barra" type="text" [(ngModel)]="recetaABuscar" id="receta" name="receta">
+              <app-nav-button [nombre]="'Buscar'"></app-nav-button>
+              <input class="nav_button_icono" type="image" src="assets/imagenes/search-solid.svg"
+                  alt="Icono Buscar">
+          </div>
+          <div class="nav_checkbox_container">
+              <input type="checkbox" id="misrecetas" name="misrecetas">
+              <div class="nav_checkbox_descripcion" for="misrecetas"> Sólo mis recetas</div>
+          </div>
+      </form>
+  </div>
+</nav>

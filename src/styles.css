@@ -12,6 +12,8 @@
   --boton-cancelar: #aa4465;
   --ancho-default: 66vw;
   --ancho-mayor: 90vw;
+  --ancho-medio: 85vw;
+  --border-menor: 0.1rem solid var(--color-secundario);
 }
 
 html {

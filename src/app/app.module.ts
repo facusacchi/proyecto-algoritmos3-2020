@@ -11,9 +11,12 @@ import { SecondaryButtonComponent } from './components/secondary-button/secondar
 import { CardRecetaComponent } from './components/card-receta/card-receta.component';
 import { AppRoutinModule, routingComponents } from './components/app-routing.module';
 import { HomeComponent } from './components/home/home.component';
+import { NavBusquedaComponent } from './components/nav-busqueda/nav-busqueda.component';
+import { NavButtonComponent } from './components/nav-button/nav-button.component';
+import { RecetaPipe } from './components/receta.pipe';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     PrimaryButtonComponent,
     HeaderComponent,
@@ -24,7 +27,10 @@ import { HomeComponent } from './components/home/home.component';
     CardRecetaComponent,
     routingComponents,
     HomeComponent,
-  ],
+    NavBusquedaComponent,
+    NavButtonComponent,
+    RecetaPipe,
+   ],
   imports: [
     BrowserModule,
     FormsModule,
