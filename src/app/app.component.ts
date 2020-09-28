@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Receta } from '../../Dominio/src/receta';
 import { Usuario } from '../../Dominio/src/usuario';
 
 @Component({
@@ -7,12 +8,13 @@ import { Usuario } from '../../Dominio/src/usuario';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
-usuarios: Usuario[] = []
+
+  usuarios: Usuario[] = []
+  recetas: Receta[] = []
 
   constructor() { }
-  
+
   ngOnInit(): void {
-    
-  } 
+
+  }
 }

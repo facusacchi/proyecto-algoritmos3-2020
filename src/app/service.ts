@@ -8,7 +8,7 @@ import { Receta } from '../../Dominio/src/receta'
     providedIn: 'root',
 })
 
-class Service {
+export class Service {
     private usuarios: Usuario[] = []
     private alimentos: Alimento[] = []
     private recetas: Receta[]
@@ -24,8 +24,10 @@ class Service {
             new Usuario(3, '456',"Manolo Palala", 80, 1.60, [hipertenso], new Date(1988, 7, 14), [this.carneVacuna], 'INTENSIVO')
         ]
         this.recetas = [
-            new Receta(new Usuario(4, '', 'Usuario autor de receta', 80, 1.7), 'Service 1 Nombre del plato'),
-            new Receta(new Usuario(5, '', 'Usuario autor de receta', 80, 1.7), 'Service 2 Nombre del plato')
+            new Receta(new Usuario(4, '', 'Usuario autor de receta', 80, 1.7), 'Nombre plato 1'),
+            new Receta(new Usuario(5, '', 'Usuario autor de receta', 80, 1.7), 'Nombre plato 2'),
+            new Receta(new Usuario(6, '', 'Usuario autor de receta', 80, 1.7), 'Nombre plato 3'),
+            new Receta(new Usuario(7, '', 'Usuario autor de receta', 80, 1.7), 'Nombre plato 4')
         ]
     }
 
@@ -52,6 +54,10 @@ class Service {
     buscarRecetas(): Receta[] {
         return this.recetas
     } 
+
+    busqueda(recetaABuscar: string): Receta[] {
+        return this.recetas.filter(receta => !recetaABuscar || receta.cumpleCondicionDeBusqueda(recetaABuscar))
+    }
 
 }
 

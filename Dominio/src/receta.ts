@@ -31,6 +31,11 @@ export class Receta {
     getIngredientes(): Ingrediente[] {
       return this.ingredientes
     }
+
+    cumpleCondicionDeBusqueda(valorBusqueda: string): boolean {
+      return this.nombreDelPlato == valorBusqueda || this.ingredientes.some(ingrediente => 
+        ingrediente.alimento.nombre == valorBusqueda)
+    }
 }
 
 export class RecetaCompuesta extends Receta{
