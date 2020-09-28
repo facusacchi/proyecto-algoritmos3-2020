@@ -17,17 +17,17 @@ user: Usuario
 
   constructor(private router: Router) { }
   
-  ngOnInit(): void {
+  ngOnInit(): void{
   }
 
-  onIngresar() {
-    if(service.contieneUsuario(this.userName)) {
+  onIngresar(): void{
+    if(service.contieneUsuario(this.userName) && service.coincidePassword(this.userName, this.password)) {
       this.user = service.buscarPorUsername(this.userName)
       this.navegarHaciaPerfilDeUsuario(this.user)
     } else { this.mostrarLabelInvalido = true }
   }
 
-  navegarHaciaPerfilDeUsuario(user: Usuario): void {
+  navegarHaciaPerfilDeUsuario(user: Usuario): void{
     this.router.navigate(['/perfilDeUsuario', user.id])
   }
 }

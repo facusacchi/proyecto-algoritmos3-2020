@@ -19,14 +19,18 @@ class Service {
         this.papa = new Alimento('Papa', '---', 'HORTALIZAS_FRUTAS_SEMILLAS', [hipertenso])
         this.carneVacuna = new Alimento('Carne Vacuna', '---', 'CARNES_PESCADO_HUEVO', [vegetariano, vegano])
         this.usuarios = [
-            new Usuario(1, "Pepe Palala", 95, 1.75, [vegetariano], new Date(1991, 1, 28), [this.papa], 'NADA'),
-            new Usuario(2, "Juan Carlos De La Hoya", 120, 1.90, [vegano], new Date(1985, 5, 7), [this.carneVacuna], 'MEDIANO'),
-            new Usuario(3, "Manolo Palala", 80, 1.60, [hipertenso], new Date(1988, 7, 14), [this.carneVacuna], 'INTENSIVO')
+            new Usuario(1, '123', "Pepe Palala", 95, 1.75, [vegetariano], new Date(1991, 1, 28), [this.papa], 'NADA'),
+            new Usuario(2, 'abc',"Juan Carlos De La Hoya", 120, 1.90, [vegano], new Date(1985, 5, 7), [this.carneVacuna], 'MEDIANO'),
+            new Usuario(3, '456',"Manolo Palala", 80, 1.60, [hipertenso], new Date(1988, 7, 14), [this.carneVacuna], 'INTENSIVO')
         ]
         this.recetas = [
-            new Receta(new Usuario(4, 'Usuario autor de receta', 80, 1.7), 'Service 1 Nombre del plato'),
-            new Receta(new Usuario(5, 'Usuario autor de receta', 80, 1.7), 'Service 2 Nombre del plato')
+            new Receta(new Usuario(4, '', 'Usuario autor de receta', 80, 1.7), 'Service 1 Nombre del plato'),
+            new Receta(new Usuario(5, '', 'Usuario autor de receta', 80, 1.7), 'Service 2 Nombre del plato')
         ]
+    }
+
+    coincidePassword(userName: String, pssw: String): boolean {
+        return this.buscarPorUsername(userName).password == pssw
     }
 
     buscarPorUsername(username: String): Usuario {

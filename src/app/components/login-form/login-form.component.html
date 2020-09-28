@@ -10,7 +10,7 @@
             <input [(ngModel)]="password" name="contrasenia" type="password" id="Contrasenia" placeholder="Contraseña" class="main-form__input">
         </div>
         <app-primary-button [nombre]="'Ingresar'" (click)="onIngresar()"></app-primary-button>
-        <label *ngIf="mostrarLabelInvalido" class="labelInvalidez">Usuario invalido</label>
+        <label *ngIf="mostrarLabelInvalido" class="labelInvalidez">Usuario o contraseña invalida</label>
     </form>
 </div>
 
