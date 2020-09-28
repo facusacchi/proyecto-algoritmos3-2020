@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Receta } from '../../../../Dominio/src/receta';
-import { Usuario } from '../../../../Dominio/src/usuario';
+import { Service } from 'app/service';
 
 @Component({
   selector: 'app-card-receta',
@@ -8,19 +8,14 @@ import { Usuario } from '../../../../Dominio/src/usuario';
   styleUrls: ['./card-receta.component.scss']
 })
 export class CardRecetaComponent implements OnInit {
+  @Input() receta: Receta
 
-   @Input() receta: Receta
+  recetas: Receta[] = []
 
-  /*  get recetaTitulo() {
-    return this.receta.nombreDelPlato
-  }  */
+  constructor(public service: Service) { }
 
-/*    receta: Receta = new Receta(new Usuario('Usuario autor de receta', 80, 1.7), 'Nombre del plato')
- */ 
-
-  constructor() { }
-
-  ngOnInit() {
+  ngOnInit(): void {
+    this.recetas = this.service.buscarRecetas()
   }
 
 }

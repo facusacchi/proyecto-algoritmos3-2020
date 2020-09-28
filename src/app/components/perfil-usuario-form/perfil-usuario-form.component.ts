@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../../../Dominio/src/usuario';
-import { Router } from '@angular/router';
+import { service } from '../../service'
+import { ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-perfil-usuario-form',
   templateUrl: './perfil-usuario-form.component.html',
@@ -8,10 +10,14 @@ import { Router } from '@angular/router';
 })
 export class PerfilUsuarioFormComponent implements OnInit {
   
-  usuario: Usuario = new Usuario("Pepe Palala", 95, 1.75, [], new Date(1991, 1, 28), [], null)
+  usuario: Usuario
   status: String = "Estado Saludable" 
 
-  constructor(private router: Router) { }
+  constructor(private route: ActivatedRoute) {
+    this.route.params.subscribe(parametro => {
+      this.usuario = service.buscarUsuarioPorId(parametro['id'])
+    })
+  }
 
   ngOnInit(): void {
   }

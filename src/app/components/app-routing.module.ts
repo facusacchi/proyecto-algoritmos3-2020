@@ -7,7 +7,7 @@ import { RecetaComponent } from './receta/receta.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginFormComponent },
-    { path: 'perfilDeUsuario', component: PerfilUsuarioFormComponent },
+    { path: 'perfilDeUsuario/:id', component: PerfilUsuarioFormComponent },
     { path: 'home', component: HomeComponent },
     { path:  'receta/:id' , component: RecetaComponent},
     { path: '', redirectTo: 'login', pathMatch: 'full' },

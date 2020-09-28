@@ -7,8 +7,8 @@
             </nav>
             <div class="card_grid_container">
                 <div class="card_grid_titulo">Resultados de la búsqueda</div>
-                <div class="card_grid" *ngFor="let elemento of recetas | recetaFilter: recetaABuscar">
-                    <app-card-receta [receta]="elemento"></app-card-receta>
+                <div class="card_grid" *ngFor="let receta of recetas | recetaFilter: recetaABuscar">
+                    <app-card-receta [receta]="receta"></app-card-receta>
                 </div>
                 <div class="card_grid_agregar">
                     <div class="card_grid_agregar_icono">
@@ -17,3 +17,6 @@
                 </div>
             </div>
         </div>
+    </div>
+<!-- footer -->
+</body>    

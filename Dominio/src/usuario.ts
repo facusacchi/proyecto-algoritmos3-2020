@@ -5,6 +5,8 @@ import { Alimento } from "./alimento";
 export class Usuario {
 
     constructor(
+        public id: number,
+        public password: string,
         public nombreYApellido: string,
         public peso: number,
         public estatura: number,
