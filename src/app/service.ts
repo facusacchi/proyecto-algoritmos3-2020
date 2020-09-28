@@ -28,7 +28,7 @@ export class Service {
             new Usuario(2, 'abc',"Juan Carlos De La Hoya", 120, 1.90, [vegano], new Date(1985, 5, 7), [this.carneVacuna], 'MEDIANO'),
             new Usuario(3, '456',"Manolo Palala", 80, 1.60, [hipertenso], new Date(1988, 7, 14), [this.carneVacuna], 'INTENSIVO')
         ]
-        this.fajitasMexicanas = new Receta(1, this.juanCarlos, "Fajitas Mexicanas", 'FACIL', 300)
+        this.fajitasMexicanas = new Receta(5, this.juanCarlos, "Fajitas Mexicanas", 'FACIL', 300)
         this.fajitasMexicanas.colaboradores = [new Usuario(8, "","Rita Curita", 70 , 1.50 ) , 
                                                new Usuario(9, "",  "Narda Carda", 70 , 1.50 )]
         this.fajitasMexicanas.procesoDePreparacion = ["Cortar la carne en tiras" ,"Cortar los pimientos y la cebolla en tiras", "Saltear las verduras en aceite" ,"Agregar la carne a las verduras","Condimentar a gusto con sal y especias", "Hacer la masa de las tortillas"]  
