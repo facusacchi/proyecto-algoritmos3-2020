@@ -22,7 +22,7 @@ user: Usuario
 
   onIngresar(): void{
     if(service.contieneUsuario(this.userName) && service.coincidePassword(this.userName, this.password)) {
-      this.user = service.buscarPorUsername(this.userName)
+      this.user = service.buscarUsuarioPorUsername(this.userName)
       this.navegarHaciaPerfilDeUsuario(this.user)
     } else { this.mostrarLabelInvalido = true }
   }

@@ -32,10 +32,10 @@ export class Service {
     }
 
     coincidePassword(userName: String, pssw: String): boolean {
-        return this.buscarPorUsername(userName).password == pssw
+        return this.buscarUsuarioPorUsername(userName).password == pssw
     }
 
-    buscarPorUsername(username: String): Usuario {
+    buscarUsuarioPorUsername(username: String): Usuario {
         return this.usuarios.find(user => this.sacarEspaciosYpasarAMinuscula(user.nombreYApellido) == this.sacarEspaciosYpasarAMinuscula(username))
     }
 
