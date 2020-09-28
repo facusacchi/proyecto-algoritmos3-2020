@@ -11,12 +11,17 @@ import { ActivatedRoute } from '@angular/router';
 export class PerfilUsuarioFormComponent implements OnInit {
   
   usuario: Usuario
-  status: String = "Estado Saludable" 
 
   constructor(private route: ActivatedRoute) {
     this.route.params.subscribe(parametro => {
       this.usuario = service.buscarUsuarioPorId(parametro['id'])
     })
+  }
+
+  getStatus(): String {
+    if(this.usuario.imcEsSaludable()) {
+      return "Estado Saludable"
+    } else {return "No Saludable"}
   }
 
   ngOnInit(): void {
