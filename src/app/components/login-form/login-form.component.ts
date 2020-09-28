@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { service } from '../../service'
+import { service } from '../../service';
+import { Usuario } from '../../../../Dominio/src/usuario';
+
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
@@ -11,6 +13,7 @@ export class LoginFormComponent implements OnInit {
 userName: String
 password: String
 mostrarLabelInvalido: boolean = false
+user: Usuario
 
   constructor(private router: Router) { }
   
@@ -19,11 +22,12 @@ mostrarLabelInvalido: boolean = false
 
   onIngresar() {
     if(service.contieneUsuario(this.userName)) {
-      this.navegarHaciaPerfilDeUsuario()
+      this.user = service.buscarPorUsername(this.userName)
+      this.navegarHaciaPerfilDeUsuario(this.user)
     } else { this.mostrarLabelInvalido = true }
   }
 
-  navegarHaciaPerfilDeUsuario(): void {
-    this.router.navigate(['/perfilDeUsuario'])
+  navegarHaciaPerfilDeUsuario(user: Usuario): void {
+    this.router.navigate(['/perfilDeUsuario', user.id])
   }
 }
