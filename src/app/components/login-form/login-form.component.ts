@@ -19,11 +19,11 @@ mostrarLabelInvalido: boolean = false
 
   onIngresar() {
     if(service.contieneUsuario(this.userName)) {
-      this.navegarHaciaHome()
+      this.navegarHaciaPerfilDeUsuario()
     } else { this.mostrarLabelInvalido = true }
   }
 
-  navegarHaciaHome(): void {
-    this.router.navigate(['/home'])
+  navegarHaciaPerfilDeUsuario(): void {
+    this.router.navigate(['/perfilDeUsuario'])
   }
 }
