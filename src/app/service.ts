@@ -17,7 +17,7 @@ export class Service {
     carneVacuna: Alimento
     fajitasMexicanas: Receta
     juanCarlos: Usuario
-
+    
     constructor() {
         this.papa = new Alimento('Papa', '---', 'HORTALIZAS_FRUTAS_SEMILLAS', [hipertenso])
         this.carneVacuna = new Alimento('Carne Vacuna', '---', 'CARNES_PESCADO_HUEVO', [vegetariano, vegano])
@@ -30,7 +30,7 @@ export class Service {
         ]
         this.fajitasMexicanas = new Receta(5, this.juanCarlos, "Fajitas Mexicanas", 'FACIL', 300)
         this.fajitasMexicanas.colaboradores = [new Usuario(8, "","Rita Curita", 70 , 1.50 ) , 
-                                               new Usuario(9, "",  "Narda Carda", 70 , 1.50 )]
+        new Usuario(9, "",  "Narda Carda", 70 , 1.50 )]
         this.fajitasMexicanas.procesoDePreparacion = ["Cortar la carne en tiras" ,"Cortar los pimientos y la cebolla en tiras", "Saltear las verduras en aceite" ,"Agregar la carne a las verduras","Condimentar a gusto con sal y especias", "Hacer la masa de las tortillas"]  
         this.fajitasMexicanas.ingredientes = [new Ingrediente (new Alimento ("carne", "" , "CARNES_PESCADO_HUEVO", [vegano, vegetariano]), "500gr")]                                     
         this.recetas = [
@@ -41,35 +41,38 @@ export class Service {
             new Receta(4,new Usuario(7, '', 'Usuario autor de receta', 80, 1.7), 'Nombre plato 4')
         ]
     }
-
+    
     coincidePassword(userName: String, pssw: String): boolean {
         return this.buscarPorUsername(userName).password == pssw
     }
-
+    
     buscarPorUsername(username: String): Usuario {
         return this.usuarios.find(user => this.sacarEspaciosYpasarAMinuscula(user.nombreYApellido) == this.sacarEspaciosYpasarAMinuscula(username))
     }
-
+    
     buscarUsuarioPorId(id: number): Usuario {
         return this.usuarios.find(user => user.id == id)
     }
-
+    
     contieneUsuario(username: String): boolean {
         return this.usuarios.some(user => this.sacarEspaciosYpasarAMinuscula(user.nombreYApellido) == this.sacarEspaciosYpasarAMinuscula(username))
     }
-
+    
     sacarEspaciosYpasarAMinuscula(username: String): String {
         return username.trim().toLowerCase()
     }
-
+    
     buscarRecetas(): Receta[] {
         return this.recetas
     }
-
+    
     busqueda(recetaABuscar: string): Receta[] {
         return this.recetas.filter(receta => !recetaABuscar || receta.cumpleCondicionDeBusqueda(recetaABuscar))
     }
-
+    getRecetaById(id: number): Receta {
+        return this.recetas.find(receta => receta.id == id)
+    }
+    
 }
 
 export const service = new Service
