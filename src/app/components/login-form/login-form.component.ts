@@ -10,7 +10,7 @@ export class LoginFormComponent implements OnInit {
 
 userName: String
 password: String
-mostrarLabel: boolean = false
+mostrarLabelInvalido: boolean = false
 
   constructor(private router: Router) { }
   
@@ -20,7 +20,7 @@ mostrarLabel: boolean = false
   onIngresar() {
     if(service.contieneUsuario(this.userName)) {
       this.navegarHaciaHome()
-    } else { this.mostrarLabel = true }
+    } else { this.mostrarLabelInvalido = true }
   }
 
   navegarHaciaHome(): void {
