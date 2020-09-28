@@ -14,6 +14,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NavBusquedaComponent } from './components/nav-busqueda/nav-busqueda.component';
 import { NavButtonComponent } from './components/nav-button/nav-button.component';
 import { RecetaPipe } from './components/receta.pipe';
+import { RecetaComponent } from './components/receta/receta.component';
 
 @NgModule({
   declarations: [	
@@ -30,6 +31,7 @@ import { RecetaPipe } from './components/receta.pipe';
     NavBusquedaComponent,
     NavButtonComponent,
     RecetaPipe,
+    RecetaComponent
    ],
   imports: [
     BrowserModule,
