@@ -19,12 +19,7 @@ export class RecetaComponent implements OnInit {
    }
 
   ngOnInit() {
-    var obj = {
-      name: 'myObj'
-    };
     
-    JSON.stringify(obj);
-    console.log(JSON.stringify(obj))
   
   }
 
