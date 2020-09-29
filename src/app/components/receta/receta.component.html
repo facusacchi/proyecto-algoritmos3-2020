@@ -2,13 +2,13 @@
 <div class="contenedor">
   <div class="contenidos">
     <section class="titulo-contenedor">
-      <img class="img-receta" src="../imagenes/fajitas-mexicanas.jpg">
+      <img class="img-receta" src= "{{'../../../assets/imagenes/'+ receta.imagen}}">
       <section class="descripcion">
         <div class="titulo">{{receta.nombreDelPlato}}</div>
         <div class="autor">{{receta.autor.nombreYApellido}}</div>
         <div class="inadecuado">
           <b>Inadecuado para </b>
-          veganos, vegetarianos, hipertensos
+          {{receta.condicionesInadecuadasReceta()}}
         </div>
       </section>
     </section>
@@ -16,14 +16,14 @@
       <section class="inputs-contenedor">
         <div class="calorias">
           <b>Total de calorias</b>
-          <input class="input" type="number" id="calorias" placeholder="500" max="4000">
+          <input [(ngModel)]="receta.calorias" class="input" type="number" id="calorias" placeholder="500" max="4000">
         </div>
         <div class="dificultad">
           <b>Dificultad</b>
-          <select class="input" id="dificultad">
-            <option value="baja">Baja</option>
-            <option value="media">Media</option>
-            <option value="alta">Alta</option>
+          <select [(ngModel)]="receta.dificultad" class="input" id="dificultad">
+            <option value="FACIL">Facil</option>
+            <option value="MEDIA">Media</option>
+            <option value="DIFICIL">Dificil</option>
           </select>
         </div>
       </section>

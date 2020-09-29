@@ -4,12 +4,11 @@ import { Usuario } from './usuario'
 
 export class Receta {
 
-  constructor( public id : number, public autor: Usuario, public nombreDelPlato = '', public dificultad: Dificultad = 'FACIL', public calorias: number = 0) {}
+  constructor( public id : number, public autor: Usuario, public nombreDelPlato = '', public dificultad: Dificultad = 'FACIL', public calorias: number = 0, public imagen : string = "") {}
     public colaboradores: Usuario[] = []
     public ingredientes: Ingrediente[] = []
     public procesoDePreparacion : string [] = []
-
-
+    
     esEditablePor(usuario: Usuario): boolean {
       return usuario === this.autor || this.colaboradores.includes(usuario)
     }
