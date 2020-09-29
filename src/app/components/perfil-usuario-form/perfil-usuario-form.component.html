@@ -28,12 +28,8 @@
                         </div>
                         <div class="main-form__label-and-input">
                             <label for="rutina">Rutina</label>
-                            <select [(ngModel)]="usuario.rutina" class="main-form__input" name="rutina" id="rutina">
-                                <option value="nada">NADA</option>
-                                <option value="leve">LEVE</option>
-                                <option value="mediano">MEDIANO</option>
-                                <option value="activo">ACTIVO</option>
-                                <option value="intensivo">INTENSIVO</option>
+                            <select [(ngModel)]="opcionElegida" class="main-form__input" name="rutina" id="rutina">
+                                <option *ngFor="let opcion of opcionesRutina">{{ opcion }}</option>
                             </select>
                         </div>
                     </div>

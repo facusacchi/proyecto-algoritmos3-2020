@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from '../../../../Dominio/src/usuario';
+import { Usuario, Rutina } from '../../../../Dominio/src/usuario';
 import { service } from '../../service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -11,11 +11,14 @@ import { ActivatedRoute } from '@angular/router';
 export class PerfilUsuarioFormComponent implements OnInit {
   
   usuario: Usuario
+  opcionesRutina: Rutina[] = ["NADA", "LEVE", "MEDIANO", "ACTIVO", "INTENSIVO"]
+  opcionElegida: Rutina
 
   constructor(private route: ActivatedRoute) {
     this.route.params.subscribe(parametro => {
       this.usuario = service.buscarUsuarioPorId(parametro['id'])
     })
+    this.opcionElegida = this.usuario.rutina
   }
 
   getStatus(): String {
