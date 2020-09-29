@@ -15,7 +15,13 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router, public service: Service) { }
 
   ngOnInit(): void {
+    this.recetaABuscar = this.service.recetaABuscar 
     this.recetas = this.service.buscarRecetas()
   }
+
+  /* parentEventHandlerFunction(valueEmitted: string): void {
+    /* this.recetaABuscar = valueEmitted 
+    this.service.recetaABuscar = valueEmitted
+  } */
 
 }

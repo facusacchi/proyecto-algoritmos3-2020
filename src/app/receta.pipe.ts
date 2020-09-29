@@ -7,6 +7,7 @@ import { Receta } from '../../Dominio/src/receta';
 export class RecetaPipe implements PipeTransform {
 
   transform(recetas: Receta[], recetaABuscar: string): Receta[] {
+    recetaABuscar = recetaABuscar.toLowerCase()
     return recetas.filter(receta => !recetaABuscar || receta.cumpleCondicionDeBusqueda(recetaABuscar))}
  /* return recetas.filter(receta => !recetaABuscar || this.coincide(receta.nombreDelPlato, recetaABuscar) || this.coincide(receta.ingredientes, recetaABuscar)) 
  

@@ -34,8 +34,8 @@ export class Receta {
     }
 
     cumpleCondicionDeBusqueda(valorBusqueda: string): boolean {
-      return this.nombreDelPlato == valorBusqueda || this.ingredientes.some(ingrediente => 
-        ingrediente.alimento.nombre == valorBusqueda)
+      return this.nombreDelPlato.toLowerCase().includes(valorBusqueda) || this.ingredientes.some(ingrediente => 
+        ingrediente.alimento.nombre.toLowerCase().includes(valorBusqueda))
     }
 }
 
