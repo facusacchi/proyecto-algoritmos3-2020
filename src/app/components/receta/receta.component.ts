@@ -19,6 +19,9 @@ export class RecetaComponent implements OnInit {
    }
 
   ngOnInit() {
+    
+  
   }
 
+  
 }

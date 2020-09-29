@@ -16,19 +16,19 @@ export class Service {
     papa: Alimento
     carneVacuna: Alimento
     fajitasMexicanas: Receta
-    juanCarlos: Usuario
+    nancy: Usuario
     
     constructor() {
         this.papa = new Alimento('Papa', '---', 'HORTALIZAS_FRUTAS_SEMILLAS', [hipertenso])
         this.carneVacuna = new Alimento('Carne Vacuna', '---', 'CARNES_PESCADO_HUEVO', [vegetariano, vegano])
-        this.juanCarlos = new Usuario(10, "", "Juan Carlos De La Hoya", 120, 1.90, [vegano], new Date(1985, 5, 7), [this.carneVacuna], 'MEDIANO')
+        this.nancy = new Usuario(10, "", "Nancy Vargas Fernandez", 120, 1.90, [vegano], new Date(1985, 5, 7), [this.carneVacuna], 'MEDIANO')
         this.usuarios = [
-            this.juanCarlos,
+            this.nancy,
             new Usuario(1, '123', "Pepe Palala", 95, 1.75, [vegetariano], new Date(1991, 1, 28), [this.papa], 'NADA'),
             new Usuario(2, 'abc',"Juan Carlos De La Hoya", 120, 1.90, [vegano], new Date(1985, 5, 7), [this.carneVacuna], 'MEDIANO'),
             new Usuario(3, '456',"Manolo Palala", 80, 1.60, [hipertenso], new Date(1988, 7, 14), [this.carneVacuna], 'INTENSIVO')
         ]
-        this.fajitasMexicanas = new Receta(5, this.juanCarlos, "Fajitas Mexicanas", 'FACIL', 300)
+        this.fajitasMexicanas = new Receta(5, this.nancy, "Fajitas Mexicanas", 'FACIL', 300, "fajitas-mexicanas.jpg")
         this.fajitasMexicanas.colaboradores = [new Usuario(8, "","Rita Curita", 70 , 1.50 ) , 
         new Usuario(9, "",  "Narda Carda", 70 , 1.50 )]
         this.fajitasMexicanas.procesoDePreparacion = ["Cortar la carne en tiras" ,"Cortar los pimientos y la cebolla en tiras", "Saltear las verduras en aceite" ,"Agregar la carne a las verduras","Condimentar a gusto con sal y especias", "Hacer la masa de las tortillas"]  
