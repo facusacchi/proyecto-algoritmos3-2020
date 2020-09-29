@@ -38,46 +38,11 @@
           </div>
           <div>
             <table class="tabla">
-              <tr>
-                <td class="ancho-columna">Carne</td>
-                <td class="ancho-columna">1/2 Kilo</td>
+              <tr *ngFor= "let ingrediente of receta.ingredientes">
+                <td class="ancho-columna">{{ingrediente.alimento.nombre}}</td>
+                <td class="ancho-columna">{{ingrediente.cantidad}}</td>
                 <td>
-                  <img class="img-eliminar" src="../imagenes/eliminar.png">
-                </td>
-              </tr>
-              <tr>
-                <td>Cebolla</td>
-                <td>2 Unidades</td>
-                <td>
-                  <img class="img-eliminar" src="../imagenes/eliminar.png">
-                </td>
-              </tr>
-              <tr>
-                <td>Pimiento Rojo</td>
-                <td>1 Unidades</td>
-                <td>
-                  <img class="img-eliminar" src="../imagenes/eliminar.png">
-                </td>
-              </tr>
-              <tr>
-                <td>Pimiento Verde</td>
-                <td>1 Unidades</td>
-                <td>
-                  <img class="img-eliminar" src="../imagenes/eliminar.png">
-                </td>
-              </tr>
-              <tr>
-                <td>Harina</td>
-                <td>200 gr.</td>
-                <td>
-                  <img class="img-eliminar" src="../imagenes/eliminar.png">
-                </td>
-              </tr>
-              <tr>
-                <td>Aceite</td>
-                <td>1/2 taza</td>
-                <td>
-                  <img class="img-eliminar" src="../imagenes/eliminar.png">
+                  <img class="img-eliminar" src="../../../assets/imagenes/eliminar.png">
                 </td>
               </tr>
             </table>
@@ -94,46 +59,11 @@
           </div>
           <div>
             <table class="tabla tabla-pasos">
-              <tr>
+              <tr *ngFor= "let paso of receta.procesoDePreparacion">
                 <td>1</td>
-                <td>Cortar la carne en tiras</td>
+                <td>{{paso}}</td>
                 <td>
-                  <img class="img-eliminar" src="../imagenes/eliminar.png">
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Cortar los pimientos y la cebolla en tiras</td>
-                <td>
-                  <img class="img-eliminar" src="../imagenes/eliminar.png">
-                </td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Saltear las verduras en aceite </td>
-                <td>
-                  <img class="img-eliminar" src="../imagenes/eliminar.png">
-                </td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>Agregar la carne a las verduras</td>
-                <td>
-                  <img class="img-eliminar" src="../imagenes/eliminar.png">
-                </td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>Condimentar a gusto con sal y especias</td>
-                <td>
-                  <img class="img-eliminar" src="../imagenes/eliminar.png">
-                </td>
-              </tr>
-              <tr>
-                <td>6</td>
-                <td>Hacer la masa de las tortillas</td>
-                <td>
-                  <img class="img-eliminar" src="../imagenes/eliminar.png">
+                  <img class="img-eliminar" src="../../../assets/imagenes/eliminar.png">
                 </td>
               </tr>
             </table>
@@ -153,32 +83,12 @@
             <tr>
               <th>Nombre</th>
             </tr>
-            <tr>
+            <tr *ngFor="let colaborador of receta.colaboradores">
               <td>
                 <div class="horizontal">
-                  <div class="centrado">Rita Curita</div>
+                  <div class="centrado">{{colaborador.nombreYApellido}}</div>
                   <div>
-                    <img class="img-eliminar" src="../imagenes/eliminar.png">
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="horizontal">
-                  <div class="centrado">Narda Carda</div>
-                  <div>
-                    <img class="img-eliminar" src="../imagenes/eliminar.png">
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="horizontal">
-                  <div class="centrado">Pablo Picoto</div>
-                  <div>
-                    <img class="img-eliminar" src="../imagenes/eliminar.png">
+                    <img class="img-eliminar" src="../../../assets/imagenes/eliminar.png">
                   </div>
                 </div>
               </td>
