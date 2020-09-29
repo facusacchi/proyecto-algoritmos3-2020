@@ -14,6 +14,7 @@
   --ancho-mayor: 90vw;
   --ancho-medio: 85vw;
   --border-menor: 0.1rem solid var(--color-secundario);
+  --border-default: 0.2rem solid var(--color-secundario);
 }
 
 html {
