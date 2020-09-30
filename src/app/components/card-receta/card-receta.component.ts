@@ -5,7 +5,7 @@ import { Service } from 'app/service';
 @Component({
   selector: 'app-card-receta',
   templateUrl: './card-receta.component.html',
-  styleUrls: ['./card-receta.component.scss']
+  styleUrls: ['./card-receta.component.css']
 })
 export class CardRecetaComponent implements OnInit {
   @Input() receta: Receta

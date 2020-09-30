@@ -3,7 +3,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-nav-busqueda',
   templateUrl: './nav-busqueda.component.html',
-  styleUrls: ['./nav-busqueda.component.scss']
+  styleUrls: ['./nav-busqueda.component.css']
 })
 export class NavBusquedaComponent {
 
