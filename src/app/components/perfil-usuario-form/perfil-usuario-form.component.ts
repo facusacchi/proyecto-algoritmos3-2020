@@ -16,18 +16,10 @@ export class PerfilUsuarioFormComponent implements OnInit {
   fecha: String = "1991-01-28"
 
   constructor(private route: ActivatedRoute) {
-    this.usuario = service.getUsuarioLogueado()
+    this.usuario = service.getUsuarioLogueado
   }
   
-  
-  ngOnInit(): void {
-    this.formatearFecha()
-  }
-  
-  formatearFecha(){
-    const fecha = this.usuario.fechaDeNacimiento.toISOString()
-    console.log(fecha.substring(0, 10))
-  }
+  ngOnInit(): void { }
 
   getStatus(): String {
     if(this.usuario.imcEsSaludable()) {

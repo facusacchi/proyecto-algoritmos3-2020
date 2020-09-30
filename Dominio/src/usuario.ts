@@ -6,8 +6,9 @@ export class Usuario {
 
     constructor(
         public id: number,
-        public password: string,
-        public nombreYApellido: string,
+        public userName: String,
+        public password: String,
+        public nombreYApellido: String,
         public peso: number,
         public estatura: number,
         public condicionesAlimenticias: CondicionAlimenticia[] = [],
