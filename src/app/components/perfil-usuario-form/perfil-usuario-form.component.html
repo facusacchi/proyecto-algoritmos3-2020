@@ -24,7 +24,7 @@
                     <div class="main-form__label-and-input--column input-bottom">
                         <div class="main-form__label-and-input">
                             <label for="nacimiento">Nacimiento</label>
-                            <input [(ngModel)]="fecha" class="main-form__input" name="nacimiento" id="nacimiento" type="date" placeholder="fecha de nacimiento">
+                            <input [(ngModel)]="fechaDeNacimiento" class="main-form__input" name="nacimiento" id="nacimiento" type="date" placeholder="fecha de nacimiento">
                         </div>
                         <div class="main-form__label-and-input">
                             <label for="rutina">Rutina</label>
@@ -37,33 +37,15 @@
         <section class="main-form__condiciones">
             <h3>Condiciones</h3>
             <div class="main-form__checkboxes">
-               
                 <div class="checkboxes-start">
-                    <div class="main-form__label-and-chkbx">
-                        <input class="main-form__input main-form__input--checkbox" name="diabetico" id="diabetico" type="checkbox">
-                        <label for="diabetico">Diabetico</label>
-                    </div>
-                    <div class="main-form__label-and-chkbx">
-                        <input class="main-form__input main-form__input--checkbox" name="hipertenso" id="hipertenso" type="checkbox">
-                        <label for="hipertenso">Hipertenso</label>
-                    </div>
+                    <app-condicion-alimenticia [descripcion]="'Diabetico'"></app-condicion-alimenticia>
+                    <app-condicion-alimenticia [descripcion]="'Hipertenso'"></app-condicion-alimenticia>
                 </div>
-
                 <div class="checkboxes-middle">
-                    <div class="main-form__label-and-chkbx">
-                        <input class="main-form__input main-form__input--checkbox"  name="celiaco" id="celiaco" type="checkbox">
-                        <label for="celiaco">Celiaco</label>
-                    </div>
-                    <div class="main-form__label-and-chkbx">
-                        <input class="main-form__input main-form__input--checkbox" name="vegetariano" id="vegetariano" type="checkbox">
-                        <label for="vegetariano">Vegetariano</label>
-                    </div>
+                    <app-condicion-alimenticia [descripcion]="'Celiaco'"></app-condicion-alimenticia>
+                    <app-condicion-alimenticia [descripcion]="'Vegetariano'"></app-condicion-alimenticia>
                 </div>
-                <div class="main-form__label-and-chkbx">
-                    <input class="main-form__input main-form__input--checkbox" name="vegano" id="vegano" type="checkbox">
-                    <label for="vegano">Vegano</label>
-                </div>
-
+                <app-condicion-alimenticia [descripcion]="'Vegano'"></app-condicion-alimenticia>
             </div>
         </section>
         <section class="main-form__alimentos">

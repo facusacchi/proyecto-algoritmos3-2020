@@ -13,13 +13,15 @@ export class PerfilUsuarioFormComponent implements OnInit {
   usuario: Usuario
   opcionesRutina: Rutina[] = ["NADA", "LEVE", "MEDIANO", "ACTIVO", "INTENSIVO"]
   opcionElegida: Rutina
-  fecha: String = "1991-01-28"
+  fecha: String
 
   constructor(private route: ActivatedRoute) {
     this.usuario = service.getUsuarioLogueado
   }
   
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    console.log(this.fechaDeNacimiento)
+  }
 
   getStatus(): String {
     if(this.usuario.imcEsSaludable()) {
@@ -27,5 +29,9 @@ export class PerfilUsuarioFormComponent implements OnInit {
     } else {return "No Saludable"}
   }
 
-
+  get fechaDeNacimiento() {
+    this.fecha = service.getFechaDeNacimiento
+    return this.fecha
+  }
+  
 }

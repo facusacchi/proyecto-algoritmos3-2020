@@ -1,6 +1,6 @@
 import { Usuario } from '../../Dominio/src/usuario'
 import { Alimento } from '../../Dominio/src/alimento'
-import { vegetariano, vegano, hipertenso } from '../../Dominio/src/condicionAlimenticia'
+import { vegetariano, vegano, hipertenso, celiaco, CondicionAlimenticia } from '../../Dominio/src/condicionAlimenticia'
 import { Injectable } from '@angular/core'
 import { Receta } from '../../Dominio/src/receta'
 import { Ingrediente } from '../../Dominio/src/ingrediente'
@@ -25,7 +25,7 @@ export class Service {
         this.nancy = new Usuario(10, "", "", "Nancy Vargas Fernandez", 120, 1.90, [vegano], new Date(1985, 5, 7), [this.carneVacuna], 'MEDIANO')
         this.usuarios = [
             this.nancy,
-            new Usuario(1, "pepito", '123', "Pepe Palala", 95, 1.75, [vegetariano], new Date(1991, 1, 28), [this.papa], 'NADA'),
+            new Usuario(1, "pepito", '123', "Pepe Palala", 95, 1.75, [vegetariano, celiaco], new Date(1991, 1, 28), [this.papa], 'NADA'),
             new Usuario(2, "carlitos", 'abc', "Juan Carlos De La Hoya", 120, 1.90, [vegano], new Date(1985, 5, 7), [this.carneVacuna], 'MEDIANO'),
             new Usuario(3, "manolito", '456', "Manolo Palala", 80, 1.60, [hipertenso], new Date(1988, 7, 14), [this.carneVacuna], 'INTENSIVO')
         ]
@@ -43,8 +43,27 @@ export class Service {
         ]
     }
 
+    eliminarCondicionUserLogueado(condicion: CondicionAlimenticia): void{
+        this.usuarioLogueado.condicionesAlimenticias.splice(this.usuarioLogueado.condicionesAlimenticias.indexOf(condicion), 1)
+    }
+
+    agregarCondicionUserLogueado(condicion: CondicionAlimenticia): void {
+        this.usuarioLogueado.condicionesAlimenticias.push(condicion)
+    }
+
+    userLogueadotieneCondicion(condicion: CondicionAlimenticia): boolean{
+        return this.usuarioLogueado.condicionesAlimenticias.includes(condicion)
+    }
+
     get getFechaDeNacimiento() {
-        return this.usuarioLogueado.fechaDeNacimiento
+        return this.formatearFecha(this.usuarioLogueado.fechaDeNacimiento)
+    }
+    
+    formatearFecha(fecha: Date): String {
+        const day = fecha.getDate()
+        const month = fecha.getMonth()
+        const year = fecha.getFullYear()
+        return `${year}-${month}-${day}`
     }
 
     get getUsuarioLogueado(): Usuario{
