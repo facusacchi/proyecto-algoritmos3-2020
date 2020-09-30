@@ -1,21 +1,18 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Service } from 'app/service';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-nav-busqueda',
   templateUrl: './nav-busqueda.component.html',
   styleUrls: ['./nav-busqueda.component.scss']
 })
-export class NavBusquedaComponent implements OnInit {
+export class NavBusquedaComponent {
 
   @Output()
   buttonClicked: EventEmitter<string> = new EventEmitter<string>()
 
   recetaABuscar: string
 
-  constructor(public service: Service) { }
-
-  ngOnInit(): void { }
+  constructor() { }
 
   clickButton(): void {
     this.buttonClicked.emit(this.recetaABuscar)
