@@ -76,10 +76,6 @@ export class Service {
         return this.recetas
     }
 
-    /* busqueda(recetaABuscar: string): Receta[] {
-        return this.recetas.filter(receta => !recetaABuscar || receta.cumpleCondicionDeBusqueda(recetaABuscar))
-    } */
-
     getRecetaById(id: number): Receta {
         return this.recetas.find(receta => receta.id == id)
     }

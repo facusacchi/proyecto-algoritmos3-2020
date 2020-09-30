@@ -15,22 +15,15 @@ export class NavBusquedaComponent implements OnInit {
 
   constructor(public service: Service) { }
 
-  ngOnInit(): void {
-    /* this.recetas = this.service.buscarRecetas() */
-  }
+  ngOnInit(): void { }
 
-  /* busqueda(recetaABuscar: string): /* void Receta[] {
-    /* this.recetas = this.service.busqueda(recetaABuscar) 
-    return this.service.busqueda(recetaABuscar)
-  } */
-
-  /*  actualizarBusqueda(recetaABuscar: string): void {
+  /*
+  actualizarBusqueda(recetaABuscar: string): void {
      this.recetaABuscar = recetaABuscar
-   } */
+  } */
 
   clickButton(): void {
     /* this.buttonClicked.emit(this.recetaABuscar) */
-    /* this.service.recetaABuscar = this.recetaABuscar */
     this.service.actualizar(this.recetaABuscar)
   }
 
