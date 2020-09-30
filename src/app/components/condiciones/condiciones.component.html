@@ -1,0 +1,34 @@
+<section class="main-form__condiciones">
+    <h3>Condiciones</h3>
+    <div class="main-form__checkboxes">
+       
+        <div class="checkboxes-start">
+            <div class="main-form__label-and-chkbx">
+                <input (click)="actualizar(value)" class="main-form__input main-form__input--checkbox" name="diabetico" id="diabetico" type="checkbox">
+                <label for="diabetico">{{ cond.diabet }}</label>
+                <!-- [(ngModel)]="cond.diabet" -->
+                <!-- Diabetico -->
+            </div>
+            <div class="main-form__label-and-chkbx">
+                <input class="main-form__input main-form__input--checkbox" name="hipertenso" id="hipertenso" type="checkbox">
+                <label for="hipertenso">Hipertenso</label>
+            </div>
+        </div>
+
+        <div class="checkboxes-middle">
+            <div class="main-form__label-and-chkbx">
+                <input class="main-form__input main-form__input--checkbox"  name="celiaco" id="celiaco" type="checkbox">
+                <label for="celiaco">Celiaco</label>
+            </div>
+            <div class="main-form__label-and-chkbx">
+                <input class="main-form__input main-form__input--checkbox" name="vegetariano" id="vegetariano" type="checkbox">
+                <label for="vegetariano">Vegetariano</label>
+            </div>
+        </div>
+        <div class="main-form__label-and-chkbx">
+            <input class="main-form__input main-form__input--checkbox special-input" name="vegano" id="vegano" type="checkbox">
+            <label for="vegano">Vegano</label>
+        </div>
+    </div>
+</section>
+    

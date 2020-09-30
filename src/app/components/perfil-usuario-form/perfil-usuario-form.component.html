@@ -28,7 +28,7 @@
                         </div>
                         <div class="main-form__label-and-input">
                             <label for="rutina">Rutina</label>
-                            <select [(ngModel)]="opcionElegida" class="main-form__input" name="rutina" id="rutina">
+                            <select [(ngModel)]="usuario.rutina" class="main-form__input" name="rutina" id="rutina">
                                 <option *ngFor="let opcion of opcionesRutina">{{ opcion }}</option>
                             </select>
                         </div>

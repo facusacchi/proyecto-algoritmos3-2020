@@ -15,18 +15,15 @@ export class PerfilUsuarioFormComponent implements OnInit {
   opcionElegida: Rutina
 
   constructor(private route: ActivatedRoute) {
-    this.route.params.subscribe(parametro => {
-      this.usuario = service.buscarUsuarioPorId(parametro['id'])
-    })
-    this.opcionElegida = this.usuario.rutina
+    this.usuario = service.getUsuarioLogueado()
   }
-
+  
   getStatus(): String {
     if(this.usuario.imcEsSaludable()) {
       return "Estado Saludable"
     } else {return "No Saludable"}
   }
-
+  
   ngOnInit(): void {
   }
 

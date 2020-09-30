@@ -13,7 +13,6 @@ export class LoginFormComponent implements OnInit {
 userName: String
 password: String
 mostrarLabelInvalido: boolean = false
-user: Usuario
 
   constructor(private router: Router) { }
   
@@ -22,12 +21,12 @@ user: Usuario
 
   onIngresar(): void{
     if(service.contieneUsuario(this.userName) && service.coincidePassword(this.userName, this.password)) {
-      this.user = service.buscarUsuarioPorUsername(this.userName)
-      this.navegarHaciaPerfilDeUsuario(this.user)
+      service.asignarUsuarioLogueado(service.buscarUsuarioPorUsername(this.userName))
+      this.navegarHaciaPerfilDeUsuario()
     } else { this.mostrarLabelInvalido = true }
   }
 
-  navegarHaciaPerfilDeUsuario(user: Usuario): void{
-    this.router.navigate(['/perfilDeUsuario', user.id])
+  navegarHaciaPerfilDeUsuario(): void{
+    this.router.navigate(['/perfilDeUsuario'])
   }
 }

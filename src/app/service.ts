@@ -18,6 +18,7 @@ export class Service {
     fajitasMexicanas: Receta
     nancy: Usuario
     recetaABuscar = ''/*  = 'Nombre plato 1' */
+    usuarioLogueado: Usuario
 
     constructor() {
         this.papa = new Alimento('Papa', '---', 'HORTALIZAS_FRUTAS_SEMILLAS', [hipertenso])
@@ -41,6 +42,14 @@ export class Service {
             new Receta(3, new Usuario(6, '', 'Usuario autor de receta', 80, 1.7), 'Nombre plato 3'),
             new Receta(4, new Usuario(7, '', 'Usuario autor de receta', 80, 1.7), 'Nombre plato 4')
         ]
+    }
+
+    getUsuarioLogueado(): Usuario{
+        return this.usuarioLogueado
+    }
+
+    asignarUsuarioLogueado(usuario: Usuario): void{
+        this.usuarioLogueado = usuario
     }
 
     coincidePassword(userName: String, pssw: String): boolean {

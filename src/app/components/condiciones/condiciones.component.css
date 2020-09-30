@@ -1,0 +1,51 @@
+
+h3 {
+    font-size: 1.7em;
+}
+
+.main-form__input--checkbox {
+    border-radius: 0.5em;
+    
+}
+
+.main-form__condiciones {
+    display:flex;
+    flex-direction: column;
+    margin: 0rem 3.2rem;
+}
+
+.main-form__checkboxes {
+    border-radius: 0.8rem;
+    padding: 1.6rem 1.6rem;
+    border: 2px solid var(--color-secundario);
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.main-form__label-and-chkbx {
+    display: flex;
+    font-size: 1.4em;
+}
+
+.checkboxes-start {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    align-items: start;
+    height: 5em;
+    justify-content: space-between;
+}
+
+.checkboxes-middle {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    align-items: start;
+    height: 5em;
+    justify-content: space-between;
+}
+
+.special-input {
+    align-self: start;
+}

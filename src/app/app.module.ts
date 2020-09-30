@@ -15,6 +15,7 @@ import { NavBusquedaComponent } from './components/nav-busqueda/nav-busqueda.com
 import { NavButtonComponent } from './components/nav-button/nav-button.component';
 import { RecetaComponent } from './components/receta/receta.component';
 import { RecetaPipe } from './receta.pipe';
+import { CondicionesComponent } from './components/condiciones/condiciones.component';
 
 @NgModule({
   declarations: [	
@@ -31,7 +32,8 @@ import { RecetaPipe } from './receta.pipe';
     NavBusquedaComponent,
     NavButtonComponent,
     RecetaPipe,
-    RecetaComponent
+    RecetaComponent,
+    CondicionesComponent
    ],
   imports: [
     BrowserModule,
