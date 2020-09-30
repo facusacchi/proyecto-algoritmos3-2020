@@ -7,24 +7,18 @@ import { Service } from 'app/service';
   styleUrls: ['./nav-busqueda.component.scss']
 })
 export class NavBusquedaComponent implements OnInit {
-  @Output()
-  recetaABuscar: string
-  /* buttonClicked: EventEmitter<string> = new EventEmitter<string>() */
 
-  /* recetas: Receta[] = [] */
+  @Output()
+  buttonClicked: EventEmitter<string> = new EventEmitter<string>()
+
+  recetaABuscar: string
 
   constructor(public service: Service) { }
 
   ngOnInit(): void { }
 
-  /*
-  actualizarBusqueda(recetaABuscar: string): void {
-     this.recetaABuscar = recetaABuscar
-  } */
-
   clickButton(): void {
-    /* this.buttonClicked.emit(this.recetaABuscar) */
-    this.service.actualizar(this.recetaABuscar)
+    this.buttonClicked.emit(this.recetaABuscar)
   }
 
 }

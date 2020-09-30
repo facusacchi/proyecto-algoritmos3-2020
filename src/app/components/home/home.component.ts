@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Receta } from '../../../../Dominio/src/receta';
 import { Service } from 'app/service';
@@ -15,13 +15,11 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router, public service: Service) { }
 
   ngOnInit(): void {
-    this.recetaABuscar = this.service.recetaABuscar 
     this.recetas = this.service.buscarRecetas()
   }
-
-  /* parentEventHandlerFunction(valueEmitted: string): void {
-    /* this.recetaABuscar = valueEmitted 
-    this.service.recetaABuscar = valueEmitted
-  } */
+   
+  parentEventHandlerFunction(valueEmitted: string): void {
+     this.recetaABuscar = valueEmitted 
+  } 
 
 }

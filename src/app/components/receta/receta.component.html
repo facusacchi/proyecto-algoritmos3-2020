@@ -8,7 +8,7 @@
         <div class="autor">{{receta.autor.nombreYApellido}}</div>
         <div class="inadecuado">
           <b>Inadecuado para </b>
-          {{receta.condicionesInadecuadasReceta()}}
+         <span *ngFor="let condicion of receta.condicionesInadecuadasReceta()"></span>
         </div>
       </section>
     </section>
@@ -59,8 +59,8 @@
           </div>
           <div>
             <table class="tabla tabla-pasos">
-              <tr *ngFor= "let paso of receta.procesoDePreparacion">
-                <td>1</td>
+              <tr *ngFor= "let paso of receta.procesoDePreparacion;let indexOfelement=index">
+                <td> {{indexOfelement+1}} </td>
                 <td>{{paso}}</td>
                 <td>
                   <img class="img-eliminar" src="../../../assets/imagenes/eliminar.png">

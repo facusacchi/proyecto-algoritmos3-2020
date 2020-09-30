@@ -17,7 +17,6 @@ export class Service {
     carneVacuna: Alimento
     fajitasMexicanas: Receta
     nancy: Usuario
-    recetaABuscar = ''/*  = 'Nombre plato 1' */
     usuarioLogueado: Usuario
 
     constructor() {
@@ -78,10 +77,6 @@ export class Service {
 
     getRecetaById(id: number): Receta {
         return this.recetas.find(receta => receta.id == id)
-    }
-
-    actualizar(busqueda: string): void {
-        this.recetaABuscar = busqueda
     }
 
 }
