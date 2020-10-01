@@ -31,8 +31,8 @@
         <div class="ingredientes">
           <div class="separacion">
             <b>Ingredientes</b>
-            <button class="button button-escritorio">Agregar</button>
-            <button class="button-mobile">
+            <button [routerLink] = "['/agregarIngrediente', receta.id]" class="button button-escritorio">Agregar</button>
+            <button [routerLink] = "['/agregarIngrediente', receta.id]" class="button-mobile">
               <img class="signo-mas" src="../imagenes/plus-circle-solid.svg">
             </button>
           </div>

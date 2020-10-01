@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Service } from 'app/service';
+import { Receta } from '../../../../Dominio/src/receta';
 
 @Component({
   selector: 'app-agregar-ingrediente',
@@ -7,7 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgregarIngredienteComponent implements OnInit {
 
-  constructor() { }
+  receta : Receta
+
+  constructor(private route: ActivatedRoute, private recetaService: Service) {
+    this.route.params.subscribe((editarRecetaParameters) => {
+      this.receta = this.recetaService.getRecetaById(editarRecetaParameters.recetaId)
+    })
+   }
 
   ngOnInit() {
   }

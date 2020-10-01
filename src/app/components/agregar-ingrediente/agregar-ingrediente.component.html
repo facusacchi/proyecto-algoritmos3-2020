@@ -8,7 +8,7 @@
               <div class="tabla-contenido">
                   <table class="tabla-alimentos">
                       <tr>
-                          <th>Ingrediente</th>
+                          <th>Alimento</th>
                       </tr>
                       <tr>
                           <td>
@@ -63,7 +63,7 @@
              </section>
               <div class="tabla_alimentos_botones">
                   <input class="button" type="submit" id="aceptar" value="Aceptar">
-                  <input class="button-cancelar" type="button" id="cancelar" value="Cancelar">
+                  <button [routerLink] = "['/receta', receta.id]" class="button-cancelar">Cancelar</button>
                   <!--autofocus="true">-->
               </div>
           </form>
