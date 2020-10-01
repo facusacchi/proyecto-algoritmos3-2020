@@ -24,7 +24,7 @@
                     <div class="main-form__label-and-input--column input-bottom">
                         <div class="main-form__label-and-input">
                             <label for="nacimiento">Nacimiento</label>
-                            <input [(ngModel)]="fechaDeNacimiento" class="main-form__input" name="nacimiento" id="nacimiento" type="date" placeholder="fecha de nacimiento">
+                            <input [(ngModel)]="fecha" class="main-form__input" name="nacimiento" id="nacimiento" type="date" placeholder="fecha de nacimiento">
                         </div>
                         <div class="main-form__label-and-input">
                             <label for="rutina">Rutina</label>
@@ -54,7 +54,8 @@
                         <h4>Alimentos preferidos</h4>
                             <app-primary-button class="main-form__buttom-table" [nombre]="'Agregar'"></app-primary-button>
                     </div>
-                    <div class="main-form__table">
+                    <app-tabla [encabezado]="'Alimento'" [elementos]="alimentosParseados"></app-tabla>
+                    <!-- <div class="main-form__table">
                         <div class="header-table">
                             <span>Alimento</span>
                         </div>
@@ -66,7 +67,7 @@
                             <span class="item-table__span">Cebollas</span>
                             <input class="image-buttom__table" type="image" src="..\imagenes\eliminar.png">
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="main-form__table-and-title">
                     <div class="table__title-and-button">

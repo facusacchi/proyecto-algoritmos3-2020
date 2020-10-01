@@ -1,6 +1,6 @@
 import { Usuario } from '../../Dominio/src/usuario'
 import { Alimento } from '../../Dominio/src/alimento'
-import { vegetariano, vegano, hipertenso, celiaco, CondicionAlimenticia } from '../../Dominio/src/condicionAlimenticia'
+import { vegetariano, vegano, hipertenso, celiaco, CondicionAlimenticia, diabetico } from '../../Dominio/src/condicionAlimenticia'
 import { Injectable } from '@angular/core'
 import { Receta } from '../../Dominio/src/receta'
 import { Ingrediente } from '../../Dominio/src/ingrediente'
@@ -15,6 +15,9 @@ export class Service {
     private recetas: Receta[]
     papa: Alimento
     carneVacuna: Alimento
+    brocoli: Alimento
+    aceitunas: Alimento
+    chocolate: Alimento
     fajitasMexicanas: Receta
     nancy: Usuario
     usuarioLogueado: Usuario
@@ -22,11 +25,14 @@ export class Service {
     constructor() {
         this.papa = new Alimento('Papa', '---', 'HORTALIZAS_FRUTAS_SEMILLAS', [hipertenso])
         this.carneVacuna = new Alimento('Carne Vacuna', '---', 'CARNES_PESCADO_HUEVO', [vegetariano, vegano])
-        this.nancy = new Usuario(10, "", "", "Nancy Vargas Fernandez", 120, 1.90, [vegano], new Date(1985, 5, 7), [this.carneVacuna], 'MEDIANO')
+        this.brocoli = new Alimento("Brocoli", '---', "HORTALIZAS_FRUTAS_SEMILLAS", [])
+        this.aceitunas = new Alimento("Aceitunas", '---', "CEREALES_LEGUMBRES_DERIVADOS", [celiaco])
+        this.chocolate = new Alimento("Chocolate", "---", "ACEITES_GRASAS_AZUCARES", [diabetico])
+        this.nancy = new Usuario(10, "", "", "Nancy Vargas Fernandez", 120, 1.90, [vegano], new Date(1985, 5, 7), [this.carneVacuna, this.papa], 'MEDIANO')
         this.usuarios = [
             this.nancy,
-            new Usuario(1, "pepito", '123', "Pepe Palala", 95, 1.75, [vegetariano, celiaco], new Date(1991, 1, 28), [this.papa], 'NADA'),
-            new Usuario(2, "carlitos", 'abc', "Juan Carlos De La Hoya", 120, 1.90, [vegano], new Date(1985, 5, 7), [this.carneVacuna], 'MEDIANO'),
+            new Usuario(1, "pepito", '123', "Pepe Palala", 95, 1.75, [vegetariano, celiaco], new Date(1991, 1, 28), [this.papa, this.chocolate], 'NADA'),
+            new Usuario(2, "carlitos", 'abc', "Juan Carlos De La Hoya", 120, 1.90, [vegano], new Date(1985, 5, 7), [this.brocoli, this.aceitunas], 'MEDIANO'),
             new Usuario(3, "manolito", '456', "Manolo Palala", 80, 1.60, [hipertenso], new Date(1988, 7, 14), [this.carneVacuna], 'INTENSIVO')
         ]
         this.fajitasMexicanas = new Receta(5, this.nancy, "Fajitas Mexicanas", 'FACIL', 300, "fajitas-mexicanas.jpg")

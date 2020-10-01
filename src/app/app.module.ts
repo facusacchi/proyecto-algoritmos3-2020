@@ -16,6 +16,7 @@ import { NavButtonComponent } from './components/nav-button/nav-button.component
 import { RecetaComponent } from './components/receta/receta.component';
 import { RecetaPipe } from './receta.pipe';
 import { CondicionAlimenticiaComponent } from './components/condicion-alimenticia/condicion-alimenticia.component';
+import { TablaComponent } from './components/tabla/tabla.component';
 
 @NgModule({
   declarations: [	
@@ -33,7 +34,8 @@ import { CondicionAlimenticiaComponent } from './components/condicion-alimentici
     NavButtonComponent,
     RecetaPipe,
     RecetaComponent,
-    CondicionAlimenticiaComponent
+    CondicionAlimenticiaComponent,
+    TablaComponent
    ],
   imports: [
     BrowserModule,
