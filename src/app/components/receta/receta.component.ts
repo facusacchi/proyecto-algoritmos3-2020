@@ -12,9 +12,9 @@ export class RecetaComponent implements OnInit {
 
   receta : Receta
 
-  constructor(private route: ActivatedRoute, private recetaService: Service) {
-    this.route.params.subscribe((editarRecetaParameters) => {
-      this.receta = this.recetaService.getRecetaById(editarRecetaParameters.id)
+  constructor(private route: ActivatedRoute, private service: Service) {
+    this.route.params.subscribe((agregarIngredienteParameters) => {
+      this.receta = this.service.getRecetaById(agregarIngredienteParameters.id)
     })
    }
 

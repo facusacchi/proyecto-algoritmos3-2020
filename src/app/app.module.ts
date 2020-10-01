@@ -17,6 +17,7 @@ import { RecetaComponent } from './components/receta/receta.component';
 import { RecetaPipe } from './receta.pipe';
 import { CondicionAlimenticiaComponent } from './components/condicion-alimenticia/condicion-alimenticia.component';
 import { TablaComponent } from './components/tabla/tabla.component';
+import { AgregarIngredienteComponent } from './components/agregar-ingrediente/agregar-ingrediente.component';
 
 @NgModule({
   declarations: [	
@@ -35,7 +36,8 @@ import { TablaComponent } from './components/tabla/tabla.component';
     RecetaPipe,
     RecetaComponent,
     CondicionAlimenticiaComponent,
-    TablaComponent
+    TablaComponent,
+    AgregarIngredienteComponent
    ],
   imports: [
     BrowserModule,

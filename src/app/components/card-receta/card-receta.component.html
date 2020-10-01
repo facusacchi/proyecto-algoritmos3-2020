@@ -7,7 +7,7 @@
               <div class="info_receta_descripcion_texto">Calorías: {{receta.calorias}}<br>Dificultad: {{receta.dificultad}}
               </div>
               <div class="info_receta_descripcion_iconos">
-                  <img src="assets/imagenes/edit-regular.svg" alt="Editar">
+                  <img [routerLink] = "['/receta', receta.id]"src="assets/imagenes/edit-regular.svg" alt="Editar">
                   <img src="assets/imagenes/trash-alt-solid.svg" alt="Eliminar">
               </div>
           </div>

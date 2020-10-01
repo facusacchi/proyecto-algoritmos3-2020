@@ -8,7 +8,7 @@
         <div class="autor">{{receta.autor.nombreYApellido}}</div>
         <div class="inadecuado">
           <b>Inadecuado para </b>
-         <span *ngFor="let condicion of receta.condicionesInadecuadasReceta()"></span>
+         <span *ngFor="let condicion of receta.condicionesInadecuadasReceta()">{{condicion.nombre() + "s "}}</span>
         </div>
       </section>
     </section>
@@ -31,8 +31,8 @@
         <div class="ingredientes">
           <div class="separacion">
             <b>Ingredientes</b>
-            <button class="button button-escritorio">Agregar</button>
-            <button class="button-mobile">
+            <button [routerLink] = "['/agregarIngrediente', receta.id]" class="button button-escritorio">Agregar</button>
+            <button [routerLink] = "['/agregarIngrediente', receta.id]" class="button-mobile">
               <img class="signo-mas" src="../imagenes/plus-circle-solid.svg">
             </button>
           </div>
@@ -99,7 +99,7 @@
       <section class="aceptar-cancelar">
         <div>
           <button class="button">Aceptar</button>
-          <button class="button-cancelar">Cancelar</button>
+          <button routerLink = "/home" class="button-cancelar">Cancelar</button>
         </div>
       </section>
     </section>
