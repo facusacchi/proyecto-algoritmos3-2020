@@ -1,3 +1,10 @@
+.tabla-contenido {
+    /* margin: 1.5em 3.4em; */
+    border: 0.1em solid var(--color-secundario);
+    overflow-y: scroll;
+    font-size: 2rem;
+    height: 14rem;
+}
 
 .tabla-alimentos {
     width: 100%;
@@ -14,11 +21,13 @@
 
 .tabla-alimentos tr td {
     border-top: 0.1em solid var(--color-secundario);
+    border-bottom: 0.1em solid var(--color-secundario);
     padding: 0.5rem 0;
 }
 
-.tabla-contenido {
-    margin: 1.5em 3.4em;
-    border: 0.1em solid var(--color-secundario);
-    overflow-y: scroll;
+@media (min-width: 769px) {
+   /*  .tabla-contenido {
+        width: var(--ancho-menor);
+        height: 18rem;
+    } */
 }
