@@ -11,7 +11,6 @@ import { Ingrediente } from '../../Dominio/src/ingrediente'
 
 export class Service {
     private usuarios: Usuario[] = []
-    private alimentos: Alimento[] = []
     private recetas: Receta[]
     papa: Alimento
     carneVacuna: Alimento
@@ -21,8 +20,16 @@ export class Service {
     fajitasMexicanas: Receta
     nancy: Usuario
     usuarioLogueado: Usuario
+    asadoAlAsador: Receta
+    guisoDeLentejas: Receta
+    focaccia: Receta
+    usuario: Usuario
 
     constructor() {
+        this.usuario = new Usuario(4, "lolo", "222", "Lolin", 70, 1.70, [], new Date(1970-7-17), [], "ACTIVO")
+        this.asadoAlAsador = new Receta(123, this.usuario, "Asado al asador", "DIFICIL", 800, "")
+        this.guisoDeLentejas = new Receta(456, this.usuario, "Guisio de lentejas", "MEDIA", 500, "")
+        this.focaccia = new Receta(789, this.usuario, "Focaccia", "FACIL", 350, "")
         this.papa = new Alimento('Papa', '---', 'HORTALIZAS_FRUTAS_SEMILLAS', [hipertenso])
         this.carneVacuna = new Alimento('Carne Vacuna', '---', 'CARNES_PESCADO_HUEVO', [vegetariano, vegano])
         this.brocoli = new Alimento("Brocoli", '---', "HORTALIZAS_FRUTAS_SEMILLAS", [])
@@ -42,6 +49,9 @@ export class Service {
         this.fajitasMexicanas.ingredientes = [new Ingrediente(new Alimento("carne", "", "CARNES_PESCADO_HUEVO", [vegano, vegetariano]), "500gr")]
         this.recetas = [
             this.fajitasMexicanas,
+            this.asadoAlAsador,
+            this.guisoDeLentejas,
+            this.focaccia,
             new Receta(1, new Usuario(4, '', '', 'Usuario autor de receta', 80, 1.7), 'Nombre plato 1'),
             new Receta(2, new Usuario(5,'', '', 'Usuario autor de receta', 80, 1.7), 'Nombre plato 2'),
             new Receta(3, new Usuario(6, '', '', 'Usuario autor de receta', 80, 1.7), 'Nombre plato 3'),
