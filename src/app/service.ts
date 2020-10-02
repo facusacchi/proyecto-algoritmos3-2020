@@ -49,6 +49,12 @@ export class Service {
         ]
     }
 
+    parsearAlimentosAString (alimentos: Alimento[]): String[] {
+        const alimentosParseados: String[] = []
+        alimentos.forEach(alimento => alimentosParseados.push(alimento.nombre))
+        return alimentosParseados
+    }
+
     eliminarCondicionUserLogueado(condicion: CondicionAlimenticia): void{
         this.usuarioLogueado.condicionesAlimenticias.splice(this.usuarioLogueado.condicionesAlimenticias.indexOf(condicion), 1)
     }

@@ -15,24 +15,23 @@ export class PerfilUsuarioFormComponent implements OnInit {
   opcionesRutina: Rutina[] = ["NADA", "LEVE", "MEDIANO", "ACTIVO", "INTENSIVO"]
   opcionElegida: Rutina
   fecha: String = "2020-01-12"
-  alimentosPreferidos: Alimento[]
-  alimentosParseados: String[]
-
+  /* alimentosPreferidos: Alimento[]
+  alimentosPreferidosParseados: String[] */
+  alimentosPreferidos: String[]
   constructor(private route: ActivatedRoute) {
     this.usuario = service.getUsuarioLogueado
-    this.alimentosPreferidos = service.getUsuarioLogueado.alimentosPreferidos
+    /* this.alimentosPreferidos = service.getUsuarioLogueado.alimentosPreferidos */
+    this.alimentosPreferidos = service.parsearAlimentosAString(service.getUsuarioLogueado.alimentosPreferidos)
   }
   
   ngOnInit(): void {
-    this.alimentosParseados = this.parsearAlimentosAString()
-    /* this.alimentosParseados.forEach(alim => console.log(alim)) */
   }
 
-  parsearAlimentosAString(): String[]{
+/*   parsearAlimentosAString(): String[]{
     const alimentos: String[] = []
     this.alimentosPreferidos.forEach(alimento => alimentos.push(alimento.nombre))
     return alimentos
-  }
+  } */
 
   getStatus(): String {
     if(this.usuario.imcEsSaludable()) {

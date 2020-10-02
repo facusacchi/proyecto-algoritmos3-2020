@@ -54,7 +54,7 @@
                         <h4>Alimentos preferidos</h4>
                             <app-primary-button class="main-form__buttom-table" [nombre]="'Agregar'"></app-primary-button>
                     </div>
-                    <app-tabla [encabezado]="'Alimento'" [elementos]="alimentosParseados"></app-tabla>
+                    <app-tabla [encabezado]="'Alimento'" [elementos]="alimentosPreferidos"></app-tabla>
                     <!-- <div class="main-form__table">
                         <div class="header-table">
                             <span>Alimento</span>
@@ -74,7 +74,8 @@
                         <h4>Alimentos no preferidos</h4>
                         <app-primary-button class="main-form__buttom-table" [nombre]="'Agregar'"></app-primary-button>
                     </div>
-                    <div class="main-form__table">
+                    <app-tabla [encabezado]="'Alimento'" [elementos]="alimentosPreferidos"></app-tabla>
+                    <!-- <div class="main-form__table">
                         <div class="header-table">
                             <span>Alimento</span>
                         </div>
@@ -86,7 +87,7 @@
                             <span class="item-table__span">Chauchas</span>
                             <input class="image-buttom__table" type="image" src="..\imagenes\eliminar.png">
                         </div>
-                    </div>
+                    </div> -->
                 </div>
         </section>
         <section class="bottom-section">
