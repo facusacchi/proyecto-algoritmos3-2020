@@ -266,6 +266,10 @@ h6 {
 
 }
 
+.contenedor-tabla {
+    height: 14rem;
+}
+
 @media (max-width:768px) {
     .main-form__recetas {
         justify-content: flex-start;

@@ -54,14 +54,18 @@
                         <h4>Alimentos preferidos</h4>
                         <app-primary-button class="main-form__buttom-table" [nombre]="'Agregar'"></app-primary-button>
                     </div>
-                    <app-tabla [encabezado]="'Alimento'" [elementos]="alimentosPreferidos"></app-tabla>
+                    <div class="contenedor-tabla">
+                        <app-tabla [encabezado]="'Alimento'" [elementos]="alimentosPreferidos"></app-tabla>
+                    </div>
                 </div>
                 <div class="main-form__table-and-title">
                     <div class="table__title-and-button">
                         <h4>Alimentos no preferidos</h4>
                         <app-primary-button class="main-form__buttom-table" [nombre]="'Agregar'"></app-primary-button>
                     </div>
-                    <app-tabla [encabezado]="'Alimento'" [elementos]="alimentosPreferidos"></app-tabla>
+                    <div class="contenedor-tabla">
+                        <app-tabla [encabezado]="'Alimento'" [elementos]="alimentosPreferidos"></app-tabla>
+                    </div>
                 </div>
         </section>
         <section class="bottom-section">
