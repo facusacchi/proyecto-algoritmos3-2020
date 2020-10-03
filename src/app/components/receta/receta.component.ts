@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Service } from 'app/service';
+import { service, Service } from 'app/service';
 import { Ingrediente } from '../../../../Dominio/src/ingrediente';
 import { Receta } from '../../../../Dominio/src/receta';
 import { Usuario } from '../../../../Dominio/src/usuario';
@@ -13,10 +13,11 @@ import { Usuario } from '../../../../Dominio/src/usuario';
 export class RecetaComponent implements OnInit {
 
   receta : Receta
+  usuarioLogueado : Usuario
 
-  constructor(private route: ActivatedRoute, private service: Service) {
+  constructor(private route: ActivatedRoute) {
     this.route.params.subscribe((agregarIngredienteParameters) => {
-      this.receta = this.service.getRecetaById(agregarIngredienteParameters.id)
+      this.receta = service.getRecetaById(agregarIngredienteParameters.id)
     })
    }
 
@@ -33,8 +34,8 @@ export class RecetaComponent implements OnInit {
   }
 
   ngOnInit() {
-    
-  
+    this.usuarioLogueado = service.usuarioLogueado
+    console.log(this.usuarioLogueado)
   }
 
   

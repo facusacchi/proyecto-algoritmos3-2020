@@ -35,7 +35,7 @@ export class Service {
         this.brocoli = new Alimento("Brocoli", '---', "HORTALIZAS_FRUTAS_SEMILLAS", [])
         this.aceitunas = new Alimento("Aceitunas", '---', "CEREALES_LEGUMBRES_DERIVADOS", [celiaco])
         this.chocolate = new Alimento("Chocolate", "---", "ACEITES_GRASAS_AZUCARES", [diabetico])
-        this.nancy = new Usuario(10, "", "", "Nancy Vargas Fernandez", 120, 1.90, [vegano], new Date(1985, 5, 7), [this.carneVacuna, this.papa], 'MEDIANO')
+        this.nancy = new Usuario(10, "nan", "123", "Nancy Vargas Fernandez", 120, 1.90, [vegano], new Date(1985, 5, 7), [this.carneVacuna, this.papa], 'MEDIANO')
         this.usuarios = [
             this.nancy,
             new Usuario(1, "pepito", '123', "Pepe Palala", 95, 1.75, [vegetariano, celiaco], new Date(1991, 1, 28), [this.papa, this.chocolate], 'NADA'),

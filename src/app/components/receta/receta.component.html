@@ -16,11 +16,11 @@
       <section class="inputs-contenedor">
         <div class="calorias">
           <b>Total de calorias</b>
-          <input [(ngModel)]="receta.calorias" class="input" type="number" id="calorias" placeholder="500" max="4000">
+          <input [disabled]="!receta.esEditablePor(usuarioLogueado)" [(ngModel)]="receta.calorias" class="input" type="number" id="calorias" placeholder="500" max="4000">
         </div>
         <div class="dificultad">
           <b>Dificultad</b>
-          <select [(ngModel)]="receta.dificultad" class="input" id="dificultad">
+          <select [disabled]="!receta.esEditablePor(usuarioLogueado)" [(ngModel)]="receta.dificultad" class="input" id="dificultad">
             <option value="FACIL">Facil</option>
             <option value="MEDIA">Media</option>
             <option value="DIFICIL">Dificil</option>
@@ -31,8 +31,8 @@
         <div class="ingredientes">
           <div class="separacion">
             <b>Ingredientes</b>
-            <button [routerLink] = "['/agregarIngrediente', receta.id]" class="button button-escritorio">Agregar</button>
-            <button [routerLink] = "['/agregarIngrediente', receta.id]" class="button-mobile">
+            <button *ngIf= "receta.esEditablePor(usuarioLogueado)" [routerLink] = "['/agregarIngrediente', receta.id]" class="button button-escritorio">Agregar</button>
+            <button *ngIf= "receta.esEditablePor(usuarioLogueado)" [routerLink] = "['/agregarIngrediente', receta.id]" class="button-mobile">
               <img class="signo-mas" src="../imagenes/plus-circle-solid.svg">
             </button>
           </div>
@@ -42,7 +42,7 @@
                 <td class="ancho-columna">{{ingrediente.alimento.nombre}}</td>
                 <td class="ancho-columna">{{ingrediente.cantidad}}</td>
                 <td>
-                  <img (click)="eliminarIngrediente(ingrediente)"class="img-eliminar" src="../../../assets/imagenes/eliminar.png">
+                  <img *ngIf= "receta.esEditablePor(usuarioLogueado)" (click)="eliminarIngrediente(ingrediente)"class="img-eliminar" src="../../../assets/imagenes/eliminar.png">
                 </td>
               </tr>
             </table>
@@ -52,8 +52,8 @@
         <div class="pasos">
           <div class="separacion">
             <b>Pasos</b>
-            <button class="button button-escritorio">Agregar</button>
-            <button class="button-mobile">
+            <button *ngIf= "receta.esEditablePor(usuarioLogueado)" class="button button-escritorio">Agregar</button>
+            <button *ngIf= "receta.esEditablePor(usuarioLogueado)" class="button-mobile">
               <img class="signo-mas" src="../imagenes/plus-circle-solid.svg">
             </button>
           </div>
@@ -63,7 +63,7 @@
                 <td> {{indexOfelement+1}} </td>
                 <td>{{paso}}</td>
                 <td>
-                  <img (click)="eliminarPaso(paso)" class="img-eliminar" src="../../../assets/imagenes/eliminar.png">
+                  <img *ngIf= "receta.esEditablePor(usuarioLogueado)" (click)="eliminarPaso(paso)" class="img-eliminar" src="../../../assets/imagenes/eliminar.png">
                 </td>
               </tr>
             </table>
@@ -73,8 +73,8 @@
       <section class="colaboradores-contenedor">
         <div class="espacio">
           <b>Colaboradores</b>
-          <button class="button button-escritorio">Agregar</button>
-            <button class="button-mobile">
+          <button *ngIf= "receta.esEditablePor(usuarioLogueado)" class="button button-escritorio">Agregar</button>
+            <button *ngIf= "receta.esEditablePor(usuarioLogueado)" class="button-mobile">
               <img class="signo-mas" src="../imagenes/plus-circle-solid.svg">
             </button>
         </div>
@@ -88,7 +88,7 @@
                 <div class="horizontal">
                   <div class="centrado">{{colaborador.nombreYApellido}}</div>
                   <div>
-                    <img (click)="eliminarColaborador(colaborador)" class="img-eliminar" src="../../../assets/imagenes/eliminar.png">
+                    <img *ngIf= "receta.esEditablePor(usuarioLogueado)" (click)="eliminarColaborador(colaborador)" class="img-eliminar" src="../../../assets/imagenes/eliminar.png">
                   </div>
                 </div>
               </td>
@@ -98,7 +98,7 @@
       </section>
       <section class="aceptar-cancelar">
         <div>
-          <button class="button">Aceptar</button>
+          <button *ngIf= "receta.esEditablePor(usuarioLogueado)" class="button">Aceptar</button>
           <button routerLink = "/home" class="button-cancelar">Cancelar</button>
         </div>
       </section>
