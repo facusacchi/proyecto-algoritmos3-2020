@@ -4,42 +4,63 @@ import { Usuario } from './usuario'
 
 export class Receta {
 
-  constructor( public id : number, public autor: Usuario, public nombreDelPlato = '', public dificultad: Dificultad = 'FACIL', public calorias: number = 0, public imagen : string = "") {}
-    public colaboradores: Usuario[] = []
-    public ingredientes: Ingrediente[] = []
-    public procesoDePreparacion : string [] = []
-    
-    esEditablePor(usuario: Usuario): boolean {
-      return usuario === this.autor || this.colaboradores.includes(usuario)
+  constructor(public id: number, public autor: Usuario, public nombreDelPlato = '', public dificultad: Dificultad = 'FACIL', public calorias: number = 0, public imagen: string = "") { }
+  public colaboradores: Usuario[] = []
+  public ingredientes: Ingrediente[] = []
+  public procesoDePreparacion: string[] = []
+
+  esEditablePor(usuario: Usuario): boolean {
+    return usuario === this.autor || this.colaboradores.includes(usuario)
+  }
+
+  agregarColaborador(colaborador: Usuario): void {
+    this.colaboradores.push(colaborador)
+  }
+
+  setearAutor(autor: Usuario): void {
+    this.autor = autor
+  }
+
+  agregarIngrediente(ingrediente: Ingrediente): void {
+    this.ingredientes.push(ingrediente)
+  }
+
+  condicionesInadecuadasReceta(): CondicionAlimenticia[] {
+    return (this.ingredientes.flatMap(ingrediente => ingrediente.condicionesInadecuadasIngrediente()))
+  }
+
+  getIngredientes(): Ingrediente[] {
+    return this.ingredientes
+  }
+
+  cumpleCondicionDeBusqueda(valorBusqueda: string): boolean {
+    return this.nombreDelPlato.toLowerCase().includes(valorBusqueda) || this.ingredientes.some(ingrediente =>
+      ingrediente.alimento.nombre.toLowerCase().includes(valorBusqueda))
+  }
+
+  eliminarProcesoDePreparacion(paso: string) {
+    const index = this.procesoDePreparacion.indexOf(paso);
+    if (index > -1) {
+      this.procesoDePreparacion.splice(index, 1);
     }
-    
-    agregarColaborador(colaborador: Usuario): void {
-      this.colaboradores.push(colaborador)
+  }
+
+  eliminarIngrediente(ingrediente: Ingrediente) {
+    const index = this.ingredientes.indexOf(ingrediente);
+    if (index > -1) {
+      this.ingredientes.splice(index, 1);
     }
 
-    setearAutor(autor: Usuario): void {
-      this.autor = autor
+  }
+  eliminarColaborador(colaborador: Usuario) {
+    const index = this.colaboradores.indexOf(colaborador);
+    if (index > -1) {
+      this.colaboradores.splice(index, 1);
     }
     
-    agregarIngrediente(ingrediente: Ingrediente): void {
-      this.ingredientes.push(ingrediente)
-    }
-    
-    condicionesInadecuadasReceta(): CondicionAlimenticia[] {
-      return (this.ingredientes.flatMap( ingrediente => ingrediente.condicionesInadecuadasIngrediente()))
-    }    
-
-    getIngredientes(): Ingrediente[] {
-      return this.ingredientes
-    }
-
-    cumpleCondicionDeBusqueda(valorBusqueda: string): boolean {
-      return this.nombreDelPlato.toLowerCase().includes(valorBusqueda) || this.ingredientes.some(ingrediente => 
-        ingrediente.alimento.nombre.toLowerCase().includes(valorBusqueda))
-    }
+  }
 }
-
-export class RecetaCompuesta extends Receta{
+export class RecetaCompuesta extends Receta {
   public subrecetas: Array<Receta> = []
 
   agregarSubreceta(subreceta: Receta): void {
@@ -47,7 +68,7 @@ export class RecetaCompuesta extends Receta{
   }
 
   condicionesInadecuadasReceta(): CondicionAlimenticia[] {
-    return this.getIngredientes().flatMap(ingrediente =>  ingrediente.condicionesInadecuadasIngrediente())
+    return this.getIngredientes().flatMap(ingrediente => ingrediente.condicionesInadecuadasIngrediente())
   }
 
   getIngredientes(): Ingrediente[] {

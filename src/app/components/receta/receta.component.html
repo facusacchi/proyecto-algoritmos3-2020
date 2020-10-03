@@ -42,7 +42,7 @@
                 <td class="ancho-columna">{{ingrediente.alimento.nombre}}</td>
                 <td class="ancho-columna">{{ingrediente.cantidad}}</td>
                 <td>
-                  <img class="img-eliminar" src="../../../assets/imagenes/eliminar.png">
+                  <img (click)="eliminarIngrediente(ingrediente)"class="img-eliminar" src="../../../assets/imagenes/eliminar.png">
                 </td>
               </tr>
             </table>
@@ -63,7 +63,7 @@
                 <td> {{indexOfelement+1}} </td>
                 <td>{{paso}}</td>
                 <td>
-                  <img class="img-eliminar" src="../../../assets/imagenes/eliminar.png">
+                  <img (click)="eliminarPaso(paso)" class="img-eliminar" src="../../../assets/imagenes/eliminar.png">
                 </td>
               </tr>
             </table>
@@ -88,7 +88,7 @@
                 <div class="horizontal">
                   <div class="centrado">{{colaborador.nombreYApellido}}</div>
                   <div>
-                    <img class="img-eliminar" src="../../../assets/imagenes/eliminar.png">
+                    <img (click)="eliminarColaborador(colaborador)" class="img-eliminar" src="../../../assets/imagenes/eliminar.png">
                   </div>
                 </div>
               </td>
