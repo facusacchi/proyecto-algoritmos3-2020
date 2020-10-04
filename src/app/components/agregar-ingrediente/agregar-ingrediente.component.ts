@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Service } from 'app/service';
+import { Alimento } from '../../../../Dominio/src/alimento';
 import { Receta } from '../../../../Dominio/src/receta';
 
 @Component({
@@ -11,14 +12,16 @@ import { Receta } from '../../../../Dominio/src/receta';
 export class AgregarIngredienteComponent implements OnInit {
 
   receta : Receta
+  alimentos : Alimento[]
 
-  constructor(private route: ActivatedRoute, private recetaService: Service) {
-    this.route.params.subscribe((editarRecetaParameters) => {
-      this.receta = this.recetaService.getRecetaById(editarRecetaParameters.recetaId)
+  constructor(private route: ActivatedRoute, private service : Service) {
+    this.route.params.subscribe((agregarIngredienteParameters) => {
+      this.receta = this.service.getRecetaById(agregarIngredienteParameters.recetaId)
     })
-   }
+  }
 
   ngOnInit() {
+    this.alimentos=this.service.getAlimentos()
   }
 
 }

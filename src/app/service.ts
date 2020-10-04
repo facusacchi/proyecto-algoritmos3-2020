@@ -17,6 +17,12 @@ export class Service {
     brocoli: Alimento
     aceitunas: Alimento
     chocolate: Alimento
+    cebolla : Alimento
+    pimientos : Alimento
+    aceite : Alimento
+    sal : Alimento
+    
+
     fajitasMexicanas: Receta
     nancy: Usuario
     usuarioLogueado: Usuario
@@ -35,6 +41,11 @@ export class Service {
         this.brocoli = new Alimento("Brocoli", '---', "HORTALIZAS_FRUTAS_SEMILLAS", [])
         this.aceitunas = new Alimento("Aceitunas", '---', "CEREALES_LEGUMBRES_DERIVADOS", [celiaco])
         this.chocolate = new Alimento("Chocolate", "---", "ACEITES_GRASAS_AZUCARES", [diabetico])
+        this.cebolla = new Alimento("Cebolla", "---", "HORTALIZAS_FRUTAS_SEMILLAS")
+        this.pimientos = new Alimento("Pimientos", "---", "HORTALIZAS_FRUTAS_SEMILLAS")
+        this.sal = new Alimento("Sal", "---", "ACEITES_GRASAS_AZUCARES", [hipertenso])
+        this.aceite = new Alimento("Aceite", "---", "ACEITES_GRASAS_AZUCARES", [hipertenso])
+
         this.nancy = new Usuario(10, "nan", "123", "Nancy Vargas Fernandez", 120, 1.90, [vegano], new Date(1985, 5, 7), [this.carneVacuna, this.papa], 'MEDIANO')
         this.usuarios = [
             this.nancy,
@@ -64,11 +75,11 @@ export class Service {
         alimentos.forEach(alimento => alimentosParseados.push(alimento.nombre))
         return alimentosParseados
     }
-
+    
     eliminarCondicionUserLogueado(condicion: CondicionAlimenticia): void{
         this.usuarioLogueado.condicionesAlimenticias.splice(this.usuarioLogueado.condicionesAlimenticias.indexOf(condicion), 1)
     }
-
+    
     agregarCondicionUserLogueado(condicion: CondicionAlimenticia): void {
         this.usuarioLogueado.condicionesAlimenticias.push(condicion)
     }
@@ -87,11 +98,11 @@ export class Service {
         const year = fecha.getFullYear()
         return `${year}-${month}-${day}`
     }
-
+    
     get getUsuarioLogueado(): Usuario{
         return this.usuarioLogueado
     }
-
+    
     asignarUsuarioLogueado(usuario: Usuario): void{
         this.usuarioLogueado = usuario
     }
@@ -107,7 +118,7 @@ export class Service {
     buscarUsuarioPorId(id: number): Usuario {
         return this.usuarios.find(user => user.id == id)
     }
-
+    
     contieneUsuario(username: String): boolean {
         return this.usuarios.some(user => this.sacarEspaciosYpasarAMinuscula(user.userName) == this.sacarEspaciosYpasarAMinuscula(username))
     }
@@ -115,7 +126,7 @@ export class Service {
     sacarEspaciosYpasarAMinuscula(username: String): String {
         return username.trim().toLowerCase()
     }
-
+    
     buscarRecetas(): Receta[] {
         return this.recetas
     }
@@ -123,11 +134,14 @@ export class Service {
     getRecetaById(id: number): Receta {
         return this.recetas.find(receta => receta.id == id)
     }
-
+    
     guardarCambiosReceta(recetaActualizada: Receta) {
         // let recetaOriginal = this.getRecetaById(recetaActualizada.id)
         // recetaOriginal = recetaActualizada
     }
+
+    getAlimentos(): Alimento[] {
+      return [this.papa, this.chocolate, this.aceitunas, this.brocoli, this.carneVacuna, this.cebolla, this.pimientos, this.sal, this.aceite]
+    }
 }
 
-export const service = new Service

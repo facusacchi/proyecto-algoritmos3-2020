@@ -10,49 +10,9 @@
                       <tr>
                           <th>Alimento</th>
                       </tr>
-                      <tr>
+                      <tr *ngFor = "let alimento of alimentos" (click)= "seleccionarAlimento">
                           <td>
-                              <div>Lentejas</div>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>
-                              <div>Cebolla</div>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>
-                              <div>Sal</div>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>
-                              <div>Pimienta</div>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>
-                              <div>Orégano</div>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>
-                              <div>Harina</div>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>
-                              <div>Pollo</div>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>
-                              <div>Ricota</div>
-                          </td>
-                      </tr>
-                      <tr>
-                          <td>
-                              <div>Carne</div>
+                              <div>{{alimento.nombre}}</div>
                           </td>
                       </tr>
                   </table>

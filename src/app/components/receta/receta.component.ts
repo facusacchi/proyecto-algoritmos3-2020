@@ -15,11 +15,11 @@ export class RecetaComponent implements OnInit {
   receta: Receta
   usuarioLogueado: Usuario
 
-  constructor(private route: ActivatedRoute, private service : Service) {
-    this.route.params.subscribe((agregarIngredienteParameters) => {
-      this.receta = this.service.getRecetaById(agregarIngredienteParameters.id)
+  constructor(private route: ActivatedRoute, private service: Service) {
+    this.route.params.subscribe((editarRecetaParameters) => {
+      this.receta = this.service.getRecetaById(editarRecetaParameters.id)
     })
-  }
+   }
 
   ngOnInit() {
     this.usuarioLogueado = this.service.usuarioLogueado
