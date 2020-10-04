@@ -40,6 +40,10 @@ footer {
     margin-bottom: 1em;  
 }
 
+.colorSeleccionado {
+    background-color: violet;
+}
+
 @media (min-width: 769px) {
     .main_contenidos {
         width: var(--ancho-default);
