@@ -24,7 +24,7 @@ export class Service {
     guisoDeLentejas: Receta
     focaccia: Receta
     usuario: Usuario
-
+    
     constructor() {
         this.usuario = new Usuario(4, "lolo", "222", "Lolin", 70, 1.70, [], new Date(1970-7-17), [], "ACTIVO")
         this.asadoAlAsador = new Receta(123, this.usuario, "Asado al asador", "DIFICIL", 800, "")
@@ -58,7 +58,7 @@ export class Service {
             new Receta(4, new Usuario(7, '', '', 'Usuario autor de receta', 80, 1.7), 'Nombre plato 4')
         ]
     }
-
+    
     parsearAlimentosAString (alimentos: Alimento[]): String[] {
         const alimentosParseados: String[] = []
         alimentos.forEach(alimento => alimentosParseados.push(alimento.nombre))
@@ -72,11 +72,11 @@ export class Service {
     agregarCondicionUserLogueado(condicion: CondicionAlimenticia): void {
         this.usuarioLogueado.condicionesAlimenticias.push(condicion)
     }
-
+    
     userLogueadotieneCondicion(condicion: CondicionAlimenticia): boolean{
         return this.usuarioLogueado.condicionesAlimenticias.includes(condicion)
     }
-
+    
     get getFechaDeNacimiento() {
         return this.formatearFecha(this.usuarioLogueado.fechaDeNacimiento)
     }
@@ -95,15 +95,15 @@ export class Service {
     asignarUsuarioLogueado(usuario: Usuario): void{
         this.usuarioLogueado = usuario
     }
-
+    
     coincidePassword(userName: String, pssw: String): boolean {
         return this.buscarUsuarioPorUsername(userName).password == pssw
     }
-
+    
     buscarUsuarioPorUsername(username: String): Usuario {
         return this.usuarios.find(user => this.sacarEspaciosYpasarAMinuscula(user.userName) == this.sacarEspaciosYpasarAMinuscula(username))
     }
-
+    
     buscarUsuarioPorId(id: number): Usuario {
         return this.usuarios.find(user => user.id == id)
     }
@@ -111,7 +111,7 @@ export class Service {
     contieneUsuario(username: String): boolean {
         return this.usuarios.some(user => this.sacarEspaciosYpasarAMinuscula(user.userName) == this.sacarEspaciosYpasarAMinuscula(username))
     }
-
+    
     sacarEspaciosYpasarAMinuscula(username: String): String {
         return username.trim().toLowerCase()
     }
@@ -119,11 +119,15 @@ export class Service {
     buscarRecetas(): Receta[] {
         return this.recetas
     }
-
+    
     getRecetaById(id: number): Receta {
         return this.recetas.find(receta => receta.id == id)
     }
 
+    guardarCambiosReceta(recetaActualizada: Receta) {
+        // let recetaOriginal = this.getRecetaById(recetaActualizada.id)
+        // recetaOriginal = recetaActualizada
+    }
 }
 
 export const service = new Service

@@ -98,7 +98,7 @@
       </section>
       <section class="aceptar-cancelar">
         <div>
-          <button *ngIf= "receta.esEditablePor(usuarioLogueado)" class="button">Aceptar</button>
+          <button (click)= "guardarCambios()" *ngIf= "receta.esEditablePor(usuarioLogueado)" class="button">Aceptar</button>
           <button routerLink = "/home" class="button-cancelar">Cancelar</button>
         </div>
       </section>
