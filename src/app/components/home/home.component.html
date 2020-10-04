@@ -2,13 +2,15 @@
     <div class="page">
         <!-- header -->
         <div class="contenido">
-            <nav class="nav_container"> 
-                 <app-nav-busqueda (buttonClicked)="parentEventHandlerFunction($event)"></app-nav-busqueda>  
+            <nav class="nav_container">
+                <app-nav-busqueda (buttonClicked)="recibirRecetaABuscar($event)"
+                    (buttonClicked2)="recibirEstadoCheckbox($event)"></app-nav-busqueda>
             </nav>
             <div class="card_grid_container">
                 <div class="card_grid_titulo">Resultados de la búsqueda</div>
                 <div class="card_grid">
-                    <app-card-receta *ngFor="let receta of recetas | recetaFilter: recetaABuscar" [receta]="receta"></app-card-receta>
+                    <app-card-receta *ngFor="let receta of recetas | recetaFilter: recetaABuscar: isChecked: usuarioLogueado"
+                        [receta]="receta"></app-card-receta>
                 </div>
                 <div class="card_grid_agregar">
                     <div class="card_grid_agregar_icono">
@@ -18,5 +20,5 @@
             </div>
         </div>
     </div>
-<!-- footer -->
-</body>    
+    <!-- footer -->
+</body>

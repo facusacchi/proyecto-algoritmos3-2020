@@ -50,15 +50,19 @@ export class Receta {
     if (index > -1) {
       this.ingredientes.splice(index, 1);
     }
-
   }
+
   eliminarColaborador(colaborador: Usuario) {
     const index = this.colaboradores.indexOf(colaborador);
     if (index > -1) {
       this.colaboradores.splice(index, 1);
     }
-    
   }
+
+  esAutor(usuario: Usuario): boolean {
+    return this.autor == usuario
+  }
+
 }
 export class RecetaCompuesta extends Receta {
   public subrecetas: Array<Receta> = []

@@ -63,10 +63,10 @@ export class Service {
             this.asadoAlAsador,
             this.guisoDeLentejas,
             this.focaccia,
-            new Receta(1, new Usuario(4, '', '', 'Usuario autor de receta', 80, 1.7), 'Nombre plato 1'),
-            new Receta(2, new Usuario(5,'', '', 'Usuario autor de receta', 80, 1.7), 'Nombre plato 2'),
-            new Receta(3, new Usuario(6, '', '', 'Usuario autor de receta', 80, 1.7), 'Nombre plato 3'),
-            new Receta(4, new Usuario(7, '', '', 'Usuario autor de receta', 80, 1.7), 'Nombre plato 4')
+            new Receta(1, this.nancy, 'Nancy plato 1'),
+            new Receta(2, this.nancy, 'Nancy plato 2'),
+            new Receta(3, this.usuario, 'Usuario plato 1'),
+            new Receta(4, this.usuario, 'Usuario plato 2')
         ]
     }
     

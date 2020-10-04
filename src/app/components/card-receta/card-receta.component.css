@@ -36,6 +36,10 @@
     font-weight: bold;
 }
 
+.info_receta_titulo:hover {
+    color: var(--color-secundario);
+}
+
 .info_receta_extra {
     display: flex;
     justify-content: space-between;
@@ -60,4 +64,8 @@
     width: 2.2rem;
     height: 2.2rem;
     margin: 0.1rem;
+}
+
+.info_receta_descripcion_iconos>img:hover {
+    filter: brightness(75%);
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Receta } from '../../../../Dominio/src/receta';
 import { Service } from 'app/service';
+import { Usuario } from '../../../../Dominio/src/usuario';
 
 @Component({
   selector: 'app-home',
@@ -10,16 +11,23 @@ import { Service } from 'app/service';
 })
 export class HomeComponent implements OnInit {
   recetaABuscar = ''
+  isChecked = false
   recetas: Receta[] = []
+  usuarioLogueado: Usuario
 
   constructor(private router: Router, public service: Service) { }
 
   ngOnInit(): void {
+    this.usuarioLogueado = this.service.getUsuarioLogueado
     this.recetas = this.service.buscarRecetas()
   }
-   
-  parentEventHandlerFunction(valueEmitted: string): void {
-     this.recetaABuscar = valueEmitted 
-  } 
+
+  recibirRecetaABuscar(valueEmitted: string): void {
+    this.recetaABuscar = valueEmitted
+  }
+
+  recibirEstadoCheckbox(valueEmitted: boolean): void {
+    this.isChecked = valueEmitted
+  }
 
 }
