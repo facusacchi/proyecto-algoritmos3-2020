@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario, Rutina } from '../../../../Dominio/src/usuario';
-import { service } from '../../service';
+import { Service } from '../../service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -16,9 +16,10 @@ export class PerfilUsuarioFormComponent implements OnInit {
   opcionElegida: Rutina
   fecha: String = "2020-01-12"
   alimentosPreferidos: String[]
-  constructor(private route: ActivatedRoute) {
-    this.usuario = service.getUsuarioLogueado
-    this.alimentosPreferidos = service.parsearAlimentosAString(service.getUsuarioLogueado.alimentosPreferidos)
+
+  constructor(private route: ActivatedRoute, private service : Service) {
+    this.usuario = this.service.getUsuarioLogueado
+    this.alimentosPreferidos = this.service.parsearAlimentosAString(service.getUsuarioLogueado.alimentosPreferidos)
   }
   
   ngOnInit(): void { }
@@ -30,7 +31,7 @@ export class PerfilUsuarioFormComponent implements OnInit {
   }
 
   get fechaDeNacimiento() {
-    this.fecha = service.getFechaDeNacimiento
+    this.fecha = this.service.getFechaDeNacimiento
     return this.fecha
   }
   
