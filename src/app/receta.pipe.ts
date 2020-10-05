@@ -10,7 +10,7 @@ export class RecetaPipe implements PipeTransform {
 
   transform(recetas: Receta[], recetaABuscar: string, isChecked: boolean, usuarioLogueado: Usuario): Receta[] {
     if (isChecked) {
-      return recetas.filter(receta => (!recetaABuscar || receta.cumpleCondicionDeBusqueda(recetaABuscar.toLowerCase())) && receta.esAutor(usuarioLogueado))
+      return recetas.filter(receta => (!recetaABuscar || receta.cumpleCondicionDeBusqueda(recetaABuscar.toLowerCase())) && receta.esEditablePor(usuarioLogueado) /* receta.esAutor(usuarioLogueado) */)
     }
     else {
       return recetas.filter(receta => !recetaABuscar || receta.cumpleCondicionDeBusqueda(recetaABuscar.toLowerCase()))

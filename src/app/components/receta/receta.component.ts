@@ -19,11 +19,10 @@ export class RecetaComponent implements OnInit {
     this.route.params.subscribe((editarRecetaParameters) => {
       this.receta = this.service.getRecetaById(editarRecetaParameters.id)
     })
-   }
+  }
 
   ngOnInit() {
     this.usuarioLogueado = this.service.usuarioLogueado
-    console.log(this.usuarioLogueado)
   }
 
   eliminarPaso(paso: string) {

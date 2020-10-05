@@ -17,11 +17,11 @@ export class Service {
     brocoli: Alimento
     aceitunas: Alimento
     chocolate: Alimento
-    cebolla : Alimento
-    pimientos : Alimento
-    aceite : Alimento
-    sal : Alimento
-    
+    cebolla: Alimento
+    pimientos: Alimento
+    aceite: Alimento
+    sal: Alimento
+
 
     fajitasMexicanas: Receta
     nancy: Usuario
@@ -30,12 +30,17 @@ export class Service {
     guisoDeLentejas: Receta
     focaccia: Receta
     usuario: Usuario
-    
+    buseca: Receta
+    pollo: Receta
+
     constructor() {
         this.usuario = new Usuario(4, "lolo", "222", "Lolin", 70, 1.70, [], new Date(1970-7-17), [], [], "ACTIVO")
-        this.asadoAlAsador = new Receta(123, this.usuario, "Asado al asador", "DIFICIL", 800, "")
-        this.guisoDeLentejas = new Receta(456, this.usuario, "Guisio de lentejas", "MEDIA", 500, "")
-        this.focaccia = new Receta(789, this.usuario, "Focaccia", "FACIL", 350, "")
+        this.asadoAlAsador = new Receta(123, this.usuario, "Asado al asador", "DIFICIL", 800, "asado_al_asador.jpg")
+        this.guisoDeLentejas = new Receta(456, this.usuario, "Guiso de lentejas", "MEDIA", 500, "guiso de lentejas.jpg")
+        this.buseca = new Receta(455, this.usuario, "Buseca", "MEDIA", 500, "buseca.jpg")
+        this.focaccia = new Receta(789, this.usuario, "Focaccia", "FACIL", 350, "focaccia2.jpg")
+
+        this.pollo = new Receta(78, this.usuario, "Pollo al horno", "FACIL", 350, "pollo_al_horno.jpg")
         this.papa = new Alimento('Papa', '---', 'HORTALIZAS_FRUTAS_SEMILLAS', [hipertenso])
         this.carneVacuna = new Alimento('Carne Vacuna', '---', 'CARNES_PESCADO_HUEVO', [vegetariano, vegano])
         this.brocoli = new Alimento("Brocoli", '---', "HORTALIZAS_FRUTAS_SEMILLAS", [])
@@ -46,12 +51,13 @@ export class Service {
         this.sal = new Alimento("Sal", "---", "ACEITES_GRASAS_AZUCARES", [hipertenso])
         this.aceite = new Alimento("Aceite", "---", "ACEITES_GRASAS_AZUCARES", [hipertenso])
 
-        this.nancy = new Usuario(10, "nan", "123", "Nancy Vargas Fernandez", 120, 1.90, [vegano], new Date(1985, 5, 7), [this.carneVacuna, this.papa],[], 'MEDIANO')
+        this.nancy = new Usuario(10, "nan", "123", "Nancy Vargas Fernandez", 120, 1.90, [vegano], new Date(1985, 5, 7), [this.carneVacuna, this.papa], [], 'MEDIANO')
+        this.focaccia.colaboradores = [this.nancy]
         this.usuarios = [
             this.nancy,
             new Usuario(1, "pepito", '123', "Pepe Palala", 95, 1.75, [vegetariano, celiaco], new Date(1991, 1, 28), [this.papa, this.chocolate], [this.brocoli, this.aceitunas], 'NADA'),
             new Usuario(2, "carlitos", 'abc', "Juan Carlos De La Hoya", 120, 1.90, [vegano], new Date(1985, 5, 7), [this.brocoli, this.aceitunas], [this.carneVacuna], 'MEDIANO'),
-            new Usuario(3, "manolito", '456', "Manolo Palala", 80, 1.60, [hipertenso], new Date(1988, 7, 14), [this.carneVacuna], [this.papa, this.chocolate],'INTENSIVO')
+            new Usuario(3, "manolito", '456', "Manolo Palala", 80, 1.60, [hipertenso], new Date(1988, 7, 14), [this.carneVacuna], [this.papa, this.chocolate], 'INTENSIVO')
         ]
         this.fajitasMexicanas = new Receta(5, this.nancy, "Fajitas Mexicanas", 'FACIL', 300, "fajitas-mexicanas.jpg")
         this.fajitasMexicanas.colaboradores = [new Usuario(8, "", "", "Rita Curita", 70, 1.50),
@@ -63,85 +69,89 @@ export class Service {
             this.asadoAlAsador,
             this.guisoDeLentejas,
             this.focaccia,
-            new Receta(1, this.nancy, 'Nancy plato 1'),
-            new Receta(2, this.nancy, 'Nancy plato 2'),
-            new Receta(3, this.usuario, 'Usuario plato 1'),
-            new Receta(4, this.usuario, 'Usuario plato 2')
+            this.buseca,
+            this.pollo,
         ]
     }
-    
-    parsearAlimentosAString (alimentos: Alimento[]): String[] {
+
+    parsearAlimentosAString(alimentos: Alimento[]): String[] {
         const alimentosParseados: String[] = []
         alimentos.forEach(alimento => alimentosParseados.push(alimento.nombre))
         return alimentosParseados
     }
-    
-    eliminarCondicionUserLogueado(condicion: CondicionAlimenticia): void{
+
+    eliminarCondicionUserLogueado(condicion: CondicionAlimenticia): void {
         this.usuarioLogueado.condicionesAlimenticias.splice(this.usuarioLogueado.condicionesAlimenticias.indexOf(condicion), 1)
     }
-    
+
     agregarCondicionUserLogueado(condicion: CondicionAlimenticia): void {
         this.usuarioLogueado.condicionesAlimenticias.push(condicion)
     }
-    
-    userLogueadotieneCondicion(condicion: CondicionAlimenticia): boolean{
+
+    userLogueadotieneCondicion(condicion: CondicionAlimenticia): boolean {
         return this.usuarioLogueado.condicionesAlimenticias.includes(condicion)
     }
-    
+
     get getFechaDeNacimiento() {
         return this.formatearFecha(this.usuarioLogueado.fechaDeNacimiento)
     }
-    
+
     formatearFecha(fecha: Date): String {
         const day = fecha.getDate()
         const month = fecha.getMonth()
         const year = fecha.getFullYear()
         return `${year}-${month}-${day}`
     }
-    
-    get getUsuarioLogueado(): Usuario{
+
+    get getUsuarioLogueado(): Usuario {
         return this.usuarioLogueado
     }
-    
-    asignarUsuarioLogueado(usuario: Usuario): void{
+
+    asignarUsuarioLogueado(usuario: Usuario): void {
         this.usuarioLogueado = usuario
     }
-    
+
     coincidePassword(userName: String, pssw: String): boolean {
         return this.buscarUsuarioPorUsername(userName).password == pssw
     }
-    
+
     buscarUsuarioPorUsername(username: String): Usuario {
         return this.usuarios.find(user => this.sacarEspaciosYpasarAMinuscula(user.userName) == this.sacarEspaciosYpasarAMinuscula(username))
     }
-    
+
     buscarUsuarioPorId(id: number): Usuario {
         return this.usuarios.find(user => user.id == id)
     }
-    
+
     contieneUsuario(username: String): boolean {
         return this.usuarios.some(user => this.sacarEspaciosYpasarAMinuscula(user.userName) == this.sacarEspaciosYpasarAMinuscula(username))
     }
-    
+
     sacarEspaciosYpasarAMinuscula(username: String): String {
         return username.trim().toLowerCase()
     }
-    
+
     buscarRecetas(): Receta[] {
         return this.recetas
     }
-    
+
     getRecetaById(id: number): Receta {
         return this.recetas.find(receta => receta.id == id)
     }
-    
+
     guardarCambiosReceta(recetaActualizada: Receta) {
         // let recetaOriginal = this.getRecetaById(recetaActualizada.id)
         // recetaOriginal = recetaActualizada
     }
 
     getAlimentos(): Alimento[] {
-      return [this.papa, this.chocolate, this.aceitunas, this.brocoli, this.carneVacuna, this.cebolla, this.pimientos, this.sal, this.aceite]
+        return [this.papa, this.chocolate, this.aceitunas, this.brocoli, this.carneVacuna, this.cebolla, this.pimientos, this.sal, this.aceite]
     }
+
+    eliminarReceta(receta: Receta): void {
+        this.recetas.splice(this.recetas.indexOf(receta), 1)
+        /* this.recetas = this.recetas.filter(r => r.id !== receta.id) */
+    }
+
 }
 

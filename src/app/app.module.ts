@@ -18,6 +18,7 @@ import { RecetaPipe } from './receta.pipe';
 import { CondicionAlimenticiaComponent } from './components/condicion-alimenticia/condicion-alimenticia.component';
 import { TablaComponent } from './components/tabla/tabla.component';
 import { AgregarIngredienteComponent } from './components/agregar-ingrediente/agregar-ingrediente.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [	
@@ -43,6 +44,7 @@ import { AgregarIngredienteComponent } from './components/agregar-ingrediente/ag
     BrowserModule,
     FormsModule,
     AppRoutinModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

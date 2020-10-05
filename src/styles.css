@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-
 :root {
   --color-primario: #596475;
   --color-secundario: #9d8189;
@@ -22,10 +21,12 @@ html {
   font-family: var(--tipografia);
   font-size: 10px;
   background-color: var(--color-cuaternario);
+  height: 100%;
 }
 
 body {
   margin: 0;
+  height: 100%;
 }
 
 .button-cancelar {
