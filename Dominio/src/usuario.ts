@@ -14,6 +14,7 @@ export class Usuario {
         public condicionesAlimenticias: CondicionAlimenticia[] = [],
         public fechaDeNacimiento: Date = new Date(),
         public alimentosPreferidos: Alimento[] = [],
+        public alimentosDisgustados: Alimento[] = [],
         public rutina: Rutina = 'NADA') { }
 
     indiceMasaCorporal(): number {
