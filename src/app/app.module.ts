@@ -19,6 +19,7 @@ import { CondicionAlimenticiaComponent } from './components/condicion-alimentici
 import { TablaComponent } from './components/tabla/tabla.component';
 import { AgregarIngredienteComponent } from './components/agregar-ingrediente/agregar-ingrediente.component';
 import { CommonModule } from '@angular/common';
+import { AgregarAlimentoComponent } from './components/agregar-alimento/agregar-alimento.component';
 
 @NgModule({
   declarations: [	
@@ -38,7 +39,8 @@ import { CommonModule } from '@angular/common';
     RecetaComponent,
     CondicionAlimenticiaComponent,
     TablaComponent,
-    AgregarIngredienteComponent
+    AgregarIngredienteComponent,
+    AgregarAlimentoComponent
    ],
   imports: [
     BrowserModule,

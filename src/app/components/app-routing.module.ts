@@ -5,6 +5,7 @@ import { PerfilUsuarioFormComponent } from './perfil-usuario-form/perfil-usuario
 import { HomeComponent } from './home/home.component';
 import { RecetaComponent } from './receta/receta.component';
 import { AgregarIngredienteComponent } from './agregar-ingrediente/agregar-ingrediente.component';
+import { AgregarAlimentoComponent } from './agregar-alimento/agregar-alimento.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginFormComponent },
@@ -12,6 +13,7 @@ export const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'receta/:id' , component: RecetaComponent},
     { path: 'agregarIngrediente/:recetaId', component: AgregarIngredienteComponent},
+    { path: 'agregarAlimento', component: AgregarAlimentoComponent},
     { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: '**', redirectTo: 'login', pathMatch: 'full'}
     

@@ -52,7 +52,7 @@
                 <div class="main-form__table-and-title">
                     <div class="table__title-and-button">
                         <h4>Alimentos preferidos</h4>
-                        <app-primary-button class="main-form__buttom-table" [nombre]="'Agregar'"></app-primary-button>
+                        <app-primary-button [routerLink] = "['/agregarAlimento']" class="main-form__buttom-table" [nombre]="'Agregar'"></app-primary-button>
                     </div>
                     <div class="contenedor-tabla">
                         <app-tabla [encabezado]="'Alimento'" [elementos]="alimentosPreferidos"></app-tabla>
@@ -61,7 +61,7 @@
                 <div class="main-form__table-and-title">
                     <div class="table__title-and-button">
                         <h4>Alimentos no preferidos</h4>
-                        <app-primary-button class="main-form__buttom-table" [nombre]="'Agregar'"></app-primary-button>
+                        <app-primary-button [routerLink] = "['/agregarAlimento']" class="main-form__buttom-table" [nombre]="'Agregar'"></app-primary-button>
                     </div>
                     <div class="contenedor-tabla">
                         <app-tabla [encabezado]="'Alimento'" [elementos]="alimentosDisgustados"></app-tabla>

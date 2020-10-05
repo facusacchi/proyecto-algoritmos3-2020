@@ -1,8 +1,8 @@
-/* * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-} */
+}
 
 article {
     height: 100%;
@@ -13,20 +13,6 @@ article {
 main {
     flex-grow: 1;
     flex-shrink: 0;
-}
-
-.input {
-    width: 100%;
-    height: 1.5em;
-}
-
-.cantidad {
-    width: var(--ancho-menor);
-    margin-bottom: 1em;  
-}
-
-.colorSeleccionado {
-    background-color: violet;
 }
 
 @media (min-width: 769px) {
@@ -131,30 +117,11 @@ main {
 }
 
 .tabla-contenido {
+    height: 18rem;
     margin: 1.5em 3.4em;
-    border: 0.1em solid var(--color-secundario);
-    overflow-y: scroll;
-}
-
-.tabla-alimentos {
-    width: 100%;
-    text-align: center;
-    border-collapse: collapse;
-    font-size: 0.8em;
-}
-
-.tabla-alimentos th {
-    background-color: var(--color-secundario);
-    color: white;
-    padding: 0.5rem 0;
-}
-
-.tabla-alimentos tr td {
-    border-top: 0.1em solid var(--color-secundario);
-    padding: 0.5rem 0;
 }
 
 .tabla_alimentos_botones {
     display: flex;
     justify-content: flex-end;
-}
+} 

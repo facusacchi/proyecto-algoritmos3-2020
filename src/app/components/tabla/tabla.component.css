@@ -1,5 +1,4 @@
 .tabla-contenido {
-    /* margin: 1.5em 3.4em; */
     border: 0.1em solid var(--color-secundario);
     overflow-y: scroll;
     font-size: 2rem;
@@ -23,6 +22,10 @@
     border-top: 0.1em solid var(--color-secundario);
     border-bottom: 0.1em solid var(--color-secundario);
     padding: 0.5rem 0;
+}
+
+.colorSeleccionado {
+    background-color: violet;
 }
 
 @media (min-width: 769px) {
