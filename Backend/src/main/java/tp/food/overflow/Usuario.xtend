@@ -24,56 +24,17 @@ class Usuario extends Entity {
 	String nombreYApellido
 	String username
 	String password
-	@JsonIgnore Double peso
-	@JsonIgnore Double estatura
-	@JsonIgnore LocalDate fechaDeNacimiento
-	@JsonIgnore Set<CondicionAlimenticia> condicionesAlimenticias = new HashSet<CondicionAlimenticia>
-	@JsonIgnore Set<Alimento> alimentosPreferidos = new HashSet<Alimento>
-	@JsonIgnore Set<Alimento> alimentosDisgustados = new HashSet<Alimento>
-	@JsonIgnore Rutina rutina
-	@JsonIgnore List<Mensaje> mensajesInternos = new ArrayList<Mensaje>
-	@JsonIgnore List<Observador> observadores = new ArrayList<Observador>
-	@JsonIgnore List<Mail> mails = new ArrayList<Mail>
+	Double peso
+	Double estatura
+	LocalDate fechaDeNacimiento
+	Set<CondicionAlimenticia> condicionesAlimenticias = new HashSet<CondicionAlimenticia>
+	Set<Alimento> alimentosPreferidos = new HashSet<Alimento>
+	Set<Alimento> alimentosDisgustados = new HashSet<Alimento>
+	Rutina rutina
+	List<Mensaje> mensajesInternos = new ArrayList<Mensaje>
+	List<Observador> observadores = new ArrayList<Observador>
+	List<Mail> mails = new ArrayList<Mail>
 	
-	@JsonProperty("peso")
-	def pesoAsString() {
-		peso.toString
-	}
-	
-	@JsonProperty("estatura")
-	def estaturaAsString() {
-		estatura.toString
-	}
-	
-	@JsonProperty("fechaDeNacimiento")
-	def fechaDeNacimientoAsString() {
-		formatter.format(fechaDeNacimiento)
-	}
-	
-	def formatter() {
-		DateTimeFormatter.ofPattern(DATE_PATTERN)
-	}
-	
-	@JsonProperty("condicionesAlimenticias")
-	def condicionesAsString() {
-		this.condicionesAlimenticias.map[condicion | condicion.getAsString]
-	}
-	
-	@JsonProperty("alimentosPreferidos")
-	def alimentosPreferidosAsString() {
-		this.alimentosPreferidos.map[alimento | alimento.nombre]
-	}
-	
-	@JsonProperty("alimentosDisgustados")
-	def alimentosDisgustadosAsString() {
-		this.alimentosDisgustados.map[alimento | alimento.nombre]
-	}
-	
-	@JsonProperty("rutina")
-	def ruinaAsString() {
-		this.rutina.toString
-	}
-
 	def indiceMasaCorporal() {
 		peso / Math.pow(estatura, 2)
 	}
