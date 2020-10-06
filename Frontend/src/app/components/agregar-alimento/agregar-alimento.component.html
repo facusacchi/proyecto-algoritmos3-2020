@@ -3,14 +3,16 @@
     <div class="main_container">
       <div class="main_contenidos">
         <div class="main_titulo">
-          <div class="main_titulo_texto">Alimentos</div> {{alimento}}
+          <div class="main_titulo_texto">Alimentos</div>
         </div>
         <form class="tabla_container">
           <div class="tabla-contenido">
-            <app-tabla [encabezado]="'Alimento'" [elementos]="alimentos" (buttonClicked)="recibirAlimentoSeleccionado($event)"></app-tabla>
+            <app-tabla [encabezado]="'Alimento'" [elementos]="alimentos"
+              (buttonClicked)="recibirAlimentoSeleccionado($event)"></app-tabla>
           </div>
           <div class="tabla_alimentos_botones">
-            <app-primary-button [nombre]="'Aceptar'" (click)="agregarAlimento(alimento)" [routerLink]="['/perfilDeUsuario']">
+            <app-primary-button [nombre]="'Aceptar'" (click)="agregarAlimento(alimento)"
+              [routerLink]="['/perfilDeUsuario']">
             </app-primary-button>
             <app-secondary-button [nombreSecondary]="'Cancelar'" [routerLink]="['/perfilDeUsuario']">
             </app-secondary-button>

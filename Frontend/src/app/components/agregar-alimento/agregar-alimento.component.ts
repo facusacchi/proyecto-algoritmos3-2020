@@ -22,11 +22,13 @@ export class AgregarAlimentoComponent {
 
   recibirAlimentoSeleccionado(valueEmitted: Alimento): void {
     this.alimento = valueEmitted
+    /* console.log(this.alimento) */
   }
 
   agregarAlimento(alimentoAgregar: Alimento): void {
     this.usuario.agregarAlimentoPreferido(alimentoAgregar)
     this.usuario.agregarAlimentoDisgustado(alimentoAgregar)
+    /* console.log(this.usuario) */
   }
 
 }

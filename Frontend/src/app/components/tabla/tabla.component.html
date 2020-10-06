@@ -3,14 +3,11 @@
         <tr>
             <th>{{ encabezado }}</th>
         </tr>
-        <tr *ngFor="let alimento of elementos" class="{{colorSeleccionado(alimento)}}" (click)="seleccionarAlimento(alimento)">
+        <tr *ngFor="let alimento of elementos" class="{{colorSeleccionado(alimento)}}"
+            (click)="seleccionarAlimento(alimento)">
             <td>
                 <div>{{ alimento.nombre }}</div>
             </td>
         </tr>
     </table>
 </div>
-<!-- <div class="tabla_alimentos_botones">
-    <input class="button" type="submit" id="aceptar" value="Aceptar">
-    <input class="button-cancelar" type="button" id="cancelar" value="Cancelar">
-</div> -->

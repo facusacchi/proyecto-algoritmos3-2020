@@ -24,7 +24,8 @@ export class TablaComponent implements OnInit {
 
   seleccionarAlimento(alimento: Alimento): void {
     this.alimentoSeleccionado = alimento
-    console.log(this.alimentoSeleccionado)
+    /* console.log(this.alimentoSeleccionado) */
+    this.buttonClicked.emit(this.alimentoSeleccionado)
   }
 
   colorSeleccionado(alimento: Alimento): string {
@@ -32,10 +33,6 @@ export class TablaComponent implements OnInit {
       return "colorSeleccionado"
     }
     return ""
-  }
-
-  clickButton(): void {
-    this.buttonClicked.emit(this.alimentoSeleccionado)
   }
 
 }
