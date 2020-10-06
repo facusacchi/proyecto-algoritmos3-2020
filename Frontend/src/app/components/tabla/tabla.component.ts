@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Alimento } from '../../../../Dominio/src/alimento';
 
 @Component({
@@ -10,7 +10,9 @@ export class TablaComponent implements OnInit {
 
   @Input() encabezado: String
 
-  @Input() elementos: String[]
+  @Input() elementos: /* String[] */ Alimento[]
+
+  @Output() buttonClicked: EventEmitter<Alimento> = new EventEmitter<Alimento>() /* EventEmitter<String> = new EventEmitter<String>() */
 
   alimentoSeleccionado: Alimento
 
@@ -22,7 +24,7 @@ export class TablaComponent implements OnInit {
 
   seleccionarAlimento(alimento: Alimento): void {
     this.alimentoSeleccionado = alimento
-    /*   console.log(alimento.nombre) */
+    console.log(this.alimentoSeleccionado)
   }
 
   colorSeleccionado(alimento: Alimento): string {
@@ -30,6 +32,10 @@ export class TablaComponent implements OnInit {
       return "colorSeleccionado"
     }
     return ""
+  }
+
+  clickButton(): void {
+    this.buttonClicked.emit(this.alimentoSeleccionado)
   }
 
 }

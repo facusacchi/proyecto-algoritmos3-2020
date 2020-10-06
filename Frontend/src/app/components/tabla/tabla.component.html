@@ -3,9 +3,9 @@
         <tr>
             <th>{{ encabezado }}</th>
         </tr>
-        <tr *ngFor="let elemento of elementos" class="{{colorSeleccionado(elemento)}}" (click)="seleccionarAlimento(elemento)">
+        <tr *ngFor="let alimento of elementos" class="{{colorSeleccionado(alimento)}}" (click)="seleccionarAlimento(alimento)">
             <td>
-                <div>{{ elemento }}</div>
+                <div>{{ alimento.nombre }}</div>
             </td>
         </tr>
     </table>

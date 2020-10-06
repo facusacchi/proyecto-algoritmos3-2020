@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Receta } from '../../../../Dominio/src/receta';
 import { Service } from 'app/service';
 import { Usuario } from '../../../../Dominio/src/usuario';
@@ -13,13 +13,13 @@ export class HomeComponent implements OnInit {
   recetaABuscar = ''
   isChecked = false
   recetas: Receta[] = []
-  usuarioLogueado: Usuario
+  usuario: Usuario
 
-  constructor(private router: Router, public service: Service) { }
+  constructor(private route: ActivatedRoute, public service: Service) { }
 
   ngOnInit(): void {
-    this.usuarioLogueado = this.service.getUsuarioLogueado
-    this.recetas = this.service.buscarRecetas()
+    this.usuario = this.service.getUsuarioLogueado
+    this.recetas = this.service.getRecetas
   }
 
   recibirRecetaABuscar(valueEmitted: string): void {

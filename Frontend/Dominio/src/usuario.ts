@@ -27,6 +27,10 @@ export class Usuario {
 
     agregarAlimentoPreferido(alimento: Alimento) {
 		this.alimentosPreferidos.push(alimento)
+    }
+    
+    agregarAlimentoDisgustado(alimento: Alimento) {
+		this.alimentosDisgustados.push(alimento)
 	}
 
     imcEsSaludable(): boolean {

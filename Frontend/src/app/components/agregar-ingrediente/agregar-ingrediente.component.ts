@@ -25,7 +25,7 @@ export class AgregarIngredienteComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.alimentos=this.service.getAlimentos()
+    this.alimentos=this.service.getAlimentos
   }
 
   seleccionarAlimento(alimento : Alimento) {

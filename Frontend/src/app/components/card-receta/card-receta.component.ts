@@ -10,7 +10,7 @@ import { Usuario } from '../../../../Dominio/src/usuario';
 })
 export class CardRecetaComponent implements OnInit {
   @Input() receta: Receta
-  @Input() usuarioLogueado: Usuario
+  @Input() usuario: Usuario
 
   eliminada = false
 

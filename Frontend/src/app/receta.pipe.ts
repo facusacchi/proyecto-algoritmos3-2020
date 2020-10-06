@@ -8,9 +8,9 @@ import { Usuario } from '../../Dominio/src/usuario';
 
 export class RecetaPipe implements PipeTransform {
 
-  transform(recetas: Receta[], recetaABuscar: string, isChecked: boolean, usuarioLogueado: Usuario): Receta[] {
+  transform(recetas: Receta[], recetaABuscar: string, isChecked: boolean, usuario: Usuario): Receta[] {
     if (isChecked) {
-      return recetas.filter(receta => (!recetaABuscar || receta.cumpleCondicionDeBusqueda(recetaABuscar.toLowerCase())) && receta.esEditablePor(usuarioLogueado) /* receta.esAutor(usuarioLogueado) */)
+      return recetas.filter(receta => (!recetaABuscar || receta.cumpleCondicionDeBusqueda(recetaABuscar.toLowerCase())) && receta.esEditablePor(usuario) /* receta.esAutor(usuario) */)
     }
     else {
       return recetas.filter(receta => !recetaABuscar || receta.cumpleCondicionDeBusqueda(recetaABuscar.toLowerCase()))

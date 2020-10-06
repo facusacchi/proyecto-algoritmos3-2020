@@ -70,6 +70,7 @@ export class Service {
         this.focaccia.colaboradores = [this.nancy]
         
         this.usuarios = [
+            this.usuario,
             this.nancy,
             new Usuario(1, "pepito", '123', "Pepe Palala", 95, 1.75, [vegetariano, celiaco], new Date(1991, 1, 28), [this.papa, this.chocolate], [this.brocoli, this.aceitunas], 'NADA'),
             new Usuario(2, "carlitos", 'abc', "Juan Carlos De La Hoya", 120, 1.90, [vegano], new Date(1985, 5, 7), [this.brocoli, this.aceitunas], [this.carneVacuna], 'MEDIANO'),
@@ -148,7 +149,7 @@ export class Service {
         return username.trim().toLowerCase()
     }
 
-    buscarRecetas(): Receta[] {
+    get getRecetas(): Receta[] {
         return this.recetas
     }
 
@@ -161,7 +162,7 @@ export class Service {
         // recetaOriginal = recetaActualizada
     }
 
-    getAlimentos(): Alimento[] {
+    get getAlimentos(): Alimento[] {
         return this.alimentos
     }
 

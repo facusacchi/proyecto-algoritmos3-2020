@@ -7,8 +7,8 @@
             <div class="card_grid_titulo">Resultados de la búsqueda</div>
             <div class="card_grid">
                 <app-card-receta
-                    *ngFor="let receta of recetas | recetaFilter: recetaABuscar: isChecked: usuarioLogueado"
-                    [receta]="receta" [usuarioLogueado]="usuarioLogueado"></app-card-receta>
+                    *ngFor="let receta of recetas | recetaFilter: recetaABuscar: isChecked: usuario"
+                    [receta]="receta" [usuario]="usuario"></app-card-receta>
             </div>
         </div>
     </div>
