@@ -29,7 +29,7 @@ class Repositorio<T extends Entity> {
 		}
 		delete(elementoDelRepo)
 		objects.add(object)
-	}//Integer.toString(object.id)
+	}
 	
 	def getById(String id) {
 		val idInt = Integer.parseInt(id)

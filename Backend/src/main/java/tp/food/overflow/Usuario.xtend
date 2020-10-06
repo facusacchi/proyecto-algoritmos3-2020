@@ -1,6 +1,6 @@
 package tp.food.overflow
 
-import org.eclipse.xtend.lib.annotations.Accessors		
+import org.eclipse.xtend.lib.annotations.Accessors			
 import java.time.LocalDate
 import java.time.Period
 import java.util.HashSet
@@ -27,13 +27,18 @@ class Usuario extends Entity {
 	Double peso
 	Double estatura
 	LocalDate fechaDeNacimiento
-	Set<CondicionAlimenticia> condicionesAlimenticias = new HashSet<CondicionAlimenticia>
+	@JsonIgnore Set<CondicionAlimenticia> condicionesAlimenticias = new HashSet<CondicionAlimenticia>
 	Set<Alimento> alimentosPreferidos = new HashSet<Alimento>
 	Set<Alimento> alimentosDisgustados = new HashSet<Alimento>
 	Rutina rutina
 	List<Mensaje> mensajesInternos = new ArrayList<Mensaje>
 	List<Observador> observadores = new ArrayList<Observador>
 	List<Mail> mails = new ArrayList<Mail>
+	
+	@JsonProperty("condicionesAlimenticias")
+	def condiciones() {
+		this.condicionesAlimenticias.map[condicion | condicion.toString]
+	}
 	
 	def indiceMasaCorporal() {
 		peso / Math.pow(estatura, 2)
