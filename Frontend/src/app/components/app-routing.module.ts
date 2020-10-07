@@ -13,7 +13,8 @@ export const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'receta/:id' , component: RecetaComponent},
     { path: 'agregarIngrediente/:recetaId', component: AgregarIngredienteComponent},
-    { path: 'agregarAlimento', component: AgregarAlimentoComponent},
+    { path: 'agregarAlimentoPreferido', component: AgregarAlimentoComponent},
+    { path: 'agregarAlimentoDisgustado', component: AgregarAlimentoComponent},
     { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: '**', redirectTo: 'login', pathMatch: 'full'}
     

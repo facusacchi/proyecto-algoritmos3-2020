@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { Service } from 'app/service';
 import { Alimento } from '../../../../Dominio/src/alimento';
 import { Usuario } from '../../../../Dominio/src/usuario';
@@ -15,7 +15,7 @@ export class AgregarAlimentoComponent {
   alimentos: /* String[] */ Alimento[]
   alimento: Alimento
 
-  constructor(private route: ActivatedRoute, private service: Service) {
+  constructor(private route: Router, private service: Service) {
     this.usuario = this.service.getUsuarioLogueado
     this.alimentos = this./* service.parsearAlimentosAString( */service.getAlimentos/* ) */
   }
@@ -26,9 +26,16 @@ export class AgregarAlimentoComponent {
   }
 
   agregarAlimento(alimentoAgregar: Alimento): void {
-    this.usuario.agregarAlimentoPreferido(alimentoAgregar)
-    this.usuario.agregarAlimentoDisgustado(alimentoAgregar)
-    /* console.log(this.usuario) */
+    if (this.alimentoPreferido()) {
+      this.usuario.agregarAlimentoPreferido(alimentoAgregar)
+    }
+    else {
+      this.usuario.agregarAlimentoDisgustado(alimentoAgregar)
+    }
+  }
+
+  alimentoPreferido(): boolean {
+    return this.route.url == '/agregarAlimentoPreferido'
   }
 
 }
