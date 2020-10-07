@@ -59,7 +59,8 @@
                         [nombre]="'Agregar'"></app-primary-button>
                 </div>
                 <div class="contenedor-tabla">
-                    <app-tabla [encabezado]="'Alimento'" [elementos]="alimentosPreferidos"></app-tabla>
+                    <app-tabla [encabezado]="'Alimento'" [elementos]="alimentosPreferidos"
+                        (buttonClicked2)="recibirAlimento($event)"></app-tabla>
                 </div>
             </div>
             <div class="main-form__table-and-title">
@@ -69,15 +70,15 @@
                         [nombre]="'Agregar'"></app-primary-button>
                 </div>
                 <div class="contenedor-tabla">
-                    <app-tabla [encabezado]="'Alimento'" [elementos]="alimentosDisgustados"></app-tabla>
+                    <app-tabla [encabezado]="'Alimento'" [elementos]="alimentosDisgustados"
+                        (buttonClicked2)="recibirAlimento($event)"></app-tabla>
                 </div>
             </div>
         </section>
         <section class="bottom-section">
             <h5>Mis recetas</h5>
             <div class="main-form__recetas">
-                <app-card-receta
-                    *ngFor="let receta of recetas | recetaFilter: recetaABuscar: isChecked: usuario"
+                <app-card-receta *ngFor="let receta of recetas | recetaFilter: recetaABuscar: isChecked: usuario"
                     [receta]="receta" [usuario]="usuario"></app-card-receta>
             </div>
         </section>

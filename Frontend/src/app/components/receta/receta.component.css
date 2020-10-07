@@ -126,7 +126,8 @@
 }
 
 .tabla-colaboradores tr td {
-  border-top: 0.1em solid var(--color-secundario);
+  border-bottom: 0.1em solid var(--color-secundario);
+  height: 2.7rem;
 }
 
 .aceptar-cancelar {

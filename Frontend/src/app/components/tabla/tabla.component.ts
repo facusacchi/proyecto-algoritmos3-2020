@@ -1,30 +1,32 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
+import { Service } from 'app/service';
 import { Alimento } from '../../../../Dominio/src/alimento';
+import { Usuario } from '../../../../Dominio/src/usuario';
 
 @Component({
   selector: 'app-tabla',
   templateUrl: './tabla.component.html',
   styleUrls: ['./tabla.component.css']
 })
-export class TablaComponent implements OnInit {
+export class TablaComponent {
 
   @Input() encabezado: String
 
-  @Input() elementos: /* String[] */ Alimento[]
+  @Input() elementos: Alimento[]
 
-  @Output() buttonClicked: EventEmitter<Alimento> = new EventEmitter<Alimento>() /* EventEmitter<String> = new EventEmitter<String>() */
+  @Output() buttonClicked: EventEmitter<Alimento> = new EventEmitter<Alimento>()
+  @Output() buttonClicked2: EventEmitter<Alimento> = new EventEmitter<Alimento>()
 
   alimentoSeleccionado: Alimento
+  usuario: Usuario
 
-  constructor() {
-  }
-
-  ngOnInit(): void {
+  constructor(private router: Router, private service: Service) {
+    this.usuario = this.service.getUsuarioLogueado
   }
 
   seleccionarAlimento(alimento: Alimento): void {
     this.alimentoSeleccionado = alimento
-    /* console.log(this.alimentoSeleccionado) */
     this.buttonClicked.emit(this.alimentoSeleccionado)
   }
 
@@ -33,6 +35,14 @@ export class TablaComponent implements OnInit {
       return "colorSeleccionado"
     }
     return ""
+  }
+
+  perfilDeUsuario(): boolean {
+    return this.router.url == '/perfilDeUsuario'
+  }
+
+  eliminarAlimento(alimento: Alimento): void {
+    this.buttonClicked2.emit(alimento)
   }
 
 }

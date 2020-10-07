@@ -12,35 +12,52 @@ import { Alimento } from '../../../../Dominio/src/alimento';
 })
 
 export class PerfilUsuarioFormComponent implements OnInit {
-  
+
   usuario: Usuario
   opcionesRutina: Rutina[] = ["NADA", "LEVE", "MEDIANO", "ACTIVO", "INTENSIVO"]
   opcionElegida: Rutina
   fecha: String = "2020-01-12"
-  alimentosPreferidos: /* String[] */ Alimento[]
-  alimentosDisgustados: /* String[] */ Alimento[]
+  alimentosPreferidos: Alimento[]
+  alimentosDisgustados: Alimento[]
   recetas: Receta[] = []
   recetaABuscar = ''
   isChecked = true
+  alimento: Alimento
 
-  constructor(private route: ActivatedRoute, private service : Service) {
+  constructor(private route: ActivatedRoute, private service: Service) {
     this.usuario = this.service.getUsuarioLogueado
-    this.alimentosPreferidos = this./* service.parsearAlimentosAString( */service.getUsuarioLogueado.alimentosPreferidos/* ) */
-    this.alimentosDisgustados = this./* service.parsearAlimentosAString( */service.getUsuarioLogueado.alimentosDisgustados/* ) */
+    this.alimentosPreferidos = this.service.getUsuarioLogueado.alimentosPreferidos
+    this.alimentosDisgustados = this.service.getUsuarioLogueado.alimentosDisgustados
     this.recetas = this.service.getRecetas
   }
-  
+
   ngOnInit(): void { }
 
   getStatus(): String {
-    if(this.usuario.imcEsSaludable()) {
+    if (this.usuario.imcEsSaludable()) {
       return "Estado Saludable"
-    } else {return "No Saludable"}
+    } else { return "No Saludable" }
   }
 
   get fechaDeNacimiento() {
     this.fecha = this.service.getFechaDeNacimiento
     return this.fecha
   }
-  
+
+  recibirAlimento(valueEmitted: Alimento): void {
+    this.alimento = valueEmitted
+    this.eliminarAlimento()
+  }
+
+  eliminarAlimento(): void {
+    if (this.alimentosPreferidos.includes(this.alimento)) {
+      this.usuario.eliminarAlimentoPreferido(this.alimento)
+    }
+    else {
+      if (this.alimentosDisgustados.includes(this.alimento)) {
+        this.usuario.eliminarAlimentoDisgustado(this.alimento)
+      }
+    }
+  }
+
 }

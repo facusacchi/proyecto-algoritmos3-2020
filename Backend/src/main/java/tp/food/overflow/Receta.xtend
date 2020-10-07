@@ -136,6 +136,14 @@ class Receta extends Entity{
 		this.procesoDePreparacion.clear
 		this.colaboradores.clear
 	}
+	
+	def eliminarIngrediente(Ingrediente ingrediente) {
+		ingredientes.remove(ingrediente)		
+	}
+	
+	def eliminarColaborador(Usuario colaborador) {
+		colaboradores.remove(colaborador)
+	}
 
 }
 

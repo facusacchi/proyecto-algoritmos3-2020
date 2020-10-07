@@ -15,17 +15,29 @@
 .tabla-alimentos th {
     background-color: var(--color-secundario);
     color: white;
-    padding: 0.5rem 0;
+    height: 2.7rem;
 }
 
 .tabla-alimentos tr td {
-    border-top: 0.1em solid var(--color-secundario);
     border-bottom: 0.1em solid var(--color-secundario);
-    padding: 0.5rem 0;
+    height: 2.7rem;
 }
 
 .colorSeleccionado {
     background-color: violet;
+}
+
+.img-eliminar {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.horizontal {
+    display: flex;
+}
+  
+.centrado {
+    margin: auto;
 }
 
 @media (min-width: 769px) {

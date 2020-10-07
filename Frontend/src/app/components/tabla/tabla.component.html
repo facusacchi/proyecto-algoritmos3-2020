@@ -3,10 +3,16 @@
         <tr>
             <th>{{ encabezado }}</th>
         </tr>
-        <tr *ngFor="let alimento of elementos" class="{{colorSeleccionado(alimento)}}"
-            (click)="seleccionarAlimento(alimento)">
+        <tr *ngFor="let elemento of elementos" class="{{colorSeleccionado(elemento)}}"
+            (click)="seleccionarAlimento(elemento)">
             <td>
-                <div>{{ alimento.nombre }}</div>
+                <div class="horizontal">
+                    <div class="centrado">{{ elemento.nombre }}</div>
+                    <div>
+                        <img *ngIf="perfilDeUsuario()" (click)="eliminarAlimento(elemento)" class="img-eliminar"
+                            src="assets/imagenes/eliminar.png">
+                    </div>
+                </div>
             </td>
         </tr>
     </table>

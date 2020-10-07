@@ -60,7 +60,15 @@ class Usuario extends Entity {
 	def agregarAlimentoDisgustado(Alimento _AlimentoDigustado) {
 		alimentosDisgustados.add(_AlimentoDigustado)
 	}
+	
+	def eliminarAlimentoPreferido(Alimento _AlimetoPreferido) {
+		alimentosPreferidos.remove(_AlimetoPreferido)
+	}
 
+	def eliminarAlimentoDisgustado(Alimento _AlimentoDigustado) {
+		alimentosDisgustados.remove(_AlimentoDigustado)
+	}
+	
 	def imcEsSaludable() {
 		indiceMasaCorporal > 18 && indiceMasaCorporal < 30
 	}

@@ -26,12 +26,20 @@ export class Usuario {
     }
 
     agregarAlimentoPreferido(alimento: Alimento) {
-		this.alimentosPreferidos.push(alimento)
+        this.alimentosPreferidos.push(alimento)
     }
-    
+
     agregarAlimentoDisgustado(alimento: Alimento) {
-		this.alimentosDisgustados.push(alimento)
-	}
+        this.alimentosDisgustados.push(alimento)
+    }
+
+    eliminarAlimentoPreferido(alimento: Alimento) {
+        this.alimentosPreferidos.splice(this.alimentosPreferidos.indexOf(alimento), 1)
+    }
+
+    eliminarAlimentoDisgustado(alimento: Alimento) {
+        this.alimentosDisgustados.splice(this.alimentosDisgustados.indexOf(alimento), 1)
+    }
 
     imcEsSaludable(): boolean {
         return this.indiceMasaCorporal() > 18 && this.indiceMasaCorporal() < 30
