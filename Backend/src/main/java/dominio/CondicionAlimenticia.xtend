@@ -1,11 +1,13 @@
 package dominio
 
-interface CondicionAlimenticia {
+import com.fasterxml.jackson.annotation.JsonTypeName
 
+interface CondicionAlimenticia {
 	def boolean subsanaCondicion(Usuario usuario)
 	def String getAsString()
 }
 
+@JsonTypeName("vegetariano")
 class Vegetariano implements CondicionAlimenticia {
 	
 	static Vegetariano instancia
@@ -29,6 +31,7 @@ class Vegetariano implements CondicionAlimenticia {
 
 }
 
+@JsonTypeName("vegeano")
 class Vegano implements CondicionAlimenticia {
 	
 	static Vegano instancia
@@ -51,6 +54,7 @@ class Vegano implements CondicionAlimenticia {
 	}
 }
 
+@JsonTypeName("hipertenso")
 class Hipertenso implements CondicionAlimenticia {
 	
 	static Hipertenso instancia
@@ -75,6 +79,7 @@ class Hipertenso implements CondicionAlimenticia {
 
 }
 
+@JsonTypeName("diabetico")
 class Diabetico implements CondicionAlimenticia {
 	
 	static Diabetico instancia
@@ -99,6 +104,7 @@ class Diabetico implements CondicionAlimenticia {
 
 }
 
+@JsonTypeName("celiaco")
 class Celiaco implements CondicionAlimenticia {
 	
 	static Celiaco instancia

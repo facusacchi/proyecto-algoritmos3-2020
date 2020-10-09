@@ -1,7 +1,5 @@
 package dominio
 
-import com.fasterxml.jackson.annotation.JsonIgnore
-import com.fasterxml.jackson.annotation.JsonProperty
 import componente.observadores.Mail
 import componente.observadores.Mensaje
 import componente.observadores.Observador
@@ -14,6 +12,9 @@ import java.util.HashSet
 import java.util.List
 import java.util.Set
 import org.eclipse.xtend.lib.annotations.Accessors
+import com.fasterxml.jackson.annotation.JsonTypeInfo
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As
+import com.fasterxml.jackson.annotation.JsonSubTypes
 
 @Accessors
 class Usuario extends Entity {
@@ -26,7 +27,7 @@ class Usuario extends Entity {
 	Double peso
 	Double estatura
 	LocalDate fechaDeNacimiento
-	@JsonIgnore Set<CondicionAlimenticia> condicionesAlimenticias = new HashSet<CondicionAlimenticia>
+	Set<CondicionAlimenticia> condicionesAlimenticias = new HashSet<CondicionAlimenticia>
 	Set<Alimento> alimentosPreferidos = new HashSet<Alimento>
 	Set<Alimento> alimentosDisgustados = new HashSet<Alimento>
 	Rutina rutina
@@ -34,10 +35,17 @@ class Usuario extends Entity {
 	List<Observador> observadores = new ArrayList<Observador>
 	List<Mail> mails = new ArrayList<Mail>
 	
-	@JsonProperty("condicionesAlimenticias")
-	def condiciones() {
-		this.condicionesAlimenticias.map[condicion | condicion.toString]
-	}
+	@JsonTypeInfo(
+	      use = JsonTypeInfo.Id.NAME, 
+	      include = As.PROPERTY, 
+	      property = "type")
+	    @JsonSubTypes(
+	        @JsonSubTypes.Type(value = Vegetariano, name = "vegetariano"),
+	        @JsonSubTypes.Type(value = Vegano, name = "vegano"),
+	        @JsonSubTypes.Type(value = Celiaco, name = "celiaco"),
+	        @JsonSubTypes.Type(value = Hipertenso, name = "hipertenso"),
+	        @JsonSubTypes.Type(value = Diabetico, name = "diabetico")
+	    )
 	
 	def indiceMasaCorporal() {
 		peso / Math.pow(estatura, 2)
