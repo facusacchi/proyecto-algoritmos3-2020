@@ -1,14 +1,14 @@
 package tests.acciones
 
+import dominio.AgregarColaborador
+import dominio.EditarDificultad
+import dominio.EditarTitulo
+import dominio.EliminarPaso
+import dominio.Receta
+import dominio.Receta.Dificultad
+import dominio.Usuario
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
-import tp.food.overflow.AgregarColaborador
-import tp.food.overflow.EditarDificultad
-import tp.food.overflow.EditarTitulo
-import tp.food.overflow.EliminarPaso
-import tp.food.overflow.Receta
-import tp.food.overflow.Receta.Dificultad
-import tp.food.overflow.Usuario
 
 import static org.junit.jupiter.api.Assertions.assertEquals
 import static org.junit.jupiter.api.Assertions.assertFalse

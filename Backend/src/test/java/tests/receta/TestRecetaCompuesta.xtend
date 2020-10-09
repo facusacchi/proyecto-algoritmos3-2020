@@ -1,11 +1,12 @@
 package tests.receta
 
-import tp.food.overflow.RecetaCompuesta
-import org.junit.jupiter.api.DisplayName
+import dominio.Receta
+import dominio.Receta.Dificultad
+import dominio.RecetaCompuesta
 import org.junit.jupiter.api.BeforeEach
-import tp.food.overflow.Receta
-import tp.food.overflow.Receta.Dificultad
+import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
+
 import static org.junit.jupiter.api.Assertions.assertEquals
 
 @DisplayName("Testeamos las recetas compuestas")

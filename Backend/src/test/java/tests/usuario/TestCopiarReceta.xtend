@@ -1,12 +1,13 @@
 package tests.usuario
 
-import org.junit.jupiter.api.DisplayName	
-import tp.food.overflow.Receta
-import tp.food.overflow.RecetaCompuesta
-import org.junit.jupiter.api.Test
-import tp.food.overflow.Usuario
-import static org.junit.jupiter.api.Assertions.*
+import dominio.Receta
+import dominio.RecetaCompuesta
+import dominio.Usuario
 import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.DisplayName
+import org.junit.jupiter.api.Test
+
+import static org.junit.jupiter.api.Assertions.*
 
 @DisplayName("Testeamos el metodo copiarReceta")
 class TestCopiarReceta {

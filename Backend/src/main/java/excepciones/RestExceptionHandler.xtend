@@ -1,4 +1,4 @@
-package ar.edu.unsam.exceptions
+package excepciones
 
 import org.springframework.core.annotation.Order
 import org.springframework.core.Ordered

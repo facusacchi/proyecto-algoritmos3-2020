@@ -1,20 +1,19 @@
-package tp.food.overflow
+package dominio
 
-import org.eclipse.xtend.lib.annotations.Accessors			
-import java.time.LocalDate
-import java.time.Period
-import java.util.HashSet
-import java.util.Set
-import tp.food.overflow.Alimento.Grupo
-import java.util.List
-import java.util.ArrayList
-import java.time.LocalDateTime
-import componente.observadores.Mensaje
-import componente.observadores.Observador
-import componente.observadores.Mail
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty
-import java.time.format.DateTimeFormatter
+import componente.observadores.Mail
+import componente.observadores.Mensaje
+import componente.observadores.Observador
+import dominio.Alimento.Grupo
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.Period
+import java.util.ArrayList
+import java.util.HashSet
+import java.util.List
+import java.util.Set
+import org.eclipse.xtend.lib.annotations.Accessors
 
 @Accessors
 class Usuario extends Entity {

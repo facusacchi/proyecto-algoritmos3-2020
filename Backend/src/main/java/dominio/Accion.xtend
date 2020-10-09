@@ -1,6 +1,6 @@
-package tp.food.overflow
+package dominio
 
-import tp.food.overflow.Receta.Dificultad
+import dominio.Receta.Dificultad
 import org.eclipse.xtend.lib.annotations.Accessors
 
 abstract class Accion {

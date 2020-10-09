@@ -1,6 +1,6 @@
 package repos
 
-import tp.food.overflow.Usuario
+import dominio.Usuario
 
 class RepoUsuario extends Repositorio<Usuario> {
 	

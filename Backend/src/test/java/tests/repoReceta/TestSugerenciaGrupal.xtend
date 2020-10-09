@@ -1,18 +1,18 @@
 package tests.repoReceta
 
-import org.junit.jupiter.api.DisplayName			
+import dominio.Alimento
+import dominio.Hipertenso
+import dominio.Ingrediente
+import dominio.Receta
+import dominio.Usuario
+import java.util.HashSet
+import java.util.Set
 import org.junit.jupiter.api.BeforeEach
-import tp.food.overflow.Receta
+import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import repos.RepoReceta
+
 import static org.junit.jupiter.api.Assertions.*
-import tp.food.overflow.Usuario
-import tp.food.overflow.Ingrediente
-import tp.food.overflow.Alimento
-import tp.food.overflow.Hipertenso
-import java.util.Set
-import java.util.HashSet
-import java.util.ArrayList
 
 @DisplayName("Testeamos el metodo de sugerencia (grupal)")
 class TestSugerenciaGrupal {

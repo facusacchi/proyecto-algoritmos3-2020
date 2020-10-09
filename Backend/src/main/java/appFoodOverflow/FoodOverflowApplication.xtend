@@ -1,11 +1,11 @@
-package ar.edu.unsam.receta
+package appFoodOverflow
 
 import org.springframework.boot.SpringApplication		
 import org.springframework.boot.autoconfigure.SpringBootApplication
 
-@SpringBootApplication class RecetasApplication {
+@SpringBootApplication class FoodOverflowApplication {
 	def static void main(String[] args) {
 		new Bootstrap => [run]
-		SpringApplication.run(RecetasApplication, args)
+		SpringApplication.run(FoodOverflowApplication, args)
 	}
 }

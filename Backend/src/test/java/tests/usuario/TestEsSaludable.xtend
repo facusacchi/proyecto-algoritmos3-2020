@@ -1,13 +1,14 @@
 package tests.usuario
 
-import java.util.HashSet		
+import dominio.Celiaco
+import dominio.Usuario
+import dominio.Vegano
+import java.util.HashSet
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
-import tp.food.overflow.Usuario
-import tp.food.overflow.Vegano
-import static org.junit.jupiter.api.Assertions.assertTrue
+
 import static org.junit.jupiter.api.Assertions.assertFalse
-import tp.food.overflow.Celiaco
+import static org.junit.jupiter.api.Assertions.assertTrue
 
 @DisplayName("Test del método esSaludable")
 class TestEsSaludable {

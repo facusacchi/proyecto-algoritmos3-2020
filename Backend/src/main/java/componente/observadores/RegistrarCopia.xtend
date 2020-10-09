@@ -1,13 +1,13 @@
 package componente.observadores
 
-import tp.food.overflow.Receta.Dificultad
-import tp.food.overflow.Usuario
-import tp.food.overflow.Receta
+import dominio.Receta
+import dominio.Receta.Dificultad
+import dominio.Usuario
 import java.util.HashMap
-import java.util.Map
-import repos.RepoReceta
-import org.eclipse.xtend.lib.annotations.Accessors
 import java.util.List
+import java.util.Map
+import org.eclipse.xtend.lib.annotations.Accessors
+import repos.RepoReceta
 
 @Accessors
 class RegistrarCopia extends Observador {

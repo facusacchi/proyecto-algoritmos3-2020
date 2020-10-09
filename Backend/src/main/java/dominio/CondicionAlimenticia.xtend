@@ -1,6 +1,4 @@
-package tp.food.overflow
-
-import org.eclipse.xtend.lib.annotations.Accessors
+package dominio
 
 interface CondicionAlimenticia {
 

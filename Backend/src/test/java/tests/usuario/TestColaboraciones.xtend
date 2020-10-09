@@ -1,17 +1,18 @@
 package tests.usuario
 
+import dominio.Accion
+import dominio.EditarDificultad
+import dominio.EditarTitulo
+import dominio.Receta
+import dominio.Receta.Dificultad
+import dominio.Usuario
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
-import tp.food.overflow.Receta
-import tp.food.overflow.Usuario
-import static org.junit.jupiter.api.Assertions.assertThrows
-import tp.food.overflow.Accion
-import tp.food.overflow.EditarTitulo
-import static org.junit.jupiter.api.Assertions.assertTrue
-import tp.food.overflow.EditarDificultad
-import tp.food.overflow.Receta.Dificultad
+
 import static org.junit.jupiter.api.Assertions.assertEquals
+import static org.junit.jupiter.api.Assertions.assertThrows
+import static org.junit.jupiter.api.Assertions.assertTrue
 
 @DisplayName("Testeamos las colaboraciones")
 class TestColaboraciones {

@@ -1,17 +1,16 @@
-package ar.edu.unsam.usuario
+package appFoodOverflow
 
-import tp.food.overflow.Usuario	
-import tp.food.overflow.Alimento
-import tp.food.overflow.Rutina
-import tp.food.overflow.Alimento.Grupo
-import tp.food.overflow.Vegetariano
-import tp.food.overflow.Hipertenso
-import tp.food.overflow.Celiaco
-import tp.food.overflow.Vegano
-import tp.food.overflow.Diabetico
-import repos.RepoUsuario
+import dominio.Alimento
+import dominio.Alimento.Grupo
+import dominio.Celiaco
+import dominio.Diabetico
+import dominio.Hipertenso
+import dominio.Rutina
+import dominio.Usuario
+import dominio.Vegano
+import dominio.Vegetariano
 import repos.RepoAlimento
-import java.time.LocalDate
+import repos.RepoUsuario
 
 class Bootstrap {
 	

@@ -1,19 +1,20 @@
 package tests.condicionesAlimenticias
 
-import java.time.LocalDate	
+import dominio.Alimento
+import dominio.Alimento.Grupo
+import dominio.CondicionAlimenticia
+import dominio.Diabetico
+import dominio.Hipertenso
+import dominio.Rutina
+import dominio.Usuario
+import dominio.Vegano
+import dominio.Vegetariano
+import java.time.LocalDate
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
-import tp.food.overflow.Usuario
-import tp.food.overflow.Vegetariano
-import static org.junit.jupiter.api.Assertions.assertTrue
-import tp.food.overflow.Alimento
-import tp.food.overflow.Alimento.Grupo
-import tp.food.overflow.CondicionAlimenticia
+
 import static org.junit.jupiter.api.Assertions.assertFalse
-import tp.food.overflow.Vegano
-import tp.food.overflow.Hipertenso
-import tp.food.overflow.Rutina
-import tp.food.overflow.Diabetico
+import static org.junit.jupiter.api.Assertions.assertTrue
 
 @DisplayName("Tests de las condiciones alimenticias")
 class TestCondicionesAlimenticias {

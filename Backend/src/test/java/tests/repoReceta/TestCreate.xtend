@@ -1,12 +1,13 @@
 package tests.repoReceta
 
-import org.junit.jupiter.api.DisplayName		
+import dominio.Receta
+import dominio.RecetaCompuesta
 import org.junit.jupiter.api.BeforeEach
-import tp.food.overflow.Receta
+import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import repos.RepoReceta
+
 import static org.junit.jupiter.api.Assertions.*
-import tp.food.overflow.RecetaCompuesta
 
 @DisplayName("Testeamos el metodo create")
 class TestCreate {

@@ -1,11 +1,12 @@
 package tests.repoAlimento
 
-import org.junit.jupiter.api.DisplayName	
+import dominio.Alimento
 import org.junit.jupiter.api.BeforeEach
-import tp.food.overflow.Alimento
+import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
-import static org.junit.jupiter.api.Assertions.*
 import repos.Repositorio
+
+import static org.junit.jupiter.api.Assertions.*
 
 @DisplayName("Testeamos el metodo update")
 class TestUpdate {

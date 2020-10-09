@@ -1,7 +1,7 @@
 package componente.observadores
 
-import tp.food.overflow.Usuario
-import tp.food.overflow.Receta
+import dominio.Receta
+import dominio.Usuario
 
 abstract class Observador {
 	

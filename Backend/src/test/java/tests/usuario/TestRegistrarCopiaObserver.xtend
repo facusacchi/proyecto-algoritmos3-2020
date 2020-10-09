@@ -1,17 +1,18 @@
 package tests.usuario
 
-import tp.food.overflow.Usuario
-import tp.food.overflow.Receta
-import componente.observadores.RegistrarCopia
-import org.junit.jupiter.api.BeforeEach
-import tp.food.overflow.Receta.Dificultad
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.DisplayName
-import static org.junit.jupiter.api.Assertions.*
-import repos.RepoReceta
-import componente.observadores.EstadisticaUserSinReceta
-import componente.observadores.EstadisticaDificultad
 import componente.observadores.EstadisticaAutor
+import componente.observadores.EstadisticaDificultad
+import componente.observadores.EstadisticaUserSinReceta
+import componente.observadores.RegistrarCopia
+import dominio.Receta
+import dominio.Receta.Dificultad
+import dominio.Usuario
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.DisplayName
+import org.junit.jupiter.api.Test
+import repos.RepoReceta
+
+import static org.junit.jupiter.api.Assertions.*
 
 class TestRegistrarCopiaObserver {
 	

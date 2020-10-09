@@ -1,12 +1,13 @@
 package tests.usuario
 
-import tp.food.overflow.Usuario				
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.DisplayName
-import static org.junit.jupiter.api.Assertions.*
-import tp.food.overflow.Receta
 import componente.observadores.MailAColaboradores
+import dominio.Receta
+import dominio.Usuario
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.DisplayName
+import org.junit.jupiter.api.Test
+
+import static org.junit.jupiter.api.Assertions.*
 
 class TestEnviarMailColaboradoresObserver {
 	

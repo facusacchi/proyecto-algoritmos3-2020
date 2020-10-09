@@ -1,7 +1,7 @@
 package componente.observadores
 
-import tp.food.overflow.Receta
-import tp.food.overflow.Usuario
+import dominio.Receta
+import dominio.Usuario
 import org.eclipse.xtend.lib.annotations.Accessors
 
 class MailAColaboradores extends Observador{

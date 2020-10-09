@@ -1,18 +1,19 @@
 package tests.usuario
 
-import org.junit.jupiter.api.DisplayName	
-import org.junit.jupiter.api.Test
-import tp.food.overflow.Usuario
+import dominio.Alimento
+import dominio.Alimento.Grupo
+import dominio.Diabetico
+import dominio.Hipertenso
+import dominio.Rutina
+import dominio.Usuario
+import dominio.Vegetariano
 import java.time.LocalDate
 import java.util.HashSet
-import tp.food.overflow.Hipertenso
-import tp.food.overflow.Vegetariano
-import tp.food.overflow.Alimento
-import tp.food.overflow.Alimento.Grupo
-import tp.food.overflow.Diabetico
-import tp.food.overflow.Rutina
-import static org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.DisplayName
+import org.junit.jupiter.api.Test
+
 import static org.junit.jupiter.api.Assertions.assertFalse
+import static org.junit.jupiter.api.Assertions.assertTrue
 
 @DisplayName("Testeamos el método esValido")
 class TestEsValido {

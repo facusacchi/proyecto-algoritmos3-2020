@@ -1,12 +1,12 @@
 package tests.repoReceta
 
+import dominio.Alimento
+import dominio.Ingrediente
+import dominio.Receta
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import repos.RepoReceta
-import tp.food.overflow.Alimento
-import tp.food.overflow.Ingrediente
-import tp.food.overflow.Receta
 
 import static org.junit.jupiter.api.Assertions.*
 

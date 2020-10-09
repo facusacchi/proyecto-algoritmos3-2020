@@ -1,16 +1,17 @@
 package tests.receta
 
-import tp.food.overflow.Ingrediente	
-import tp.food.overflow.Alimento
-import tp.food.overflow.Receta
+import dominio.Alimento
+import dominio.Celiaco
+import dominio.Hipertenso
+import dominio.Ingrediente
+import dominio.Receta
+import dominio.RecetaCompuesta
+import dominio.Vegetariano
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
+
 import static org.junit.jupiter.api.Assertions.*
-import tp.food.overflow.Vegetariano
-import tp.food.overflow.Hipertenso
-import tp.food.overflow.RecetaCompuesta
-import tp.food.overflow.Celiaco
 
 @DisplayName("Testeamos el metodo condicionesInadecuadasReceta")
 class TestCondicionesInadecuadas {

@@ -1,9 +1,9 @@
 package repos
 
-import java.util.List		
-import tp.food.overflow.Entity
-import java.util.Set
+import dominio.Entity
 import java.util.HashSet
+import java.util.List
+import java.util.Set
 import org.eclipse.xtend.lib.annotations.Accessors
 
 @Accessors

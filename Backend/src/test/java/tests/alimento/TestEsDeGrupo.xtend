@@ -1,10 +1,11 @@
 package tests.alimento
 
+import dominio.Alimento
+import dominio.Alimento.Grupo
 import org.junit.jupiter.api.BeforeEach
-import tp.food.overflow.Alimento
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
-import tp.food.overflow.Alimento.Grupo
+
 import static org.junit.jupiter.api.Assertions.assertTrue
 
 @DisplayName("Testeamos el metodo esDeGrupo")

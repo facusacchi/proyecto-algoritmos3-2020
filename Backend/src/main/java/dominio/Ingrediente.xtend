@@ -1,4 +1,4 @@
-package tp.food.overflow
+package dominio
 
 import org.eclipse.xtend.lib.annotations.Accessors
 

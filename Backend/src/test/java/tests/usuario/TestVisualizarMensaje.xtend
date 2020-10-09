@@ -1,12 +1,13 @@
 package tests.usuario
 
-import tp.food.overflow.Usuario	
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.DisplayName
-import static org.junit.jupiter.api.Assertions.*
 import componente.observadores.Mensaje
+import dominio.Usuario
 import java.time.LocalDateTime
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.DisplayName
+import org.junit.jupiter.api.Test
+
+import static org.junit.jupiter.api.Assertions.*
 
 class TestVisualizarMensaje {
 	

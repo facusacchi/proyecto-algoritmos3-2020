@@ -1,17 +1,18 @@
 package tests.repoReceta
 
+import dominio.Alimento
+import dominio.Diabetico
+import dominio.Hipertenso
+import dominio.Ingrediente
+import dominio.Receta
+import dominio.Usuario
+import dominio.Vegetariano
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.BeforeEach
-import tp.food.overflow.Usuario
-import tp.food.overflow.Receta
-import tp.food.overflow.Vegetariano
-import tp.food.overflow.Alimento
-import tp.food.overflow.Ingrediente
 import repos.RepoReceta
-import tp.food.overflow.Diabetico
+
 import static org.junit.jupiter.api.Assertions.assertEquals
-import tp.food.overflow.Hipertenso
 
 @DisplayName("Testeamos las sugerencias grupales e individuales")
 class TestSugerencias {

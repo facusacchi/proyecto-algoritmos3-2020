@@ -1,6 +1,6 @@
 package repos
 
-import tp.food.overflow.Alimento
+import dominio.Alimento
 
 class RepoAlimento extends Repositorio<Alimento> {
 	

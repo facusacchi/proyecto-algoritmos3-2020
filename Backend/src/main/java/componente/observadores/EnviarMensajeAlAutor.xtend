@@ -1,9 +1,9 @@
 package componente.observadores
 
-import tp.food.overflow.Receta	
-import tp.food.overflow.Usuario
-import org.eclipse.xtend.lib.annotations.Accessors
+import dominio.Receta
+import dominio.Usuario
 import java.time.LocalDateTime
+import org.eclipse.xtend.lib.annotations.Accessors
 
 class EnviarMensajeAlAutor extends Observador {
 	

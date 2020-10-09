@@ -1,10 +1,9 @@
 package repos
 
-
-import tp.food.overflow.Receta
-import tp.food.overflow.Usuario
-import org.eclipse.xtend.lib.annotations.Accessors
+import dominio.Receta
+import dominio.Usuario
 import java.util.Set
+import org.eclipse.xtend.lib.annotations.Accessors
 
 @Accessors
 class RepoReceta extends Repositorio<Receta> {

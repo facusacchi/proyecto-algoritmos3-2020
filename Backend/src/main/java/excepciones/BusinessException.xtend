@@ -1,4 +1,4 @@
-package ar.edu.unsam.exceptions
+package excepciones
 
 class BusinessException extends RuntimeException {
 	
