@@ -1,4 +1,4 @@
-package controller
+package appFoodOverflow.controller
 
 import org.springframework.web.bind.annotation.RestController
 
