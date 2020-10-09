@@ -16,7 +16,7 @@ export class PerfilUsuarioFormComponent implements OnInit {
   usuario: Usuario
   opcionesRutina: Rutina[] = ["NADA", "LEVE", "MEDIANO", "ACTIVO", "INTENSIVO"]
   opcionElegida: Rutina
-  fecha: String = "2020-01-12"
+  fecha: String
   alimentosPreferidos: Alimento[]
   alimentosDisgustados: Alimento[]
   recetas: Receta[] = []
@@ -31,7 +31,14 @@ export class PerfilUsuarioFormComponent implements OnInit {
     this.recetas = this.service.getRecetas
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.fecha = this.formatearFecha(this.usuario.fechaDeNacimiento)
+    console.log(this.fecha)
+  }
+
+  formatearFecha(fecha: Date): String{
+    return fecha.toISOString().substring(0,10)
+  }
 
   getStatus(): String {
     if (this.usuario.imcEsSaludable()) {

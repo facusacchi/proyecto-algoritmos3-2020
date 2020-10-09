@@ -114,13 +114,6 @@ export class Service {
         return this.formatearFecha(this.usuarioLogueado.fechaDeNacimiento)
     }
 
-    formatearFecha(fecha: Date): String {
-        const day = fecha.getDate()
-        const month = fecha.getMonth()
-        const year = fecha.getFullYear()
-        return `${year}-${month}-${day}`
-    }
-
     get getUsuarioLogueado(): Usuario {
         return this.usuarioLogueado
     }
