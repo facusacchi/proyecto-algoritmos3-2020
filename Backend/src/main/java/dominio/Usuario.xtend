@@ -35,17 +35,7 @@ class Usuario extends Entity {
 	List<Observador> observadores = new ArrayList<Observador>
 	List<Mail> mails = new ArrayList<Mail>
 	
-	@JsonTypeInfo(
-	      use = JsonTypeInfo.Id.NAME, 
-	      include = As.PROPERTY, 
-	      property = "type")
-	    @JsonSubTypes(
-	        @JsonSubTypes.Type(value = Vegetariano, name = "vegetariano"),
-	        @JsonSubTypes.Type(value = Vegano, name = "vegano"),
-	        @JsonSubTypes.Type(value = Celiaco, name = "celiaco"),
-	        @JsonSubTypes.Type(value = Hipertenso, name = "hipertenso"),
-	        @JsonSubTypes.Type(value = Diabetico, name = "diabetico")
-	    )
+	
 	
 	def indiceMasaCorporal() {
 		peso / Math.pow(estatura, 2)
