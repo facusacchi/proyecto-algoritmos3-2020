@@ -72,12 +72,14 @@ class Bootstrap {
 			dificultad = Dificultad.FACIL
 			calorias = 300
 			autor = pepe
+			imagen = "fajitas-mexicanas.jpg"
 		])
 		RepoReceta.instance.create(new Receta => [
-			nombreDelPlato = "Focacia"
+			nombreDelPlato = "Focaccia"
 			dificultad = Dificultad.DIFICIL
 			calorias = 400
 			autor = pepe
+			imagen = "focaccia2.jpg"
 		])
 		
 	}

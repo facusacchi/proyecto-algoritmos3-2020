@@ -19,6 +19,7 @@ class Receta extends Entity{
 	double calorias
 	Receta recetaOriginal = null
 	List<Accion> acciones = newArrayList
+	String imagen = null
 	
 	new(){}
 	
