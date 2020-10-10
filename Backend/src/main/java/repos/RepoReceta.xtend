@@ -39,4 +39,9 @@ class RepoReceta extends Repositorio<Receta> {
 	def contieneAutor(Usuario autor) {
 		objects.map[receta | receta.autor].contains(autor)
 	}
+	
+	def getTodasLasRecetas() {
+		objects
+	}
+	
 }

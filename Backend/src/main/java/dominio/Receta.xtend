@@ -5,11 +5,13 @@ import java.util.HashSet
 import java.util.List
 import java.util.Set
 import org.eclipse.xtend.lib.annotations.Accessors
+import com.fasterxml.jackson.annotation.JsonIgnore
+import com.fasterxml.jackson.annotation.JsonProperty
 
 @Accessors
 class Receta extends Entity{
 	String nombreDelPlato
-	Usuario autor
+	@JsonIgnore Usuario autor
 	Set<Usuario> colaboradores = new HashSet<Usuario>
 	Set<Ingrediente> ingredientes = new HashSet<Ingrediente>
 	List<String> procesoDePreparacion = new ArrayList<String>
@@ -143,6 +145,11 @@ class Receta extends Entity{
 	
 	def eliminarColaborador(Usuario colaborador) {
 		colaboradores.remove(colaborador)
+	}
+	
+	@JsonProperty("autor")
+	def autorNombre(){
+		autor.nombreYApellido
 	}
 
 }

@@ -11,6 +11,9 @@ import dominio.Vegano
 import dominio.Vegetariano
 import repos.RepoAlimento
 import repos.RepoUsuario
+import repos.RepoReceta
+import dominio.Receta
+import dominio.Receta.Dificultad
 
 class Bootstrap {
 	
@@ -18,6 +21,7 @@ class Bootstrap {
 	Alimento carneRoja
 	Alimento pescado
 	Alimento chocolate
+	Usuario pepe
 	
 	def void run() {
 		instanciarAlimentos
@@ -34,7 +38,7 @@ class Bootstrap {
 	}
 	
 	def crearUsuarios() {
-		RepoUsuario.instance.create(new Usuario => [
+		pepe = new Usuario => [
 			nombreYApellido = "Pepe Palala"
 			username = "pepito"
 			password = "123"
@@ -45,7 +49,9 @@ class Bootstrap {
 			alimentosPreferidos.add(carneRoja)
 			alimentosDisgustados.add(papa)
 			rutina = Rutina.ACTIVA
-		])
+		] 
+		RepoUsuario.instance.create(pepe)
+		
 		RepoUsuario.instance.create(new Usuario => [
 			nombreYApellido = "Manolo Palala"
 			username = "manolito"
@@ -61,6 +67,18 @@ class Bootstrap {
 	}
 	
 	def crearRecetas() {
+		RepoReceta.instance.create(new Receta => [
+			nombreDelPlato = "Fajitas Mexicanas"
+			dificultad = Dificultad.FACIL
+			calorias = 300
+			autor = pepe
+		])
+		RepoReceta.instance.create(new Receta => [
+			nombreDelPlato = "Focacia"
+			dificultad = Dificultad.DIFICIL
+			calorias = 400
+			autor = pepe
+		])
 		
 	}
 	
