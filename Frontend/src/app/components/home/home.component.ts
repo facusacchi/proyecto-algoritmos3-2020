@@ -4,6 +4,10 @@ import { Receta } from '../../../../Dominio/src/receta';
 import { Service } from 'app/service';
 import { Usuario } from '../../../../Dominio/src/usuario';
 
+/* function mostrarError(component, error) {
+  const errorMessage = (error.status === 0) ? 'No hay conexión con el backend, revise si el servidor remoto está levantado.' : error.error
+  component.errors.push(errorMessage)
+} */
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -17,9 +21,14 @@ export class HomeComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, public service: Service) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.usuario = this.service.getUsuarioLogueado
-    this.recetas = this.service.getRecetas
+    /* this.recetas = this.service.getRecetas */
+    /* try { */
+      this.recetas = await this.service.todasLasRecetas()
+    /* } catch (error) {
+      mostrarError(this, error)
+    } */
   }
 
   recibirRecetaABuscar(valueEmitted: string): void {

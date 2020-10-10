@@ -11,13 +11,12 @@ export const routes: Routes = [
     { path: 'login', component: LoginFormComponent },
     { path: 'perfilDeUsuario', component: PerfilUsuarioFormComponent },
     { path: 'home', component: HomeComponent },
-    { path: 'receta/:id' , component: RecetaComponent},
-    { path: 'agregarIngrediente/:recetaId', component: AgregarIngredienteComponent},
-    { path: 'agregarAlimentoPreferido', component: AgregarAlimentoComponent},
-    { path: 'agregarAlimentoDisgustado', component: AgregarAlimentoComponent},
+    { path: 'receta/:id', component: RecetaComponent },
+    { path: 'agregarIngrediente/:recetaId', component: AgregarIngredienteComponent },
+    { path: 'agregarAlimentoPreferido', component: AgregarAlimentoComponent },
+    { path: 'agregarAlimentoDisgustado', component: AgregarAlimentoComponent },
     { path: '', redirectTo: 'login', pathMatch: 'full' },
-    { path: '**', redirectTo: 'login', pathMatch: 'full'}
-    
+    { path: '**', redirectTo: 'login', pathMatch: 'full' }
 ];
 
 @NgModule({
@@ -25,9 +24,13 @@ export const routes: Routes = [
     exports: [RouterModule]
 })
 
-export class AppRoutinModule {}
+export class AppRoutinModule { }
 
 export const routingComponents = [
     LoginFormComponent,
     PerfilUsuarioFormComponent,
+    HomeComponent,
+    RecetaComponent,
+    AgregarIngredienteComponent,
+    AgregarAlimentoComponent,
 ]

@@ -4,10 +4,14 @@ import { Usuario } from './usuario'
 
 export class Receta {
 
-  constructor(public id: number, public autor: Usuario, public nombreDelPlato = '', public dificultad: Dificultad = 'FACIL', public calorias: number = 0, public imagen: string = "") { }
+  constructor(public id?: number, public autor?: Usuario, public nombreDelPlato = '', public dificultad: Dificultad = 'FACIL', public calorias: number = 0, public imagen: string = "") { }
   public colaboradores: Usuario[] = []
   public ingredientes: Ingrediente[] = []
   public procesoDePreparacion: string[] = []
+
+  static fromJson(recetaJSON): Receta {
+    return Object.assign(new Receta(), recetaJSON/* , { asignatario: Usuario.fromJSON(tareaJSON.asignadoA) } */)
+  }
 
   esEditablePor(usuario: Usuario): boolean {
     return usuario === this.autor || this.colaboradores.includes(usuario)
@@ -61,6 +65,14 @@ export class Receta {
 
   esAutor(usuario: Usuario): boolean {
     return this.autor == usuario
+  }
+
+  toJSON(): any {
+    return {
+      ...this,
+      /* asignatario: null,
+      asignadoA: this.asignatario ? this.asignatario.nombre : '' */
+    }
   }
 
 }

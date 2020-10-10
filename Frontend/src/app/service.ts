@@ -4,6 +4,8 @@ import { vegetariano, vegano, hipertenso, celiaco, CondicionAlimenticia, diabeti
 import { Injectable } from '@angular/core'
 import { Receta } from '../../Dominio/src/receta'
 import { Ingrediente } from '../../Dominio/src/ingrediente'
+import { HttpClient } from '@angular/common/http'
+import { REST_SERVER_URL } from './configuration'
 
 @Injectable({
     providedIn: 'root',
@@ -35,7 +37,7 @@ export class Service {
     buseca: Receta
     pollo: Receta
 
-    constructor() {
+    constructor(private http: HttpClient) {
         this.usuario = new Usuario(4, "lolo", "222", "Lolin", 70, 1.70, [], new Date(1970-7-17), [], [], "ACTIVO")
         
         this.asadoAlAsador = new Receta(123, this.usuario, "Asado al asador", "DIFICIL", 800, "asado_al_asador.jpg")
@@ -91,6 +93,11 @@ export class Service {
             this.pollo,
         ]
     }
+
+    async todasLasRecetas() {
+        const recetas = await this.http.get<Receta[]>(REST_SERVER_URL + '/recetas').toPromise()
+        return recetas.map((receta) => Receta.fromJson(receta))
+      }
 
     parsearAlimentosAString(alimentos: Alimento[]): String[] {
         const alimentosParseados: String[] = []

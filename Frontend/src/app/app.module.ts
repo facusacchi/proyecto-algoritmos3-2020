@@ -4,49 +4,39 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { PrimaryButtonComponent } from './components/primary-button/primary-button.component';
 import { HeaderComponent } from './components/header/header.component';
-import { LoginFormComponent } from './components/login-form/login-form.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { PerfilUsuarioFormComponent } from './components/perfil-usuario-form/perfil-usuario-form.component';
 import { SecondaryButtonComponent } from './components/secondary-button/secondary-button.component';
 import { CardRecetaComponent } from './components/card-receta/card-receta.component';
 import { AppRoutinModule, routingComponents } from './components/app-routing.module';
-import { HomeComponent } from './components/home/home.component';
 import { NavBusquedaComponent } from './components/nav-busqueda/nav-busqueda.component';
 import { NavButtonComponent } from './components/nav-button/nav-button.component';
-import { RecetaComponent } from './components/receta/receta.component';
 import { RecetaPipe } from './receta.pipe';
 import { CondicionAlimenticiaComponent } from './components/condicion-alimenticia/condicion-alimenticia.component';
 import { TablaComponent } from './components/tabla/tabla.component';
-import { AgregarIngredienteComponent } from './components/agregar-ingrediente/agregar-ingrediente.component';
 import { CommonModule } from '@angular/common';
-import { AgregarAlimentoComponent } from './components/agregar-alimento/agregar-alimento.component';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     PrimaryButtonComponent,
     HeaderComponent,
-    LoginFormComponent,
     FooterComponent,
-    PerfilUsuarioFormComponent,
     SecondaryButtonComponent,
     CardRecetaComponent,
     routingComponents,
-    HomeComponent,
     NavBusquedaComponent,
     NavButtonComponent,
     RecetaPipe,
-    RecetaComponent,
     CondicionAlimenticiaComponent,
     TablaComponent,
-    AgregarIngredienteComponent,
-    AgregarAlimentoComponent
-   ],
+  ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutinModule,
-    CommonModule
+    CommonModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
