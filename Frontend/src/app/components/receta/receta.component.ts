@@ -16,12 +16,12 @@ export class RecetaComponent implements OnInit {
   usuarioLogueado: Usuario
 
   constructor(private route: ActivatedRoute, private service: Service) {
-    this.route.params.subscribe((editarRecetaParameters) => {
-      this.receta = this.service.getRecetaById(editarRecetaParameters.id)
-    })
   }
-
-  ngOnInit() {
+  
+  async ngOnInit() {
+    this.route.params.subscribe(async(editarRecetaParameters) => {
+      this.receta = await this.service.getRecetaById(editarRecetaParameters.id)
+    })
     this.usuarioLogueado = this.service.usuarioLogueado
   }
 

@@ -93,22 +93,46 @@ export class Service {
             this.pollo,
         ]
     }
-
+    
+    /* RECETA */
+    
     async todasLasRecetas() {
         const recetas = await this.http.get<Receta[]>(REST_SERVER_URL + '/recetas').toPromise()
         return recetas.map((receta) => Receta.fromJson(receta))
     }
+    
+    async getRecetaById(id: number) {
+        const receta = await this.http.get<Receta>(REST_SERVER_URL + '/receta/' + id).toPromise()
+        return Receta.fromJson(receta)
+    }
+
+    get getRecetas(): Receta[] {
+        return this.recetas
+    }
+
+    guardarCambiosReceta(recetaActualizada: Receta) {
+        // let recetaOriginal = this.getRecetaById(recetaActualizada.id)
+        // recetaOriginal = recetaActualizada
+    }
+
+    eliminarReceta(receta: Receta): void {
+        this.recetas.splice(this.recetas.indexOf(receta), 1)
+        /* this.recetas = this.recetas.filter(r => r.id !== receta.id) */
+    }
+
+
+    /*USUARIO*/
 
     parsearAlimentosAString(alimentos: Alimento[]): String[] {
         const alimentosParseados: String[] = []
         alimentos.forEach(alimento => alimentosParseados.push(alimento.nombre))
         return alimentosParseados
     }
-
+    
     eliminarCondicionUserLogueado(condicion: CondicionAlimenticia): void {
         this.usuarioLogueado.condicionesAlimenticias.splice(this.usuarioLogueado.condicionesAlimenticias.indexOf(condicion), 1)
     }
-
+    
     agregarCondicionUserLogueado(condicion: CondicionAlimenticia): void {
         this.usuarioLogueado.condicionesAlimenticias.push(condicion)
     }
@@ -145,27 +169,11 @@ export class Service {
         return username.trim().toLowerCase()
     }
 
-    get getRecetas(): Receta[] {
-        return this.recetas
-    }
-
-    getRecetaById(id: number): Receta {
-        return this.recetas.find(receta => receta.id == id)
-    }
-
-    guardarCambiosReceta(recetaActualizada: Receta) {
-        // let recetaOriginal = this.getRecetaById(recetaActualizada.id)
-        // recetaOriginal = recetaActualizada
-    }
 
     get getAlimentos(): Alimento[] {
         return this.alimentos
     }
 
-    eliminarReceta(receta: Receta): void {
-        this.recetas.splice(this.recetas.indexOf(receta), 1)
-        /* this.recetas = this.recetas.filter(r => r.id !== receta.id) */
-    }
 
 }
 
