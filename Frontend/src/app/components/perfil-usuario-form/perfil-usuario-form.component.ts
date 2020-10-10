@@ -46,11 +46,6 @@ export class PerfilUsuarioFormComponent implements OnInit {
     } else { return "No Saludable" }
   }
 
-  get fechaDeNacimiento() {
-    this.fecha = this.service.getFechaDeNacimiento
-    return this.fecha
-  }
-
   recibirAlimento(valueEmitted: Alimento): void {
     this.alimento = valueEmitted
     this.eliminarAlimento()

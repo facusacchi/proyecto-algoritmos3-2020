@@ -110,10 +110,6 @@ export class Service {
         return this.usuarioLogueado.condicionesAlimenticias.includes(condicion)
     }
 
-    get getFechaDeNacimiento() {
-        return this.formatearFecha(this.usuarioLogueado.fechaDeNacimiento)
-    }
-
     get getUsuarioLogueado(): Usuario {
         return this.usuarioLogueado
     }
