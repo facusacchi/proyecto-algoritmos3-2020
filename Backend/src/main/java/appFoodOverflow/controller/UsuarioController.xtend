@@ -12,8 +12,10 @@ import repos.RepoUsuario
 import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import dominio.Usuario
+import org.springframework.web.bind.annotation.CrossOrigin
 
 @RestController
+@CrossOrigin("http://localhost:4200")
 class UsuarioController {
 		
 	@GetMapping(value="/login/{idUsuario}")
