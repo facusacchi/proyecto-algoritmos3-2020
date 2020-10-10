@@ -12,7 +12,6 @@ export class CondicionAlimenticiaComponent implements OnInit {
   @Input() descripcion: string
 
   isActive: boolean
-  entrada: any = <HTMLInputElement> document.getElementById("is3dCheckBox")
   condiciones = new Map([
     ["Diabetico", diabetico],
     ["Vegano", vegano],
@@ -30,10 +29,6 @@ export class CondicionAlimenticiaComponent implements OnInit {
 
   getCondicion(): CondicionAlimenticia{
     return this.condiciones.get(this.descripcion)
-  }
-
-  isChecked(): boolean {
-    return this.entrada.checked
   }
 
   onClick(): void{
