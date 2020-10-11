@@ -17,8 +17,7 @@ import com.fasterxml.jackson.annotation.JsonSubTypes
 	        @JsonSubTypes.Type(value = Diabetico, name = "diabetico")
 	    )
 	    
-interface CondicionAlimenticia {
-	    
+interface CondicionAlimenticia {	    
 	def boolean subsanaCondicion(Usuario usuario)
 	def String getAsString()
 }

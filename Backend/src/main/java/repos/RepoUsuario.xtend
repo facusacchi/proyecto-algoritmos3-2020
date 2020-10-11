@@ -19,4 +19,7 @@ class RepoUsuario extends Repositorio<Usuario> {
 		instance = new RepoUsuario
 	}
 	
+	def getByLogin(String userName, String pssw) {
+		objects.findFirst[user | user.username === userName && user.password === pssw]
+	}
 }
