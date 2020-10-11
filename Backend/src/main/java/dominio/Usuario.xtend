@@ -12,24 +12,21 @@ import java.util.HashSet
 import java.util.List
 import java.util.Set
 import org.eclipse.xtend.lib.annotations.Accessors
-import com.fasterxml.jackson.annotation.JsonTypeInfo
-import com.fasterxml.jackson.annotation.JsonTypeInfo.As
-import com.fasterxml.jackson.annotation.JsonSubTypes
-import com.fasterxml.jackson.annotation.JsonIgnore
-import com.fasterxml.jackson.annotation.JsonProperty
+
 import java.time.format.DateTimeFormatter
+import com.fasterxml.jackson.annotation.JsonProperty
+import com.fasterxml.jackson.annotation.JsonIgnore
 
 @Accessors
 class Usuario extends Entity {
 	
-	static String DATE_PATTERN = "dd/MM/yyyy"
-	
+	//static String DATE_PATTERN = "dd/MM/yyyy"
+	static String DATE_PATTERN = "yyyy/MM/dd"
 	String nombreYApellido
 	String username
 	String password
 	Double peso
 	Double estatura
-//	@JsonIgnore 
 	LocalDate fechaDeNacimiento
 	Set<CondicionAlimenticia> condicionesAlimenticias = new HashSet<CondicionAlimenticia>
 	Set<Alimento> alimentosPreferidos = new HashSet<Alimento>
@@ -38,6 +35,16 @@ class Usuario extends Entity {
 	List<Mensaje> mensajesInternos = new ArrayList<Mensaje>
 	List<Observador> observadores = new ArrayList<Observador>
 	List<Mail> mails = new ArrayList<Mail>	
+	
+	@JsonProperty("fechaDeNacimiento")
+	def getFechaAsString() {
+		formatter.format(this.fechaDeNacimiento)
+	}
+
+	def formatter() {
+		DateTimeFormatter.ofPattern(DATE_PATTERN)
+	}
+
 	
 	def indiceMasaCorporal() {
 		peso / Math.pow(estatura, 2)
