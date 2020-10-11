@@ -14,6 +14,7 @@ import repos.RepoUsuario
 import repos.RepoReceta
 import dominio.Receta
 import dominio.Receta.Dificultad
+import dominio.Ingrediente
 
 class Bootstrap {
 
@@ -27,6 +28,7 @@ class Bootstrap {
 	Alimento pimientos
 	Alimento aceite
 	Alimento sal
+	Ingrediente carneVacuna
 	Receta focaccia
 	Receta fajitasMexicanas
 	Usuario pepe
@@ -51,6 +53,7 @@ class Bootstrap {
 		pimientos = new Alimento
 		aceite = new Alimento
 		sal = new Alimento
+		carneVacuna = new Ingrediente() => [alimento = carneRoja cantidad = "1 kg"]
 	}
 
 	def crearUsuarios() {
@@ -113,6 +116,7 @@ class Bootstrap {
 		fajitasMexicanas.agregarProcesoDePreparacion("Agregar la carne a las verduras")
 		fajitasMexicanas.agregarProcesoDePreparacion("Condimentar a gusto con sal y especias")
 		fajitasMexicanas.agregarProcesoDePreparacion("Hacer la masa de las tortillas")
+		fajitasMexicanas.agregarIngrediente(carneVacuna)
 		RepoReceta.instance.create(fajitasMexicanas)
 
 		focaccia = new Receta => [
