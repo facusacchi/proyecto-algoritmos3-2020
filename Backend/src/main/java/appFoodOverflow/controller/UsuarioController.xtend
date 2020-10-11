@@ -14,6 +14,7 @@ import dominio.Usuario
 import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestParam
+import org.eclipse.xtend.lib.annotations.Accessors
 
 @RestController
 @CrossOrigin("http://localhost:4200")
@@ -30,9 +31,22 @@ class UsuarioController {
 //		
 //	}
 	
-	@PostMapping(value="/login")
-	def buscarUsuario(@RequestParam("userName") String userName, @RequestParam("password") String password) {
-		val usuario = RepoUsuario.instance.getByLogin(userName, password)
+//	@PostMapping(value="/login")
+//	def buscarUsuario(@RequestParam("userName") String userName, @RequestParam("password") String password) {
+//		val usuario = RepoUsuario.instance.getByLogin(userName, password)
+//		if(usuario === null) {
+//			return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontró el usuario con ese username o contraseña''')
+//		}
+//		ResponseEntity.ok(mapper.writeValueAsString(usuario))
+//	}
+
+@PostMapping(value="/login")
+	def buscarUsuario(@RequestBody String body) {
+		val dataSession = mapper.readValue(body, DataSession)
+		if(dataSession === null) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''Error al construir los datos de sesion''')
+		}
+		val usuario = RepoUsuario.instance.getByLogin(dataSession.userName, dataSession.password)
 		if(usuario === null) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontró el usuario con ese username o contraseña''')
 		}
@@ -60,5 +74,11 @@ class UsuarioController {
 		]
 	}
 	
+}
+
+@Accessors
+class DataSession {
+	String userName
+	String password
 }
 	
