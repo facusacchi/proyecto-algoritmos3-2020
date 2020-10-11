@@ -19,13 +19,13 @@ export class AgregarIngredienteComponent implements OnInit {
   
 
   constructor(private route: ActivatedRoute, private service : Service) {
-    this.route.params.subscribe((agregarIngredienteParameters) => {
-      this.receta = this.service.getRecetaById(agregarIngredienteParameters.recetaId)
-    })
   }
-
-  ngOnInit() {
+  
+  async ngOnInit() {
     this.alimentos=this.service.getAlimentos
+      this.route.params.subscribe(async(agregarIngredienteParameters) => {
+        this.receta = await this.service.getRecetaById(agregarIngredienteParameters.recetaId)
+      })
   }
 
   seleccionarAlimento(alimento : Alimento) {
