@@ -12,7 +12,7 @@ import { Usuario } from '../../../../Dominio/src/usuario';
 export class CondicionAlimenticiaComponent implements OnInit {
 
   @Input() descripcion: string
-  @Input() usuario: Usuario
+  usuario: Usuario
 
   isActive: boolean
   condiciones = new Map([
@@ -24,6 +24,7 @@ export class CondicionAlimenticiaComponent implements OnInit {
 ])
 
   constructor(private service : Service, private session: Session) {
+    this.usuario = this.session.userLogged
   }
   
   ngOnInit(): void {
