@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Service } from '../../service';
-import { Usuario } from '../../../../Dominio/src/usuario';
+import { Session } from '../../session'
 
 @Component({
   selector: 'app-login-form',
@@ -14,16 +14,25 @@ userName: String
 password: String
 mostrarLabelInvalido: boolean = false
 
-  constructor(private router: Router, private service : Service) { }
+  constructor(private router: Router, private session: Session) { }
   
   ngOnInit(): void{
   }
 
-  onIngresar(): void{
-    if(this.service.contieneUsuario(this.userName) && this.service.coincidePassword(this.userName, this.password)) {
+  async onLogin(){
+    const userDataLogin = { userName: this.userName, password: this.password }
+    const userLogged = await this.session.loginUser(userDataLogin)
+    if(userLogged === null) {
+      this.mostrarLabelInvalido = true
+    }else{
+      this.navegarHaciaPerfilDeUsuario()
+    }
+
+    
+    /* if(this.service.contieneUsuario(this.userName) && this.service.coincidePassword(this.userName, this.password)) {
       this.service.asignarUsuarioLogueado(this.service.buscarUsuarioPorUsername(this.userName))
       this.navegarHaciaPerfilDeUsuario()
-    } else { this.mostrarLabelInvalido = true }
+    } else { this.mostrarLabelInvalido = true } */
   }
 
   navegarHaciaPerfilDeUsuario(): void{

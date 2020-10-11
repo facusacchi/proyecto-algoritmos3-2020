@@ -3,19 +3,23 @@ import * as moment from 'moment';
 import { Alimento } from "./alimento";
 
 export class Usuario {
-
+    
     constructor(
-        public id: number,
-        public userName: String,
-        public password: String,
-        public nombreYApellido: String,
-        public peso: number,
-        public estatura: number,
+        public id?: number,
+        public userName?: String,
+        public password?: String,
+        public nombreYApellido?: String,
+        public peso?: number,
+        public estatura?: number,
         public condicionesAlimenticias: CondicionAlimenticia[] = [],
         public fechaDeNacimiento: Date = new Date(),
         public alimentosPreferidos: Alimento[] = [],
         public alimentosDisgustados: Alimento[] = [],
         public rutina: Rutina = 'NADA') { }
+
+    static fromJson(usuarioJSON): Usuario {
+        return Object.assign(new Usuario(), usuarioJSON)
+    }
 
     indiceMasaCorporal(): number {
         return this.peso / Math.pow(this.estatura, 2)

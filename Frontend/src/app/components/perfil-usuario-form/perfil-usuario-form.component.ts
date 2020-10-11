@@ -4,6 +4,7 @@ import { Service } from '../../service';
 import { ActivatedRoute } from '@angular/router';
 import { Receta } from '../../../../Dominio/src/receta';
 import { Alimento } from '../../../../Dominio/src/alimento';
+import { Session } from 'app/session';
 
 @Component({
   selector: 'app-perfil-usuario-form',
@@ -24,16 +25,15 @@ export class PerfilUsuarioFormComponent implements OnInit {
   isChecked = true
   alimento: Alimento
 
-  constructor(private route: ActivatedRoute, private service: Service) {
-    this.usuario = this.service.getUsuarioLogueado
-    this.alimentosPreferidos = this.service.getUsuarioLogueado.alimentosPreferidos
-    this.alimentosDisgustados = this.service.getUsuarioLogueado.alimentosDisgustados
+  constructor(private route: ActivatedRoute, private service: Service, private session: Session) {
+    this.usuario = this.session.userLogged
+    this.alimentosPreferidos = this.session.userLogged.alimentosPreferidos
+    this.alimentosDisgustados = this.session.userLogged.alimentosDisgustados
     /* this.recetas = this.service.getRecetas */
   }
 
   async ngOnInit() {
     this.fecha = this.formatearFecha(this.usuario.fechaDeNacimiento)
-    console.log(this.fecha)
     /* try { */
       this.recetas = await this.service.todasLasRecetas()
     /* } catch (error) {

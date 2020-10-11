@@ -38,7 +38,7 @@ export class Service {
     pollo: Receta
 
     constructor(private http: HttpClient) {
-        this.usuario = new Usuario(4, "lolo", "222", "Lolin", 70, 1.70, [], new Date(1970 - 7 - 17), [], [], "ACTIVO")
+        /* this.usuario = new Usuario(4, "lolo", "222", "Lolin", 70, 1.70, [], new Date(1970 - 7 - 17), [], [], "ACTIVO")
 
         this.asadoAlAsador = new Receta(123, this.usuario, "Asado al asador", "DIFICIL", 800, "asado_al_asador.jpg")
         this.guisoDeLentejas = new Receta(456, this.usuario, "Guiso de lentejas", "MEDIA", 500, "guiso de lentejas.jpg")
@@ -91,7 +91,7 @@ export class Service {
             this.focaccia,
             this.buseca,
             this.pollo,
-        ]
+        ] */
     }
     static lastId = 0
 
