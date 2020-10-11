@@ -96,12 +96,12 @@ export class Service {
 
     /* RECETA */
 
-    async todasLasRecetas() {
+    async todasLasRecetas(): Promise<Receta[]> {
         const recetas = await this.http.get<Receta[]>(REST_SERVER_URL + '/recetas').toPromise()
         return recetas.map((receta) => Receta.fromJson(receta))
     }
 
-    async getRecetaById(id: number) {
+    async getRecetaById(id: number): Promise<Receta> {
         const receta = await this.http.get<Receta>(REST_SERVER_URL + '/receta/' + id).toPromise()
         return Receta.fromJson(receta)
     }
@@ -170,7 +170,7 @@ export class Service {
 
     /*USUARIO*/
 
-    async todosLosAlimentos() {
+    async todosLosAlimentos(): Promise<Alimento[]> {
         const alimentos = await this.http.get<Alimento[]>(REST_SERVER_URL + '/alimentos').toPromise()
         return alimentos.map((alimento) => Alimento.fromJson(alimento))
     }

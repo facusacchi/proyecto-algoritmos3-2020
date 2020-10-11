@@ -28,12 +28,17 @@ export class PerfilUsuarioFormComponent implements OnInit {
     this.usuario = this.service.getUsuarioLogueado
     this.alimentosPreferidos = this.service.getUsuarioLogueado.alimentosPreferidos
     this.alimentosDisgustados = this.service.getUsuarioLogueado.alimentosDisgustados
-    this.recetas = this.service.getRecetas
+    /* this.recetas = this.service.getRecetas */
   }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.fecha = this.formatearFecha(this.usuario.fechaDeNacimiento)
     console.log(this.fecha)
+    /* try { */
+      this.recetas = await this.service.todasLasRecetas()
+    /* } catch (error) {
+      mostrarError(this, error)
+    } */
   }
 
   formatearFecha(fecha: Date): String{
