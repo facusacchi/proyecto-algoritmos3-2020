@@ -10,14 +10,12 @@ export class Receta {
   public procesoDePreparacion: string[] = []
 
   static fromJson(recetaJSON): Receta {
-    return Object.assign(new Receta(), recetaJSON/* , { asignatario: Usuario.fromJSON(tareaJSON.asignadoA) } */)
+    return Object.assign(new Receta(), recetaJSON)
   }
 
   toJSON(): any {
     return {
       ...this,
-      /* asignatario: null,
-      asignadoA: this.asignatario ? this.asignatario.nombre : '' */
     }
   }
 
@@ -73,6 +71,12 @@ export class Receta {
 
   esAutor(usuario: Usuario): boolean {
     return this.autor == usuario
+  }
+
+  copy(): Receta {
+    const clone = Object.assign(new Receta(), JSON.parse(JSON.stringify(this)))
+    clone.doCopy(this)
+    return clone
   }
 
 }

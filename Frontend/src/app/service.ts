@@ -93,6 +93,7 @@ export class Service {
             this.pollo,
         ]
     }
+    static lastId = 0
 
     /* RECETA */
 
@@ -118,6 +119,11 @@ export class Service {
     eliminarReceta(receta: Receta): void {
         this.recetas.splice(this.recetas.indexOf(receta), 1)
         /* this.recetas = this.recetas.filter(r => r.id !== receta.id) */
+    }
+
+    lastId(): number {
+        Service.lastId = Service.lastId + 1
+        return Service.lastId
     }
 
     /*USUARIO*/
