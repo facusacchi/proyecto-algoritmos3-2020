@@ -13,6 +13,14 @@ export class Receta {
     return Object.assign(new Receta(), recetaJSON/* , { asignatario: Usuario.fromJSON(tareaJSON.asignadoA) } */)
   }
 
+  toJSON(): any {
+    return {
+      ...this,
+      /* asignatario: null,
+      asignadoA: this.asignatario ? this.asignatario.nombre : '' */
+    }
+  }
+
   esEditablePor(usuario: Usuario): boolean {
     return usuario === this.autor || this.colaboradores.includes(usuario)
   }
@@ -65,14 +73,6 @@ export class Receta {
 
   esAutor(usuario: Usuario): boolean {
     return this.autor == usuario
-  }
-
-  toJSON(): any {
-    return {
-      ...this,
-      /* asignatario: null,
-      asignadoA: this.asignatario ? this.asignatario.nombre : '' */
-    }
   }
 
 }

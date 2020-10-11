@@ -8,6 +8,18 @@ export class Alimento {
     public grupo: Grupo = 'HORTALIZAS_FRUTAS_SEMILLAS',
     public condicionesInadecuadas: CondicionAlimenticia[] = []) { }
 
+  static fromJson(alimentoJSON): Alimento {
+    return Object.assign(new Alimento(), alimentoJSON/* , { asignatario: Usuario.fromJSON(tareaJSON.asignadoA) } */)
+  }
+
+  toJSON(): any {
+    return {
+      ...this,
+      /* asignatario: null,
+      asignadoA: this.asignatario ? this.asignatario.nombre : '' */
+    }
+  }
+
   public agregarCondicionInadecuada(condicion: CondicionAlimenticia): void {
     this.condicionesInadecuadas.push(condicion)
   }

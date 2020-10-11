@@ -39,4 +39,8 @@ class Repositorio<T extends Entity> {
 	def List<T> search(String value) {
 		objects.filter[object | object.cumpleCondicionDeBusqueda(value)].toList
 	}
+	
+	def Set<T> allInstances() {
+		return this.objects;
+	}
 }

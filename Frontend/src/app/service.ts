@@ -93,14 +93,14 @@ export class Service {
             this.pollo,
         ]
     }
-    
+
     /* RECETA */
-    
+
     async todasLasRecetas() {
         const recetas = await this.http.get<Receta[]>(REST_SERVER_URL + '/recetas').toPromise()
         return recetas.map((receta) => Receta.fromJson(receta))
     }
-    
+
     async getRecetaById(id: number) {
         const receta = await this.http.get<Receta>(REST_SERVER_URL + '/receta/' + id).toPromise()
         return Receta.fromJson(receta)
@@ -120,7 +120,6 @@ export class Service {
         /* this.recetas = this.recetas.filter(r => r.id !== receta.id) */
     }
 
-
     /*USUARIO*/
 
     parsearAlimentosAString(alimentos: Alimento[]): String[] {
@@ -128,11 +127,11 @@ export class Service {
         alimentos.forEach(alimento => alimentosParseados.push(alimento.nombre))
         return alimentosParseados
     }
-    
+
     eliminarCondicionUserLogueado(condicion: CondicionAlimenticia): void {
         this.usuarioLogueado.condicionesAlimenticias.splice(this.usuarioLogueado.condicionesAlimenticias.indexOf(condicion), 1)
     }
-    
+
     agregarCondicionUserLogueado(condicion: CondicionAlimenticia): void {
         this.usuarioLogueado.condicionesAlimenticias.push(condicion)
     }
@@ -169,11 +168,15 @@ export class Service {
         return username.trim().toLowerCase()
     }
 
+    /*USUARIO*/
+
+    async todosLosAlimentos() {
+        const alimentos = await this.http.get<Alimento[]>(REST_SERVER_URL + '/alimentos').toPromise()
+        return alimentos.map((alimento) => Alimento.fromJson(alimento))
+    }
 
     get getAlimentos(): Alimento[] {
         return this.alimentos
     }
 
-
 }
-

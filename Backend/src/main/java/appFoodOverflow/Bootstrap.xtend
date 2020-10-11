@@ -16,27 +16,39 @@ import dominio.Receta
 import dominio.Receta.Dificultad
 
 class Bootstrap {
-	
+
 	Alimento papa
 	Alimento carneRoja
 	Alimento pescado
 	Alimento chocolate
+	Alimento brocoli
+	Alimento aceitunas
+	Alimento cebolla
+	Alimento pimientos
+	Alimento aceite
+	Alimento sal
 	Usuario pepe
-	
+
 	def void run() {
 		instanciarAlimentos
 		crearUsuarios
 		crearRecetas
 		crearAlimentos
 	}
-	
+
 	def instanciarAlimentos() {
 		papa = new Alimento
 		carneRoja = new Alimento
 		pescado = new Alimento
 		chocolate = new Alimento
+		brocoli = new Alimento
+		aceitunas = new Alimento
+		cebolla = new Alimento
+		pimientos = new Alimento
+		aceite = new Alimento
+		sal = new Alimento
 	}
-	
+
 	def crearUsuarios() {
 		pepe = new Usuario => [
 			nombreYApellido = "Pepe Palala"
@@ -44,28 +56,28 @@ class Bootstrap {
 			password = "123"
 			peso = 75.0
 			estatura = 1.75
-			//fechaDeNacimiento = LocalDate.of(1990,7,28)	// rompe el server
+			// fechaDeNacimiento = LocalDate.of(1990,7,28)	// rompe el server
 			condicionesAlimenticias.add(Celiaco.getInstancia)
 			alimentosPreferidos.add(carneRoja)
 			alimentosDisgustados.add(papa)
 			rutina = Rutina.ACTIVA
-		] 
+		]
 		RepoUsuario.instance.create(pepe)
-		
+
 		RepoUsuario.instance.create(new Usuario => [
 			nombreYApellido = "Manolo Palala"
 			username = "manolito"
 			password = "456"
 			peso = 120.0
 			estatura = 1.87
-			//fechaDeNacimiento = LocalDate.of(1995,15,4) // rompe el server
+			// fechaDeNacimiento = LocalDate.of(1995,15,4) // rompe el server
 			condicionesAlimenticias.add(Vegetariano.getInstancia)
 			alimentosPreferidos.add(chocolate)
 			alimentosDisgustados.add(pescado)
 			rutina = Rutina.LEVE
 		])
 	}
-	
+
 	def crearRecetas() {
 		RepoReceta.instance.create(new Receta => [
 			nombreDelPlato = "Fajitas Mexicanas"
@@ -81,14 +93,14 @@ class Bootstrap {
 			autor = pepe
 			imagen = "focaccia2.jpg"
 		])
-		
+
 	}
-	
+
 	def crearAlimentos() {
 		RepoAlimento.instance.create(papa => [
 			nombre = "Papa"
 			descripcion = ""
-			grupo = Grupo.CEREALES_LEGUMBRES_DERIVADOS
+			grupo = Grupo.HORTALIZAS_FRUTAS_SEMILLAS
 			condicionesInadecuadas.add(Hipertenso.getInstancia)
 		])
 		RepoAlimento.instance.create(carneRoja => [
@@ -111,7 +123,39 @@ class Bootstrap {
 			grupo = Grupo.ACEITES_GRASAS_AZUCARES
 			condicionesInadecuadas.add(Diabetico.getInstancia)
 		])
-		
+		RepoAlimento.instance.create(brocoli => [
+			nombre = "Brocoli"
+			descripcion = ""
+			grupo = Grupo.HORTALIZAS_FRUTAS_SEMILLAS
+		])
+		RepoAlimento.instance.create(aceitunas => [
+			nombre = "Aceitunas"
+			descripcion = ""
+			grupo = Grupo.HORTALIZAS_FRUTAS_SEMILLAS
+			condicionesInadecuadas.add(Celiaco.getInstancia)
+		])
+		RepoAlimento.instance.create(cebolla => [
+			nombre = "Cebolla"
+			descripcion = ""
+			grupo = Grupo.HORTALIZAS_FRUTAS_SEMILLAS
+		])
+		RepoAlimento.instance.create(pimientos => [
+			nombre = "Pimientos"
+			descripcion = ""
+			grupo = Grupo.HORTALIZAS_FRUTAS_SEMILLAS
+		])
+		RepoAlimento.instance.create(aceite => [
+			nombre = "Aceite"
+			descripcion = ""
+			grupo = Grupo.ACEITES_GRASAS_AZUCARES
+			condicionesInadecuadas.add(Hipertenso.getInstancia)
+		])
+		RepoAlimento.instance.create(sal => [
+			nombre = "Sal"
+			descripcion = ""
+			grupo = Grupo.ACEITES_GRASAS_AZUCARES
+			condicionesInadecuadas.add(Hipertenso.getInstancia)
+		])
 	}
-	
+
 }
