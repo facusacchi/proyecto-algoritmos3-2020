@@ -1,28 +1,28 @@
 package dominio
 
-import com.fasterxml.jackson.annotation.JsonTypeName
-import com.fasterxml.jackson.annotation.JsonTypeInfo
-import com.fasterxml.jackson.annotation.JsonTypeInfo.As
-import com.fasterxml.jackson.annotation.JsonSubTypes
+//import com.fasterxml.jackson.annotation.JsonTypeName	
+//import com.fasterxml.jackson.annotation.JsonTypeInfo
+//import com.fasterxml.jackson.annotation.JsonTypeInfo.As
+//import com.fasterxml.jackson.annotation.JsonSubTypes
 
-	@JsonTypeInfo(
-	      use = JsonTypeInfo.Id.NAME, 
-	      include = As.PROPERTY, 
-	      property = "type")
-	    @JsonSubTypes(
-	        @JsonSubTypes.Type(value = Vegetariano, name = "vegetariano"),
-	        @JsonSubTypes.Type(value = Vegano, name = "vegano"),
-	        @JsonSubTypes.Type(value = Celiaco, name = "celiaco"),
-	        @JsonSubTypes.Type(value = Hipertenso, name = "hipertenso"),
-	        @JsonSubTypes.Type(value = Diabetico, name = "diabetico")
-	    )
+//	@JsonTypeInfo(
+//	      use = JsonTypeInfo.Id.NAME, 
+//	      include = As.PROPERTY, 
+//	      property = "type")
+//	    @JsonSubTypes(
+//	        @JsonSubTypes.Type(value = Vegetariano, name = "vegetariano"),
+//	        @JsonSubTypes.Type(value = Vegano, name = "vegano"),
+//	        @JsonSubTypes.Type(value = Celiaco, name = "celiaco"),
+//	        @JsonSubTypes.Type(value = Hipertenso, name = "hipertenso"),
+//	        @JsonSubTypes.Type(value = Diabetico, name = "diabetico")
+//	    )
 	    
 interface CondicionAlimenticia {	    
 	def boolean subsanaCondicion(Usuario usuario)
 	def String getAsString()
 }
 
-@JsonTypeName("vegetariano")
+//@JsonTypeName("vegetariano")
 class Vegetariano implements CondicionAlimenticia {
 	
 	static Vegetariano instancia
@@ -46,7 +46,7 @@ class Vegetariano implements CondicionAlimenticia {
 
 }
 
-@JsonTypeName("vegeano")
+//@JsonTypeName("vegeano")
 class Vegano implements CondicionAlimenticia {
 	
 	static Vegano instancia
@@ -69,7 +69,7 @@ class Vegano implements CondicionAlimenticia {
 	}
 }
 
-@JsonTypeName("hipertenso")
+//@JsonTypeName("hipertenso")
 class Hipertenso implements CondicionAlimenticia {
 	
 	static Hipertenso instancia
@@ -94,7 +94,7 @@ class Hipertenso implements CondicionAlimenticia {
 
 }
 
-@JsonTypeName("diabetico")
+//@JsonTypeName("diabetico")
 class Diabetico implements CondicionAlimenticia {
 	
 	static Diabetico instancia
@@ -119,7 +119,7 @@ class Diabetico implements CondicionAlimenticia {
 
 }
 
-@JsonTypeName("celiaco")
+//@JsonTypeName("celiaco")
 class Celiaco implements CondicionAlimenticia {
 	
 	static Celiaco instancia
