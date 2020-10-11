@@ -116,10 +116,9 @@ export class Service {
         // recetaOriginal = recetaActualizada
     }
 
-    eliminarReceta(receta: Receta): void {
+    /* eliminarReceta(receta: Receta): void {
         this.recetas.splice(this.recetas.indexOf(receta), 1)
-        /* this.recetas = this.recetas.filter(r => r.id !== receta.id) */
-    }
+    } */
 
     lastId(): number {
         Service.lastId = Service.lastId + 1
@@ -174,15 +173,15 @@ export class Service {
         return username.trim().toLowerCase()
     }
 
-    /*USUARIO*/
+    /*ALIMENTO*/
 
     async todosLosAlimentos(): Promise<Alimento[]> {
         const alimentos = await this.http.get<Alimento[]>(REST_SERVER_URL + '/alimentos').toPromise()
         return alimentos.map((alimento) => Alimento.fromJson(alimento))
     }
 
-    get getAlimentos(): Alimento[] {
+    /* get getAlimentos(): Alimento[] {
         return this.alimentos
-    }
+    } */
 
 }

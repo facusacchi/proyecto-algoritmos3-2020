@@ -25,7 +25,7 @@ export class CardRecetaComponent {
   }
 
   eliminarReceta(receta: Receta): void {
-    this.service.eliminarReceta(receta)
+    /* this.service.eliminarReceta(receta) */
     this.eliminada = true
   }
 

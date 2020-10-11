@@ -3,11 +3,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Receta } from '../../../../Dominio/src/receta';
 import { Service } from 'app/service';
 import { Usuario } from '../../../../Dominio/src/usuario';
+import { Session } from 'app/session';
 
 /* function mostrarError(component, error) {
   const errorMessage = (error.status === 0) ? 'No hay conexión con el backend, revise si el servidor remoto está levantado.' : error.error
   component.errors.push(errorMessage)
 } */
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -19,11 +21,10 @@ export class HomeComponent implements OnInit {
   recetas: Receta[] = []
   usuario: Usuario
 
-  constructor(private route: ActivatedRoute, private router: Router, public service: Service) { }
+  constructor(private route: ActivatedRoute, private router: Router, public service: Service, private session: Session) { }
 
   async ngOnInit() {
-    this.usuario = this.service.getUsuarioLogueado
-    /* this.recetas = this.service.getRecetas */
+    this.usuario = this.session.userLogged
     /* try { */
       this.recetas = await this.service.todasLasRecetas()
     /* } catch (error) {

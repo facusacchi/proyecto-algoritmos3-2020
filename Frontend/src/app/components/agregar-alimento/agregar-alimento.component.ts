@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Service } from 'app/service';
+import { Session } from 'app/session';
 import { Alimento } from '../../../../Dominio/src/alimento';
 import { Usuario } from '../../../../Dominio/src/usuario';
 
@@ -15,12 +16,11 @@ export class AgregarAlimentoComponent implements OnInit{
   alimentos:  Alimento[]
   alimento: Alimento
 
-  constructor(private route: Router, private service: Service) {
+  constructor(private route: Router, private service: Service, private session: Session) {
   }
 
   async ngOnInit() {
-    this.usuario = this.service.getUsuarioLogueado
-    /* this.alimentos = this.service.getAlimentos */
+    this.usuario = this.session.userLogged
     /* try { */
       this.alimentos = await this.service.todosLosAlimentos()
     /* } catch (error) {

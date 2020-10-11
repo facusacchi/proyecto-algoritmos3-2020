@@ -19,10 +19,10 @@ export class TablaComponent {
   @Output() buttonClicked2: EventEmitter<Alimento> = new EventEmitter<Alimento>()
 
   alimentoSeleccionado: Alimento
-  usuario: Usuario
+  /* usuario: Usuario */
 
   constructor(private router: Router, private service: Service) {
-    this.usuario = this.service.getUsuarioLogueado
+    /* this.usuario = this.service.getUsuarioLogueado */
   }
 
   seleccionarAlimento(alimento: Alimento): void {

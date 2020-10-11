@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Service } from 'app/service';
+import { Session } from 'app/session';
 import { celiaco, diabetico, hipertenso, vegano, vegetariano, CondicionAlimenticia } from '../../../../Dominio/src/condicionAlimenticia';
+import { Usuario } from '../../../../Dominio/src/usuario';
 
 @Component({
   selector: 'app-condicion-alimenticia',
@@ -10,6 +12,7 @@ import { celiaco, diabetico, hipertenso, vegano, vegetariano, CondicionAlimentic
 export class CondicionAlimenticiaComponent implements OnInit {
 
   @Input() descripcion: string
+  @Input() usuario: Usuario
 
   isActive: boolean
   condiciones = new Map([
@@ -20,11 +23,11 @@ export class CondicionAlimenticiaComponent implements OnInit {
     ["Celiaco", celiaco],
 ])
 
-  constructor(private service : Service) {
+  constructor(private service : Service, private session: Session) {
   }
   
   ngOnInit(): void {
-    this.isActive = this.service.userLogueadotieneCondicion(this.getCondicion())
+    this.isActive = this.usuario.tieneCondicionAlimenticia(this.getCondicion())
   }
 
   getCondicion(): CondicionAlimenticia{
@@ -33,8 +36,8 @@ export class CondicionAlimenticiaComponent implements OnInit {
 
   onClick(): void{
     if(!this.isActive) {
-      this.service.agregarCondicionUserLogueado(this.getCondicion())
-    } else { this.service.eliminarCondicionUserLogueado(this.getCondicion()) }
+      this.usuario.agregarCondicionAlimenticia(this.getCondicion())
+    } else { this.usuario.eliminarCondicionAlimenticia(this.getCondicion()) }
   }
 
 }

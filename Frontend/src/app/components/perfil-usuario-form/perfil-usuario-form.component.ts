@@ -27,13 +27,12 @@ export class PerfilUsuarioFormComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private service: Service, private session: Session) {
     this.usuario = this.session.userLogged
-    this.alimentosPreferidos = this.session.userLogged.alimentosPreferidos
-    this.alimentosDisgustados = this.session.userLogged.alimentosDisgustados
-    /* this.recetas = this.service.getRecetas */
+    this.alimentosPreferidos = this.usuario.alimentosPreferidos
+    this.alimentosDisgustados = this.usuario.alimentosDisgustados
   }
-
+  
   async ngOnInit() {
-    this.fecha = this.formatearFecha(this.usuario.fechaDeNacimiento)
+    /* this.fecha = this.formatearFecha(this.usuario.fechaDeNacimiento) */
     /* try { */
       this.recetas = await this.service.todasLasRecetas()
     /* } catch (error) {
@@ -41,9 +40,9 @@ export class PerfilUsuarioFormComponent implements OnInit {
     } */
   }
 
-  formatearFecha(fecha: Date): String{
+  /* formatearFecha(fecha: Date): String{
     return fecha.toISOString().substring(0,10)
-  }
+  } */
 
   getStatus(): String {
     if (this.usuario.imcEsSaludable()) {

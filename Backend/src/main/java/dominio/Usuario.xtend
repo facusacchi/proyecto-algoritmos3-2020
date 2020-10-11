@@ -15,6 +15,9 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import com.fasterxml.jackson.annotation.JsonTypeInfo
 import com.fasterxml.jackson.annotation.JsonTypeInfo.As
 import com.fasterxml.jackson.annotation.JsonSubTypes
+import com.fasterxml.jackson.annotation.JsonIgnore
+import com.fasterxml.jackson.annotation.JsonProperty
+import java.time.format.DateTimeFormatter
 
 @Accessors
 class Usuario extends Entity {
@@ -26,6 +29,7 @@ class Usuario extends Entity {
 	String password
 	Double peso
 	Double estatura
+//	@JsonIgnore 
 	LocalDate fechaDeNacimiento
 	Set<CondicionAlimenticia> condicionesAlimenticias = new HashSet<CondicionAlimenticia>
 	Set<Alimento> alimentosPreferidos = new HashSet<Alimento>
@@ -33,9 +37,7 @@ class Usuario extends Entity {
 	Rutina rutina
 	List<Mensaje> mensajesInternos = new ArrayList<Mensaje>
 	List<Observador> observadores = new ArrayList<Observador>
-	List<Mail> mails = new ArrayList<Mail>
-	
-	
+	List<Mail> mails = new ArrayList<Mail>	
 	
 	def indiceMasaCorporal() {
 		peso / Math.pow(estatura, 2)
@@ -48,6 +50,10 @@ class Usuario extends Entity {
 
 	def agregarCondicionAlimenticia(CondicionAlimenticia _condicion) {
 		condicionesAlimenticias.add(_condicion)
+	}
+	
+	def eliminarCondicionAlimenticia(CondicionAlimenticia _condicion) {
+		condicionesAlimenticias.remove(_condicion)
 	}
 
 	def agregarAlimentosPreferidos(Alimento _AlimetoPreferido) {
@@ -96,7 +102,6 @@ class Usuario extends Entity {
 
 	def subsanaCondicionesPreexistentes() {
 		condicionesAlimenticias.forall[condicionAlimenticia|condicionAlimenticia.subsanaCondicion(this)]
-
 	}
 
 	def esValido() {
@@ -191,6 +196,20 @@ class Usuario extends Entity {
 		}
 		receta.ejecutarAcciones
 	}
+	
+//	@JsonProperty("fechaDeNacimiento")
+//	def getFechaAsString() {
+//		formatter.format(this.fechaDeNacimiento)
+//	}
+//	
+//	@JsonProperty("fechaDeNacimiento")
+//	def asignarFecha(String fecha) {
+//		this.fechaDeNacimiento = LocalDate.parse(fecha, formatter)
+//	}
+//
+//	def formatter() {
+//		DateTimeFormatter.ofPattern(DATE_PATTERN)
+//	}
 	
 }
 

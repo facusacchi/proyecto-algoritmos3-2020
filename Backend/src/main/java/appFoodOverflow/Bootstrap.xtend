@@ -15,6 +15,7 @@ import repos.RepoReceta
 import dominio.Receta
 import dominio.Receta.Dificultad
 import dominio.Ingrediente
+import java.time.LocalDate
 
 class Bootstrap {
 
@@ -38,7 +39,7 @@ class Bootstrap {
 	def void run() {
 		instanciarAlimentos
 		crearUsuarios
-	//	crearRecetas
+		crearRecetas
 		crearAlimentos
 	}
 
@@ -63,7 +64,7 @@ class Bootstrap {
 			password = "123"
 			peso = 75.0
 			estatura = 1.75
-			// fechaDeNacimiento = LocalDate.of(1990,7,28)	// rompe el server
+			fechaDeNacimiento = LocalDate.of(1990,7,28)
 			condicionesAlimenticias.add(Celiaco.getInstancia)
 			alimentosPreferidos.add(carneRoja)
 			alimentosDisgustados.add(papa)
@@ -77,7 +78,7 @@ class Bootstrap {
 			password = "456"
 			peso = 120.0
 			estatura = 1.87
-			// fechaDeNacimiento = LocalDate.of(1995,15,4) // rompe el server
+			fechaDeNacimiento = LocalDate.of(1995,10,4)
 			condicionesAlimenticias.add(Vegetariano.getInstancia)
 			alimentosPreferidos.add(chocolate)
 			alimentosDisgustados.add(pescado)
@@ -91,7 +92,7 @@ class Bootstrap {
 			password = "123"
 			peso = 120.0
 			estatura = 1.90
-			// fechaDeNacimiento = LocalDate.of(1985,5,7) // rompe el server
+			fechaDeNacimiento = LocalDate.of(1985,5,7)
 			agregarCondicionAlimenticia(Vegano.getInstancia)
 			agregarAlimentosPreferidos(carneRoja)
 			agregarAlimentosPreferidos(papa)
@@ -101,67 +102,67 @@ class Bootstrap {
 		RepoUsuario.instance.create(nancy)
 	}
 
-//	def crearRecetas() {
-//		fajitasMexicanas = new Receta => [
-//			nombreDelPlato = "Fajitas Mexicanas"
-//			dificultad = Dificultad.FACIL
-//			calorias = 300
-//			autor = nancy
-//			imagen = "fajitas-mexicanas.jpg"
-//		]
-//		fajitasMexicanas.agregarColaborador(manolo)
-//		fajitasMexicanas.agregarProcesoDePreparacion("Cortar la carne en tiras")
-//		fajitasMexicanas.agregarProcesoDePreparacion("Cortar los pimientos y la cebolla en tiras")
-//		fajitasMexicanas.agregarProcesoDePreparacion("Saltear las verduras en aceite")
-//		fajitasMexicanas.agregarProcesoDePreparacion("Agregar la carne a las verduras")
-//		fajitasMexicanas.agregarProcesoDePreparacion("Condimentar a gusto con sal y especias")
-//		fajitasMexicanas.agregarProcesoDePreparacion("Hacer la masa de las tortillas")
-//		fajitasMexicanas.agregarIngrediente(carneVacuna)
-//		RepoReceta.instance.create(fajitasMexicanas)
-//
-//		focaccia = new Receta => [
-//			nombreDelPlato = "Focaccia"
-//			dificultad = Dificultad.DIFICIL
-//			calorias = 400
-//			autor = pepe
-//			imagen = "focaccia2.jpg"
-//		]
-//		focaccia.agregarColaborador(nancy)
-//		RepoReceta.instance.create(focaccia)
-//
-//		RepoReceta.instance.create(new Receta => [
-//			nombreDelPlato = "Asado al asador"
-//			dificultad = Dificultad.MEDIA
-//			calorias = 800
-//			autor = manolo
-//			imagen = "asado_al_asador.jpg"
-//		])
-//
-//		RepoReceta.instance.create(new Receta => [
-//			nombreDelPlato = "Guiso de lentejas"
-//			dificultad = Dificultad.MEDIA
-//			calorias = 500
-//			autor = manolo
-//			imagen = "guiso de lentejas.jpg"
-//		])
-//
-//		RepoReceta.instance.create(new Receta => [
-//			nombreDelPlato = "Buseca"
-//			dificultad = Dificultad.DIFICIL
-//			calorias = 770
-//			autor = manolo
-//			imagen = "buseca.jpg"
-//		])
-//
-//		RepoReceta.instance.create(new Receta => [
-//			nombreDelPlato = "Pollo al horno"
-//			dificultad = Dificultad.DIFICIL
-//			calorias = 990
-//			autor = pepe
-//			imagen = "pollo_al_horno.jpg"
-//		])
-//
-//	}
+	def crearRecetas() {
+		fajitasMexicanas = new Receta => [
+			nombreDelPlato = "Fajitas Mexicanas"
+			dificultad = Dificultad.FACIL
+			calorias = 300
+			autor = nancy
+			imagen = "fajitas-mexicanas.jpg"
+		]
+		fajitasMexicanas.agregarColaborador(manolo)
+		fajitasMexicanas.agregarProcesoDePreparacion("Cortar la carne en tiras")
+		fajitasMexicanas.agregarProcesoDePreparacion("Cortar los pimientos y la cebolla en tiras")
+		fajitasMexicanas.agregarProcesoDePreparacion("Saltear las verduras en aceite")
+		fajitasMexicanas.agregarProcesoDePreparacion("Agregar la carne a las verduras")
+		fajitasMexicanas.agregarProcesoDePreparacion("Condimentar a gusto con sal y especias")
+		fajitasMexicanas.agregarProcesoDePreparacion("Hacer la masa de las tortillas")
+		fajitasMexicanas.agregarIngrediente(carneVacuna)
+		RepoReceta.instance.create(fajitasMexicanas)
+
+		focaccia = new Receta => [
+			nombreDelPlato = "Focaccia"
+			dificultad = Dificultad.DIFICIL
+			calorias = 400
+			autor = pepe
+			imagen = "focaccia2.jpg"
+		]
+		focaccia.agregarColaborador(nancy)
+		RepoReceta.instance.create(focaccia)
+
+		RepoReceta.instance.create(new Receta => [
+			nombreDelPlato = "Asado al asador"
+			dificultad = Dificultad.MEDIA
+			calorias = 800
+			autor = manolo
+			imagen = "asado_al_asador.jpg"
+		])
+
+		RepoReceta.instance.create(new Receta => [
+			nombreDelPlato = "Guiso de lentejas"
+			dificultad = Dificultad.MEDIA
+			calorias = 500
+			autor = manolo
+			imagen = "guiso de lentejas.jpg"
+		])
+
+		RepoReceta.instance.create(new Receta => [
+			nombreDelPlato = "Buseca"
+			dificultad = Dificultad.DIFICIL
+			calorias = 770
+			autor = manolo
+			imagen = "buseca.jpg"
+		])
+
+		RepoReceta.instance.create(new Receta => [
+			nombreDelPlato = "Pollo al horno"
+			dificultad = Dificultad.DIFICIL
+			calorias = 990
+			autor = pepe
+			imagen = "pollo_al_horno.jpg"
+		])
+
+	}
 
 	def crearAlimentos() {
 		RepoAlimento.instance.create(papa => [

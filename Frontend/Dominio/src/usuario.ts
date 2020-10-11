@@ -29,6 +29,10 @@ export class Usuario {
         this.condicionesAlimenticias.push(condicion)
     }
 
+    eliminarCondicionAlimenticia(condicion: CondicionAlimenticia): void {
+        this.condicionesAlimenticias.splice(this.condicionesAlimenticias.indexOf(condicion), 1)
+    }
+
     agregarAlimentoPreferido(alimento: Alimento) {
         this.alimentosPreferidos.push(alimento)
     }
@@ -80,6 +84,10 @@ export class Usuario {
     pesaMenosDe(unPeso: number): boolean {
         return this.peso < unPeso
     }
+
+    tieneCondicionAlimenticia(condicionAlimenticia: CondicionAlimenticia): boolean{
+		return this.condicionesAlimenticias.includes(condicionAlimenticia)
+	}
 }
 
 export type Rutina = 'LEVE' | 'NADA' | 'MEDIANO' | 'INTENSIVO' | 'ACTIVO'
