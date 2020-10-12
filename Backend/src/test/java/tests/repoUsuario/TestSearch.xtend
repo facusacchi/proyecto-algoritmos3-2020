@@ -19,12 +19,12 @@ class TestSearch {
 	def void init() {
 		userConNombre = new Usuario() => [
 			nombreYApellido = "Pepita Ave"
-			username = ""
+			userName = ""
 		]
 		
 		userConUserName = new Usuario() => [
 			nombreYApellido = ""
-			username = "Pepi"
+			userName = "Pepi"
 		]
 		
 		repositorioDeUsuarios = new Repositorio<Usuario>

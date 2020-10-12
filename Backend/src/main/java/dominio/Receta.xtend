@@ -11,7 +11,8 @@ import com.fasterxml.jackson.annotation.JsonProperty
 @Accessors
 class Receta extends Entity{
 	String nombreDelPlato
-	@JsonIgnore Usuario autor
+//	@JsonIgnore 
+	Usuario autor
 //	@JsonIgnore 
 	Set<Usuario> colaboradores = new HashSet<Usuario>
 	Set<Ingrediente> ingredientes = new HashSet<Ingrediente>
@@ -149,10 +150,10 @@ class Receta extends Entity{
 		colaboradores.remove(colaborador)
 	}
 	
-	@JsonProperty("autor")
-	def autorNombre(){
-		autor.nombreYApellido
-	}
+//	@JsonProperty("autor")
+//	def autorNombre(){
+//		autor.nombreYApellido
+//	}
 	
 //	@JsonProperty("colaboradores")
 //	def Set<String> colaboradoresNombres(){

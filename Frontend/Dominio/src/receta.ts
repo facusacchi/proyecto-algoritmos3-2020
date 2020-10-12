@@ -10,7 +10,7 @@ export class Receta {
   public procesoDePreparacion: string[] = []
 
   static fromJson(recetaJSON): Receta {
-    return Object.assign(new Receta(), recetaJSON, { autor: Usuario.fromJson(recetaJSON.autor) })
+    return Object.assign(new Receta(), recetaJSON)
   }
 
   toJSON(): any {

@@ -31,7 +31,7 @@ class TestEsValido {
 		
 		new Usuario => [
 			 nombreYApellido = "Nancy Fernandez"
-			 username = "Nann"
+			 userName = "Nann"
 			 peso = 65.4
 			 estatura = 1.65
 			 fechaDeNacimiento = LocalDate.of(1986,4,26)

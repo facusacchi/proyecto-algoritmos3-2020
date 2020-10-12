@@ -21,10 +21,12 @@ export class HomeComponent implements OnInit {
   recetas: Receta[] = []
   usuario: Usuario
 
-  constructor(private route: ActivatedRoute, private router: Router, public service: Service, private session: Session) { }
+  constructor(private route: ActivatedRoute, private router: Router, public service: Service, private session: Session) { 
+    this.usuario = this.session.userLogged
+  }
 
   async ngOnInit() {
-    this.usuario = this.session.userLogged
+    /* this.usuario = this.session.userLogged */
     /* try { */
       this.recetas = await this.service.todasLasRecetas()
     /* } catch (error) {

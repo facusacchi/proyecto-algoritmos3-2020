@@ -63,7 +63,7 @@ class TestSugerencias {
 		]
 
 		usuarioVegetariano = new Usuario => [
-			condicionesAlimenticias.add(Vegetariano.getInstancia)
+			agregarCondicionAlimenticia(Vegetariano.getInstancia)
 			alimentosDisgustados.add(bolaDeLomo)
 		]
 		ensaladaDeQuinoa = new Receta => [
