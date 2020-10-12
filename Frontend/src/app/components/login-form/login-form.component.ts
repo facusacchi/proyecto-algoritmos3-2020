@@ -27,15 +27,9 @@ mostrarLabelInvalido: boolean = false
     }else{
       this.navegarHaciaPerfilDeUsuario()
     }
-
-    
-    /* if(this.service.contieneUsuario(this.userName) && this.service.coincidePassword(this.userName, this.password)) {
-      this.service.asignarUsuarioLogueado(this.service.buscarUsuarioPorUsername(this.userName))
-      this.navegarHaciaPerfilDeUsuario()
-    } else { this.mostrarLabelInvalido = true } */
   }
 
-  navegarHaciaPerfilDeUsuario(): void{
+  navegarHaciaPerfilDeUsuario(): void {
     this.router.navigate(['/perfilDeUsuario'])
   }
 }

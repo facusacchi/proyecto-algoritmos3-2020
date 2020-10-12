@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario, Rutina } from '../../../../Dominio/src/usuario';
 import { Service } from '../../service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Receta } from '../../../../Dominio/src/receta';
 import { Alimento } from '../../../../Dominio/src/alimento';
 import { Session } from 'app/session';
@@ -25,14 +25,14 @@ export class PerfilUsuarioFormComponent implements OnInit {
   alimento: Alimento
   copiaDeUsuario: Usuario
 
-  constructor(private route: ActivatedRoute, private service: Service, private session: Session) {
+  constructor(private router: Router, private service: Service, private session: Session) {
     this.usuario = this.session.userLogged
     this.alimentosPreferidos = this.usuario.alimentosPreferidos
     this.alimentosDisgustados = this.usuario.alimentosDisgustados
   }
   
   async ngOnInit() {
-    this.copiaDeUsuario = Object.assign(new Usuario, this.usuario)
+    this.copiaDeUsuario = Object.assign(this.usuario)
     /* try { */
       this.recetas = await this.service.todasLasRecetas()
     /* } catch (error) {
@@ -40,12 +40,22 @@ export class PerfilUsuarioFormComponent implements OnInit {
     } */
   }
 
-  async onAccetp(){
+  navegarHaciaHome(): void {
+    this.router.navigate(['/home'])
+  }
+
+  navegarHaciaPerfilDeUsuario(): void {
+    this.router.navigate(['/perfilDeUsuario'])
+  }
+
+  async onAccetp() {
     await this.session.actualizeUser(this.usuario)
+    this.navegarHaciaHome()
   }
 
   onCancel() {
-    this.usuario = Object.assign(new Usuario, this.copiaDeUsuario)
+    this.usuario = Object.assign(this.usuario)
+    this.navegarHaciaPerfilDeUsuario()
   }
 
   getStatus(): String {
