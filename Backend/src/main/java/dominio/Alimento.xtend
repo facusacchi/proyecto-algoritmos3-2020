@@ -14,7 +14,7 @@ class Alimento extends Entity{
 	@JsonIgnore Set<CondicionAlimenticia> condicionesInadecuadas = new HashSet<CondicionAlimenticia>
 	
 	@JsonProperty("condicionesInadecuadas")
-	def getCondicionesInadecuadas() {
+	def obtenerCondicionesInadecuadas() {
 		condicionesInadecuadas.map[condicion|condicion.getAsString()].toSet
 	}
 	

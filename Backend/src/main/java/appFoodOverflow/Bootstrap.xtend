@@ -60,7 +60,7 @@ class Bootstrap {
 	def crearUsuarios() {
 		pepe = new Usuario => [
 			nombreYApellido = "Pepe Palala"
-			username = "pepito"
+			userName = "pepito"
 			password = "123"
 			peso = 75.0
 			estatura = 1.75
@@ -74,7 +74,7 @@ class Bootstrap {
 
 		manolo = new Usuario => [
 			nombreYApellido = "Manolo Palala"
-			username = "manolito"
+			userName = "manolito"
 			password = "456"
 			peso = 120.0
 			estatura = 1.87
@@ -88,7 +88,7 @@ class Bootstrap {
 
 		nancy = new Usuario => [
 			nombreYApellido = "Nancy Vargas Fernandez"
-			username = "nan"
+			userName = "nan"
 			password = "123"
 			peso = 120.0
 			estatura = 1.90

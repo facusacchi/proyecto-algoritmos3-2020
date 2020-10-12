@@ -15,6 +15,7 @@ import org.eclipse.xtend.lib.annotations.Accessors
 
 import java.time.format.DateTimeFormatter
 import com.fasterxml.jackson.annotation.JsonProperty
+import com.fasterxml.jackson.annotation.JsonIgnore
 
 @Accessors
 class Usuario extends Entity {
@@ -22,7 +23,7 @@ class Usuario extends Entity {
 	//static String DATE_PATTERN = "dd/MM/yyyy"
 	static String DATE_PATTERN = "yyyy-MM-dd"
 	String nombreYApellido
-	String username
+	String userName
 	String password
 	Double peso
 	Double estatura
@@ -169,7 +170,7 @@ class Usuario extends Entity {
 	}
 	
 	override cumpleCondicionDeBusqueda(String valorBusqueda) {
-		nombreYApellido.contains(valorBusqueda) || username.equals(valorBusqueda)
+		nombreYApellido.contains(valorBusqueda) || userName.equals(valorBusqueda)
 	}
 	
 	def recibirMensaje(Mensaje mensaje) {
