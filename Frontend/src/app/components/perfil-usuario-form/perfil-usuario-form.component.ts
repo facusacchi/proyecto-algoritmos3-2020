@@ -23,7 +23,6 @@ export class PerfilUsuarioFormComponent implements OnInit {
   recetaABuscar = ''
   isChecked = true
   alimento: Alimento
-  copiaDeUsuario: Usuario
 
   constructor(private router: Router, private service: Service, private session: Session) {
     this.usuario = this.session.userLogged
@@ -32,7 +31,7 @@ export class PerfilUsuarioFormComponent implements OnInit {
   }
   
   async ngOnInit() {
-    this.copiaDeUsuario = Object.assign(this.usuario)
+    this.session.copiaDeUsuario = Object.assign(new Usuario, this.usuario) 
     /* try { */
       this.recetas = await this.service.todasLasRecetas()
     /* } catch (error) {
@@ -44,18 +43,14 @@ export class PerfilUsuarioFormComponent implements OnInit {
     this.router.navigate(['/home'])
   }
 
-  navegarHaciaPerfilDeUsuario(): void {
-    this.router.navigate(['/perfilDeUsuario'])
-  }
-
   async onAccetp() {
     await this.session.actualizeUser(this.usuario)
     this.navegarHaciaHome()
   }
 
   onCancel() {
-    this.usuario = Object.assign(this.usuario)
-    this.navegarHaciaPerfilDeUsuario()
+    this.session.userLogged = Object.assign(new Usuario, this.session.copiaDeUsuario)
+    this.navegarHaciaHome()
   }
 
   getStatus(): String {

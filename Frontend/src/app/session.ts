@@ -9,6 +9,7 @@ import { REST_SERVER_URL } from './configuration'
 
 export class Session {
     userLogged: Usuario
+    copiaDeUsuario: Usuario
 
     constructor(private http: HttpClient) { }
 
