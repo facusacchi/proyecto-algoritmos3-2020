@@ -65,7 +65,7 @@ class Bootstrap {
 			peso = 75.0
 			estatura = 1.75
 			fechaDeNacimiento = LocalDate.of(1990,7,28)
-			condicionesAlimenticias.add(Celiaco.getInstancia)
+			agregarCondicionAlimenticia(Celiaco.getInstancia)
 			alimentosPreferidos.add(carneRoja)
 			alimentosDisgustados.add(papa)
 			rutina = Rutina.ACTIVA
@@ -79,7 +79,7 @@ class Bootstrap {
 			peso = 120.0
 			estatura = 1.87
 			fechaDeNacimiento = LocalDate.of(1995,10,4)
-			condicionesAlimenticias.add(Vegetariano.getInstancia)
+			agregarCondicionAlimenticia(Vegetariano.getInstancia)
 			alimentosPreferidos.add(chocolate)
 			alimentosDisgustados.add(pescado)
 			rutina = Rutina.LEVE
@@ -94,6 +94,7 @@ class Bootstrap {
 			estatura = 1.90
 			fechaDeNacimiento = LocalDate.of(1985,5,7)
 			agregarCondicionAlimenticia(Vegano.getInstancia)
+			agregarCondicionAlimenticia(Celiaco.getInstancia)
 			agregarAlimentosPreferidos(carneRoja)
 			agregarAlimentosPreferidos(papa)
 			agregarAlimentoDisgustado(pescado)
@@ -169,30 +170,30 @@ class Bootstrap {
 			nombre = "Papa"
 			descripcion = ""
 			grupo = Grupo.HORTALIZAS_FRUTAS_SEMILLAS
-			condicionesInadecuadas.add(Hipertenso.getInstancia)
+			agregarCondicionInadecuada(Hipertenso.getInstancia)
 		])
 
 		RepoAlimento.instance.create(carneRoja => [
 			nombre = "Carne roja"
 			descripcion = ""
 			grupo = Grupo.CARNES_PESCADO_HUEVO
-			condicionesInadecuadas.add(Vegetariano.getInstancia)
-			condicionesInadecuadas.add(Vegano.getInstancia)
+			agregarCondicionInadecuada(Vegetariano.getInstancia)
+			agregarCondicionInadecuada(Vegano.getInstancia)
 		])
 
 		RepoAlimento.instance.create(pescado => [
 			nombre = "Pescado"
 			descripcion = ""
 			grupo = Grupo.CARNES_PESCADO_HUEVO
-			condicionesInadecuadas.add(Vegetariano.getInstancia)
-			condicionesInadecuadas.add(Vegano.getInstancia)
+			agregarCondicionInadecuada(Vegetariano.getInstancia)
+			agregarCondicionInadecuada(Vegano.getInstancia)
 		])
 
 		RepoAlimento.instance.create(chocolate => [
 			nombre = "Chocolate"
 			descripcion = ""
 			grupo = Grupo.ACEITES_GRASAS_AZUCARES
-			condicionesInadecuadas.add(Diabetico.getInstancia)
+			agregarCondicionInadecuada(Diabetico.getInstancia)
 		])
 		RepoAlimento.instance.create(brocoli => [
 			nombre = "Brocoli"
@@ -204,7 +205,7 @@ class Bootstrap {
 			nombre = "Aceitunas"
 			descripcion = ""
 			grupo = Grupo.HORTALIZAS_FRUTAS_SEMILLAS
-			condicionesInadecuadas.add(Celiaco.getInstancia)
+			agregarCondicionInadecuada(Celiaco.getInstancia)
 		])
 		RepoAlimento.instance.create(cebolla => [
 			nombre = "Cebolla"
@@ -221,14 +222,14 @@ class Bootstrap {
 			nombre = "Aceite"
 			descripcion = ""
 			grupo = Grupo.ACEITES_GRASAS_AZUCARES
-			condicionesInadecuadas.add(Hipertenso.getInstancia)
+			agregarCondicionInadecuada(Hipertenso.getInstancia)
 		])
 
 		RepoAlimento.instance.create(sal => [
 			nombre = "Sal"
 			descripcion = ""
 			grupo = Grupo.ACEITES_GRASAS_AZUCARES
-			condicionesInadecuadas.add(Hipertenso.getInstancia)
+			agregarCondicionInadecuada(Hipertenso.getInstancia)
 		])
 	}
 

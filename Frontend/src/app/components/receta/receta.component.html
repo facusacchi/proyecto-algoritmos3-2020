@@ -5,7 +5,7 @@
       <img class="img-receta" src= "{{'../../../assets/imagenes/'+ receta.imagen}}">
       <section class="descripcion">
         <div class="titulo">{{receta.nombreDelPlato}}</div>
-        <div class="autor">{{receta.autor.nombreYApellido}}</div>
+        <div class="autor">{{receta.autor}}</div>
         <div class="inadecuado">
           <b>Inadecuado para </b>
          <span *ngFor="let condicion of receta.condicionesInadecuadasReceta()">{{condicion.nombre() + "s "}}</span>

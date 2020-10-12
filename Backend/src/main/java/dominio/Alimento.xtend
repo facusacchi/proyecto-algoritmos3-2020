@@ -3,14 +3,21 @@ package dominio
 import java.util.HashSet
 import java.util.Set
 import org.eclipse.xtend.lib.annotations.Accessors
+import com.fasterxml.jackson.annotation.JsonIgnore
+import com.fasterxml.jackson.annotation.JsonProperty
 
 @Accessors
 class Alimento extends Entity{
 	String nombre
 	String descripcion
 	Grupo grupo
-	Set<CondicionAlimenticia> condicionesInadecuadas = new HashSet<CondicionAlimenticia>
-
+	@JsonIgnore Set<CondicionAlimenticia> condicionesInadecuadas = new HashSet<CondicionAlimenticia>
+	
+	@JsonProperty("condicionesInadecuadas")
+	def getCondicionesInadecuadas() {
+		condicionesInadecuadas.map[condicion|condicion.getAsString()].toSet
+	}
+	
 	def agregarCondicionInadecuada(CondicionAlimenticia _condicion) {
 		condicionesInadecuadas.add(_condicion)
 	}

@@ -27,7 +27,7 @@ class Usuario extends Entity {
 	Double peso
 	Double estatura
 	LocalDate fechaDeNacimiento
-	Set<CondicionAlimenticia> condicionesAlimenticias = new HashSet<CondicionAlimenticia>
+	@JsonIgnore Set<CondicionAlimenticia> condicionesAlimenticias = new HashSet<CondicionAlimenticia>
 	Set<Alimento> alimentosPreferidos = new HashSet<Alimento>
 	Set<Alimento> alimentosDisgustados = new HashSet<Alimento>
 	Rutina rutina
@@ -43,7 +43,11 @@ class Usuario extends Entity {
 	def formatter() {
 		DateTimeFormatter.ofPattern(DATE_PATTERN)
 	}
-
+	
+	@JsonProperty("condicionesAlimenticias")
+	def getCondicionesAlimenticias() {
+		condicionesAlimenticias.map[condicion|condicion.getAsString()].toSet
+	}
 	
 	def indiceMasaCorporal() {
 		peso / Math.pow(estatura, 2)
@@ -202,20 +206,6 @@ class Usuario extends Entity {
 		}
 		receta.ejecutarAcciones
 	}
-	
-//	@JsonProperty("fechaDeNacimiento")
-//	def getFechaAsString() {
-//		formatter.format(this.fechaDeNacimiento)
-//	}
-//	
-//	@JsonProperty("fechaDeNacimiento")
-//	def asignarFecha(String fecha) {
-//		this.fechaDeNacimiento = LocalDate.parse(fecha, formatter)
-//	}
-//
-//	def formatter() {
-//		DateTimeFormatter.ofPattern(DATE_PATTERN)
-//	}
 	
 }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Service } from 'app/service';
+import { Session } from 'app/session';
 import { Ingrediente } from '../../../../Dominio/src/ingrediente';
 import { Receta } from '../../../../Dominio/src/receta';
 import { Usuario } from '../../../../Dominio/src/usuario';
@@ -15,14 +16,16 @@ export class RecetaComponent implements OnInit {
   receta: Receta
   usuarioLogueado: Usuario
 
-  constructor(private route: ActivatedRoute, private service: Service) {
+  constructor(private route: ActivatedRoute, private service: Service, private session: Session) {
   }
   
   async ngOnInit() {
-    this.route.params.subscribe(async(editarRecetaParameters) => {
-      this.receta = await this.service.getRecetaById(editarRecetaParameters.id)
-    })
-    this.usuarioLogueado = this.service.usuarioLogueado
+    /* this.route.params.subscribe(async(editarRecetaParameters) => { */
+      const idReceta = this.route.snapshot.params['id']
+      this.receta = await this.service.getRecetaById(idReceta)
+    /* }) */
+    this.usuarioLogueado = this.session.userLogged
+    console.log(this.receta)
   }
 
   eliminarPaso(paso: string) {

@@ -22,7 +22,7 @@ export class AgregarIngredienteComponent implements OnInit {
   }
   
   async ngOnInit() {
-    this.alimentos=this.service.getAlimentos
+    /* this.alimentos=this.service.getAlimentos */
       this.route.params.subscribe(async(agregarIngredienteParameters) => {
         this.receta = await this.service.getRecetaById(agregarIngredienteParameters.recetaId)
       })
