@@ -16,6 +16,8 @@ export class Service {
     private recetas: Receta[]
     private alimentos: Alimento[]
 
+    recetaActual: Receta
+
     papa: Alimento
     carneVacuna: Alimento
     brocoli: Alimento
@@ -107,10 +109,6 @@ export class Service {
         return Receta.fromJson(receta)
     }
 
-    /* get getRecetas(): Receta[] {
-        return this.recetas
-    } */
-
     guardarCambiosReceta(recetaActualizada: Receta) {
         // let recetaOriginal = this.getRecetaById(recetaActualizada.id)
         // recetaOriginal = recetaActualizada
@@ -123,6 +121,10 @@ export class Service {
     lastId(): number {
         Service.lastId = Service.lastId + 1
         return Service.lastId
+    }
+
+    get getRecetaActual(): Receta {
+        return this.recetaActual
     }
 
     /*USUARIO*/

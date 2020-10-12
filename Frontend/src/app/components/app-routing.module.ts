@@ -12,7 +12,8 @@ export const routes: Routes = [
     { path: 'perfilDeUsuario', component: PerfilUsuarioFormComponent },
     { path: 'home', component: HomeComponent },
     { path: 'receta/:id', component: RecetaComponent },
-    { path: 'agregarIngrediente/:recetaId', component: AgregarIngredienteComponent },
+    /* { path: 'agregarIngrediente/:recetaId', component: AgregarIngredienteComponent }, */
+    { path: 'agregarIngrediente', component: AgregarIngredienteComponent },
     { path: 'agregarAlimentoPreferido', component: AgregarAlimentoComponent },
     { path: 'agregarAlimentoDisgustado', component: AgregarAlimentoComponent },
     { path: '', redirectTo: 'login', pathMatch: 'full' },

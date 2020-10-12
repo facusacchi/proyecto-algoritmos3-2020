@@ -16,8 +16,9 @@ export class AgregarIngredienteComponent implements OnInit {
   alimentos: Alimento[]
   alimentoSeleccionado: Alimento
   cantidad: string
-
+  
   constructor(private route: ActivatedRoute, private service: Service) {
+    this.receta = this.service.getRecetaActual
   }
 
   async ngOnInit() {
@@ -25,8 +26,8 @@ export class AgregarIngredienteComponent implements OnInit {
     /* this.route.params.subscribe(async (agregarIngredienteParameters) => {
       this.receta = await this.service.getRecetaById(agregarIngredienteParameters.recetaId)
     }) */
-    const idReceta = this.route.snapshot.params['recetaId']
-    this.receta = await this.service.getRecetaById(idReceta)
+   /*  const idReceta = this.route.snapshot.params['recetaId']
+    this.receta = await this.service.getRecetaById(idReceta) */
     console.log(this.receta)
   }
 

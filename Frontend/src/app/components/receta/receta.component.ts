@@ -13,12 +13,14 @@ import { Usuario } from '../../../../Dominio/src/usuario';
 })
 export class RecetaComponent implements OnInit {
 
-  receta: Receta
   usuarioLogueado: Usuario
+  receta: Receta
+  recetaOld: Receta
+  /* nuevaReceta = false */
 
   constructor(private route: ActivatedRoute, private service: Service, private session: Session) {
   }
-  
+
   async ngOnInit() {
     /* this.route.params.subscribe(async(editarRecetaParameters) => {
       console.log(editarRecetaParameters.id)
@@ -26,14 +28,14 @@ export class RecetaComponent implements OnInit {
     }) */
     this.usuarioLogueado = this.session.userLogged
     const idReceta = this.route.snapshot.params['id']
-    this.receta = await this.service.getRecetaById(idReceta)
-    console.log(this.receta)
+    if (this.service.getRecetaActual != null && this.service.getRecetaActual.id == idReceta) {
+      this.receta = this.service.getRecetaActual
+    } else {
+      this.receta = await this.service.getRecetaById(idReceta)
+      this.setearRecetaActual(this.receta)
+      this.recetaOld = Object.assign(new Receta, this.receta)
+    }
   }
-
-/* async ngOnInit() {
-    this.receta = await this.service.getRecetaById(this.route.snapshot.params['id'])
-    this.usuarioLogueado = this.session.userLogged
-  } */
 
   eliminarPaso(paso: string) {
     this.receta.eliminarProcesoDePreparacion(paso)
@@ -51,6 +53,8 @@ export class RecetaComponent implements OnInit {
     this.service.guardarCambiosReceta(this.receta)
   }
 
-
+  setearRecetaActual(receta: Receta): void {
+    this.service.recetaActual = receta
+  }
 
 }
