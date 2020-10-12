@@ -21,6 +21,12 @@ export class Usuario {
         return Object.assign(new Usuario(), usuarioJSON)
     }
 
+    toJSON(): any {
+        return {
+          ...this,
+        }
+    }
+
     indiceMasaCorporal(): number {
         return this.peso / Math.pow(this.estatura, 2)
     }

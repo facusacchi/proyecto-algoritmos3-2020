@@ -16,4 +16,9 @@ export class Session {
         const userLogged = await this.http.post(REST_SERVER_URL + '/login', userDataLogin).toPromise()
         this.userLogged = Usuario.fromJson(userLogged)
     }
+
+    async actualizeUser(user: Usuario) :Promise<void> {
+        const _user = user.toJSON()
+        await this.http.post(REST_SERVER_URL + '/perfilDeUsuario', _user).toPromise()
+    }
 }

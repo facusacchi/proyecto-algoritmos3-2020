@@ -127,11 +127,11 @@ export class Service {
 
     /*USUARIO*/
 
-    parsearAlimentosAString(alimentos: Alimento[]): String[] {
+    /* parsearAlimentosAString(alimentos: Alimento[]): String[] {
         const alimentosParseados: String[] = []
         alimentos.forEach(alimento => alimentosParseados.push(alimento.nombre))
         return alimentosParseados
-    }
+    } */
 
     /* eliminarCondicionUserLogueado(condicion: CondicionAlimenticia): void {
         this.usuarioLogueado.condicionesAlimenticias.splice(this.usuarioLogueado.condicionesAlimenticias.indexOf(condicion), 1)
@@ -153,7 +153,7 @@ export class Service {
         this.usuarioLogueado = usuario
     } */
 
-    coincidePassword(userName: String, pssw: String): boolean {
+    /* coincidePassword(userName: String, pssw: String): boolean {
         return this.buscarUsuarioPorUsername(userName).password == pssw
     }
 
@@ -171,7 +171,7 @@ export class Service {
 
     sacarEspaciosYpasarAMinuscula(username: String): String {
         return username.trim().toLowerCase()
-    }
+    } */
 
     /*ALIMENTO*/
 
