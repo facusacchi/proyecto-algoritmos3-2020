@@ -70,7 +70,7 @@ export class Receta {
   }
 
   esAutor(usuario: Usuario): boolean {
-    return this.autor == usuario
+    return this.autor.id == usuario.id
   }
 
   copy(): Receta {
