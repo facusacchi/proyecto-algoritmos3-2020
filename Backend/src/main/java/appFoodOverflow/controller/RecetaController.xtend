@@ -66,10 +66,10 @@ class RecetaController {
 			}
 			val receta = RepoReceta.instance.getById(id)
 			if (receta === null) {
-				return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontró la receta de id <«id»>''')
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontró la receta con id "«id»"''')
 			}
 			RepoReceta.instance.delete(receta)
-//			ResponseEntity.ok(receta)
+			ResponseEntity.ok('''La receta con id "«id»" fue eliminada''')
 		} catch (RuntimeException e) {
 			ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.message)
 		}
