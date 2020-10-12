@@ -31,7 +31,8 @@ export class PerfilUsuarioFormComponent implements OnInit {
   }
   
   async ngOnInit() {
-    this.session.copiaDeUsuario = Object.assign(new Usuario, this.usuario) 
+    // Object.assign(this.generateCopy(), JSON.parse(JSON.stringify(this)))
+    this.session.copiaDeUsuario = Object.assign(new Usuario, JSON.parse(JSON.stringify(this.usuario))) 
     /* try { */
       this.recetas = await this.service.todasLasRecetas()
     /* } catch (error) {
@@ -49,7 +50,7 @@ export class PerfilUsuarioFormComponent implements OnInit {
   }
 
   onCancel() {
-    this.session.userLogged = Object.assign(new Usuario, this.session.copiaDeUsuario)
+    this.session.userLogged = Object.assign(new Usuario, JSON.parse(JSON.stringify(this.session.copiaDeUsuario)))
     this.navegarHaciaHome()
   }
 
