@@ -73,11 +73,9 @@ export class Receta {
     return this.autor.id == usuario.id
   }
 
-  /* copy(): Receta {
-    const clone = Object.assign(new Receta(), JSON.parse(JSON.stringify(this)))
-    clone.doCopy(this)
-    return clone
-  } */
+  copy(): Receta {
+    return Object.assign(new Receta(), JSON.parse(JSON.stringify(this)))
+  }
 
 }
 export class RecetaCompuesta extends Receta {

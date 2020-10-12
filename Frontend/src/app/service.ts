@@ -15,24 +15,6 @@ export class Service {
 
     recetaActual: Receta
 
-    papa: Alimento
-    carneVacuna: Alimento
-    brocoli: Alimento
-    aceitunas: Alimento
-    chocolate: Alimento
-    cebolla: Alimento
-    pimientos: Alimento
-    aceite: Alimento
-    sal: Alimento
-    nancy: Usuario
-    usuario: Usuario
-    fajitasMexicanas: Receta
-    asadoAlAsador: Receta
-    guisoDeLentejas: Receta
-    focaccia: Receta
-    buseca: Receta
-    pollo: Receta
-
     constructor(private http: HttpClient) { }
     static lastId = 0
 
@@ -48,14 +30,14 @@ export class Service {
         return Receta.fromJson(receta)
     }
 
-    guardarCambiosReceta(recetaActualizada: Receta) {
-        // let recetaOriginal = this.getRecetaById(recetaActualizada.id)
-        // recetaOriginal = recetaActualizada
+    async actualizarReceta(receta: Receta) {
+        await this.http.put(REST_SERVER_URL + '/receta/' + receta.id, receta.toJSON()).toPromise()
     }
 
-    /* eliminarReceta(receta: Receta): void {
-        this.recetas.splice(this.recetas.indexOf(receta), 1)
-    } */
+    async eliminarReceta(receta: Receta) {
+        /* this.recetas.splice(this.recetas.indexOf(receta), 1) */
+        await this.http.delete(REST_SERVER_URL + '/receta/' + receta.id).toPromise()
+    }
 
     lastId(): number {
         Service.lastId = Service.lastId + 1
@@ -66,15 +48,19 @@ export class Service {
         return this.recetaActual
     }
 
+    actualizarRecetaActual(receta: Receta): void {
+        this.recetaActual = receta
+    }
+
     /*USUARIO*/
 
     /* parsearAlimentosAString(alimentos: Alimento[]): String[] {
         const alimentosParseados: String[] = []
         alimentos.forEach(alimento => alimentosParseados.push(alimento.nombre))
         return alimentosParseados
-    } */
+    }
 
-    /* eliminarCondicionUserLogueado(condicion: CondicionAlimenticia): void {
+    eliminarCondicionUserLogueado(condicion: CondicionAlimenticia): void {
         this.usuarioLogueado.condicionesAlimenticias.splice(this.usuarioLogueado.condicionesAlimenticias.indexOf(condicion), 1)
     }
 
@@ -92,9 +78,9 @@ export class Service {
 
     asignarUsuarioLogueado(usuario: Usuario): void {
         this.usuarioLogueado = usuario
-    } */
+    }
 
-    /* coincidePassword(userName: String, pssw: String): boolean {
+    coincidePassword(userName: String, pssw: String): boolean {
         return this.buscarUsuarioPorUsername(userName).password == pssw
     }
 
@@ -120,9 +106,5 @@ export class Service {
         const alimentos = await this.http.get<Alimento[]>(REST_SERVER_URL + '/alimentos').toPromise()
         return alimentos.map((alimento) => Alimento.fromJson(alimento))
     }
-
-    /* get getAlimentos(): Alimento[] {
-        return this.alimentos
-    } */
 
 }

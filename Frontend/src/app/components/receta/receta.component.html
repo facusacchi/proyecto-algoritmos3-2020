@@ -1,14 +1,13 @@
-
 <div class="contenedor">
   <div class="contenidos">
     <section class="titulo-contenedor">
-      <img class="img-receta" src= "{{'../../../assets/imagenes/'+ receta.imagen}}">
+      <img class="img-receta" src="{{'../../../assets/imagenes/'+ receta.imagen}}">
       <section class="descripcion">
         <div class="titulo">{{receta.nombreDelPlato}}</div>
         <div class="autor">{{receta.autor.nombreYApellido}}</div>
         <div class="inadecuado">
           <b>Inadecuado para </b>
-         <!-- <span *ngFor="let condicion of receta.condicionesInadecuadasReceta()">{{condicion.nombre() + "s "}}</span> -->
+          <!-- <span *ngFor="let condicion of receta.condicionesInadecuadasReceta()">{{condicion.nombre() + "s "}}</span> -->
         </div>
       </section>
     </section>
@@ -16,11 +15,13 @@
       <section class="inputs-contenedor">
         <div class="calorias">
           <b>Total de calorias</b>
-          <input [disabled]="!receta.esEditablePor(usuarioLogueado)" [(ngModel)]="receta.calorias" class="input" type="number" id="calorias" placeholder="500" max="4000">
+          <input [disabled]="!receta.esEditablePor(usuarioLogueado)" [(ngModel)]="receta.calorias" class="input"
+            type="number" id="calorias" placeholder="500" max="4000">
         </div>
         <div class="dificultad">
           <b>Dificultad</b>
-          <select [disabled]="!receta.esEditablePor(usuarioLogueado)" [(ngModel)]="receta.dificultad" class="input" id="dificultad">
+          <select [disabled]="!receta.esEditablePor(usuarioLogueado)" [(ngModel)]="receta.dificultad" class="input"
+            id="dificultad">
             <option value="FACIL">Facil</option>
             <option value="MEDIA">Media</option>
             <option value="DIFICIL">Dificil</option>
@@ -31,18 +32,21 @@
         <div class="ingredientes">
           <div class="separacion">
             <b>Ingredientes</b>
-            <button *ngIf= "receta.esEditablePor(usuarioLogueado)" [routerLink] = "['/agregarIngrediente']" class="button button-escritorio">Agregar</button>
-            <button *ngIf= "receta.esEditablePor(usuarioLogueado)" [routerLink] = "['/agregarIngrediente']" class="button-mobile">
+            <button *ngIf="receta.esEditablePor(usuarioLogueado)" [routerLink]="['/agregarIngrediente']"
+              class="button button-escritorio">Agregar</button>
+            <button *ngIf="receta.esEditablePor(usuarioLogueado)" [routerLink]="['/agregarIngrediente']"
+              class="button-mobile">
               <img class="signo-mas" src="assets/imagenes/plus-circle-solid.svg">
             </button>
           </div>
           <div>
             <table class="tabla">
-              <tr *ngFor= "let ingrediente of receta.ingredientes">
+              <tr *ngFor="let ingrediente of receta.ingredientes">
                 <td class="ancho-columna">{{ingrediente.alimento.nombre}}</td>
                 <td class="ancho-columna">{{ingrediente.cantidad}}</td>
                 <td>
-                  <img *ngIf= "receta.esEditablePor(usuarioLogueado)" (click)="eliminarIngrediente(ingrediente)"class="img-eliminar" src="../../../assets/imagenes/eliminar.png">
+                  <img *ngIf="receta.esEditablePor(usuarioLogueado)" (click)="eliminarIngrediente(ingrediente)"
+                    class="img-eliminar" src="../../../assets/imagenes/eliminar.png">
                 </td>
               </tr>
             </table>
@@ -52,18 +56,19 @@
         <div class="pasos">
           <div class="separacion">
             <b>Pasos</b>
-            <button *ngIf= "receta.esEditablePor(usuarioLogueado)" class="button button-escritorio">Agregar</button>
-            <button *ngIf= "receta.esEditablePor(usuarioLogueado)" class="button-mobile">
+            <button *ngIf="receta.esEditablePor(usuarioLogueado)" class="button button-escritorio">Agregar</button>
+            <button *ngIf="receta.esEditablePor(usuarioLogueado)" class="button-mobile">
               <img class="signo-mas" src="assets/imagenes/plus-circle-solid.svg">
             </button>
           </div>
           <div>
             <table class="tabla tabla-pasos">
-              <tr *ngFor= "let paso of receta.procesoDePreparacion;let indexOfelement=index">
+              <tr *ngFor="let paso of receta.procesoDePreparacion;let indexOfelement=index">
                 <td> {{indexOfelement+1}} </td>
                 <td>{{paso}}</td>
                 <td>
-                  <img *ngIf= "receta.esEditablePor(usuarioLogueado)" (click)="eliminarPaso(paso)" class="img-eliminar" src="../../../assets/imagenes/eliminar.png">
+                  <img *ngIf="receta.esEditablePor(usuarioLogueado)" (click)="eliminarPaso(paso)" class="img-eliminar"
+                    src="../../../assets/imagenes/eliminar.png">
                 </td>
               </tr>
             </table>
@@ -73,10 +78,10 @@
       <section class="colaboradores-contenedor">
         <div class="espacio">
           <b>Colaboradores</b>
-          <button *ngIf= "receta.esEditablePor(usuarioLogueado)" class="button button-escritorio">Agregar</button>
-            <button *ngIf= "receta.esEditablePor(usuarioLogueado)" class="button-mobile">
-              <img class="signo-mas" src="assets/imagenes/plus-circle-solid.svg">
-            </button>
+          <button *ngIf="receta.esEditablePor(usuarioLogueado)" class="button button-escritorio">Agregar</button>
+          <button *ngIf="receta.esEditablePor(usuarioLogueado)" class="button-mobile">
+            <img class="signo-mas" src="assets/imagenes/plus-circle-solid.svg">
+          </button>
         </div>
         <div class="tabla-contenedor">
           <table class="tabla-colaboradores">
@@ -88,7 +93,8 @@
                 <div class="horizontal">
                   <div class="centrado">{{colaborador.nombreYApellido}}</div>
                   <div>
-                    <img *ngIf= "receta.esEditablePor(usuarioLogueado)" (click)="eliminarColaborador(colaborador)" class="img-eliminar" src="../../../assets/imagenes/eliminar.png">
+                    <img *ngIf="receta.esEditablePor(usuarioLogueado)" (click)="eliminarColaborador(colaborador)"
+                      class="img-eliminar" src="../../../assets/imagenes/eliminar.png">
                   </div>
                 </div>
               </td>
@@ -98,8 +104,9 @@
       </section>
       <section class="aceptar-cancelar">
         <div>
-          <button (click)= "guardarCambios()" *ngIf= "receta.esEditablePor(usuarioLogueado)" class="button">Aceptar</button>
-          <button routerLink = "/home" class="button-cancelar">Cancelar</button>
+          <button (click)="guardarCambios()" *ngIf="receta.esEditablePor(usuarioLogueado)"
+            class="button">Aceptar</button>
+          <button (click)="cancelarCambios()" class="button-cancelar">Cancelar</button>
         </div>
       </section>
     </section>

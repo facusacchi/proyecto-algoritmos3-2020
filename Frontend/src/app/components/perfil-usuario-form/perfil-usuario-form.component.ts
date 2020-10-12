@@ -43,7 +43,7 @@ export class PerfilUsuarioFormComponent implements OnInit {
     this.router.navigate(['/home'])
   }
 
-  async onAccetp() {
+  async onAccept() {
     await this.session.actualizeUser(this.usuario)
     this.navegarHaciaHome()
   }

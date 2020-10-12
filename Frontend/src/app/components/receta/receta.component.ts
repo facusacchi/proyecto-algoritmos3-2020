@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Service } from 'app/service';
 import { Session } from 'app/session';
 import { Ingrediente } from '../../../../Dominio/src/ingrediente';
@@ -18,7 +18,7 @@ export class RecetaComponent implements OnInit {
   recetaOld: Receta
   /* nuevaReceta = false */
 
-  constructor(private route: ActivatedRoute, private service: Service, private session: Session) {
+  constructor(private route: ActivatedRoute, private router: Router, private service: Service, private session: Session) {
   }
 
   async ngOnInit() {
@@ -33,7 +33,7 @@ export class RecetaComponent implements OnInit {
     } else {
       this.receta = await this.service.getRecetaById(idReceta)
       this.setearRecetaActual(this.receta)
-      this.recetaOld = Object.assign(new Receta, this.receta)
+      this.recetaOld = this.receta.copy()
     }
   }
 
@@ -49,12 +49,24 @@ export class RecetaComponent implements OnInit {
     this.receta.eliminarColaborador(colaborador)
   }
 
-  guardarCambios() {
-    this.service.guardarCambiosReceta(this.receta)
-  }
-
   setearRecetaActual(receta: Receta): void {
     this.service.recetaActual = receta
+  }
+  
+  async guardarCambios() {
+    await this.service.actualizarReceta(this.receta)
+    this.navegarAHome()
+  }
+
+  cancelarCambios(): void {
+    /* if (!this.nuevaReceta) { */
+      this.service.actualizarRecetaActual(this.recetaOld)
+   /*  } */
+    this.navegarAHome()
+  }
+
+  navegarAHome(): void {
+    this.router.navigate(['/home'])
   }
 
 }
