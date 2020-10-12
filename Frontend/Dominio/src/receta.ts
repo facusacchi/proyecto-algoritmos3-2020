@@ -20,7 +20,7 @@ export class Receta {
   }
 
   esEditablePor(usuario: Usuario): boolean {
-    return usuario === this.autor || this.colaboradores.includes(usuario)
+    return usuario.id == this.autor.id || this.colaboradores.includes(usuario)
   }
 
   agregarColaborador(colaborador: Usuario): void {
