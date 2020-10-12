@@ -26,7 +26,7 @@ export class Service {
     aceite: Alimento
     sal: Alimento
 
-    usuarioLogueado: Usuario
+    /* usuarioLogueado: Usuario */
     nancy: Usuario
     usuario: Usuario
 
@@ -107,9 +107,9 @@ export class Service {
         return Receta.fromJson(receta)
     }
 
-    get getRecetas(): Receta[] {
+    /* get getRecetas(): Receta[] {
         return this.recetas
-    }
+    } */
 
     guardarCambiosReceta(recetaActualizada: Receta) {
         // let recetaOriginal = this.getRecetaById(recetaActualizada.id)
@@ -133,7 +133,7 @@ export class Service {
         return alimentosParseados
     }
 
-    eliminarCondicionUserLogueado(condicion: CondicionAlimenticia): void {
+    /* eliminarCondicionUserLogueado(condicion: CondicionAlimenticia): void {
         this.usuarioLogueado.condicionesAlimenticias.splice(this.usuarioLogueado.condicionesAlimenticias.indexOf(condicion), 1)
     }
 
@@ -151,7 +151,7 @@ export class Service {
 
     asignarUsuarioLogueado(usuario: Usuario): void {
         this.usuarioLogueado = usuario
-    }
+    } */
 
     coincidePassword(userName: String, pssw: String): boolean {
         return this.buscarUsuarioPorUsername(userName).password == pssw

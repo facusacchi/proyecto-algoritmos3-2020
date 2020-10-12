@@ -9,14 +9,12 @@ export class Alimento {
     public condicionesInadecuadas: CondicionAlimenticia[] = []) { }
 
   static fromJson(alimentoJSON): Alimento {
-    return Object.assign(new Alimento(), alimentoJSON/* , { asignatario: Usuario.fromJSON(tareaJSON.asignadoA) } */)
+    return Object.assign(new Alimento(), alimentoJSON)
   }
 
   toJSON(): any {
     return {
       ...this,
-      /* asignatario: null,
-      asignadoA: this.asignatario ? this.asignatario.nombre : '' */
     }
   }
 
