@@ -20,11 +20,14 @@ export class RecetaComponent implements OnInit {
   }
   
   async ngOnInit() {
-    this.route.params.subscribe(async(editarRecetaParameters) => {
+    /* this.route.params.subscribe(async(editarRecetaParameters) => {
       console.log(editarRecetaParameters.id)
       this.receta = await this.service.getRecetaById(editarRecetaParameters.id)
-    })
+    }) */
     this.usuarioLogueado = this.session.userLogged
+    const idReceta = this.route.snapshot.params['id']
+    this.receta = await this.service.getRecetaById(idReceta)
+    console.log(this.receta)
   }
 
 /* async ngOnInit() {
