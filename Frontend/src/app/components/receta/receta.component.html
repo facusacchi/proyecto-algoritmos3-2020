@@ -8,7 +8,7 @@
         <div class="autor">{{receta.autor.nombreYApellido}}</div>
         <div class="inadecuado">
           <b>Inadecuado para </b>
-         <span *ngFor="let condicion of receta.condicionesInadecuadasReceta()">{{condicion.nombre() + "s "}}</span>
+         <!-- <span *ngFor="let condicion of receta.condicionesInadecuadasReceta()">{{condicion.nombre() + "s "}}</span> -->
         </div>
       </section>
     </section>
@@ -33,7 +33,7 @@
             <b>Ingredientes</b>
             <button *ngIf= "receta.esEditablePor(usuarioLogueado)" [routerLink] = "['/agregarIngrediente', receta.id]" class="button button-escritorio">Agregar</button>
             <button *ngIf= "receta.esEditablePor(usuarioLogueado)" [routerLink] = "['/agregarIngrediente', receta.id]" class="button-mobile">
-              <img class="signo-mas" src="../imagenes/plus-circle-solid.svg">
+              <img class="signo-mas" src="assets/imagenes/plus-circle-solid.svg">
             </button>
           </div>
           <div>
@@ -54,7 +54,7 @@
             <b>Pasos</b>
             <button *ngIf= "receta.esEditablePor(usuarioLogueado)" class="button button-escritorio">Agregar</button>
             <button *ngIf= "receta.esEditablePor(usuarioLogueado)" class="button-mobile">
-              <img class="signo-mas" src="../imagenes/plus-circle-solid.svg">
+              <img class="signo-mas" src="assets/imagenes/plus-circle-solid.svg">
             </button>
           </div>
           <div>
@@ -75,7 +75,7 @@
           <b>Colaboradores</b>
           <button *ngIf= "receta.esEditablePor(usuarioLogueado)" class="button button-escritorio">Agregar</button>
             <button *ngIf= "receta.esEditablePor(usuarioLogueado)" class="button-mobile">
-              <img class="signo-mas" src="../imagenes/plus-circle-solid.svg">
+              <img class="signo-mas" src="assets/imagenes/plus-circle-solid.svg">
             </button>
         </div>
         <div class="tabla-contenedor">
