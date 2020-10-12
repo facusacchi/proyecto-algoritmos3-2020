@@ -83,8 +83,8 @@
             </div>
         </section>
         <div class="buttoms-end-form">
-            <app-primary-button [nombre]="'Aceptar'"></app-primary-button>
-            <app-secondary-button [nombreSecondary]="'Cancelar'"></app-secondary-button>
+            <app-primary-button (click)="onAccept()" [nombre]="'Aceptar'"></app-primary-button>
+            <app-secondary-button (click)="onCancel()" [nombreSecondary]="'Cancelar'"></app-secondary-button>
         </div>
     </form>
 </div>
