@@ -39,6 +39,7 @@ body {
   height: 3rem;
   font-size: 1.2rem;
   margin-left: 1.5rem;
+  cursor: pointer;
 }
 
 .button-cancelar:hover {
@@ -53,51 +54,9 @@ body {
   width: 7.2rem;
   height: 3rem;
   font-size: 1.2rem;
+  cursor: pointer;
 }
 
 .button:hover {
   filter: brightness(75%);
 }
-
-/* BARRA DE NAVEGACION */
-
-/* .navegacion-contenedor {
-  font-size: 2rem;
-  color: var(--color-cuaternario);
-  background-color: var(--color-primario);
-  padding: 1rem 0;
-  display: flex;
-  justify-content: center;
-}
-
-.navegacion {
-  width: 45em;
-  display: flex;
-  justify-content: space-between;
-}
-
-.links {
-  width: 10em;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.tamaño-icono-exit {
-  width: 1.8em;
-  height: auto;
-}
-
-.logo {
-    height: 2em;
-}
-
-.alinear {
-    display: flex;
-    align-items: center;
-}
-
-.nombre-pagina {
-  font-family: 'Lobster', cursive;
-  font-size: 1.5em;
-} */

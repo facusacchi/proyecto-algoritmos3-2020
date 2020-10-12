@@ -24,9 +24,9 @@ export class CardRecetaComponent {
     return this.receta.esAutor(usuario)
   }
 
-  eliminarReceta(receta: Receta): void {
-    this.service.eliminarReceta(receta)
+  async eliminarReceta(receta: Receta) {
     this.eliminada = true
+    await this.service.eliminarReceta(receta)
   }
 
 }

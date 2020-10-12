@@ -7,6 +7,7 @@
     height: 3.25rem;
     font-size: 1.3rem;
     margin-left: 1rem;
+    cursor: pointer;
 }
 .nav-button:hover {
     filter: brightness(75%);

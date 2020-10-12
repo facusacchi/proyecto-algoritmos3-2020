@@ -34,6 +34,7 @@
     width: 15rem;
     font-size: 1.75rem;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .info_receta_titulo:hover {
@@ -64,6 +65,7 @@
     width: 2.2rem;
     height: 2.2rem;
     margin: 0.1rem;
+    cursor: pointer;
 }
 
 .info_receta_descripcion_iconos>img:hover {

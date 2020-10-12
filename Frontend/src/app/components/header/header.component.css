@@ -32,6 +32,10 @@
     height: 2.5rem;
   }
 
+  .header_links_texto,
+  .header_icono_exit1 {
+    cursor: pointer;
+  }
 
   @media (min-width: 769px) {
     .header {

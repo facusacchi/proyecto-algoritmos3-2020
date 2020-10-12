@@ -112,6 +112,7 @@
 .card_grid_agregar_icono>img {
     width: 3.5rem;
     height: 3.5rem;
+    cursor: pointer;
 }
 
 .card_grid_agregar_icono:hover {
