@@ -17,7 +17,6 @@ export class PerfilUsuarioFormComponent implements OnInit {
   usuario: Usuario
   opcionesRutina: Rutina[] = ["NADA", "LEVE", "MEDIANO", "ACTIVO", "INTENSIVO"]
   opcionElegida: Rutina
-  fecha: String
   alimentosPreferidos: Alimento[]
   alimentosDisgustados: Alimento[]
   recetas: Receta[] = []
@@ -32,17 +31,12 @@ export class PerfilUsuarioFormComponent implements OnInit {
   }
   
   async ngOnInit() {
-    /* this.fecha = this.formatearFecha(this.usuario.fechaDeNacimiento) */
     /* try { */
       this.recetas = await this.service.todasLasRecetas()
     /* } catch (error) {
       mostrarError(this, error)
     } */
   }
-
-  /* formatearFecha(fecha: Date): String{
-    return fecha.toISOString().substring(0,10)
-  } */
 
   getStatus(): String {
     if (this.usuario.imcEsSaludable()) {
