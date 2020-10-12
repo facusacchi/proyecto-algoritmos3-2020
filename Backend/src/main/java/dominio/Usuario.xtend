@@ -28,7 +28,7 @@ class Usuario extends Entity {
 	Double peso
 	Double estatura
 	LocalDate fechaDeNacimiento
-	@JsonIgnore Set<CondicionAlimenticia> condicionesAlimenticias = new HashSet<CondicionAlimenticia>
+	Set<CondicionAlimenticia> condicionesAlimenticias = new HashSet<CondicionAlimenticia>
 	Set<Alimento> alimentosPreferidos = new HashSet<Alimento>
 	Set<Alimento> alimentosDisgustados = new HashSet<Alimento>
 	Rutina rutina
@@ -39,6 +39,11 @@ class Usuario extends Entity {
 	@JsonProperty("fechaDeNacimiento")
 	def getFechaAsString() {
 		formatter.format(this.fechaDeNacimiento)
+	}
+	
+	@JsonProperty("fechaDeNacimiento")
+	def setFecha(String fecha) {
+		this.fechaDeNacimiento = LocalDate.parse(fecha, formatter)
 	}
 
 	def formatter() {
