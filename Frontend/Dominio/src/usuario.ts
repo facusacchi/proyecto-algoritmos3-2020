@@ -20,7 +20,7 @@ export class Usuario {
     static fromJson(usuarioJSON): Usuario {
         return Object.assign(new Usuario(), usuarioJSON,
         {condicionesAlimenticias : usuarioJSON.condicionesAlimenticias.map(condicionJSON => mapaCondiciones[condicionJSON.toLowerCase()])},
-        {fechaDeNacimiento : new Date(usuarioJSON.fechaDeNacimiento)},
+        //{fechaDeNacimiento : new Date(usuarioJSON.fechaDeNacimiento)},
         {alimentosPreferidos : usuarioJSON.alimentosPreferidos.map(alimentoJSON => Alimento.fromJson(alimentoJSON))},
         {alimentosDisgustados : usuarioJSON.alimentosDisgustados.map(alimentoJSON => Alimento.fromJson(alimentoJSON))})
     }

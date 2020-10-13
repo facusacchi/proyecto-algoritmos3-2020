@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.PostMapping
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PutMapping
+import org.springframework.web.bind.annotation.PathVariable
+import dominio.Usuario
 
 @RestController
 @CrossOrigin("http://localhost:4200")
@@ -30,19 +33,19 @@ class UsuarioController {
 		ResponseEntity.ok(mapper.writeValueAsString(usuario))
 	}
 	
-//	@PutMapping(value="/perfilDeUsuario/{id}")
-//	def actualizar(@RequestBody String body, @PathVariable Integer id) {
-//		if (id === null || id === 0) {
-//			return ResponseEntity.badRequest.body('''Debe ingresar el parámetro id''')
-//		}
-//		val actualizado = mapper.readValue(body, Usuario)
-//
-//		if (id != actualizado.id) {
-//			return ResponseEntity.badRequest.body("Id en URL distinto del id que viene en el body")
-//		}
-//		RepoUsuario.instance.update(actualizado)
-//		ResponseEntity.ok(mapper.writeValueAsString(actualizado))
-//	}
+	@PutMapping(value="/perfilDeUsuario/{id}")
+	def actualizar(@RequestBody String body, @PathVariable Integer id) {
+		if (id === null || id === 0) {
+			return ResponseEntity.badRequest.body('''Debe ingresar el parámetro id''')
+		}
+		val actualizado = mapper.readValue(body, Usuario)
+
+		if (id != actualizado.id) {
+			return ResponseEntity.badRequest.body("Id en URL distinto del id que viene en el body")
+		}
+		RepoUsuario.instance.update(actualizado)
+		ResponseEntity.ok(mapper.writeValueAsString(actualizado))
+	}
 
 	@GetMapping(value="/usuarios")
 	def getUsuarios() {

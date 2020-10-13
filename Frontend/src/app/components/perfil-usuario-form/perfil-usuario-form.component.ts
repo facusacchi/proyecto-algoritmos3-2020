@@ -57,7 +57,7 @@ export class PerfilUsuarioFormComponent implements OnInit {
   }
 
   getStatus(): String {
-    if (this.usuario.imcEsSaludable()) {
+    if (this.usuario.esSaludable()) {
       return "Estado Saludable"
     } else { return "No Saludable" }
   }
