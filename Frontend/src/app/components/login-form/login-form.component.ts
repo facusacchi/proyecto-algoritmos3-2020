@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Service } from '../../service';
 import { Session } from '../../session'
 
 @Component({
@@ -20,12 +19,12 @@ mostrarLabelInvalido: boolean = false
   }
 
   async onLogin(){
-    const userDataLogin = { userName: this.userName, password: this.password }
-    const userLogged = await this.session.loginUser(userDataLogin)
-    if(userLogged === null) {
-      this.mostrarLabelInvalido = true
-    }else{
+    try {
+      const userDataLogin = { userName: this.userName, password: this.password }
+      await this.session.loginUser(userDataLogin)
       this.navegarHaciaPerfilDeUsuario()
+    }catch(error) {
+      this.mostrarLabelInvalido = true
     }
   }
 
