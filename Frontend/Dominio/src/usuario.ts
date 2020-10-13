@@ -1,6 +1,6 @@
 import { CondicionAlimenticia } from "./condicionAlimenticia"
 import * as moment from 'moment';
-import { Alimento } from "./alimento";
+import { Alimento, mapaCondiciones } from "./alimento";
 
 export class Usuario {
     
@@ -18,7 +18,11 @@ export class Usuario {
         public rutina: Rutina = 'NADA') { }
 
     static fromJson(usuarioJSON): Usuario {
-        return Object.assign(new Usuario(), usuarioJSON)
+        return Object.assign(new Usuario(), usuarioJSON,
+        {condicionesAlimenticias : usuarioJSON.condicionesAlimenticias.map(condicionJSON => mapaCondiciones[condicionJSON.toLowerCase()])},
+        {fechaDeNacimiento : new Date(usuarioJSON.fechaDeNacimiento)},
+        {alimentosPreferidos : usuarioJSON.alimentosPreferidos.map(alimentoJSON => Alimento.fromJson(alimentoJSON))},
+        {alimentosDisgustados : usuarioJSON.alimentosDisgustados.map(alimentoJSON => Alimento.fromJson(alimentoJSON))})
     }
 
     toJSON(): any {

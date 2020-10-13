@@ -7,7 +7,7 @@
         <div class="autor">{{receta.autor.nombreYApellido}}</div>
         <div class="inadecuado">
           <b>Inadecuado para </b>
-          <!-- <span *ngFor="let condicion of receta.condicionesInadecuadasReceta()">{{condicion.nombre() + "s "}}</span> -->
+          <span *ngFor="let condicion of receta.condicionesInadecuadasReceta()">{{condicion.nombre() + "s "}}</span>
         </div>
       </section>
     </section>
