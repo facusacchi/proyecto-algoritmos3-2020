@@ -38,8 +38,8 @@ export class Receta {
     this.ingredientes.push(ingrediente)
   }
 
-  condicionesInadecuadasReceta(): CondicionAlimenticia[] {
-    return (this.ingredientes.flatMap(ingrediente => ingrediente.condicionesInadecuadasIngrediente()))
+  condicionesInadecuadasReceta(): Set<CondicionAlimenticia> {
+    return new Set(this.ingredientes.flatMap(ingrediente => ingrediente.condicionesInadecuadasIngrediente()))
   }
 
   getIngredientes(): Ingrediente[] {
@@ -80,24 +80,6 @@ export class Receta {
     return Object.assign(new Receta(), JSON.parse(JSON.stringify(this)))
   }
 
-}
-export class RecetaCompuesta extends Receta {
-  public subrecetas: Array<Receta> = []
-
-  agregarSubreceta(subreceta: Receta): void {
-    this.subrecetas.push(subreceta)
-  }
-
-  condicionesInadecuadasReceta(): CondicionAlimenticia[] {
-    return this.getIngredientes().flatMap(ingrediente => ingrediente.condicionesInadecuadasIngrediente())
-  }
-
-  getIngredientes(): Ingrediente[] {
-    let _ingredientes: Ingrediente[] = []
-    _ingredientes = _ingredientes.concat(this.ingredientes)
-    _ingredientes = _ingredientes.concat((this.subrecetas.flatMap(receta => receta.getIngredientes())))
-    return _ingredientes
-  }
 }
 
 export type Dificultad = 'FACIL' | 'MEDIA' | 'DIFICIL'
