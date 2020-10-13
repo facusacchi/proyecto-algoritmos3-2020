@@ -32,7 +32,9 @@ export class PerfilUsuarioFormComponent implements OnInit {
   
   async ngOnInit() {
     // Object.assign(this.generateCopy(), JSON.parse(JSON.stringify(this)))
-    this.session.copiaDeUsuario = Object.assign(new Usuario, JSON.parse(JSON.stringify(this.usuario))) 
+    if (this.session.copiaDeUsuario == null) {
+      this.session.copiaDeUsuario = Object.assign(new Usuario, JSON.parse(JSON.stringify(this.usuario)))
+    }
     /* try { */
       this.recetas = await this.service.todasLasRecetas()
     /* } catch (error) {

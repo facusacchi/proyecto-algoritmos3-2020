@@ -109,8 +109,8 @@ class Diabetico implements CondicionAlimenticia {
 	}
 
 	override subsanaCondicion(Usuario usuario) {
-		usuario.tieneRutina(Rutina.ACTIVA) || usuario.pesaMenosDe(71)
-		//usuario.rutina.equals(Rutina.ACTIVA)
+		usuario.tieneRutina(Rutina.ACTIVO) || usuario.pesaMenosDe(71)
+		//usuario.rutina.equals(Rutina.ACTIVO)
 	}
 	
 	override getAsString() {

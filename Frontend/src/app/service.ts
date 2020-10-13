@@ -54,6 +54,11 @@ export class Service {
 
     /*USUARIO*/
 
+    async todosLosUsuarios(): Promise<Usuario[]> {
+        const recetas = await this.http.get<Usuario[]>(REST_SERVER_URL + '/usuarios').toPromise()
+        return recetas.map((usuario) => Usuario.fromJson(usuario))
+    }
+
     /* parsearAlimentosAString(alimentos: Alimento[]): String[] {
         const alimentosParseados: String[] = []
         alimentos.forEach(alimento => alimentosParseados.push(alimento.nombre))

@@ -93,7 +93,7 @@ class TestCondicionesAlimenticias {
 	@DisplayName("Un usuario con rutina activa y con cierto peso subsana condicion diabetico")
 	def void usuarioQueTieneRutinaActivaSubsanaDiabetico() {
 		val usuarioConRutinaActiva = new Usuario => [
-			rutina = Rutina.ACTIVA
+			rutina = Rutina.ACTIVO
 			peso = 100.0
 		]
 		assertTrue(diabetico.subsanaCondicion(usuarioConRutinaActiva))

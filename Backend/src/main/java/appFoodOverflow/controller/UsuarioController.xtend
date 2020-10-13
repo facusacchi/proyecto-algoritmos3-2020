@@ -11,12 +11,13 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.PostMapping
 import org.eclipse.xtend.lib.annotations.Accessors
+import org.springframework.web.bind.annotation.GetMapping
 
 @RestController
 @CrossOrigin("http://localhost:4200")
 class UsuarioController {
 
-@PostMapping(value="/login")
+	@PostMapping(value="/login")
 	def buscarUsuario(@RequestBody String body) {
 		val dataSession = mapper.readValue(body, DataSession)
 		if(dataSession === null) {
@@ -42,6 +43,16 @@ class UsuarioController {
 //		RepoUsuario.instance.update(actualizado)
 //		ResponseEntity.ok(mapper.writeValueAsString(actualizado))
 //	}
+
+	@GetMapping(value="/usuarios")
+	def getUsuarios() {
+		try {
+			val alimentos = RepoUsuario.instance.allInstances
+			ResponseEntity.ok(alimentos)
+		} catch (Exception e) {
+			ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.message)
+		}
+	}
 	
 	static def mapper() {
 		new ObjectMapper => [

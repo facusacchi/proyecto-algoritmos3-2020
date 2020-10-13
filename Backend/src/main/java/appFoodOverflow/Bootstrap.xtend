@@ -68,7 +68,7 @@ class Bootstrap {
 			agregarCondicionAlimenticia(Celiaco.getInstancia)
 			alimentosPreferidos.add(carneRoja)
 			alimentosDisgustados.add(papa)
-			rutina = Rutina.ACTIVA
+			rutina = Rutina.ACTIVO
 		]
 		RepoUsuario.instance.create(pepe)
 

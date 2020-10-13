@@ -89,7 +89,7 @@ describe('Un usuario diabetico', () => {
   })
 
   test('subsana condicion si tiene una rutina activa pero no pesa menos de 71 kilos', () => {
-    usuarioDiabetico = new Usuario('Usuario', 71, 1.7, [diabetico], moment().subtract(30, 'years').toDate(), [alimento], 'ACTIVA')
+    usuarioDiabetico = new Usuario('Usuario', 71, 1.7, [diabetico], moment().subtract(30, 'years').toDate(), [alimento], 'ACTIVO')
     expect(diabetico.subsanaCondicion(usuarioDiabetico)).toBe(true)
   })
 

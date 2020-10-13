@@ -52,12 +52,11 @@
             </table>
           </div>
         </div>
-
         <div class="pasos">
           <div class="separacion">
             <b>Pasos</b>
-            <button *ngIf="receta.esEditablePor(usuarioLogueado)" class="button button-escritorio">Agregar</button>
-            <button *ngIf="receta.esEditablePor(usuarioLogueado)" class="button-mobile">
+            <button *ngIf="receta.esEditablePor(usuarioLogueado)" [routerLink]="['/agregarPaso']" class="button button-escritorio">Agregar</button>
+            <button *ngIf="receta.esEditablePor(usuarioLogueado)" [routerLink]="['/agregarPaso']" class="button-mobile">
               <img class="signo-mas" src="assets/imagenes/plus-circle-solid.svg">
             </button>
           </div>
@@ -78,8 +77,8 @@
       <section class="colaboradores-contenedor">
         <div class="espacio">
           <b>Colaboradores</b>
-          <button *ngIf="receta.esEditablePor(usuarioLogueado)" class="button button-escritorio">Agregar</button>
-          <button *ngIf="receta.esEditablePor(usuarioLogueado)" class="button-mobile">
+          <button *ngIf="receta.esEditablePor(usuarioLogueado)" [routerLink]="['/agregarColaborador']" class="button button-escritorio">Agregar</button>
+          <button *ngIf="receta.esEditablePor(usuarioLogueado)" [routerLink]="['/agregarColaborador']" class="button-mobile">
             <img class="signo-mas" src="assets/imagenes/plus-circle-solid.svg">
           </button>
         </div>

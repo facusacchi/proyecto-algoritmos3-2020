@@ -10,10 +10,10 @@ export class Receta {
   public procesoDePreparacion: string[] = []
 
   static fromJson(recetaJSON): Receta {
-    return Object.assign(new Receta(), recetaJSON, 
-    {autor : Usuario.fromJson(recetaJSON.autor)},
-    {colaboradores : recetaJSON.colaboradores.map(colaboradorJSON => Usuario.fromJson(colaboradorJSON))},
-    {ingredientes : recetaJSON.ingredientes.map(ingredienteJSON => Ingrediente.fromJson(ingredienteJSON))})
+    return Object.assign(new Receta(), recetaJSON,
+      { autor: Usuario.fromJson(recetaJSON.autor) },
+      { colaboradores: recetaJSON.colaboradores.map(colaboradorJSON => Usuario.fromJson(colaboradorJSON)) },
+      { ingredientes: recetaJSON.ingredientes.map(ingredienteJSON => Ingrediente.fromJson(ingredienteJSON)) })
   }
 
   toJSON(): any {
@@ -49,6 +49,10 @@ export class Receta {
   cumpleCondicionDeBusqueda(valorBusqueda: string): boolean {
     return this.nombreDelPlato.toLowerCase().includes(valorBusqueda) || this.ingredientes.some(ingrediente =>
       ingrediente.alimento.nombre.toLowerCase().includes(valorBusqueda))
+  }
+
+  agregarProcesoDePreparacion(paso: string) {
+    this.procesoDePreparacion.push(paso)
   }
 
   eliminarProcesoDePreparacion(paso: string) {

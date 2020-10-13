@@ -220,5 +220,5 @@ enum Rutina {
 	NADA,
 	MEDIANO,
 	INTENSIVO,
-	ACTIVA
+	ACTIVO
 }
