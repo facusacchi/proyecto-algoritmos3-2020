@@ -2,6 +2,8 @@ import { CondicionAlimenticia } from "./condicionAlimenticia"
 import * as moment from 'moment';
 import { Alimento, mapaCondiciones } from "./alimento";
 
+const cloneDeep = require('lodash/clonedeep');
+
 export class Usuario {
     
     constructor(
@@ -16,6 +18,15 @@ export class Usuario {
         public alimentosPreferidos: Alimento[] = [],
         public alimentosDisgustados: Alimento[] = [],
         public rutina: Rutina = 'NADA') { }
+
+        
+    static copyObjectFromJson(usuarioJSON) {
+        return cloneDeep(Usuario.fromJson(usuarioJSON))
+    }
+
+    static copyObject(originalObject: Usuario): Usuario {
+        return cloneDeep(originalObject)
+    }
 
     static fromJson(usuarioJSON): Usuario {
         return Object.assign(new Usuario(), usuarioJSON,
