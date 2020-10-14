@@ -19,7 +19,6 @@ export class Session {
     }
 
     async actualizeUser(user: Usuario) :Promise<void> {
-        const _user = user.toJSON()
-        await this.http.post(REST_SERVER_URL + '/perfilDeUsuario', _user).toPromise()
+        await this.http.put(REST_SERVER_URL + '/perfilDeUsuario/' + user.id, user.toJSON()).toPromise()
     }
 }
