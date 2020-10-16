@@ -39,6 +39,8 @@ export class CondicionAlimenticiaComponent implements OnInit {
     if(!this.isActive) {
       this.usuario.agregarCondicionAlimenticia(this.getCondicion())
     } else { this.usuario.eliminarCondicionAlimenticia(this.getCondicion()) }
+    //console.log(this.usuario.condicionesAlimenticias)
+    //console.log(this.session.userLogged)
   }
 
 }

@@ -32,6 +32,7 @@ export class Usuario {
     toJSON(): any {
         return {
           ...this,
+          condicionesAlimenticias: this.condicionesAlimenticias.map(cond => cond.nombre())
         }
     }
 
