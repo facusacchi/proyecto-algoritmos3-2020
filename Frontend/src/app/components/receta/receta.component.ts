@@ -29,7 +29,7 @@ export class RecetaComponent implements OnInit {
     } else {
       this.receta = await this.service.getRecetaById(idReceta)
       this.setearRecetaActual(this.receta)
-      this.recetaOld = this.receta.copy()
+      this.recetaOld = Receta.copyObject(this.receta)
     }
   }
 

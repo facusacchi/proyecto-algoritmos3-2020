@@ -1,6 +1,7 @@
 import { CondicionAlimenticia } from './condicionAlimenticia'
 import { Ingrediente } from './ingrediente'
 import { Usuario } from './usuario'
+import * as _ from 'lodash'
 
 export class Receta {
 
@@ -8,6 +9,10 @@ export class Receta {
   public colaboradores: Usuario[] = []
   public ingredientes: Ingrediente[] = []
   public procesoDePreparacion: string[] = []
+
+  static copyObject(originalObject: Receta): Receta {
+    return _.cloneDeep(originalObject)
+  }
 
   static fromJson(recetaJSON): Receta {
     return Object.assign(new Receta(), recetaJSON,
@@ -78,10 +83,6 @@ export class Receta {
 
   esAutor(usuario: Usuario): boolean {
     return this.autor.id == usuario.id
-  }
-
-  copy(): Receta {
-    return Object.assign(new Receta(), JSON.parse(JSON.stringify(this)))
   }
 
 }
