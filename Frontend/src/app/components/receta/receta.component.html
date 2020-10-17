@@ -1,5 +1,5 @@
 <div class="contenedor">
-  <div class="contenidos">
+  <div *ngIf="!!receta" class="contenidos">
     <section class="titulo-contenedor">
       <img class="img-receta" src="{{'../../../assets/imagenes/'+ receta.imagen}}">
       <section class="descripcion">

@@ -39,7 +39,7 @@ export class Service {
         await this.http.put(REST_SERVER_URL + '/receta/' + receta.id, receta.toJSON()).toPromise()
     }
 
-    async eliminarReceta(receta: Receta) {
+    async eliminarReceta(receta: Receta): Promise<void> {
         /* this.recetas.splice(this.recetas.indexOf(receta), 1) */
         await this.http.delete(REST_SERVER_URL + '/receta/' + receta.id).toPromise()
     }
