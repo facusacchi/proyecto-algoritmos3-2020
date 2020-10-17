@@ -5,6 +5,7 @@ import java.util.Set
 import org.eclipse.xtend.lib.annotations.Accessors
 import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty
+import java.util.HashMap
 
 @Accessors
 class Alimento extends Entity{
@@ -17,6 +18,17 @@ class Alimento extends Entity{
 	def obtenerCondicionesInadecuadas() {
 		condicionesInadecuadas.map[condicion|condicion.getAsString()].toSet
 	}
+	
+	@JsonProperty("condicionesInadecuadas")
+	def transformCondicionesAlimenticias(Set<String> condicionesAsString) {
+		val condiciones = new HashMap<String, CondicionAlimenticia>
+		condiciones.put("Vegetariano", Vegetariano.getInstancia)
+		condiciones.put("Vegano", Vegano.getInstancia)
+		condiciones.put("Hipertenso", Hipertenso.getInstancia)
+		condiciones.put("Diabético", Diabetico.getInstancia)
+		condiciones.put("Celíaco", Celiaco.getInstancia)
+		condicionesInadecuadas = condicionesAsString.map[condicion | condiciones.get(condicion)].toSet
+	} 					 
 	
 	def agregarCondicionInadecuada(CondicionAlimenticia _condicion) {
 		condicionesInadecuadas.add(_condicion)

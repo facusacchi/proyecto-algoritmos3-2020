@@ -16,7 +16,6 @@ import org.eclipse.xtend.lib.annotations.Accessors
 import java.time.format.DateTimeFormatter
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonIgnore
-import java.util.Map
 import java.util.HashMap
 
 @Accessors
@@ -29,8 +28,8 @@ class Usuario extends Entity {
 	String password
 	Double peso
 	Double estatura
-	LocalDate fechaDeNacimiento
-	Set<CondicionAlimenticia> condicionesAlimenticias = new HashSet<CondicionAlimenticia>
+	@JsonIgnore LocalDate fechaDeNacimiento
+	@JsonIgnore Set<CondicionAlimenticia> condicionesAlimenticias = new HashSet<CondicionAlimenticia>
 	Set<Alimento> alimentosPreferidos = new HashSet<Alimento>
 	Set<Alimento> alimentosDisgustados = new HashSet<Alimento>
 	Rutina rutina
@@ -55,6 +54,7 @@ class Usuario extends Entity {
 	@JsonProperty("condicionesAlimenticias")
 	def getCondicionesAlimenticias() {
 		condicionesAlimenticias.map[condicion|condicion.getAsString()].toSet
+		
 	}
 	
 	@JsonProperty("condicionesAlimenticias")
@@ -63,8 +63,8 @@ class Usuario extends Entity {
 		condiciones.put("Vegetariano", Vegetariano.getInstancia)
 		condiciones.put("Vegano", Vegano.getInstancia)
 		condiciones.put("Hipertenso", Hipertenso.getInstancia)
-		condiciones.put("Diabetico", Diabetico.getInstancia)
-		condiciones.put("Celiaco", Celiaco.getInstancia)
+		condiciones.put("Diabético", Diabetico.getInstancia)
+		condiciones.put("Celíaco", Celiaco.getInstancia)
 		condicionesAsString.forEach[condicion | condicionesAlimenticias.add(condiciones.get(condicion))]
 	} 					 
 	

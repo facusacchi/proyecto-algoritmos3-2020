@@ -17,6 +17,7 @@ export class Alimento {
   toJSON(): any {
     return {
       ...this,
+      condicionesInadecuadas: this.condicionesInadecuadas.map(cond => cond.nombre())
     }
   }
 
