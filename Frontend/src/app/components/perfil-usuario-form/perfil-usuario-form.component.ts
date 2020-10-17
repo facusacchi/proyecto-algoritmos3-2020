@@ -20,7 +20,6 @@ export class PerfilUsuarioFormComponent implements OnInit {
   alimentosPreferidos: Alimento[]
   alimentosDisgustados: Alimento[]
   recetas: Receta[] = []
-  recetaABuscar = ''
   isChecked = true
   alimento: Alimento
 

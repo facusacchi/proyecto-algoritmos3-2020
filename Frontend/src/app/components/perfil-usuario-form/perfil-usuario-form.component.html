@@ -78,7 +78,7 @@
         <section class="bottom-section">
             <h5>Mis recetas</h5>
             <div class="main-form__recetas">
-                <app-card-receta *ngFor="let receta of recetas | recetaFilter: recetaABuscar: isChecked: usuario"
+                <app-card-receta *ngFor="let receta of recetas | recetaFilter: isChecked: usuario"
                     [receta]="receta" [usuario]="usuario"></app-card-receta>
             </div>
         </section>

@@ -25,8 +25,8 @@ export class CardRecetaComponent {
   }
 
   async eliminarReceta(receta: Receta) {
-    this.eliminada = true
     await this.service.eliminarReceta(receta)
+    this.eliminada = true
   }
 
 }

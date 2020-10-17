@@ -45,6 +45,16 @@ class RecetaController {
 		}
 	}
 
+	@GetMapping("/recetas/search/{recetaBusqueda}")
+	def buscar(@PathVariable String recetaBusqueda) {
+		try {
+			val encontrada = RepoReceta.instance.search(recetaBusqueda)
+			ResponseEntity.ok(encontrada)
+		} catch (Exception e) {
+			ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.message)
+		}
+	}
+
 	@PutMapping(value="/receta/{id}")
 	def actualizar(@RequestBody String body, @PathVariable Integer id) {
 		if (id === null || id === 0) {
@@ -69,7 +79,7 @@ class RecetaController {
 				return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontró la receta con id "«id»"''')
 			}
 			RepoReceta.instance.delete(receta)
-			ResponseEntity.ok('''La receta con id "«id»" fue eliminada''')
+			ResponseEntity.ok(mapper.writeValueAsString('''La receta con id "«id»" fue eliminada'''))
 		} catch (RuntimeException e) {
 			ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.message)
 		}

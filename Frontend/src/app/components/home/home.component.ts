@@ -21,14 +21,14 @@ export class HomeComponent implements OnInit {
   recetas: Receta[] = []
   usuario: Usuario
 
-  constructor(private route: ActivatedRoute, private router: Router, public service: Service, private session: Session) { 
+  constructor(private route: ActivatedRoute, private router: Router, public service: Service, private session: Session) {
     this.usuario = this.session.userLogged
   }
 
   async ngOnInit() {
     /* this.usuario = this.session.userLogged */
     /* try { */
-      this.recetas = await this.service.todasLasRecetas()
+    this.recetas = await this.service.todasLasRecetas()
     /* } catch (error) {
       mostrarError(this, error)
     } */
@@ -36,6 +36,17 @@ export class HomeComponent implements OnInit {
 
   recibirRecetaABuscar(valueEmitted: string): void {
     this.recetaABuscar = valueEmitted
+    this.busquedaReceta()
+  }
+
+  async busquedaReceta(): Promise<Receta[]> {
+    console.log(this.recetaABuscar)
+    if (this.recetaABuscar != undefined && this.recetaABuscar != "") {
+      return this.recetas = await this.service.searchReceta(this.recetaABuscar)
+    }
+    else {
+      return this.recetas = await this.service.todasLasRecetas()
+    }
   }
 
   recibirEstadoCheckbox(valueEmitted: boolean): void {

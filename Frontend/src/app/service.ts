@@ -30,6 +30,11 @@ export class Service {
         return Receta.fromJson(receta)
     }
 
+    async searchReceta(recetaABuscar: string): Promise<Receta[]> {
+        const recetas = await this.http.get<Receta[]>(REST_SERVER_URL + '/recetas/search/' + recetaABuscar).toPromise()
+        return recetas.map((receta) => Receta.fromJson(receta))
+    }
+
     async actualizarReceta(receta: Receta) {
         await this.http.put(REST_SERVER_URL + '/receta/' + receta.id, receta.toJSON()).toPromise()
     }

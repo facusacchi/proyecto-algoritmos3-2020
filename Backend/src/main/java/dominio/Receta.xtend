@@ -101,8 +101,8 @@ class Receta extends Entity{
 	}
 
 	override cumpleCondicionDeBusqueda(String valorBusqueda) {
-		nombreDelPlato.contains(valorBusqueda) || ingredientes.exists [ ingrediente |
-			ingrediente.alimento.nombre.contains(valorBusqueda)
+		nombreDelPlato.toLowerCase.contains(valorBusqueda.toLowerCase) || ingredientes.exists [ ingrediente |
+			ingrediente.alimento.nombre.toLowerCase.contains(valorBusqueda.toLowerCase)
 		]
 	}
 	
