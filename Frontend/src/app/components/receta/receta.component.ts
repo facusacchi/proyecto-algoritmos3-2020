@@ -14,14 +14,16 @@ import { Usuario } from '../../../../Dominio/src/usuario';
 export class RecetaComponent implements OnInit {
 
   usuarioLogueado: Usuario
+  edicion: boolean
   receta: Receta
   recetaOld: Receta
   /* nuevaReceta = false */
 
   constructor(private route: ActivatedRoute, private router: Router, private service: Service, private session: Session) {
   }
-
+  
   async ngOnInit() {
+    this.edicion = this.service.edicionReceta
     this.usuarioLogueado = this.session.userLogged
     const idReceta = this.route.snapshot.params['id']
     if (this.service.getRecetaActual != null && this.service.getRecetaActual.id == idReceta) {
@@ -48,7 +50,7 @@ export class RecetaComponent implements OnInit {
   setearRecetaActual(receta: Receta): void {
     this.service.recetaActual = receta
   }
-  
+
   async guardarCambios() {
     await this.service.actualizarReceta(this.receta)
     this.navegarAHome()
@@ -56,13 +58,17 @@ export class RecetaComponent implements OnInit {
 
   cancelarCambios(): void {
     /* if (!this.nuevaReceta) { */
-      this.service.actualizarRecetaActual(this.recetaOld)
-   /*  } */
+    this.service.actualizarRecetaActual(this.recetaOld)
+    /*  } */
     this.navegarAHome()
   }
 
   navegarAHome(): void {
     this.router.navigate(['/home'])
+  }
+
+  edicionActivada(): boolean {
+    return this.receta.esEditablePor(this.usuarioLogueado) && this.edicion
   }
 
 }

@@ -14,6 +14,7 @@ import { REST_SERVER_URL } from './configuration'
 export class Service {
 
     recetaActual: Receta
+    edicionReceta: boolean
 
     constructor(private http: HttpClient) { }
     static lastId = 0

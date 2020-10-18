@@ -29,4 +29,12 @@ export class CardRecetaComponent {
     this.eliminada = true
   }
 
+  activarEdicion(): void {
+    this.service.edicionReceta = true
+  }
+
+  desactivarEdicion(): void {
+    this.service.edicionReceta = false
+  }
+
 }
