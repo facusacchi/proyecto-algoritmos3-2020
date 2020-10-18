@@ -103,6 +103,9 @@
           </table>
         </div>
       </section>
+      <div *ngIf="hayError()" class="container-error">
+        <div *ngFor="let error of errors">{{error}}</div>
+      </div>
       <section class="aceptar-cancelar">
         <div>
           <button (click)="guardarCambios()" *ngIf="edicionActivada()" class="button">Aceptar</button>

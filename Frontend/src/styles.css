@@ -60,3 +60,13 @@ body {
 .button:hover {
   filter: brightness(75%);
 }
+
+.container-error {
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border: 0.1rem solid #ebccd1;
+  border-radius: 0.4rem;
+  color: #a94442;
+  background-color: #f2dede;
+  font-size: 1.6rem;
+}

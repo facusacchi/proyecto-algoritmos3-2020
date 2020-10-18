@@ -85,6 +85,22 @@ export class Receta {
     return this.autor.id == usuario.id
   }
 
+  validarIngredientes(): boolean {
+		return this.ingredientes.length > 0
+	}
+
+	validarCalorias(): boolean {
+		return this.calorias > 10 && this.calorias < 5000
+	}
+
+	validarProcesoDePreparacion(): boolean {
+		return this.procesoDePreparacion.length > 0
+	}
+
+	esValida(): boolean {
+		return this.validarIngredientes() && this.validarCalorias() && this.validarProcesoDePreparacion()
+	}
+
 }
 
 export type Dificultad = 'FACIL' | 'MEDIA' | 'DIFICIL'

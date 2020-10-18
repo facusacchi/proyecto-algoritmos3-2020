@@ -30,7 +30,6 @@ export class AgregarAlimentoComponent implements OnInit{
 
   recibirAlimentoSeleccionado(valueEmitted: Alimento): void {
     this.alimento = valueEmitted
-    /* console.log(this.alimento) */
   }
 
   agregarAlimento(alimentoAgregar: Alimento): void {

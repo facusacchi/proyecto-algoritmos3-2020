@@ -21,7 +21,6 @@ export class AgregarPasoComponent implements OnInit {
 
   agregarPaso(paso: string) {
     this.receta.agregarProcesoDePreparacion(paso)
-    console.log(this.receta)
   }
 
 }

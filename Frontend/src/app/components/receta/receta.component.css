@@ -151,6 +151,10 @@
   display: none;
 }
 
+.container-error {
+  margin: 1.5em 3.4em;
+}
+
 /* media queries para table*/
 
 @media all and (min-width: 769px) and (max-width: 940px) {

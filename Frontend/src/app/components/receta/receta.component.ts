@@ -15,13 +15,14 @@ export class RecetaComponent implements OnInit {
 
   usuarioLogueado: Usuario
   edicion: boolean
+  errors = []
   receta: Receta
   recetaOld: Receta
   /* nuevaReceta = false */
 
   constructor(private route: ActivatedRoute, private router: Router, private service: Service, private session: Session) {
   }
-  
+
   async ngOnInit() {
     this.edicion = this.service.edicionReceta
     this.usuarioLogueado = this.session.userLogged
@@ -52,8 +53,24 @@ export class RecetaComponent implements OnInit {
   }
 
   async guardarCambios() {
-    await this.service.actualizarReceta(this.receta)
-    this.navegarAHome()
+    try {
+      this.errors = []
+      this.validarReceta()
+      await this.service.actualizarReceta(this.receta)
+      this.navegarAHome()
+    } catch (e) {
+      this.errors.push(e.error)
+    }
+  }
+
+  validarReceta() {
+    if (!this.receta.esValida()) {
+      throw { error: 'La receta está incompleta' }
+    }
+  }
+
+  hayError(): boolean {
+    return this.errors.length > 0
   }
 
   cancelarCambios(): void {

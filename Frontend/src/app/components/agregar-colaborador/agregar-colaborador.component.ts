@@ -23,11 +23,6 @@ export class AgregarColaboradorComponent implements OnInit {
     this.usuarios = await this.service.todosLosUsuarios()
   }
 
-  /* recibirUsuarioSeleccionado(valueEmitted: Usuario): void {
-    this.colaborador = valueEmitted
-    /* console.log(this.colaborador)
-  } */
-
   seleccionarUsuario(usuario: Usuario) {
     this.usuarioSeleccionado = usuario
   }

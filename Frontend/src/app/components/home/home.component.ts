@@ -40,7 +40,6 @@ export class HomeComponent implements OnInit {
   }
 
   async busquedaReceta(): Promise<Receta[]> {
-    console.log(this.recetaABuscar)
     if (this.recetaABuscar != undefined && this.recetaABuscar != "") {
       return this.recetas = await this.service.searchReceta(this.recetaABuscar)
     }
