@@ -27,13 +27,10 @@ export class PerfilUsuarioFormComponent implements OnInit {
     this.usuario = this.session.userLogged
     this.alimentosPreferidos = this.usuario.alimentosPreferidos
     this.alimentosDisgustados = this.usuario.alimentosDisgustados
+    this.session.copiaDeUsuario = Usuario.copyObject(this.usuario)
   }
   
   async ngOnInit() {
-    // Object.assign(this.generateCopy(), JSON.parse(JSON.stringify(this)))
-    if (this.session.copiaDeUsuario == null) {
-      this.session.copiaDeUsuario = Usuario.copyObject(this.usuario)
-    }
     /* try { */
       this.recetas = await this.service.todasLasRecetas()
     /* } catch (error) {
@@ -47,11 +44,11 @@ export class PerfilUsuarioFormComponent implements OnInit {
 
   async onAccept() {
     await this.session.actualizeUser(this.usuario)
+    this.session.copiaDeUsuario = Usuario.copyObject(this.usuario)
     this.navegarHaciaHome()
   }
 
   onCancel() {
-    this.usuario = Usuario.copyObject(this.session.copiaDeUsuario)
     this.session.userLogged = Usuario.copyObject(this.session.copiaDeUsuario)
     this.navegarHaciaHome()
   }

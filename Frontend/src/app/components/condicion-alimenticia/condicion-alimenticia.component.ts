@@ -12,7 +12,6 @@ import { Usuario } from '../../../../Dominio/src/usuario';
 export class CondicionAlimenticiaComponent implements OnInit {
 
   @Input() descripcion: string
-  usuario: Usuario
 
   isActive: boolean
   condiciones = new Map([
@@ -24,11 +23,10 @@ export class CondicionAlimenticiaComponent implements OnInit {
 ])
 
   constructor(private service : Service, private session: Session) {
-    this.usuario = this.session.userLogged
   }
   
   ngOnInit(): void {
-    this.isActive = this.usuario.tieneCondicionAlimenticia(this.getCondicion())
+    this.isActive = this.session.userLogged.tieneCondicionAlimenticia(this.getCondicion())
   }
 
   getCondicion(): CondicionAlimenticia{
@@ -37,10 +35,8 @@ export class CondicionAlimenticiaComponent implements OnInit {
 
   onClick(): void{
     if(!this.isActive) {
-      this.usuario.agregarCondicionAlimenticia(this.getCondicion())
-    } else { this.usuario.eliminarCondicionAlimenticia(this.getCondicion()) }
-    //console.log(this.usuario.condicionesAlimenticias)
-    //console.log(this.session.userLogged)
+      this.session.userLogged.agregarCondicionAlimenticia(this.getCondicion())
+    } else { this.session.userLogged.eliminarCondicionAlimenticia(this.getCondicion()) }
   }
 
 }
