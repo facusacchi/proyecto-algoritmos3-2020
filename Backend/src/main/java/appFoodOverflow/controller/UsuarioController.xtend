@@ -46,6 +46,18 @@ class UsuarioController {
 		RepoUsuario.instance.update(actualizado)
 		ResponseEntity.ok(mapper.writeValueAsString(actualizado))
 	}
+	
+	@GetMapping("/perfilDeUsuario/{id}")
+	def tareaPorId(@PathVariable Integer id) {
+		if (id === 0) {
+			return ResponseEntity.badRequest.body('''Debe ingresar el parámetro id''')
+		}
+		val usuario = RepoUsuario.instance.getById(id.toString)
+		if (usuario === null) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontró la tarea de id <«id»>''')
+		}
+		ResponseEntity.ok(usuario)
+	}
 
 	@GetMapping(value="/usuarios")
 	def getUsuarios() {
