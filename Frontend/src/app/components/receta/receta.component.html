@@ -15,17 +15,18 @@
       <section class="inputs-contenedor">
         <div class="calorias">
           <b>Total de calorias</b>
-          <input [disabled]="!edicionActivada()" [(ngModel)]="receta.calorias" class="input"
-            type="number" id="calorias" placeholder="500" max="4000">
+          <input *ngIf="edicionActivada()" [(ngModel)]="receta.calorias" class="input" type="number" id="calorias"
+            placeholder="500" max="4000">
+          <div *ngIf="!edicionActivada()" class="unidireccional">: {{receta.calorias}}</div>
         </div>
         <div class="dificultad">
           <b>Dificultad</b>
-          <select [disabled]="!edicionActivada()" [(ngModel)]="receta.dificultad" class="input"
-            id="dificultad">
+          <select *ngIf="edicionActivada()" [(ngModel)]="receta.dificultad" class="input" id="dificultad">
             <option value="FACIL">Facil</option>
             <option value="MEDIA">Media</option>
             <option value="DIFICIL">Dificil</option>
           </select>
+          <div *ngIf="!edicionActivada()" class="unidireccional">: {{receta.dificultad}}</div>
         </div>
       </section>
       <section class="tablas-contenedor">
@@ -34,8 +35,7 @@
             <b>Ingredientes</b>
             <button *ngIf="edicionActivada()" [routerLink]="['/agregarIngrediente']"
               class="button button-escritorio">Agregar</button>
-            <button *ngIf="edicionActivada()" [routerLink]="['/agregarIngrediente']"
-              class="button-mobile">
+            <button *ngIf="edicionActivada()" [routerLink]="['/agregarIngrediente']" class="button-mobile">
               <img class="signo-mas" src="assets/imagenes/plus-circle-solid.svg">
             </button>
           </div>
@@ -45,8 +45,8 @@
                 <td class="ancho-columna">{{ingrediente.alimento.nombre}}</td>
                 <td class="ancho-columna">{{ingrediente.cantidad}}</td>
                 <td>
-                  <img *ngIf="edicionActivada()" (click)="eliminarIngrediente(ingrediente)"
-                    class="img-eliminar" src="../../../assets/imagenes/eliminar.png">
+                  <img *ngIf="edicionActivada()" (click)="eliminarIngrediente(ingrediente)" class="img-eliminar"
+                    src="../../../assets/imagenes/eliminar.png">
                 </td>
               </tr>
             </table>
@@ -55,7 +55,8 @@
         <div class="pasos">
           <div class="separacion">
             <b>Pasos</b>
-            <button *ngIf="edicionActivada()" [routerLink]="['/agregarPaso']" class="button button-escritorio">Agregar</button>
+            <button *ngIf="edicionActivada()" [routerLink]="['/agregarPaso']"
+              class="button button-escritorio">Agregar</button>
             <button *ngIf="edicionActivada()" [routerLink]="['/agregarPaso']" class="button-mobile">
               <img class="signo-mas" src="assets/imagenes/plus-circle-solid.svg">
             </button>
@@ -77,7 +78,8 @@
       <section class="colaboradores-contenedor">
         <div class="espacio">
           <b>Colaboradores</b>
-          <button *ngIf="edicionActivada()" [routerLink]="['/agregarColaborador']" class="button button-escritorio">Agregar</button>
+          <button *ngIf="edicionActivada()" [routerLink]="['/agregarColaborador']"
+            class="button button-escritorio">Agregar</button>
           <button *ngIf="edicionActivada()" [routerLink]="['/agregarColaborador']" class="button-mobile">
             <img class="signo-mas" src="assets/imagenes/plus-circle-solid.svg">
           </button>
@@ -92,8 +94,8 @@
                 <div class="horizontal">
                   <div class="centrado">{{colaborador.nombreYApellido}}</div>
                   <div>
-                    <img *ngIf="edicionActivada()" (click)="eliminarColaborador(colaborador)"
-                      class="img-eliminar" src="../../../assets/imagenes/eliminar.png">
+                    <img *ngIf="edicionActivada()" (click)="eliminarColaborador(colaborador)" class="img-eliminar"
+                      src="../../../assets/imagenes/eliminar.png">
                   </div>
                 </div>
               </td>
@@ -103,8 +105,7 @@
       </section>
       <section class="aceptar-cancelar">
         <div>
-          <button (click)="guardarCambios()" *ngIf="edicionActivada()"
-            class="button">Aceptar</button>
+          <button (click)="guardarCambios()" *ngIf="edicionActivada()" class="button">Aceptar</button>
           <button (click)="cancelarCambios()" class="button-cancelar">Cancelar</button>
         </div>
       </section>

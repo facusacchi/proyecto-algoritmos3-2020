@@ -53,14 +53,16 @@
   padding: 1em;
 }
 
-.calorias {
-  font-size: 0.8em;
-  font-weight: 800;
-}
-
+.calorias,
 .dificultad {
   font-size: 0.8em;
   font-weight: 800;
+  display: flex;
+  align-items: center;
+}
+
+.unidireccional {
+  font-weight: 400;
 }
 
 .input {
