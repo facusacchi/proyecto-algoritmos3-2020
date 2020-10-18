@@ -65,7 +65,15 @@ export class RecetaComponent implements OnInit {
 
   validarReceta() {
     if (!this.receta.esValida()) {
-      throw { error: 'La receta está incompleta' }
+      if (!this.receta.validarProcesoDePreparacion()) {
+        throw { error: 'La receta no tiene pasos' }
+      }
+      if (!this.receta.validarCalorias()) {
+        throw { error: 'Las calorias deben estar en 10 y 5000' }
+      }
+      if (!this.receta.validarIngredientes()) {
+        throw { error: 'La receta no tiene ingredientes' }
+      }
     }
   }
 

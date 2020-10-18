@@ -16,7 +16,7 @@
         <div class="calorias">
           <b>Total de calorias</b>
           <input *ngIf="edicionActivada()" [(ngModel)]="receta.calorias" class="input" type="number" id="calorias"
-            placeholder="500" max="4000">
+            placeholder="500" max="5000">
           <div *ngIf="!edicionActivada()" class="unidireccional">: {{receta.calorias}}</div>
         </div>
         <div class="dificultad">
