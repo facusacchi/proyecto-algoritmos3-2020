@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario, Rutina } from '../../../../Dominio/src/usuario';
 import { Service } from '../../service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Receta } from '../../../../Dominio/src/receta';
 import { Alimento } from '../../../../Dominio/src/alimento';
 import { Session } from 'app/session';
@@ -24,7 +24,7 @@ export class PerfilUsuarioFormComponent implements OnInit {
   alimento: Alimento
 
   constructor(private router: Router, private service: Service, private session: Session) {
-    this.usuario = this.session.userLogged
+    this.usuario = Usuario.copyObject(this.session.userLogged)
     this.alimentosPreferidos = this.usuario.alimentosPreferidos
     this.alimentosDisgustados = this.usuario.alimentosDisgustados
     this.session.copiaDeUsuario = Usuario.copyObject(this.usuario)
@@ -48,8 +48,9 @@ export class PerfilUsuarioFormComponent implements OnInit {
     this.navegarHaciaHome()
   }
 
-  onCancel() {
-    this.session.userLogged = Usuario.copyObject(this.session.copiaDeUsuario)
+  async onCancel() {
+    //this.session.userLogged = Usuario.copyObject(this.session.copiaDeUsuario)
+    await this.session.getUser(this.session.userLogged)
     this.navegarHaciaHome()
   }
 

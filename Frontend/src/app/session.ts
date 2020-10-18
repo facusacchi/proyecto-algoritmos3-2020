@@ -22,4 +22,9 @@ export class Session {
         const userLogged = await this.http.put(REST_SERVER_URL + '/perfilDeUsuario/' + user.id, user.toJSON()).toPromise()
         this.userLogged = Usuario.fromJson(userLogged)
     }
+
+    async getUser(user: Usuario) :Promise<void>{
+        const userLogged = await this.http.get(REST_SERVER_URL + '/perfilDeUsuario/' + user.id).toPromise()
+        this.userLogged = Usuario.fromJson(userLogged)
+    }
 }
