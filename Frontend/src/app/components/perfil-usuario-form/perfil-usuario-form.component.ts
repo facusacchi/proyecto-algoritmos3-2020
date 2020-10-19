@@ -24,7 +24,7 @@ export class PerfilUsuarioFormComponent implements OnInit {
   alimento: Alimento
 
   constructor(private router: Router, private service: Service, private session: Session) {
-    this.usuario = Usuario.copyObject(this.session.userLogged)
+    this.usuario = this.session.userLogged
     this.alimentosPreferidos = this.usuario.alimentosPreferidos
     this.alimentosDisgustados = this.usuario.alimentosDisgustados
     this.session.copiaDeUsuario = Usuario.copyObject(this.usuario)
