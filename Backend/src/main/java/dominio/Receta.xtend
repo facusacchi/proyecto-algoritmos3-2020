@@ -1,12 +1,11 @@
 package dominio
 
-import java.util.ArrayList	
+import excepciones.BusinessException
+import java.util.ArrayList
 import java.util.HashSet
 import java.util.List
 import java.util.Set
 import org.eclipse.xtend.lib.annotations.Accessors
-import com.fasterxml.jackson.annotation.JsonIgnore
-import com.fasterxml.jackson.annotation.JsonProperty
 
 @Accessors
 class Receta extends Entity{
@@ -70,6 +69,21 @@ class Receta extends Entity{
 
 	def esValida() {
 		validarIngredientes && validarCalorias && validarProcesoDePreparacion
+	}
+	
+	def validar() {
+		if(!validarIngredientes){
+			throw new BusinessException("Debe ingresar al menos un ingrediente")
+		}
+		if(!validarCalorias){
+			throw new BusinessException("Las calorias deben estar entre 10 y 5000")
+		}
+		if(!validarProcesoDePreparacion){
+			throw new BusinessException("Debe ingresar al menos un proceso de preparacion")
+		}
+		if (nombreDelPlato.empty){
+			throw new BusinessException("Debe ingresar un nombre a la receta")
+		}
 	}
 
 	def condicionesInadecuadasReceta() {

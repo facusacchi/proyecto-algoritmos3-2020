@@ -67,7 +67,7 @@ export class RecetaComponent implements OnInit {
   async guardarCambios() {
     try {
       this.errors = []
-      this.validarReceta()
+      // this.validarReceta()
       if (this.receta.id == 0) {
         await this.service.crearReceta(this.receta) 
       }
@@ -77,20 +77,6 @@ export class RecetaComponent implements OnInit {
       this.navegarAHome()
     } catch (e) {
       this.errors.push(e.error)
-    }
-  }
-
-  validarReceta() {
-    if (!this.receta.esValida()) {
-      if (!this.receta.validarProcesoDePreparacion()) {
-        throw { error: 'La receta no tiene pasos' }
-      }
-      if (!this.receta.validarCalorias()) {
-        throw { error: 'Las calorias deben estar entre 10 y 5000' }
-      }
-      if (!this.receta.validarIngredientes()) {
-        throw { error: 'La receta no tiene ingredientes' }
-      }
     }
   }
 

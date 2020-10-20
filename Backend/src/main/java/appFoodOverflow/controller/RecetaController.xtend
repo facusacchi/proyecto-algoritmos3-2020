@@ -14,6 +14,8 @@ import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.SerializationFeature
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.DeleteMapping
+import org.springframework.web.bind.annotation.PostMapping
+import excepciones.BusinessException
 
 @RestController
 @CrossOrigin("http://localhost:4200")
@@ -57,6 +59,7 @@ class RecetaController {
 
 	@PutMapping(value="/receta/{id}")
 	def actualizar(@RequestBody String body, @PathVariable Integer id) {
+		try {
 		if (id === null || id === 0) {
 			return ResponseEntity.badRequest.body('''Debe ingresar el parámetro id''')
 		}
@@ -64,8 +67,16 @@ class RecetaController {
 		if (id != actualizada.id) {
 			return ResponseEntity.badRequest.body("Id en URL distinto del id que viene en el body")
 		}
+		actualizada.validar
 		RepoReceta.instance.update(actualizada)
 		ResponseEntity.ok(mapper.writeValueAsString(actualizada))
+		} catch (BusinessException e) {
+			ResponseEntity.badRequest.body(e.message)
+		} catch (Exception e) {
+			ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.message)
+		}
+		
+		
 	}
 
 	@DeleteMapping(value="/receta/{id}")
@@ -84,6 +95,20 @@ class RecetaController {
 			ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.message)
 		}
 	}
+	
+	@PostMapping("/receta/new")
+	def crearReceta(@RequestBody String body) {
+		try {
+			val recetaNueva = mapper.readValue(body, Receta)
+			recetaNueva.validar
+			RepoReceta.instance.create(recetaNueva)
+			ResponseEntity.ok(recetaNueva)
+		} catch (BusinessException e) {
+			ResponseEntity.badRequest.body(e.message)
+		} catch (Exception e) {
+			ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.message)
+		}
+	}
 
 	static def mapper() {
 		new ObjectMapper => [
@@ -91,4 +116,5 @@ class RecetaController {
 			configure(SerializationFeature.INDENT_OUTPUT, true)
 		]
 	}
+	
 }
