@@ -13,6 +13,11 @@
     </section>
     <section class="editar-contenedor">
       <section class="inputs-contenedor">
+        <div *ngIf="edicionActivada()" class="calorias">
+          <b>Nombre</b>
+          <input  [(ngModel)] = "receta.nombreDelPlato" class="input" type="text" id="nombreDelPlato">
+        </div>
+        
         <div class="calorias">
           <b>Total de calorias</b>
           <input *ngIf="edicionActivada()" [(ngModel)]="receta.calorias" class="input" type="number" id="calorias"
