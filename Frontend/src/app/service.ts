@@ -12,51 +12,56 @@ import { REST_SERVER_URL } from './configuration'
 })
 
 export class Service {
-
+    
     recetaActual: Receta
     edicionReceta: boolean
-
+    
     constructor(private http: HttpClient) { }
     static lastId = 0
-
+    
     /* RECETA */
-
+    
     async todasLasRecetas(): Promise<Receta[]> {
         const recetas = await this.http.get<Receta[]>(REST_SERVER_URL + '/recetas').toPromise()
         return recetas.map((receta) => Receta.fromJson(receta))
     }
-
+    
     async getRecetaById(id: number): Promise<Receta> {
         const receta = await this.http.get<Receta>(REST_SERVER_URL + '/receta/' + id).toPromise()
         return Receta.fromJson(receta)
     }
-
+    
     async searchReceta(recetaABuscar: string): Promise<Receta[]> {
         const recetas = await this.http.get<Receta[]>(REST_SERVER_URL + '/recetas/search/' + recetaABuscar).toPromise()
         return recetas.map((receta) => Receta.fromJson(receta))
     }
-
+    
     async actualizarReceta(receta: Receta) {
         await this.http.put(REST_SERVER_URL + '/receta/' + receta.id, receta.toJSON()).toPromise()
     }
-
+    
     async eliminarReceta(receta: Receta): Promise<void> {
         /* this.recetas.splice(this.recetas.indexOf(receta), 1) */
         await this.http.delete(REST_SERVER_URL + '/receta/' + receta.id).toPromise()
     }
-
+    
     lastId(): number {
         Service.lastId = Service.lastId + 1
         return Service.lastId
     }
-
+    
     get getRecetaActual(): Receta {
         return this.recetaActual
     }
-
+    
     actualizarRecetaActual(receta: Receta): void {
         this.recetaActual = receta
     }
+    
+    async crearReceta(receta: Receta) {
+        await this.http.post(REST_SERVER_URL + '/receta/new', receta.toJSON()).toPromise()
+    }
+
 
     /*USUARIO*/
 

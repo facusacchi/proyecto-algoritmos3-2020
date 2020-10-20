@@ -24,15 +24,27 @@ export class RecetaComponent implements OnInit {
   }
 
   async ngOnInit() {
+
     this.edicion = this.service.edicionReceta
     this.usuarioLogueado = this.session.userLogged
     const idReceta = this.route.snapshot.params['id']
-    if (this.service.getRecetaActual != null && this.service.getRecetaActual.id == idReceta) {
-      this.receta = this.service.getRecetaActual
-    } else {
-      this.receta = await this.service.getRecetaById(idReceta)
-      this.setearRecetaActual(this.receta)
-      this.recetaOld = Receta.copyObject(this.receta)
+
+    if (idReceta == "new") {
+      this.receta = new Receta()
+      this.receta.setearAutor(this.usuarioLogueado)
+      this.edicion = true
+      this.service.recetaActual = this.receta
+      this.receta.id = 0
+      this.service.edicionReceta = true
+    }
+    else {
+      if (this.service.getRecetaActual != null && this.service.getRecetaActual.id == idReceta) {
+        this.receta = this.service.getRecetaActual
+      } else {
+        this.receta = await this.service.getRecetaById(idReceta)
+        this.setearRecetaActual(this.receta)
+        this.recetaOld = Receta.copyObject(this.receta)
+      }
     }
   }
 
@@ -56,7 +68,12 @@ export class RecetaComponent implements OnInit {
     try {
       this.errors = []
       this.validarReceta()
-      await this.service.actualizarReceta(this.receta)
+      if (this.receta.id == 0) {
+        await this.service.crearReceta(this.receta) 
+      }
+      else {
+        await this.service.actualizarReceta(this.receta)
+      }
       this.navegarAHome()
     } catch (e) {
       this.errors.push(e.error)
