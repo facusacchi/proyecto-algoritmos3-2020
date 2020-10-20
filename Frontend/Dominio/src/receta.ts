@@ -5,7 +5,7 @@ import * as _ from 'lodash'
 
 export class Receta {
 
-  constructor(public id?: number, public autor?: Usuario, public nombreDelPlato = '', public dificultad: Dificultad = 'FACIL', public calorias: number = 0, public imagen: string = "") { }
+  constructor(public id?: number, public autor?: Usuario, public nombreDelPlato = '', public dificultad: Dificultad = 'FACIL', public calorias: number = 0, public imagen: string = "plato-default.jpg") { }
   public colaboradores: Usuario[] = []
   public ingredientes: Ingrediente[] = []
   public procesoDePreparacion: string[] = []
