@@ -60,23 +60,21 @@ class RecetaController {
 	@PutMapping(value="/receta/{id}")
 	def actualizar(@RequestBody String body, @PathVariable Integer id) {
 		try {
-		if (id === null || id === 0) {
-			return ResponseEntity.badRequest.body('''Debe ingresar el parámetro id''')
-		}
-		val actualizada = mapper.readValue(body, Receta)
-		if (id != actualizada.id) {
-			return ResponseEntity.badRequest.body("Id en URL distinto del id que viene en el body")
-		}
-		actualizada.validar
-		RepoReceta.instance.update(actualizada)
-		ResponseEntity.ok(mapper.writeValueAsString(actualizada))
+			if (id === null || id === 0) {
+				return ResponseEntity.badRequest.body('''Debe ingresar el parámetro id''')
+			}
+			val actualizada = mapper.readValue(body, Receta)
+			if (id != actualizada.id) {
+				return ResponseEntity.badRequest.body("Id en URL distinto del id que viene en el body")
+			}
+			actualizada.validar
+			RepoReceta.instance.update(actualizada)
+			ResponseEntity.ok(mapper.writeValueAsString(actualizada))
 		} catch (BusinessException e) {
-			ResponseEntity.badRequest.body(e.message)
+			ResponseEntity.badRequest.body(mapper.writeValueAsString(e.message))
 		} catch (Exception e) {
 			ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.message)
 		}
-		
-		
 	}
 
 	@DeleteMapping(value="/receta/{id}")
@@ -95,7 +93,7 @@ class RecetaController {
 			ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.message)
 		}
 	}
-	
+
 	@PostMapping("/receta/new")
 	def crearReceta(@RequestBody String body) {
 		try {
@@ -104,7 +102,7 @@ class RecetaController {
 			RepoReceta.instance.create(recetaNueva)
 			ResponseEntity.ok(recetaNueva)
 		} catch (BusinessException e) {
-			ResponseEntity.badRequest.body(e.message)
+			ResponseEntity.badRequest.body(mapper.writeValueAsString(e.message))
 		} catch (Exception e) {
 			ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.message)
 		}
@@ -116,5 +114,5 @@ class RecetaController {
 			configure(SerializationFeature.INDENT_OUTPUT, true)
 		]
 	}
-	
+
 }
