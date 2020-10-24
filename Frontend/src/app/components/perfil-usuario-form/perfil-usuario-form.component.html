@@ -3,7 +3,7 @@
         <section class="main-form__header">
             <div>
                 <h2 class="main-form__header-h2">{{ usuario.nombreYApellido }}</h2>
-                <span class="form__imc">IMC: {{ usuario.indiceMasaCorporal() | number:'1.1-3' }}</span>
+                <span data-testid="imc" class="form__imc">IMC: {{ usuario.indiceMasaCorporal() | number:'1.1-3' }}</span>
             </div>
             <div class="main-form__state">
                 <img src="assets/imagenes/heart.svg" class="image-heart" alt="image" width="40px" height="40px">
