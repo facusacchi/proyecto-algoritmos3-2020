@@ -19,7 +19,24 @@ describe('PerfilUsuarioFormComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  const buscarElemento = (testId: String) => {
+    const compiled = fixture.debugElement.nativeElement
+    return compiled.querySelector(`[data-testid="${testId}"]`)
+  }
+
+    it('should create', () => {
+      expect(component).toBeTruthy();
+    });
+
+  it('el algoritmo que calcula el label del imc es la relacion entre los inputs peso/estatura**2', () => {
+    component.usuario.peso = 75
+    component.usuario.estatura = 1.75
+
+    fixture.detectChanges()
+
+    fixture.whenStable().then(() => {
+      const resultado = buscarElemento('imc')
+      expect(resultado.textContent).toContain('24.49')
+    })
   });
 });

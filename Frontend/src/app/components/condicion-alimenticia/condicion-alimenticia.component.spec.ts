@@ -19,6 +19,15 @@ describe('CondicionAlimenticiaComponent', () => {
     fixture.detectChanges();
   });
 
+  const buscarElemento = (testId: String) => {
+    const compiled = fixture.debugElement.nativeElement
+    return compiled.querySelector(`[data-testid="${testId}"]`)
+  }
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });
