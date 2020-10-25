@@ -3,6 +3,11 @@ import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { REST_SERVER_URL } from './configuration'
 
+export interface ISession {
+    getUser(user: Usuario): Promise<Usuario>
+    actualizeUser(user: Usuario): Promise<void>
+}
+
 @Injectable({
     providedIn: 'root',
 })

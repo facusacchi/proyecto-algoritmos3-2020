@@ -1,11 +1,16 @@
 import { Usuario } from '../../src-dominio/usuario'
 import { Alimento } from '../../src-dominio/alimento'
-import { vegetariano, vegano, hipertenso, celiaco, CondicionAlimenticia, diabetico } from '../../src-dominio/condicionAlimenticia'
 import { Injectable } from '@angular/core'
 import { Receta } from '../../src-dominio/receta'
-import { Ingrediente } from '../../src-dominio/ingrediente'
 import { HttpClient } from '@angular/common/http'
 import { REST_SERVER_URL } from './configuration'
+
+export interface IService {
+    todasLasRecetas(): Promise<Receta[]>
+    getRecetaById(id: number): Promise<Receta>
+    actualizarReceta(receta: Receta): Promise<void>
+    todosLosUsuarios(): Promise<Usuario[]>
+}
 
 @Injectable({
     providedIn: 'root',
