@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Service } from 'app/service';
 import { Session } from 'app/session';
-import { celiaco, diabetico, hipertenso, vegano, vegetariano, CondicionAlimenticia } from '../../../../Dominio/src/condicionAlimenticia';
+import { celiaco, diabetico, hipertenso, vegano, vegetariano, CondicionAlimenticia } from '../../../../src-dominio/condicionAlimenticia';
 
 @Component({
   selector: 'app-condicion-alimenticia',

@@ -1,4 +1,4 @@
-import { Usuario } from '../../Dominio/src/usuario'
+import { Usuario } from '../../src-dominio/usuario'
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { REST_SERVER_URL } from './configuration'

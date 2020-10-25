@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Receta } from '../../../../Dominio/src/receta';
+import { Receta } from '../../../../src-dominio/receta';
 import { Service } from 'app/service';
-import { Usuario } from '../../../../Dominio/src/usuario';
+import { Usuario } from '../../../../src-dominio/usuario';
 
 @Component({
   selector: 'app-card-receta',

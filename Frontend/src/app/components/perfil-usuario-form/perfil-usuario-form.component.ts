@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuario, Rutina } from '../../../../Dominio/src/usuario';
+import { Usuario, Rutina } from '../../../../src-dominio/usuario';
 import { Service } from '../../service';
 import { Router } from '@angular/router';
-import { Receta } from '../../../../Dominio/src/receta';
-import { Alimento } from '../../../../Dominio/src/alimento';
+import { Receta } from '../../../../src-dominio/receta';
+import { Alimento } from '../../../../src-dominio/alimento';
 import { Session } from 'app/session';
 
 @Component({

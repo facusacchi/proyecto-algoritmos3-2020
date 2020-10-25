@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Receta } from '../../Dominio/src/receta';
-import { Usuario } from '../../Dominio/src/usuario';
+import { Receta } from '../../src-dominio/receta';
+import { Usuario } from '../../src-dominio/usuario';
 
 @Pipe({
   name: 'recetaFilter'

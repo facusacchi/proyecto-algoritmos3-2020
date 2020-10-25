@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Receta } from '../../../../Dominio/src/receta';
+import { Receta } from '../../../../src-dominio/receta';
 import { Service } from 'app/service';
-import { Usuario } from '../../../../Dominio/src/usuario';
+import { Usuario } from '../../../../src-dominio/usuario';
 import { Session } from 'app/session';
 
 /* function mostrarError(component, error) {

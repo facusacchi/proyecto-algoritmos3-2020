@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Service } from 'app/service';
 import { Session } from 'app/session';
-import { Ingrediente } from '../../../../Dominio/src/ingrediente';
-import { Receta } from '../../../../Dominio/src/receta';
-import { Usuario } from '../../../../Dominio/src/usuario';
+import { Ingrediente } from '../../../../src-dominio/ingrediente';
+import { Receta } from '../../../../src-dominio/receta';
+import { Usuario } from '../../../../src-dominio/usuario';
 
 @Component({
   selector: 'app-receta',
@@ -18,7 +18,6 @@ export class RecetaComponent implements OnInit {
   errors = []
   receta: Receta
   recetaOld: Receta
-  /* nuevaReceta = false */
 
   constructor(private route: ActivatedRoute, private router: Router, private service: Service, private session: Session) {
   }
@@ -85,9 +84,7 @@ export class RecetaComponent implements OnInit {
   }
 
   cancelarCambios(): void {
-    /* if (!this.nuevaReceta) { */
     this.service.actualizarRecetaActual(this.recetaOld)
-    /*  } */
     this.navegarAHome()
   }
 

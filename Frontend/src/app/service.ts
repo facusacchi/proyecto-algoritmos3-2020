@@ -1,9 +1,9 @@
-import { Usuario } from '../../Dominio/src/usuario'
-import { Alimento } from '../../Dominio/src/alimento'
-import { vegetariano, vegano, hipertenso, celiaco, CondicionAlimenticia, diabetico } from '../../Dominio/src/condicionAlimenticia'
+import { Usuario } from '../../src-dominio/usuario'
+import { Alimento } from '../../src-dominio/alimento'
+import { vegetariano, vegano, hipertenso, celiaco, CondicionAlimenticia, diabetico } from '../../src-dominio/condicionAlimenticia'
 import { Injectable } from '@angular/core'
-import { Receta } from '../../Dominio/src/receta'
-import { Ingrediente } from '../../Dominio/src/ingrediente'
+import { Receta } from '../../src-dominio/receta'
+import { Ingrediente } from '../../src-dominio/ingrediente'
 import { HttpClient } from '@angular/common/http'
 import { REST_SERVER_URL } from './configuration'
 
@@ -17,7 +17,6 @@ export class Service {
     edicionReceta: boolean
     
     constructor(private http: HttpClient) { }
-    static lastId = 0
     
     /* RECETA */
     
@@ -41,13 +40,7 @@ export class Service {
     }
     
     async eliminarReceta(receta: Receta): Promise<void> {
-        /* this.recetas.splice(this.recetas.indexOf(receta), 1) */
         await this.http.delete(REST_SERVER_URL + '/receta/' + receta.id).toPromise()
-    }
-    
-    lastId(): number {
-        Service.lastId = Service.lastId + 1
-        return Service.lastId
     }
     
     get getRecetaActual(): Receta {

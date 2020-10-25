@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Service } from 'app/service';
-import { Receta } from '../../../../Dominio/src/receta';
-import { Usuario } from '../../../../Dominio/src/usuario';
+import { Receta } from '../../../../src-dominio/receta';
+import { Usuario } from '../../../../src-dominio/usuario';
 
 @Component({
   selector: 'app-agregar-colaborador',

@@ -1,8 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { Service } from 'app/service';
-import { Alimento } from '../../../../Dominio/src/alimento';
-import { Usuario } from '../../../../Dominio/src/usuario';
+import { Alimento } from '../../../../src-dominio/alimento';
+import { Usuario } from '../../../../src-dominio/usuario';
 
 @Component({
   selector: 'app-tabla',

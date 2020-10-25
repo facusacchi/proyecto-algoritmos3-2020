@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Service } from 'app/service';
-import { Receta } from '../../../../Dominio/src/receta';
+import { Receta } from '../../../../src-dominio/receta';
 
 @Component({
   selector: 'app-agregar-paso',

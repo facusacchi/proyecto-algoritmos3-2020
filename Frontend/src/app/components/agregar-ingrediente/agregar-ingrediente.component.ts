@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Service } from 'app/service';
-import { Alimento } from '../../../../Dominio/src/alimento';
-import { Ingrediente } from '../../../../Dominio/src/ingrediente';
-import { Receta } from '../../../../Dominio/src/receta';
+import { Alimento } from '../../../../src-dominio/alimento';
+import { Ingrediente } from '../../../../src-dominio/ingrediente';
+import { Receta } from '../../../../src-dominio/receta';
 
 @Component({
   selector: 'app-agregar-ingrediente',
