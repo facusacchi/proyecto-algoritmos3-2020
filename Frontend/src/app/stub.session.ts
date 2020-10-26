@@ -6,9 +6,12 @@ export const nancy = new Usuario(1, "nan", "123", "Nancy Vargas Fernandez", 120,
 
 export class StubSession implements ISession {
 
+    userLogged = nancy
+    
     async actualizeUser(user: Usuario) { }
 
     async getUser(user: Usuario) {
         return nancy
     }
+
 }

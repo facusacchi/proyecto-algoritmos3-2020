@@ -22,18 +22,15 @@ export class AgregarIngredienteComponent implements OnInit {
 
   async ngOnInit() {
     this.alimentos = await this.service.todosLosAlimentos()
-    /* console.log(this.receta) */
   }
 
   seleccionarAlimento(alimento: Alimento) {
     this.alimentoSeleccionado = alimento
-    /* console.log(alimento.nombre) */
   }
 
   agregarIngrediente() {
     let ingredienteNuevo: Ingrediente = new Ingrediente(this.alimentoSeleccionado, this.cantidad)
     this.receta.agregarIngrediente(ingredienteNuevo)
-    /* console.log(this.receta) */
   }
 
   colorSeleccionado(alimento: Alimento) {

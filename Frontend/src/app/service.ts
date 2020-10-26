@@ -10,6 +10,8 @@ export interface IService {
     getRecetaById(id: number): Promise<Receta>
     actualizarReceta(receta: Receta): Promise<void>
     todosLosUsuarios(): Promise<Usuario[]>
+    todosLosAlimentos(): Promise<Alimento[]>
+    getRecetaActual(): Receta
 }
 
 @Injectable({

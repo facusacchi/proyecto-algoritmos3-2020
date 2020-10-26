@@ -11,7 +11,7 @@
                             <tr>
                                 <th>Alimento</th>
                             </tr>
-                            <tr class="{{colorSeleccionado(alimento)}}" *ngFor="let alimento of alimentos"
+                            <tr data-testid="seleccionarAlimento" class="{{colorSeleccionado(alimento)}}" *ngFor="let alimento of alimentos"
                                 (click)="seleccionarAlimento(alimento)">
                                 <td>
                                     <div>{{alimento.nombre}}</div>
@@ -21,11 +21,11 @@
                     </div>
                     <section class="cantidad">
                         <b>Cantidad</b>
-                        <input [(ngModel)]="cantidad" name="cantidad" class="input" type="text" id="cantidad"
+                        <input data-testid="cantidad" [(ngModel)]="cantidad" name="cantidad" class="input" type="text" id="cantidad"
                             placeholder="Una cucharita">
                     </section>
                     <div class="tabla_alimentos_botones">
-                        <button (click)="agregarIngrediente()" [routerLink]="['/receta', receta.id]"
+                        <button data-testid="aceptar" (click)="agregarIngrediente()" [routerLink]="['/receta', receta.id]"
                             [disabled]="!alimentoSeleccionado || !cantidad" class="button">Aceptar</button>
                         <button [routerLink]="['/receta', receta.id]" class="button-cancelar">Cancelar</button>
                     </div>

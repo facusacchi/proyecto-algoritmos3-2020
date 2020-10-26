@@ -3,11 +3,11 @@
     <section class="titulo-contenedor">
       <img class="img-receta" src="{{'../../../assets/imagenes/'+ receta.imagen}}">
       <section class="descripcion">
-        <div class="titulo">{{receta.nombreDelPlato}}</div>
-        <div class="autor">{{receta.autor.nombreYApellido}}</div>
+        <div data-testid="titulo" class="titulo">{{receta.nombreDelPlato}}</div>
+        <div data-testid="autor" class="autor">{{receta.autor.nombreYApellido}}</div>
         <div class="inadecuado">
           <b>Inadecuado para </b>
-          <span *ngFor="let condicion of receta.condicionesInadecuadasReceta()">{{condicion.nombre() + "s "}}</span>
+          <span data-testid="condiciones" *ngFor="let condicion of receta.condicionesInadecuadasReceta()">{{condicion.nombre() + "s "}}</span>
         </div>
       </section>
     </section>
@@ -38,7 +38,7 @@
         <div class="ingredientes">
           <div class="separacion">
             <b>Ingredientes</b>
-            <button *ngIf="edicionActivada()" [routerLink]="['/agregarIngrediente']"
+            <button data-testid="agregarIngrediente" *ngIf="edicionActivada()" [routerLink]="['/agregarIngrediente']"
               class="button button-escritorio">Agregar</button>
             <button *ngIf="edicionActivada()" [routerLink]="['/agregarIngrediente']" class="button-mobile">
               <img class="signo-mas" src="assets/imagenes/plus-circle-solid.svg">

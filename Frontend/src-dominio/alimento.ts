@@ -11,7 +11,6 @@ export class Alimento {
   static fromJson(alimentoJSON): Alimento {
     return Object.assign(new Alimento(), alimentoJSON,
     {condicionesInadecuadas : alimentoJSON.condicionesInadecuadas.map(condicionJSON => mapaCondiciones[condicionJSON.toLowerCase()])})
-
   }
 
   toJSON(): any {
