@@ -2,10 +2,11 @@ import { CommonModule } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { RecetaPipe } from 'app/receta.pipe';
 import { Service } from 'app/service';
 import { Session } from 'app/session';
 import { StubRecetaService } from 'app/stub.service';
-import { StubSession } from 'app/stub.session';
+import { nancy, StubSession } from 'app/stub.session';
 import { AppRoutinModule, routingComponents } from '../app-routing.module';
 import { CardRecetaComponent } from '../card-receta/card-receta.component';
 import { CondicionAlimenticiaComponent } from '../condicion-alimenticia/condicion-alimenticia.component';
@@ -32,6 +33,7 @@ describe('PerfilUsuarioFormComponent', () => {
         SecondaryButtonComponent,
         HeaderComponent,
         FooterComponent,
+        RecetaPipe,
         routingComponents,
        ],
       imports: [
@@ -70,7 +72,7 @@ describe('PerfilUsuarioFormComponent', () => {
    });
 
   it('el algoritmo que calcula el label del imc es la relacion entre los inputs peso/estatura**2', async () => {
-    //component.usuario = 
+    component.usuario = nancy
     component.usuario.peso = 75
     component.usuario.estatura = 1.75
 

@@ -3,9 +3,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { Service } from 'app/service';
+import { Session } from 'app/session';
 import { StubRecetaService } from 'app/stub.service';
 import { StubSession } from 'app/stub.session';
-import { Session } from 'inspector';
 import { AppRoutinModule } from '../app-routing.module';
 
 import { CondicionAlimenticiaComponent } from './condicion-alimenticia.component';
@@ -66,7 +66,8 @@ describe('CondicionAlimenticiaComponent', () => {
     fixture.detectChanges()
     fixture.whenStable().then(() => {
       const resultado = buscarElemento('checkbox')
-      expect(resultado.textContent).toBe(true)
+      //expect(resultado.textContent).toBe(true)
+      expect(component.isActive).toBe(true)
     })
   });
 });
