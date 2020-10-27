@@ -9,7 +9,7 @@
                 <div class="horizontal">
                     <div class="centrado">{{ elemento.nombre }}</div>
                     <div>
-                        <img *ngIf="perfilDeUsuario()" (click)="eliminarAlimento(elemento)" class="img-eliminar"
+                        <img *ngIf="perfilDeUsuario()" (click)="eliminarAlimento(elemento)" data-testid="eliminar" class="img-eliminar"
                             src="assets/imagenes/eliminar.png">
                     </div>
                 </div>

@@ -9,7 +9,7 @@
             <label class="main-form__label" for="contrasenia">Contraseña</label><br>
             <input [(ngModel)]="password" name="contrasenia" type="password" id="Contrasenia" placeholder="Contraseña" class="main-form__input">
         </div>
-        <app-primary-button [nombre]="'Ingresar'" (click)="onLogin()"></app-primary-button>
+        <app-primary-button [nombre]="'Ingresar'" (click)="onLogin()" data-testid="ingresar"></app-primary-button>
         <label *ngIf="mostrarLabelInvalido" class="labelInvalidez">Usuario o contraseña invalida</label>
     </form>
 </div>

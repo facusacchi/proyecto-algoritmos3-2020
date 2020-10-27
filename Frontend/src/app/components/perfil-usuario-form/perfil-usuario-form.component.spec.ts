@@ -87,13 +87,4 @@ describe('PerfilUsuarioFormComponent', () => {
       const resultado = buscarElemento('rutina')
       expect(resultado.textContent).toContain("ACTIVO")
   });
-
-  it('cuando una rutina es seteada en el modelo, esta es agregada al usuario', async () => {
-    const resultado = buscarElemento('rutina')
-    resultado.textContent = "ACTIVO"
-    fixture.detectChanges()
-    await fixture.whenStable()
-      expect(component.usuario.rutina).toContain("ACTIVO")
-  });
-
 });
