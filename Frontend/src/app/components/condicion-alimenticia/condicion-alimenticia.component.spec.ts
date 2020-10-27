@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Service } from 'app/service';
 import { Session } from 'app/session';
 import { StubRecetaService } from 'app/stub.service';
-import { StubSession } from 'app/stub.session';
+import { nancy, StubSession } from 'app/stub.session';
 import { AppRoutinModule } from '../app-routing.module';
 
 import { CondicionAlimenticiaComponent } from './condicion-alimenticia.component';
@@ -65,7 +65,14 @@ describe('CondicionAlimenticiaComponent', () => {
     checkboxCondicion.click()
     fixture.detectChanges()
     await fixture.whenStable()
-      const resultado = buscarElemento('checkbox')
       expect(component.isActive).toBe(true)
+  });
+
+  it('cuando una condicion es checkeada, esta se agrega al usuario loggeado', async () => {
+    const checkboxCondicion = buscarElemento("checkbox")
+    checkboxCondicion.click()
+    fixture.detectChanges()
+    await fixture.whenStable()
+      expect(nancy.condicionesAlimenticias.includes(component.getCondicion())).toBe(true)
   });
 });

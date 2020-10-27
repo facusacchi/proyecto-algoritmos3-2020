@@ -30,3 +30,4 @@
 [1027/003257.737:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\user\AppData\Local\Temp\karma-88294921\Crashpad\attachments\fa8ed37f-924a-4dfc-b8ac-97951f03d1bb: El sistema no puede encontrar la ruta especificada. (0x3)
 [1027/003652.873:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\user\AppData\Local\Temp\karma-66801102\Crashpad\attachments\34f0efe2-4be6-43da-810b-78781bd83ec6: El sistema no puede encontrar la ruta especificada. (0x3)
 [1027/004122.268:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\user\AppData\Local\Temp\karma-36054473\Crashpad\attachments\08d2002c-ab27-4228-904f-7f16e1a3ab8e: El sistema no puede encontrar la ruta especificada. (0x3)
+[1027/164027.279:ERROR:directory_reader_win.cc(43)] FindFirstFile: El sistema no puede encontrar la ruta especificada. (0x3)
