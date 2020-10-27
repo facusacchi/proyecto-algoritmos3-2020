@@ -31,4 +31,8 @@ mostrarLabelInvalido: boolean = false
   navegarHaciaPerfilDeUsuario(): void {
     this.router.navigate(['/perfilDeUsuario'])
   }
+
+  get getSession() {
+    return this.session
+  }
 }

@@ -68,6 +68,6 @@ describe('LoginFormComponent', () => {
       ingresar.click()
     fixture.detectChanges()
     await fixture.whenStable()
-      expect().toContain();
+      expect(component.getSession.userLogged.userName).toContain("pepito");
   }); */
 });
