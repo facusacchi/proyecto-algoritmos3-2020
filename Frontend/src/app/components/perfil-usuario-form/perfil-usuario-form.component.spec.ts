@@ -2,7 +2,9 @@ import { CommonModule } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { Service } from 'app/service';
 import { Session } from 'app/session';
+import { StubRecetaService } from 'app/stub.service';
 import { StubSession } from 'app/stub.session';
 import { AppRoutinModule, routingComponents } from '../app-routing.module';
 import { CardRecetaComponent } from '../card-receta/card-receta.component';
@@ -44,7 +46,8 @@ describe('PerfilUsuarioFormComponent', () => {
     TestBed.overrideComponent(PerfilUsuarioFormComponent, {
       set: {
         providers: [
-          { provide: Session, useClass: StubSession }
+          { provide: Session, useClass: StubSession },
+          { provide: Service, useClass: StubRecetaService }
         ]
       }
     })

@@ -20,3 +20,5 @@
 [1025/112819.798:ERROR:process_reader_win.cc(151)] SuspendThread: Acceso denegado. (0x5)
 [1025/194635.378:ERROR:directory_reader_win.cc(43)] FindFirstFile: El sistema no puede encontrar la ruta especificada. (0x3)
 [1025/194725.794:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\user\AppData\Local\Temp\karma-35637837\Crashpad\attachments\24483b49-8727-4673-a303-5ee291dffb99: El sistema no puede encontrar la ruta especificada. (0x3)
+[1027/001255.240:ERROR:directory_reader_win.cc(43)] FindFirstFile: El sistema no puede encontrar la ruta especificada. (0x3)
+[1027/001323.863:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\user\AppData\Local\Temp\karma-7635797\Crashpad\attachments\0e492519-d89a-447b-9514-055b78d8f557: El sistema no puede encontrar la ruta especificada. (0x3)
