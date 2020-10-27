@@ -1,4 +1,17 @@
+import { CommonModule } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { Session } from 'app/session';
+import { StubSession } from 'app/stub.session';
+import { AppRoutinModule, routingComponents } from '../app-routing.module';
+import { CardRecetaComponent } from '../card-receta/card-receta.component';
+import { CondicionAlimenticiaComponent } from '../condicion-alimenticia/condicion-alimenticia.component';
+import { FooterComponent } from '../footer/footer.component';
+import { HeaderComponent } from '../header/header.component';
+import { PrimaryButtonComponent } from '../primary-button/primary-button.component';
+import { SecondaryButtonComponent } from '../secondary-button/secondary-button.component';
+import { TablaComponent } from '../tabla/tabla.component';
 
 import { PerfilUsuarioFormComponent } from './perfil-usuario-form.component';
 
@@ -8,15 +21,40 @@ describe('PerfilUsuarioFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PerfilUsuarioFormComponent ]
+      declarations: [
+        PerfilUsuarioFormComponent,
+        CondicionAlimenticiaComponent,
+        TablaComponent,
+        CardRecetaComponent,
+        PrimaryButtonComponent,
+        SecondaryButtonComponent,
+        HeaderComponent,
+        FooterComponent,
+        routingComponents,
+       ],
+      imports: [
+        BrowserModule,
+        FormsModule,
+        AppRoutinModule,
+        CommonModule,
+      ],
     })
     .compileComponents();
-  });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PerfilUsuarioFormComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    TestBed.overrideComponent(PerfilUsuarioFormComponent, {
+      set: {
+        providers: [
+          { provide: Session, useClass: StubSession }
+        ]
+      }
+    })
+
+    fixture = TestBed.createComponent(PerfilUsuarioFormComponent)
+    fixture.detectChanges()
+    await fixture.whenStable()
+    fixture.detectChanges()
+    component = fixture.componentInstance
+
   });
 
   const buscarElemento = (testId: String) => {
@@ -24,11 +62,12 @@ describe('PerfilUsuarioFormComponent', () => {
     return compiled.querySelector(`[data-testid="${testId}"]`)
   }
 
-    it('should create', () => {
-      expect(component).toBeTruthy();
-    });
+   it('should create', () => {
+    expect(component).toBeTruthy();
+   });
 
-  it('el algoritmo que calcula el label del imc es la relacion entre los inputs peso/estatura**2', () => {
+  it('el algoritmo que calcula el label del imc es la relacion entre los inputs peso/estatura**2', async () => {
+    //component.usuario = 
     component.usuario.peso = 75
     component.usuario.estatura = 1.75
 
