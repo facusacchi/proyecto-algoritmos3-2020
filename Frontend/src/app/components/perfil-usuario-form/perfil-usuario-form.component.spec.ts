@@ -72,15 +72,14 @@ describe('PerfilUsuarioFormComponent', () => {
    });
 
   it('el algoritmo que calcula el label del imc es la relacion entre los inputs peso/estatura**2', async () => {
-    component.usuario = nancy
     component.usuario.peso = 75
     component.usuario.estatura = 1.75
 
     fixture.detectChanges()
 
-    fixture.whenStable().then(() => {
-      const resultado = buscarElemento('imc')
-      expect(resultado.textContent).toContain('24.49')
-    })
+    await fixture.whenStable()
+    const resultado = buscarElemento('imc')
+    expect(resultado.textContent).toContain('24.49')
+    
   });
 });

@@ -60,14 +60,12 @@ describe('CondicionAlimenticiaComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('cuando una condicion es checkeada, isActive se pone en true', () => {
+  it('cuando una condicion es checkeada, isActive se pone en true', async () => {
     const checkboxCondicion = buscarElemento("checkbox")
     checkboxCondicion.click()
     fixture.detectChanges()
-    fixture.whenStable().then(() => {
+    await fixture.whenStable()
       const resultado = buscarElemento('checkbox')
-      //expect(resultado.textContent).toBe(true)
       expect(component.isActive).toBe(true)
-    })
   });
 });
