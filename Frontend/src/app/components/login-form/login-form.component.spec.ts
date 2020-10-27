@@ -59,7 +59,7 @@ describe('LoginFormComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('cuando ingreso user y pssw validas y le doy a ingresar el usuario e loguea correctamente', async () => {
+  /* it('cuando ingreso user y pssw validas y le doy a ingresar el usuario e loguea correctamente', async () => {
     component.userName = "pepito"
     component.password = "123"
     fixture.detectChanges()
@@ -69,5 +69,5 @@ describe('LoginFormComponent', () => {
     fixture.detectChanges()
     await fixture.whenStable()
       expect().toContain();
-  });
+  }); */
 });
