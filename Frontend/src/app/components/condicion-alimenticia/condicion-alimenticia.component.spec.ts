@@ -65,15 +65,16 @@ describe('CondicionAlimenticiaComponent', () => {
     checkboxCondicion.click()
     fixture.detectChanges()
     await fixture.whenStable()
-      expect(component.isActive).toBe(true)
+    expect(component.isActive).toBe(true)
   });
 
-  /* it('cuando una condicion es checkeada, esta se agrega al usuario loggeado', async () => {
+   it('cuando una condicion es checkeada, esta se agrega al usuario loggeado', async () => {
+    component.descripcion = "Vegano"
     const checkboxCondicion = buscarElemento("checkbox")
     checkboxCondicion.click()
     fixture.detectChanges()
     await fixture.whenStable()
     console.log(component.getCondicion())
-      expect(nancy.condicionesAlimenticias.includes(component.getCondicion())).toBe(true)
-  }); */
+    expect(nancy.condicionesAlimenticias.includes(component.getCondicion())).toBe(true)
+  }); 
 });
