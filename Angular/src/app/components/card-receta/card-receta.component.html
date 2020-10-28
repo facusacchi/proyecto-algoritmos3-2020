@@ -1,0 +1,20 @@
+<div *ngIf="!eliminada" [ngClass]="{'card_grid_item': true, 'edicion_eliminar': usuarioConPermisos(usuario)}">
+    <div class="info_receta_container">
+        <img src="{{'../../../assets/imagenes/'+ receta.imagen}}">
+        <div class="info_receta_descripcion">
+            <div class="info_receta_titulo" [routerLink]="['/receta', receta.id]" (click)="desactivarEdicion()">
+                {{receta.nombreDelPlato}}</div>
+            <div class="info_receta_descripcion_extra">
+                <div class="info_receta_descripcion_texto">Calorías: {{receta.calorias}}<br>Dificultad:
+                    {{receta.dificultad}}
+                </div>
+                <div class="info_receta_descripcion_iconos">
+                    <img *ngIf="usuarioConPermisos(usuario)" [routerLink]="['/receta', receta.id]"
+                        (click)="activarEdicion()" src="assets/imagenes/edit-regular.svg" alt="Editar">
+                    <img *ngIf="usuarioEsAutor(usuario)" (click)="eliminarReceta(receta)"
+                        src="assets/imagenes/trash-alt-solid.svg" alt="Eliminar">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

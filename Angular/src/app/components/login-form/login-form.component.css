@@ -1,0 +1,62 @@
+
+.body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    font-family: var(--fuente-default);
+    line-height: 1.5;
+    background-color: var(--color-cuaternario);
+    box-sizing: border-box;
+    margin: 0;
+    
+}
+
+.main-form {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: var(--borde-default);
+    border-radius: 10px;
+    width: auto;
+    max-height: 40%;
+    align-self: center;
+    padding: 2rem;
+    font-size: 1.6em;
+}
+
+.main-form__titulo {
+    color: var(--color-secundario);
+    font-family: 'Lobster', cursive;
+    -webkit-text-stroke: 0.5px black; /* esto hace el texto con bordes */
+    grid-area: titulo;
+    align-self: center;
+    font-size: 4rem;
+    height: 15%;
+}
+
+.button-ingresar {
+    margin-top: 1em;
+}
+
+.main-form__label {
+    font-family: var(--tipografia);
+}
+
+.main-form__input {
+    border: 2px solid var(--color-terciario);
+    font-family: var(--fuente-default);
+    width: -moz-available;
+    margin-bottom: 1em;
+}
+
+.main-footer { 
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+}
+
+.labelInvalidez {
+    color: red;
+    font-size: 0.7em;
+}

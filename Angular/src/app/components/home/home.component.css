@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.page {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.contenido {
+    flex-grow: 1;
+}
+
+@media (min-width: 769px) {
+    .card_grid_titulo,
+    .card_grid,
+    .card_grid_agregar {
+        width: var(--ancho-default);
+    }
+    .card_grid,
+    .card_grid_agregar {
+        min-width: 600px;
+    }
+    .card_grid_item {
+        width: 26rem;
+    }
+    .card_grid_agregar {
+        margin: 2rem 0;
+    }
+}
+
+@media all and (max-width: 768px) and (min-width: 401px) {
+    .card_grid_agregar {
+        width: var(--ancho-mayor);
+    }
+    .card_grid_titulo,
+    .card_grid {
+        width: var(--ancho-medio);
+    }
+    .card_grid {
+        justify-content: space-between;
+    }
+    .card_grid_item {
+        width: 26rem;
+    }
+    .card_grid_agregar {
+        margin: 2rem 0;
+    }
+}
+
+@media all and (max-width: 400px) {
+    .card_grid_titulo,
+    .card_grid,
+    .card_grid_agregar {
+        width: var(--ancho-mayor);
+    }
+    body {
+        overflow: hidden;
+    }
+/*  .header-container,
+    .main-footer {
+        flex: 0 0 auto;
+    } */
+    .contenido {
+        flex: 1 1 auto;
+        position: relative;
+        overflow-y: auto;
+    }
+    .card_grid {
+        flex-direction: column;
+        align-content: space-around;
+    }
+    .info_receta_descripcion_extra {
+        width: 60vw;
+    }
+    .card_grid_agregar {
+        position: fixed;
+        bottom: 4.5rem;
+    }
+}
+
+.card_grid_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card_grid_titulo {
+    margin: 4rem 0 0 3rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.card_grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card_grid_agregar_container {
+    display: flex;
+    justify-content: center;
+}
+
+.card_grid_agregar {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.card_grid_agregar_icono>img {
+    width: 3.5rem;
+    height: 3.5rem;
+    cursor: pointer;
+}
+
+.card_grid_agregar_icono:hover {
+    filter: brightness(75%);
+}

@@ -1,0 +1,72 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root {
+  --color-primario: #596475;
+  --color-secundario: #9d8189;
+  --color-terciario: #e3bac6;
+  --color-cuaternario: #fde8e9;
+  --color-botones: #1f2232;
+  --color-botonprofe: #f79256;
+  --tipografia: "Lato", sans-serif;
+  --boton-cancelar: #aa4465;
+  --ancho-default: 66vw;
+  --ancho-mayor: 90vw;
+  --ancho-medio: 85vw;
+  --ancho-menor: 50vw;
+  --ancho-medio-agregar: 80vw;
+  --border-menor: 0.1rem solid var(--color-secundario);
+  --border-default: 0.2rem solid var(--color-secundario);
+}
+
+html {
+  font-family: var(--tipografia);
+  font-size: 10px;
+  background-color: var(--color-cuaternario);
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+}
+
+.button-cancelar {
+  background-color: var(--boton-cancelar) ;
+  color: white;
+  border: 0.1rem solid #5f0f40;
+  border-radius: 0.6rem;
+  width: 7.2rem;
+  height: 3rem;
+  font-size: 1.2rem;
+  margin-left: 1.5rem;
+  cursor: pointer;
+}
+
+.button-cancelar:hover {
+  filter: brightness(75%);
+}
+
+.button {
+  background-color: var(--color-botonprofe);
+  color: white;
+  border: 0.1rem solid #e2711d;
+  border-radius: 0.6rem;
+  width: 7.2rem;
+  height: 3rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.button:hover {
+  filter: brightness(75%);
+}
+
+.container-error {
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border: 0.1rem solid #ebccd1;
+  border-radius: 0.4rem;
+  color: #a94442;
+  background-color: #f2dede;
+  font-size: 1.6rem;
+}
