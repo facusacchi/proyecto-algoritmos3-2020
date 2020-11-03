@@ -10,6 +10,8 @@
   --boton-cancelar: #aa4465;
   --ancho-default: 66vw;
   --ancho-mayor: 90vw;
+  --tipografia :'Lobster', cursive;
+  
 }
 
 html {
