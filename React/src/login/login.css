@@ -1,0 +1,19 @@
+.cardLogin {
+    width: 35rem;
+    
+
+}
+
+.centrado {
+   height: 90%;
+   display: flex; 
+   justify-content: center;
+   align-items: center;
+}
+
+.titulo {
+    text-align: center;
+    font-size: 4em;
+    font-weight: bold;
+
+}
