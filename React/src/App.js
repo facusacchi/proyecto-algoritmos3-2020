@@ -8,7 +8,7 @@ import { Header } from './header/header'
 import { MenuHeader } from './menu-header/MenuHeader'
 
 const App = () => (
-    <div className="App">   
+    <div className="App">
       <Header/>
       <MenuHeader/>
       <LoginComponent/> 
