@@ -25,7 +25,7 @@ export class LoginComponent extends Component {
             </span>
             <Password value={this.state.value} onChange={(e) => this.setState({ value: e.target.value })} /> <br />
           </div>
-          <Button label="Save" />
+          <Button label="Ingresar" />
         </Card>
       </div>
     );
