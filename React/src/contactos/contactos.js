@@ -14,6 +14,6 @@ export class ContactosComponent extends Component {
         );
     }
 
-}
+} 
 
 export default ContactosComponent
