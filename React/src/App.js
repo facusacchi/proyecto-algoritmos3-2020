@@ -6,6 +6,7 @@ import 'primeicons/primeicons.css';
 import { FooterComponent } from './footer/footer';
 import { Header } from './header/header'
 import { MenuHeader } from './menu-header/MenuHeader'
+import 'primeflex/primeflex.css';
 
 const App = () => (
     <div className="App">
