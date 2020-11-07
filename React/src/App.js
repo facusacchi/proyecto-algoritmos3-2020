@@ -6,13 +6,15 @@ import 'primeicons/primeicons.css';
 import { FooterComponent } from './footer/footer';
 import { Header } from './header/header'
 import { MenuHeader } from './menu-header/menu-header'
+import { MensajesRoutes } from './route.js'
 import 'primeflex/primeflex.css';
 
 const App = () => (
     <div className="App">
       <Header/>
       <MenuHeader/>
-      <LoginComponent/> 
+      <MensajesRoutes />
+     
       <FooterComponent/>
     </div>
   )

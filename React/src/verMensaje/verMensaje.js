@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export class verMensajeComponent extends Component {
+export class VerMensajeComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -15,3 +15,5 @@ export class verMensajeComponent extends Component {
     }
 
 }
+
+export default VerMensajeComponent

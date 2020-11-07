@@ -15,3 +15,5 @@ export class InboxComponent extends Component {
     }
 
 }
+
+export default InboxComponent
