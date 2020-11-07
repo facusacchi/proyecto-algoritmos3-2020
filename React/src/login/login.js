@@ -20,12 +20,14 @@ export class LoginComponent extends Component {
           <div className="titulo">TeleFood</div>
           <div className="p-fluid">
             <span className="p-float-label">
-              <InputText id="in" value={this.state.value} onChange={(e) => this.setState({ value: e.target.value })} />
+              <InputText id="in" value={this.state.username} onChange={(e) => this.setState({ username: e.target.value })} />
               <label htmlhtmlFor="in">Username</label>
             </span>
-            <Password value={this.state.value} onChange={(e) => this.setState({ value: e.target.value })} /> <br />
+            <Password value={this.state.password} onChange={(e) => this.setState({ password: e.target.value })} /> <br />
           </div>
-          <Button label="Ingresar" />
+          <div className="p-p-4">
+            <Button className="p-button p-component p-d-block p-mx-auto" label="Ingresar" />
+          </div>
         </Card>
       </div>
     );
