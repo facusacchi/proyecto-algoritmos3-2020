@@ -1,14 +1,14 @@
 import React from 'react'
-import { Panel } from 'primereact/panel'
+import './header.css'
 
 export const Header = () => {
     return (
-        <div className="Header">
-            <Panel header="TeleFood/Inbox"></Panel>
-        </div>
+        <header className="header-container">
+            <div className="header">
+                <div>
+                    TeleFood/Inbox
+                </div>
+            </div>
+        </header>
 )}
-
-
-
-
     
