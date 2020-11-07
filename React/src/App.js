@@ -5,7 +5,7 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import { FooterComponent } from './footer/footer';
 import { Header } from './header/header'
-import { MenuHeader } from './menu-header/MenuHeader'
+import { MenuHeader } from './menu-header/menu-header'
 import 'primeflex/primeflex.css';
 
 const App = () => (

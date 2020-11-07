@@ -1,5 +1,6 @@
 import React from 'react'
 import { Menu } from 'primereact/menu'
+import './menu-header.css'
 
 const items = [
     {label: 'Pepe Palala', icon: 'pi pi-fw pi-user'},
@@ -9,7 +10,7 @@ const items = [
 ]
 
 export const MenuHeader = () => (
-    <div className="MenuHeader">
+    <div className="menu-header">
         <Menu model={items}/>
     </div>
 )
