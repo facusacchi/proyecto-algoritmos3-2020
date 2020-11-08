@@ -50,7 +50,7 @@ export class InboxComponent extends Component {
 
   eliminarTemplate = (mensaje) => {
     return (
-          <i onClick={eliminarMensaje} className="pi pi-trash border"></i>
+          <i onClick={this.eliminarMensaje} className="pi pi-trash border"></i>
     )
   }
 
