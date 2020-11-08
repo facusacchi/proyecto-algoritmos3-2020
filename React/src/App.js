@@ -9,12 +9,14 @@ import { MenuHeader } from './menu-header/menu-header'
 import { MensajesRoutes } from './route.js'
 import 'primeflex/primeflex.css';
 
+import {ContactosComponent} from './contactos/contactos'
+
 const App = () => (
     <div className="App">
       <Header/>
       <MenuHeader/>
       <MensajesRoutes />
-     
+      <ContactosComponent/>
       <FooterComponent/>
     </div>
   )
