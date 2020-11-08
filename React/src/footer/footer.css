@@ -1,9 +1,12 @@
 .main-footer {
-    background-color: #868584;
-    color: white;
-    display: flex;
-    justify-content: center;
-  }
+  background-color: #868584;
+  color: white;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
   
   .footer {
     padding: 1rem;
