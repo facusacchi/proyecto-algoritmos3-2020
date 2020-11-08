@@ -1,5 +1,6 @@
 import React from 'react'
 import './header.css'
+import { Button } from 'primereact/button'
 
 export const Header = () => {
     return (
@@ -7,6 +8,9 @@ export const Header = () => {
             <div className="header">
                 <div>
                     TeleFood/Inbox
+                </div>
+                <div>
+                    <Button icon="pi pi-bars"/>
                 </div>
             </div>
         </header>
