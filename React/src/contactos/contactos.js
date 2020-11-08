@@ -20,17 +20,19 @@ export class ContactosComponent extends Component {
 
     render() {
         return (
-            <div className="container-table">
+            <div className="container">
                 <div className="span-busqueda">
                     <span>Resultado de la busqueda</span>
                 </div>
-                <div className="table">
-                    <DataTable value={this.state.personas}>
-                        <Column field="nombre" header="Personas"></Column>
-                    </DataTable>
-                </div>
-                <div className="container-button">
-                    <Button label="Cancelar" />
+                <div className="table-and-button">
+                    <div className="table">
+                        <DataTable value={this.state.personas}>
+                            <Column field="nombre" header="Personas"></Column>
+                        </DataTable>
+                    </div>
+                    <div className="container-button">
+                        <Button label="Cancelar" />
+                    </div>
                 </div>
             </div>
         );
