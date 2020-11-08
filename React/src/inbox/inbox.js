@@ -10,7 +10,8 @@ export class InboxComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      mensajes:[]
+      mensajes:[],
+      valorBusqueda: ""
     };
   }
 
@@ -37,10 +38,10 @@ export class InboxComponent extends Component {
     )
   }
 
-  leerTemplate = ({leido}) => {
+  leerTemplate = (mensaje) => {
     return (
-      leido ?
-          <i className="pi pi-eye-slash border"></i> :
+      mensaje.leido ?
+          <i onClick={() => this.setearLeido(mensaje)} className="pi pi-eye-slash border"></i> :
         //<span title="No leído" data-testid={'noLeido' + id} className="p-badge p-badge-warning icon-badge" style={{ display: 'flex', alignItems: 'center', alignContent: 'center', justifyContent: 'center' }}>
           <i className="pi pi-eye border"></i>
         //</span>
@@ -49,16 +50,37 @@ export class InboxComponent extends Component {
 
   eliminarTemplate = (mensaje) => {
     return (
-          <i className="pi pi-trash border"></i>
+          <i onClick={eliminarMensaje} className="pi pi-trash border"></i>
     )
+  }
+
+  buscar = () => {
+    const mensajesFiltrados=this.state.mensajes.filter(mensaje => mensaje.emisor.includes(this.state.valorBusqueda))
+    this.setState ( { mensajes : mensajesFiltrados })
+  }
+
+  setearLeido = (mensaje) => {
+    mensaje.leido = !mensaje.leido 
+    this.setState ( {})
+
+  }
+
+  eliminarMensaje = (mensaje) => {
+//     const index = this.state.mensajes.indexOf();
+// if (index > -1) {
+//   array.splice(index, 1);
+// }
+//     this.state.mensajes.
+//     this.setState ( { })
+
   }
  
   render() {
     return (
       <div className = "separacion">
         <h1>Búsqueda de Mensajes</h1>
-        <InputText className = "ancho"  value={this.state.value} onChange={(e) => this.setState({value: e.target.value})} />
-        <Button icon="pi pi-search iconoBusqueda" iconPos="right" />
+        <InputText className = "ancho"  value={this.state.valorBusqueda} onChange={(e) => this.setState({valorBusqueda: e.target.value})} />
+        <Button onClick={this.buscar} icon="pi pi-search iconoBusqueda" iconPos="right" />
         <h2>Resultados de la búsqueda</h2>
         <DataTable value={this.state.mensajes}>
                 <Column body={this.leidoTemplate} ></Column>
