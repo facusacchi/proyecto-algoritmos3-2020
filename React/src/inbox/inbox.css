@@ -1,11 +1,15 @@
 .separacion {
-    padding: 2rem;
+  padding: 2rem;
 }
 
 .ancho {
-    width: 24rem;
+  width: 24rem;
 }
 
 .iconoBusqueda {
-    font-size: small;
+  font-size: small;
+}
+
+.border {
+  font-weight: bolder;
 }
