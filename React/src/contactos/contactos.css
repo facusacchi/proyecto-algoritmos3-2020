@@ -1,0 +1,48 @@
+.p-datatable .p-datatable-thead > tr > th {
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    border-color: var(--color-terciario);
+    background-color: var(--color-secundario);
+}
+
+.p-datatable .p-datatable-tbody > tr > td {
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    border-color: var(--color-terciario);
+}
+
+.p-datatable {
+    width: 70%;
+}
+
+.table {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 85%;
+    position: relative;
+    left: 10%;
+}
+
+.container-button {
+    display: flex;
+    justify-content: end;
+}
+
+.span-busqueda {
+    display: flex;
+    font-size: 1.5em;
+    font-family: 'Segoe UI Regular WestEuropean', 'Segoe UI';
+    position: relative;
+    left: 15%;
+    font-weight: bold;
+}
+
+.table-and-button {
+    /* background-color: white; */
+}

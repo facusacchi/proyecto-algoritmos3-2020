@@ -10,7 +10,7 @@ export const Header = () => {
                     TeleFood/Inbox
                 </div>
                 <div>
-                    <Button icon="pi pi-bars"/>
+                    <Button icon="pi pi-list"/>
                 </div>
             </div>
         </header>
