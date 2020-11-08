@@ -1,17 +1,24 @@
 .header-container {
-    font-family: Lobster;
-    font-size: 2em;
-    color: white;
-    background-color: var(--color-primario);
-    padding: 0.3rem 0;
-    display: flex;
-    justify-content: center;
-    height: 3em;
-  }
+  font-family: Lobster;
+  font-size: 2em;
+  color: white;
+  background-color: var(--color-primario);
+  padding: 0.3rem 0;
+  display: flex;
+  justify-content: center;
+  height: 3em;
+}
   
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+  
+.p-button.p-button-icon-only {
+  width: 5em;
+  position: relative;
+  right: 1em;
+}
+
