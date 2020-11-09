@@ -1,21 +1,11 @@
-.p-datatable .p-datatable-thead > tr > th {
-    color: white;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    border-color: var(--color-terciario);
-    background-color: var(--color-secundario);
-}
 
-.p-datatable .p-datatable-tbody > tr > td {
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
+.data-table {
     border-color: var(--color-terciario);
 }
 
-.p-datatable {
-    width: 90%;
+.column {
+    display: flex;
+    justify-content: center;
 }
 
 .table {
@@ -49,13 +39,12 @@
 }
 
 .table-and-button {
-    background-color: white;
     border-radius: 2em;
 }
 
 .p-menu {
     position: absolute;
-    z-index: 1;
+    z-index: 0;
 }
 
 .inputtext-contactos {
@@ -77,4 +66,8 @@
 
 .search-and-button {
     margin-bottom: 1.2em;
+}
+
+.button {
+    height: 2.6em;
 }
