@@ -69,6 +69,7 @@
 }
 
 .header-search {
+    font-family: 'Segoe UI Regular WestEuropean', 'Segoe UI';
     width: 80%;
     position: relative;
     left: 5%;    
