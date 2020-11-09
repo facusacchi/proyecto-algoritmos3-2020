@@ -1,13 +1,17 @@
 import React from 'react'
 import './header.css'
 import { Button } from 'primereact/button'
+import { withRouter } from 'react-router-dom'
 
-export const Header = ({page}) => {
+export const Header = (props) => {
+    const { location } = props
+    console.log('location', location)
+    
     return (
         <header className="header-container">
             <div className="header">
                 <div>
-                    TeleFood/{page}
+                    TeleFood/
                 </div>
                 <div>
                     <Button icon="pi pi-list"/>
@@ -15,4 +19,5 @@ export const Header = ({page}) => {
             </div>
         </header>
 )}
-    
+
+export default withRouter(Header)

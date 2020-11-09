@@ -2,7 +2,6 @@ import React from 'react'
 import { Menu } from 'primereact/menu'
 import './menu-header.css'
 
-
 export const MenuHeader = ({usuario}) => {
     
     const items = [

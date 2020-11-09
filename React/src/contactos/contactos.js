@@ -32,7 +32,7 @@ export class ContactosComponent extends Component {
                     <h1 className="header-search">Búsqueda de Contactos</h1>
                     <div className="input-and-button">
                         <InputText  className="inputtext-contactos" value={this.state.valorBusqueda} onChange={(e) => this.setState({valorBusqueda: e.target.value})} />
-                        <Button onClick={this.buscar} icon="pi pi-search iconoBusqueda" iconPos="right" />
+                        <Button className="button" onClick={this.buscar} icon="pi pi-search iconoBusqueda" iconPos="right" />
                     </div>
                 </div>
 
@@ -41,8 +41,8 @@ export class ContactosComponent extends Component {
                 </div>
                 <div className="table-and-button">
                     <div className="table">
-                        <DataTable value={this.state.personas}>
-                            <Column field="nombre" header="Personas"></Column>
+                        <DataTable className="data-table" value={this.state.personas}>
+                            <Column className="column" field="nombre" header="Personas"></Column>
                         </DataTable>
                     </div>
                     <div className="container-button">
