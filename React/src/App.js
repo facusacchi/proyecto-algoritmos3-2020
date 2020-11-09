@@ -10,13 +10,13 @@ import { MensajesRoutes } from './route.js'
 import 'primeflex/primeflex.css';
 
 const App = () => (
-    <div className="App">
-      <Header page="zzzzzzz"/>
-      <MenuHeader usuario="Pepe Palala"/>
-      <MensajesRoutes />
-      <FooterComponent/>
-    </div>
-  )
+  <div className="App">
+    <Header page="zzzzzzz" />
+    {/* <MenuHeader usuario="Pepe Palala" /> */}
+    <MensajesRoutes />
+    <FooterComponent />
+  </div>
+);
   
   export default App;
   

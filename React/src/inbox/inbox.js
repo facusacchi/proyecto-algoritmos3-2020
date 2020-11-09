@@ -5,13 +5,13 @@ import { Button } from 'primereact/button';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import Mensaje from "../dominio/mensaje";
+import { BusquedaComponent } from "../busqueda/busqueda";
 
 export class InboxComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
       mensajes:[],
-      valorBusqueda: ""
     };
   }
 
@@ -54,8 +54,8 @@ export class InboxComponent extends Component {
     )
   }
 
-  buscar = () => {
-    const mensajesFiltrados=this.state.mensajes.filter(mensaje => mensaje.emisor.includes(this.state.valorBusqueda))
+  buscar = (valorBusqueda) => {
+    const mensajesFiltrados=this.state.mensajes.filter(mensaje => mensaje.emisor.includes(valorBusqueda))
     this.setState ( { mensajes : mensajesFiltrados })
   }
 
@@ -78,9 +78,7 @@ export class InboxComponent extends Component {
   render() {
     return (
       <div className = "separacion">
-        <h1>Búsqueda de Mensajes</h1>
-        <InputText className = "ancho"  value={this.state.valorBusqueda} onChange={(e) => this.setState({valorBusqueda: e.target.value})} />
-        <Button onClick={this.buscar} icon="pi pi-search iconoBusqueda" iconPos="right" />
+        <BusquedaComponent buscar={this.buscar}/>
         <h2>Resultados de la búsqueda</h2>
         <DataTable value={this.state.mensajes}>
                 <Column body={this.leidoTemplate} ></Column>
