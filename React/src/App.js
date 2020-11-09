@@ -16,5 +16,5 @@ const App = () => (
       <FooterComponent/>
     </div>
   )
-  
+
   export default App
