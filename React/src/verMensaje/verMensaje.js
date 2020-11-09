@@ -30,7 +30,7 @@ export class VerMensajeComponent extends Component {
                     </div>
                     <InputTextarea className="textarea-mensaje" value={this.state.value} onChange={(e) => this.setState({ value: e.target.value })} disabled />
                     <div className="boton-container">
-                        <Button label="Volver" className="p-button-secondary" onClick={this.handleClick} />
+                        <Button label="Volver" className="p-button-secondary boton-secundario" onClick={this.handleClick} />
                     </div>
                 </div>
             </div>

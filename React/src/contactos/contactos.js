@@ -46,7 +46,7 @@ export class ContactosComponent extends Component {
                         </DataTable>
                     </div>
                     <div className="container-button">
-                        <Button label="Cancelar" />
+                        <Button label="Cancelar" className="p-button-secondary"/>
                     </div>
                 </div>
             </div>
