@@ -7,7 +7,7 @@ export const Header = () => {
         <header className="header-container">
             <div className="header">
                 <div>
-                    TeleFood/Inbox
+                    TeleFood/
                 </div>
                 <div>
                     <Button icon="pi pi-list"/>

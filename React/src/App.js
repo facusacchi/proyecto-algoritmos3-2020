@@ -16,7 +16,6 @@ const App = () => (
       <Header/>
       <MenuHeader/>
       <MensajesRoutes />
-      <ContactosComponent/>
       <FooterComponent/>
     </div>
   )

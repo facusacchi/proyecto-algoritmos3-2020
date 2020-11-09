@@ -3,6 +3,7 @@ import { DataTable } from 'primereact/datatable'
 import { Column } from 'primereact/column'
 import './contactos.css'
 import { Button } from 'primereact/button'
+import { InputText } from 'primereact/inputtext'
 
 export class ContactosComponent extends Component {
     constructor(props) {
@@ -14,13 +15,27 @@ export class ContactosComponent extends Component {
                 new Persona("Alicia"),
                 new Persona("Martin"),
                 new Persona("Jose")
-            ]
+            ],
+            valorBusqueda: ""
         };
+    }
+
+    buscar = () => {
+        const contactosFiltrados = this.state.contactos.filter(contacto => contacto.nombre.includes(this.state.valorBusqueda))
+        this.setState ( { personas : contactosFiltrados })
     }
 
     render() {
         return (
             <div className="container">
+                <div className="search-and-button">
+                    <h1 className="header-search">Búsqueda de Contactos</h1>
+                    <div className="input-and-button">
+                        <InputText  value={this.state.valorBusqueda} onChange={(e) => this.setState({valorBusqueda: e.target.value})} />
+                        <Button onClick={this.buscar} icon="pi pi-search iconoBusqueda" iconPos="right" />
+                    </div>
+                </div>
+
                 <div className="span-busqueda">
                     <span>Resultado de la busqueda</span>
                 </div>
