@@ -10,6 +10,7 @@ import NuevoMensajeComponent from './nuevoMensaje/nuevoMensaje'
 export const MensajesRoutes = () => (
     <Router>
         <Route exact={true} path="/" component={LoginComponent} />
+        <Route path="/login" component={LoginComponent} />
         <Route path="/inbox" component={InboxComponent} />
         <Route path="/verMensaje/:id" component={VerMensajeComponent} />
         <Route path="/contactos" component={ContactosComponent} />
