@@ -78,7 +78,7 @@ export class InboxComponent extends Component {
   render() {
     return (
       <div className = "separacion">
-        <BusquedaComponent buscar={this.buscar}/>
+        <BusquedaComponent nombreTitulo="Búsqueda de mensajes" buscar={this.buscar}/>
         <h2>Resultados de la búsqueda</h2>
         <DataTable value={this.state.mensajes}>
                 <Column body={this.leidoTemplate} ></Column>

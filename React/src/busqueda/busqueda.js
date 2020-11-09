@@ -15,7 +15,7 @@ export class BusquedaComponent extends Component {
     render() {
         return (
           <div>
-            <h1>Búsqueda de Mensajes</h1>
+            <h1>{this.props.nombreTitulo}</h1>
             <InputText className = "ancho"  value={this.state.valorBusqueda} onChange={(e) => this.setState({valorBusqueda: e.target.value})} />
             <Button onClick={()=>this.props.buscar(this.state.valorBusqueda)} icon="pi pi-search iconoBusqueda" iconPos="right" />
           </div>
