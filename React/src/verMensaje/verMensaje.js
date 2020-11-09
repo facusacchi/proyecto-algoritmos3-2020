@@ -23,14 +23,14 @@ export class VerMensajeComponent extends Component {
                             <span className="nombre-contacto">De Alicia</span>
                             <span className="fecha-mensaje">18/09/2020 17:30</span>
                             <div className="iconos-mensaje">
-                                <i className="pi pi-trash"></i>
-                                <i className="pi pi-eye-slash"></i>
+                                <i className="pi pi-trash icono"></i>
+                                <i className="pi pi-eye-slash icono"></i>
                             </div>
                         </div>
                     </div>
                     <InputTextarea className="textarea-mensaje" value={this.state.value} onChange={(e) => this.setState({ value: e.target.value })} disabled />
                     <div className="boton-container">
-                        <Button label="Volver" className="p-button-secondary boton-secundario" onClick={this.handleClick} />
+                        <Button label="Volver" className="p-button-lg p-button-secondary boton-secundario" onClick={this.handleClick} />
                     </div>
                 </div>
             </div>

@@ -7,7 +7,7 @@ export const MenuHeader = ({usuario}) => {
     const items = [
         {label: usuario, icon: 'pi pi-fw pi-user', url: ''},
         {label: 'Inbox', icon: 'pi pi-fw pi-inbox', url: '/inbox'},
-        {label: 'Enviar', icon: 'pi pi-fw pi-arrow-circle-right', url: '/enviarMensaje'},
+        {label: 'Enviar', icon: 'pi pi-fw pi-arrow-circle-right', url: '/nuevoMensaje'},
         {label: 'Salir', icon: 'pi pi-fw pi-sign-out', url: '/'}
     ]
 
