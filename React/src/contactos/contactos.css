@@ -27,15 +27,16 @@
     width: 85%;
     position: relative;
     left: 10%;
-    height: 50%;
-    top: 25%;
+    height: 55%;
+    top: 8%;
     background-color: white;
+    border-radius: 2em;
 }
 
 .container-button {
     display: flex;
     justify-content: end;
-    margin: 3em 1em 0 0;
+    margin: 2em 1em;
 }
 
 .span-busqueda {
@@ -43,14 +44,36 @@
     font-size: 1.5em;
     font-family: 'Segoe UI Regular WestEuropean', 'Segoe UI';
     position: relative;
-    left: 15%;
+    left: 5%;
     font-weight: bold;
 }
 
 .table-and-button {
+    background-color: white;
+    border-radius: 2em;
 }
 
 .p-menu {
     position: absolute;
     z-index: 1;
+}
+
+.p-inputtext {
+    margin-left: 1em;
+    width: 77%;
+}
+
+.input-and-button {
+    position: relative;
+    left: 2.5%;
+}
+
+.header-search {
+    width: 80%;
+    position: relative;
+    left: 5%;    
+}
+
+.search-and-button {
+    margin-bottom: 1.2em;
 }
