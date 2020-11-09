@@ -31,7 +31,7 @@ export class ContactosComponent extends Component {
                 <div className="search-and-button">
                     <h1 className="header-search">Búsqueda de Contactos</h1>
                     <div className="input-and-button">
-                        <InputText  value={this.state.valorBusqueda} onChange={(e) => this.setState({valorBusqueda: e.target.value})} />
+                        <InputText  className="inputtext-contactos" value={this.state.valorBusqueda} onChange={(e) => this.setState({valorBusqueda: e.target.value})} />
                         <Button onClick={this.buscar} icon="pi pi-search iconoBusqueda" iconPos="right" />
                     </div>
                 </div>

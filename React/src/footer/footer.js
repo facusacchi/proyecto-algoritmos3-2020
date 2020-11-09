@@ -11,10 +11,7 @@ export class FooterComponent extends Component {
       <div>
         <footer className="main-footer">
           <div className="footer">
-            <img
-              src="assets/imagenes/facebook-square-brands.svg"
-              alt="Icono Facebook"
-            />
+            <i className="pi pi-facebook"></i>
             <div
               className="footer_texto"
               data-description=" Grupo 6 - All rights reserved"
