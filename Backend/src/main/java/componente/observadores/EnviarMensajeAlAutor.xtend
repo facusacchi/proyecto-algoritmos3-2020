@@ -67,20 +67,20 @@ class Mensaje {
 		formatter.format(this.fechaYHoraDeEmision)
 	}
 	
-//	@JsonProperty("fechaYHoraDeEmision")
-//	def setFechaDeEmisionAsDomainObject(String fecha) {
-//		fechaYHoraDeEmision = LocalDateTime.parse(fecha, formatter)
-//	}
+	@JsonProperty("fechaYHoraDeEmision")
+	def setFechaDeEmisionAsDomainObject(String fecha) {
+		fechaYHoraDeEmision = LocalDateTime.parse(fecha, formatter)
+	}
 	
 	@JsonProperty("fechaYHoraDeLectura")
 	def getFechaDeLecturaAsString() {
 		formatter.format(this.fechaYHoraDeLectura)
 	}
 	
-//	@JsonProperty("fechaYHoraDeLectura")
-//	def setFechaDeLecturaAsDomainObject(String fecha) {
-//		fechaYHoraDeLectura = LocalDateTime.parse(fecha, formatter)
-//	}
+	@JsonProperty("fechaYHoraDeLectura")
+	def setFechaDeLecturaAsDomainObject(String fecha) {
+		fechaYHoraDeLectura = LocalDateTime.parse(fecha, formatter)
+	}
 }
 
 @Accessors
