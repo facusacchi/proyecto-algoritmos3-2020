@@ -18,18 +18,21 @@ import org.springframework.web.bind.annotation.PathVariable
 @CrossOrigin("http://localhost:3000")
 class MensajeController {
 	
-//	@PutMapping(value="/enviarMensaje")
-//	def actualizar(@RequestBody String body) {
-//		val mensaje = mapper.readValue(body, Mensaje)
-//		if(mensaje === null) {
-//			return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''Error al construir el mensaje''')
-//		}
-//		val destinatario = RepoUsuario.instance.getByUserName(mensaje.destinatario)
-//		if(destinatario === null) {
-//			return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''Error, no se encontro destinatario''')
-//		}
-//		destinatario.recibirMensaje(mensaje)
-//	}
+	@PutMapping(value="/enviarMensaje/{id}")
+	def actualizar(@RequestBody String body, @PathVariable Integer id) {
+		if (id === 0) {
+			return ResponseEntity.badRequest.body('''Debe ingresar el parámetro id''')
+		}
+		val destinatario = RepoUsuario.instance.getById(id.toString)
+		if (destinatario === null) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontró el destinatario con id <«id»>''')
+		}
+		val mensaje = mapper.readValue(body, Mensaje)
+		if(mensaje === null) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''Error al construir el mensaje''')
+		}
+		destinatario.recibirMensaje(mensaje)
+	}
 	
 	@GetMapping("/inbox/{id}")
 	def mensajesPorId(@PathVariable Integer id) {
