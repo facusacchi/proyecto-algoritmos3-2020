@@ -54,6 +54,7 @@ class Bootstrap {
 			remitente = manolo
 			fechaYHoraDeEmision = LocalDateTime.now()
 			fechaYHoraDeLectura = LocalDateTime.now.plusHours(2)
+			leido = true
 		])
 		pepe.recibirMensaje(new Mensaje => [
 			id = 2
@@ -62,6 +63,7 @@ class Bootstrap {
 			remitente = manolo
 			fechaYHoraDeEmision = LocalDateTime.now()
 			fechaYHoraDeLectura = LocalDateTime.now.plusHours(5)
+			leido = true
 		])
 		pepe.recibirMensaje(new Mensaje => [
 			id = 3
@@ -70,6 +72,7 @@ class Bootstrap {
 			remitente = manolo
 			fechaYHoraDeEmision = LocalDateTime.now()
 			fechaYHoraDeLectura = LocalDateTime.now.plusHours(20)
+			leido = true
 		])
 	}
 
