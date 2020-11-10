@@ -200,9 +200,9 @@ class Usuario extends Entity {
 	}
 	
 	def visualizarMensaje(Mensaje mensaje) {
-		System.out.println(accederAUnMensaje(mensaje).cuerpo.toString
-						 + accederAUnMensaje(mensaje).remitente.toString
-						 + accederAUnMensaje(mensaje).fechaYHoraDeEmision.toString
+		System.out.println(accederAUnMensaje(mensaje.id).cuerpo.toString
+						 + accederAUnMensaje(mensaje.id).remitente.toString
+						 + accederAUnMensaje(mensaje.id).fechaYHoraDeEmision.toString
 		)
 		mensaje.leido = true
 		mensaje.fechaYHoraDeLectura = LocalDateTime.now
