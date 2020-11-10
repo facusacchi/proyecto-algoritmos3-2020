@@ -4,6 +4,8 @@ import dominio.Receta
 import dominio.Usuario
 import java.time.LocalDateTime
 import org.eclipse.xtend.lib.annotations.Accessors
+import com.fasterxml.jackson.annotation.JsonProperty
+import java.time.format.DateTimeFormatter
 
 class EnviarMensajeAlAutor extends Observador {
 	
@@ -32,6 +34,41 @@ class Mensaje {
 	LocalDateTime fechaYHoraDeEmision
 	LocalDateTime fechaYHoraDeLectura
 	boolean leido = false
+	static String DATE_PATTERN = "yyyy-MM-dd"
+	
+	def formatter() {
+		DateTimeFormatter.ofPattern(DATE_PATTERN)
+	}
+	
+	@JsonProperty("destinatario")
+	def getDestinatario() {
+		destinatario.nombreYApellido
+	}
+	
+	@JsonProperty("destinatario")
+	def setDestinatario(String destinatario) {
+		this.destinatario = new Usuario => [ nombreYApellido = destinatario ]
+	}
+	
+	@JsonProperty("remitente")
+	def getRemitente() {
+		remitente.nombreYApellido
+	}
+	
+	@JsonProperty("remitente")
+	def setRemitente(String remitente) {
+		this.remitente = new Usuario => [ nombreYApellido = remitente ]
+	}
+	
+//	@JsonProperty("fechaYHoraDeEmision")
+//	def getFechaDeEmisionAsString() {
+//		formatter.format(this.fechaYHoraDeEmision)
+//	}
+//	
+//	@JsonProperty("fechaYHoraDeLectura")
+//	def getFechaDeLecturaAsString() {
+//		formatter.format(this.fechaYHoraDeLectura)
+//	}
 }
 
 @Accessors

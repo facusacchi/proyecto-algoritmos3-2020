@@ -16,6 +16,7 @@ import dominio.Receta
 import dominio.Receta.Dificultad
 import dominio.Ingrediente
 import java.time.LocalDate
+import componente.observadores.Mensaje
 
 class Bootstrap {
 
@@ -41,6 +42,25 @@ class Bootstrap {
 		crearUsuarios
 		crearRecetas
 		crearAlimentos
+		crearMensajes
+	}
+	
+	def crearMensajes() {
+		pepe.recibirMensaje(new Mensaje => [
+			destinatario = pepe
+			cuerpo = "Hola pepe, como estas?"
+			remitente = manolo
+		])
+		pepe.recibirMensaje(new Mensaje => [
+			destinatario = pepe
+			cuerpo = "Pepe no olvides tu abrigo!"
+			remitente = manolo
+		])
+		pepe.recibirMensaje(new Mensaje => [
+			destinatario = pepe
+			cuerpo = "Pepe... Palala"
+			remitente = manolo
+		])
 	}
 
 	def instanciarAlimentos() {
