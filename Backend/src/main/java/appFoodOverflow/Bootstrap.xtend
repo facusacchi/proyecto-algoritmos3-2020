@@ -17,6 +17,7 @@ import dominio.Receta.Dificultad
 import dominio.Ingrediente
 import java.time.LocalDate
 import componente.observadores.Mensaje
+import java.time.LocalDateTime
 
 class Bootstrap {
 
@@ -51,18 +52,24 @@ class Bootstrap {
 			destinatario = pepe
 			cuerpo = "Hola pepe, como estas?"
 			remitente = manolo
+			fechaYHoraDeEmision = LocalDateTime.now()
+			fechaYHoraDeLectura = LocalDateTime.now.plusHours(2)
 		])
 		pepe.recibirMensaje(new Mensaje => [
 			id = 2
 			destinatario = pepe
 			cuerpo = "Pepe no olvides tu abrigo!"
 			remitente = manolo
+			fechaYHoraDeEmision = LocalDateTime.now()
+			fechaYHoraDeLectura = LocalDateTime.now.plusHours(5)
 		])
 		pepe.recibirMensaje(new Mensaje => [
 			id = 3
 			destinatario = pepe
 			cuerpo = "Pepe... Palala"
 			remitente = manolo
+			fechaYHoraDeEmision = LocalDateTime.now()
+			fechaYHoraDeLectura = LocalDateTime.now.plusHours(20)
 		])
 	}
 

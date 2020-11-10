@@ -37,7 +37,7 @@ class Mensaje {
 	LocalDateTime fechaYHoraDeLectura
 	boolean leido = false
 	//static String DATE_PATTERN = "yyyy-MM-dd"
-	static String DATE_PATTERN ='MM-dd-YY h:mm a'
+	static String DATE_PATTERN = "yyyy-MM-dd h:mm a"
 	
 	def formatter() {
 		DateTimeFormatter.ofPattern(DATE_PATTERN)
@@ -63,20 +63,20 @@ class Mensaje {
 		this.remitente = new Usuario => [ nombreYApellido = remitente ]
 	}
 	
-//	@JsonProperty("fechaYHoraDeEmision")
-//	def getFechaDeEmisionAsString() {
-//		formatter.format(this.fechaYHoraDeEmision)
-//	}
+	@JsonProperty("fechaYHoraDeEmision")
+	def getFechaDeEmisionAsString() {
+		formatter.format(this.fechaYHoraDeEmision)
+	}
 	
 //	@JsonProperty("fechaYHoraDeEmision")
 //	def setFechaDeEmisionAsDomainObject(String fecha) {
 //		fechaYHoraDeEmision = LocalDateTime.parse(fecha, formatter)
 //	}
 	
-//	@JsonProperty("fechaYHoraDeLectura")
-//	def getFechaDeLecturaAsString() {
-//		formatter.format(this.fechaYHoraDeLectura)
-//	}
+	@JsonProperty("fechaYHoraDeLectura")
+	def getFechaDeLecturaAsString() {
+		formatter.format(this.fechaYHoraDeLectura)
+	}
 	
 //	@JsonProperty("fechaYHoraDeLectura")
 //	def setFechaDeLecturaAsDomainObject(String fecha) {
