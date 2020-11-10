@@ -32,7 +32,7 @@ class MensajeController {
 //	}
 	
 	@GetMapping("/inbox/{id}")
-	def tareaPorId(@PathVariable Integer id) {
+	def mensajesPorId(@PathVariable Integer id) {
 		if (id === 0) {
 			return ResponseEntity.badRequest.body('''Debe ingresar el parámetro id''')
 		}
@@ -45,6 +45,22 @@ class MensajeController {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontraron mensajes del usuario con id <«id»>''')
 		} 
 		ResponseEntity.ok(mensajes)
+	}
+	
+	@GetMapping("/{id}/mensaje/{mensajeId}")
+	def mensajePorId(@PathVariable Integer id, @PathVariable Integer mensajeId) {
+		if (id === 0) {
+			return ResponseEntity.badRequest.body('''Debe ingresar el parámetro id''')
+		}
+		val usuario = RepoUsuario.instance.getById(id.toString)
+		if (usuario === null) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontró el mensaje con id <«id»>''')
+		}
+		val mensaje = usuario.accederAUnMensaje(mensajeId)
+		if (mensaje === null) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontraron mensajes con id <«mensajeId»> del usuario <«id»>''')
+		} 
+		ResponseEntity.ok(mensaje)
 	}
 	
 	static def mapper() {

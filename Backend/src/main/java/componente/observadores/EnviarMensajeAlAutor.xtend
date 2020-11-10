@@ -28,6 +28,7 @@ class EnviarMensajeAlAutor extends Observador {
 
 @Accessors
 class Mensaje {
+	Integer id
 	Usuario destinatario
 	String cuerpo
 	Usuario remitente

@@ -195,8 +195,8 @@ class Usuario extends Entity {
 		mensajesInternos.add(mensaje)
 	}
 	
-	def accederAUnMensaje(Mensaje mensaje) {
-		mensajesInternos.findFirst[message | message.equals(mensaje)]
+	def accederAUnMensaje(Integer mensajeId) {
+		mensajesInternos.findFirst[message | message.id.equals(mensajeId)]
 	}
 	
 	def visualizarMensaje(Mensaje mensaje) {

@@ -47,16 +47,19 @@ class Bootstrap {
 	
 	def crearMensajes() {
 		pepe.recibirMensaje(new Mensaje => [
+			id = 1
 			destinatario = pepe
 			cuerpo = "Hola pepe, como estas?"
 			remitente = manolo
 		])
 		pepe.recibirMensaje(new Mensaje => [
+			id = 2
 			destinatario = pepe
 			cuerpo = "Pepe no olvides tu abrigo!"
 			remitente = manolo
 		])
 		pepe.recibirMensaje(new Mensaje => [
+			id = 3
 			destinatario = pepe
 			cuerpo = "Pepe... Palala"
 			remitente = manolo

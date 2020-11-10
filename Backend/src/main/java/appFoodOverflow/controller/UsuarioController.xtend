@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable
 import dominio.Usuario
 
 @RestController
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("http://localhost:3000")
 class UsuarioController {
 
 	@PostMapping(value="/login")

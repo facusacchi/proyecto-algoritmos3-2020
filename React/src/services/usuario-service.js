@@ -1,6 +1,13 @@
 import axios from 'axios'
 
-export const httpInstance = axios.create( {
-    baseURL: 'http://localhost:8080'
-})
+import { REST_SERVER_URL } from './constants'
 
+class UsuarioService {
+
+    async allInstances() {
+        const { data } = await axios.get(`${REST_SERVER_URL}/usuarios`)
+        return data
+    }
+
+}
+export const usuarioService = new UsuarioService()
