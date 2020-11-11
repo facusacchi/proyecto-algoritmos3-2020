@@ -16,7 +16,7 @@ export const Header = (props) => {
     return (
         <header className="header-container">
             <div className="header">
-                <div>
+                <div className="title-header">
                     TeleFood/{searchSite()}
                 </div>            
                 <div className="menu-header">
