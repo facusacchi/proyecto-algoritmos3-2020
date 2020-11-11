@@ -10,8 +10,6 @@ import 'primeflex/primeflex.css'
 
 const App = () => (
     <div className="App">
-      <Header/>
-      <MenuHeader usuario="Pepe Palala"/>
       <MensajesRoutes />
       <FooterComponent/>
     </div>

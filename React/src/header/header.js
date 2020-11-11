@@ -1,12 +1,12 @@
 import React from 'react'
 import './header.css'
 import { Button } from 'primereact/button'
-import { withRouter } from 'react-router-dom'
+import { MenuHeader } from '../menu-header/menu-header'
 
 export const Header = (props) => {
     const { location } = props
     console.log('location', location)
-    
+
     return (
         <header className="header-container">
             <div className="header">
@@ -14,10 +14,12 @@ export const Header = (props) => {
                     TeleFood/
                 </div>
                 <div>
-                    <Button icon="pi pi-list"/>
+                    <Button icon="pi pi-list" />
                 </div>
+                <MenuHeader usuario="Pepe Palala" />
             </div>
         </header>
-)}
+    )
+}
 
-export default withRouter(Header)
+export default Header
