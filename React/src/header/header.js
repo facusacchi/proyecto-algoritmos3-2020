@@ -5,8 +5,9 @@ import { MenuHeader } from '../menu-header/menu-header'
 export const Header = (props) => {
     const { location } = props
     const sites = [
-        {path: '/inbox', site: 'Inbox'},
-        {path: '/nuevoMensaje', site: 'Nuevo Mensaje'}
+        { path: '/inbox', site: 'Inbox' },
+        { path: '/nuevoMensaje', site: 'Nuevo Mensaje' },
+        { path: '/contactos', site: 'Contactos' }
     ]
 
     const searchSite = () => {
