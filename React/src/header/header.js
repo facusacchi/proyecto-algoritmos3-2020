@@ -1,6 +1,5 @@
 import React from 'react'
 import './header.css'
-import { Button } from 'primereact/button'
 import { MenuHeader } from '../menu-header/menu-header'
 
 export const Header = (props) => {
@@ -19,11 +18,10 @@ export const Header = (props) => {
             <div className="header">
                 <div>
                     TeleFood/{searchSite()}
+                </div>            
+                <div className="menu-header">
+                    <MenuHeader usuario="Pepe Palala" />
                 </div>
-                <div>
-                    <Button icon="pi pi-list" />
-                </div>
-                <MenuHeader usuario="Pepe Palala" />
             </div>
         </header>
     )

@@ -1,6 +1,5 @@
 import React from 'react'
-import { Menu } from 'primereact/menu'
-import './menu-header.css'
+import { Menubar } from 'primereact/menubar'
 
 export const MenuHeader = ({usuario}) => {
     
@@ -13,7 +12,7 @@ export const MenuHeader = ({usuario}) => {
 
     return(
         <div className="menu-header">
-            <Menu model={items}/>
+            <Menubar model={items}/>
         </div>
     )
 }
