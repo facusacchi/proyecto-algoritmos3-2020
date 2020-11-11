@@ -7,11 +7,12 @@ export const Header = (props) => {
     const sites = [
         { path: '/inbox', site: 'Inbox' },
         { path: '/nuevoMensaje', site: 'Nuevo Mensaje' },
-        { path: '/contactos', site: 'Contactos' }
+        { path: '/contactos', site: 'Contactos' },
+        { path:'/verMensaje/', site: 'Mensaje' }
     ]
 
     const searchSite = () => {
-        return sites.find(page => page.path === location.pathname).site
+        return sites.find(page => location.pathname.includes(page.path)).site
     }
 
     return (
