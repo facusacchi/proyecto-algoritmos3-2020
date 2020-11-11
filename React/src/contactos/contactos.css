@@ -17,7 +17,7 @@
     width: 85%;
     position: relative;
     left: 10%;
-    height: 55%;
+    height: auto;
     top: 8%;
     background-color: white;
     border-radius: 2em;
@@ -27,6 +27,7 @@
     display: flex;
     justify-content: end;
     margin: 2em 1em;
+    padding: 1em;
 }
 
 .span-busqueda {
@@ -49,12 +50,12 @@
 
 .inputtext-contactos {
     margin-left: 1em;
-    width: 77%;
+    width: 80%;
 }
 
 .input-and-button {
     position: relative;
-    left: 2.5%;
+    left: 2%;
 }
 
 .header-search {

@@ -9,21 +9,33 @@ export class ContactosComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            personas: [
-                new Persona("Carlos"),
-                new Persona("Carolina"),
-                new Persona("Alicia"),
-                new Persona("Martin"),
-                new Persona("Jose")
-            ],
+            contactos: [],
             valorBusqueda: ""
         };
     }
 
-    buscar = () => {
+    async componentDidMount() {
+        try {
+            const contactos = await usuarioService.allInstances()
+            console.log(contactos)
+            this.setState({
+                contactos
+            })
+          } catch (e) {
+            this.generarError(e)
+          }
+    }
+
+    generarError = (errorMessage) => {
+        this.setState({
+          errorMessage: errorMessage.toString()
+        })
+      }
+
+    /* buscar = () => {
         const contactosFiltrados = this.state.contactos.filter(contacto => contacto.nombre.includes(this.state.valorBusqueda))
         this.setState ( { personas : contactosFiltrados })
-    }
+    } */
 
     render() {
         return (
@@ -45,10 +57,10 @@ export class ContactosComponent extends Component {
                             <Column className="column" field="nombre" header="Personas"></Column>
                         </DataTable>
                     </div>
+                </div>
                     <div className="container-button">
                         <Button label="Cancelar" className="p-button-secondary"/>
                     </div>
-                </div>
             </div>
         );
     }
