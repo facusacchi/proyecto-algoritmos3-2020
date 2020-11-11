@@ -5,13 +5,12 @@ import { MenuHeader } from '../menu-header/menu-header'
 
 export const Header = (props) => {
     const { location } = props
-    console.log('location', location)
 
     return (
         <header className="header-container">
             <div className="header">
                 <div>
-                    TeleFood/
+                    TeleFood{location.pathname}
                 </div>
                 <div>
                     <Button icon="pi pi-list" />
