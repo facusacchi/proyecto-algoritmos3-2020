@@ -5,12 +5,20 @@ import { MenuHeader } from '../menu-header/menu-header'
 
 export const Header = (props) => {
     const { location } = props
+    const sites = [
+        {path: '/inbox', site: 'Inbox'},
+        {path: '/nuevoMensaje', site: 'Nuevo Mensaje'}
+    ]
+
+    const searchSite = () => {
+        return sites.find(page => page.path === location.pathname).site
+    }
 
     return (
         <header className="header-container">
             <div className="header">
                 <div>
-                    TeleFood{location.pathname}
+                    TeleFood/{searchSite()}
                 </div>
                 <div>
                     <Button icon="pi pi-list" />
