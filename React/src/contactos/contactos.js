@@ -32,10 +32,9 @@ export class ContactosComponent extends Component {
         })
       }
 
-    /* buscar = () => {
-        const contactosFiltrados = this.state.contactos.filter(contacto => contacto.nombre.includes(this.state.valorBusqueda))
-        this.setState ( { personas : contactosFiltrados })
-    } */
+    cancelar = () => {
+        this.props.history.push('/inbox')
+    }
 
     render() {
         return (
@@ -59,7 +58,7 @@ export class ContactosComponent extends Component {
                     </div>
                 </div>
                     <div className="container-button">
-                        <Button label="Cancelar" className="p-button-secondary"/>
+                        <Button label="Cancelar" className="p-button-secondary" onClick= {this.cancelar} />
                     </div>
             </div>
         );
