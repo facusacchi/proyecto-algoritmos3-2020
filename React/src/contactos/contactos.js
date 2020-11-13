@@ -9,8 +9,11 @@ export class ContactosComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            contactos: [],
-            //nombresDeUsuarios: [],
+            contactos: [
+                /* {nombreYApellido: 'pepe'},
+                {nombreYApellido: 'lolo'},
+                {nombreYApellido: 'manolo'}, */
+            ],
             //valorBusqueda: ""
         };
     }
@@ -18,9 +21,7 @@ export class ContactosComponent extends Component {
     async componentDidMount() {
         try {
             const contactos = await usuarioService.allInstances()
-            //const nombresDeUsuarios = contactos.map(contacto => contacto.nombreYApellido)
             this.setState({
-                //nombresDeUsuarios,
                 contactos,
             })
           } catch (e) {
@@ -39,8 +40,6 @@ export class ContactosComponent extends Component {
     }
 
     render() {
-        const { contactos } = this.state
-        const nombreYApellido = contactos.map(contacto => contacto.nombreYApellido)
 
         return (
             <div className="container">
@@ -57,8 +56,8 @@ export class ContactosComponent extends Component {
                 </div>
                 <div className="table-and-button">
                     <div className="table">
-                        <DataTable className="data-table" value={nombreYApellido}>
-                            <Column className="column" field="nombre" header="Personas"></Column>
+                        <DataTable className="data-table" value={this.state.contactos}>
+                            <Column className="column" field="nombreYApellido" header="Personas"></Column>
                         </DataTable>
                     </div>
                 </div>
