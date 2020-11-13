@@ -9,17 +9,17 @@ export class ContactosComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            contactos: [],
-            valorBusqueda: ""
+            nombresDeUsuarios: [],
+            //valorBusqueda: ""
         };
     }
 
     async componentDidMount() {
         try {
             const contactos = await usuarioService.allInstances()
-            console.log(contactos)
+            const nombresDeUsuarios = contactos.map(contacto => contacto.nombreYApellido)
             this.setState({
-                contactos
+                nombresDeUsuarios,
             })
           } catch (e) {
             this.generarError(e)
@@ -52,7 +52,7 @@ export class ContactosComponent extends Component {
                 </div>
                 <div className="table-and-button">
                     <div className="table">
-                        <DataTable className="data-table" value={this.state.personas}>
+                        <DataTable className="data-table" value={this.state.contactos}>
                             <Column className="column" field="nombre" header="Personas"></Column>
                         </DataTable>
                     </div>
@@ -66,9 +66,3 @@ export class ContactosComponent extends Component {
 } 
 
 export default ContactosComponent
-
-export class Persona {
-    constructor(nombre) {
-        this.nombre = nombre
-    }
-}
