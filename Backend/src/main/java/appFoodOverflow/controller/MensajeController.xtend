@@ -15,11 +15,12 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import excepciones.BusinessException
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.DeleteMapping
 
 @RestController
 @CrossOrigin("http://localhost:3000")
 class MensajeController {
-	
+
 	@PostMapping(value="/enviarMensaje/new")
 	def actualizar(@RequestBody String body, @PathVariable Integer id) {
 		if (id === 0) {
@@ -30,7 +31,7 @@ class MensajeController {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontró el destinatario con id <«id»>''')
 		}
 		val mensaje = mapper.readValue(body, Mensaje)
-		if(mensaje === null) {
+		if (mensaje === null) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''Error al construir el mensaje''')
 		}
 		destinatario.recibirMensaje(mensaje)
@@ -91,6 +92,28 @@ class MensajeController {
 				body('''No se encontraron mensajes con id <«mensajeId»> del usuario <«id»>''')
 		}
 		ResponseEntity.ok(mensaje)
+	}
+
+	@DeleteMapping(value="/{id}/eliminarMensaje/{mensajeId}")
+	def eliminarMensaje(@PathVariable Integer id, @PathVariable Integer mensajeId) {
+		try {
+			if (id === null || id === 0) {
+				return ResponseEntity.badRequest.body('''Debe ingresar el parámetro id''')
+			}
+			val usuario = RepoUsuario.instance.getById(id.toString)
+			if (usuario === null) {
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontró el usuario con id <«id»>''')
+			}
+			val mensaje = usuario.accederAUnMensaje(mensajeId)
+			if (mensaje === null) {
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).
+					body('''No se encontraron mensajes con id <«mensajeId»> del usuario <«id»>''')
+			}
+			usuario.eliminarMensaje(mensajeId)
+			ResponseEntity.ok(mapper.writeValueAsString('''El mensaje con id "«mensajeId»" fue eliminado'''))
+		} catch (RuntimeException e) {
+			ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.message)
+		}
 	}
 
 	static def mapper() {
