@@ -6,6 +6,7 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import Mensaje from "../dominio/mensaje";
 import { BusquedaComponent } from "../busqueda/busqueda";
+import { mensajeService } from '../services/mensaje-service'
 
 export class InboxComponent extends Component {
   constructor(props) {
@@ -16,14 +17,20 @@ export class InboxComponent extends Component {
   }
 
   async componentDidMount () {
-    const mensajes = [
-      new Mensaje("10/11/2020", "Juan"),
-      new Mensaje("03/04/2020", "Carlos"),
-      new Mensaje("09/08/2020", "Paula", true),
-      new Mensaje("09/08/2020", "Mariana")
-    ]
-    this.setState({mensajes : mensajes}) 
+    try {
+      const mensajes = await mensajeService.allInstances(1)
+      this.setState({mensajes : mensajes}) 
+  } catch (e) {
+      this.generarError(e)
+      console.log(e)
   }
+  }
+
+  generarError = (errorMessage) => {
+    this.setState({
+        errorMessage: errorMessage.toString()
+    })
+}
 
   leidoTemplate = ({leido}) => {
     return (
@@ -54,8 +61,8 @@ export class InboxComponent extends Component {
     )
   }
 
-  buscar = (valorBusqueda) => {
-    const mensajesFiltrados=this.state.mensajes.filter(mensaje => mensaje.emisor.includes(valorBusqueda))
+  buscar = async (valorBusqueda) => {
+    const mensajesFiltrados= await mensajeService.buscarMensajes(valorBusqueda)
     this.setState ( { mensajes : mensajesFiltrados })
   }
 
@@ -77,15 +84,15 @@ export class InboxComponent extends Component {
  
   render() {
     return (
-      <div className = "separacion">
+      <div className="separacion">
         <BusquedaComponent nombreTitulo="Búsqueda de mensajes" buscar={this.buscar}/>
         <h2>Resultados de la búsqueda</h2>
         <DataTable value={this.state.mensajes}>
-                <Column body={this.leidoTemplate} ></Column>
-                <Column field="fecha" ></Column>
-                <Column field="emisor" ></Column>
-                <Column body={this.leerTemplate} ></Column>
-                <Column body={this.eliminarTemplate}></Column>
+                <Column className ="ancho-icono" body={this.leidoTemplate} ></Column>
+                <Column className ="ancho-fecha" field="fechaYHoraDeEmision" ></Column>
+                <Column className ="ancho-remitente" field="remitente" ></Column>
+                <Column className ="ancho-icono" body={this.leerTemplate} ></Column>
+                <Column className ="ancho-icono" body={this.eliminarTemplate}></Column>
             </DataTable>
       </div>
     );

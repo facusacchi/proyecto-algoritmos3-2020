@@ -1,8 +1,10 @@
 export default class Mensaje {
-  constructor(fecha, emisor, leido = false) {
-    this.fecha = fecha
-    this.emisor = emisor
+  constructor(fecha, emisor, leido = false, destinatario, cuerpo) {
+    this.fechaYHoraDeEmision = fecha
+    this.remitente = emisor
     this.leido = leido
+    this.destinatario = destinatario
+    this.cuerpo = cuerpo
   }
 
   static fromJson(mensajeJSON) {

@@ -21,5 +21,9 @@ class MensajeService {
         return this.mensajeAsJson(mensajeJson.data)
     }
 
+    async buscarMensajes(valorBusqueda) {
+
+    }
+
 }
 export const mensajeService = new MensajeService()

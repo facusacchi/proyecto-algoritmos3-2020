@@ -5,3 +5,15 @@
 .border {
   font-weight:bolder;
 }
+
+.ancho-fecha {
+  width:20%;
+}
+
+.ancho-icono {
+  width: 10%;
+}
+
+.ancho-remitente {
+  width: 20%
+}
