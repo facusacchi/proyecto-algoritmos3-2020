@@ -33,7 +33,7 @@ export class VerMensajeComponent extends Component {
     }
 
     volver = () => {
-        this.props.history.push('/')
+        this.props.history.push('/inbox')
     }
 
     render() {
