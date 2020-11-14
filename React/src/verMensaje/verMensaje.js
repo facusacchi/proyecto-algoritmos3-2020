@@ -36,6 +36,19 @@ export class VerMensajeComponent extends Component {
         this.props.history.push('/inbox')
     }
 
+    leerTemplate = (mensaje) => {
+        return (
+            mensaje.leido ?
+                <i onClick={() => this.setearEstadoLectura(mensaje)} className="pi pi-eye icono"></i> :
+                <i onClick={() => this.setearEstadoLectura(mensaje)} className="pi pi-eye-slash icono"></i>
+        )
+    }
+
+    setearEstadoLectura = (mensaje) => {
+        mensaje.leido = !mensaje.leido
+        this.setState({})
+    }
+
     render() {
         const { mensaje, errorMessage } = this.state
         /* const snackbarOpen = !!errorMessage // O se puede usar Boolean(errorMessage) */
@@ -52,7 +65,7 @@ export class VerMensajeComponent extends Component {
                             <span className="fecha-mensaje">{mensaje.fechaYHoraDeEmision}</span>
                             <div className="iconos-mensaje">
                                 <i className="pi pi-trash icono"></i>
-                                <i className="pi pi-eye-slash icono"></i>
+                                {this.leerTemplate(mensaje)}
                             </div>
                         </div>
                     </div>
