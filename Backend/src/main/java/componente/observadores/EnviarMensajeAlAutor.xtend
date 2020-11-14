@@ -36,7 +36,8 @@ class Mensaje {
 	LocalDateTime fechaYHoraDeLectura
 	boolean leido = false
 	//static String DATE_PATTERN = "yyyy-MM-dd"
-	static String DATE_PATTERN = "yyyy-MM-dd HH:mm:ss"
+	//static String DATE_PATTERN = "yyyy-MM-dd HH:mm:ss"
+	static String DATE_PATTERN = "dd-MM-yyyy HH:mm"
 	
 	def formatter() {
 		DateTimeFormatter.ofPattern(DATE_PATTERN)

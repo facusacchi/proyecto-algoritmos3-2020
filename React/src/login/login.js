@@ -26,7 +26,7 @@ export class LoginComponent extends Component {
             <Password value={this.state.password} onChange={(e) => this.setState({ password: e.target.value })} /> <br />
           </div>
           <div className="p-p-4">
-            <Button className="p-button p-component p-d-block p-mx-auto" label="Ingresar" />
+            <Button className="p-button-lg p-component p-d-block p-mx-auto" label="Ingresar" />
           </div>
         </Card>
       </div>

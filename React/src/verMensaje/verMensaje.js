@@ -49,7 +49,7 @@ export class VerMensajeComponent extends Component {
                         </div>
                         <div className="nombre-contacto-container">
                             <span className="nombre-contacto">De {mensaje.remitente}</span>
-                            <span className="fecha-mensaje">18/09/2020 17:30</span>
+                            <span className="fecha-mensaje">{mensaje.fechaYHoraDeEmision}</span>
                             <div className="iconos-mensaje">
                                 <i className="pi pi-trash icono"></i>
                                 <i className="pi pi-eye-slash icono"></i>
