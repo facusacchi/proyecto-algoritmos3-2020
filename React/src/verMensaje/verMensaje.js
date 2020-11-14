@@ -15,11 +15,11 @@ export class VerMensajeComponent extends Component {
 
     async componentDidMount() {
         try {
-            const mensaje = await mensajeService.getMensajeById(1, this.props.match.params.id)
-            console.log(mensaje)
+            const mensaje = await mensajeService.getMensajeById(1/* this.props.usuario.id */, this.props.match.params.id)
             this.setState({
                 mensaje,
             })
+            this.setearEstadoLectura(mensaje)
         } catch (e) {
             this.generarError(e)
             console.log(e)
@@ -44,8 +44,10 @@ export class VerMensajeComponent extends Component {
         )
     }
 
-    setearEstadoLectura = (mensaje) => {
+    setearEstadoLectura = async (mensaje) => {
         mensaje.leido = !mensaje.leido
+        await mensajeService.actualizarMensaje(1/* this.props.usuario.id */, mensaje)
+        /* setMensaje([...mensaje]) */
         this.setState({})
     }
 

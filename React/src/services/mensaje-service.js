@@ -25,5 +25,15 @@ class MensajeService {
 
     }
 
+    async actualizarMensaje(id, mensaje) {
+        /* const indiceActualizar = this.mails.findIndex((mail) => mail.id === mensaje.id)
+        if (indiceActualizar === -1) {
+            this.mails.push(mensaje)
+        } else {
+            this.mails[indiceActualizar] = mensaje
+        } */
+        return await axios.put(`${REST_SERVER_URL}/${id}/actualizarMensaje/${mensaje.id}`, mensaje.toJSON())
+    }
+
 }
 export const mensajeService = new MensajeService()

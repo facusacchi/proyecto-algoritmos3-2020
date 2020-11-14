@@ -208,6 +208,11 @@ class Usuario extends Entity {
 		mensaje.fechaYHoraDeLectura = LocalDateTime.now
 	}
 	
+	def actualizarMensaje(Mensaje mensaje) {
+		val mensajeAActualizar = accederAUnMensaje(mensaje.id)
+		mensajeAActualizar.leido = mensaje.leido
+	}
+	
 	def recibirMail(Mail mail) {
 		mails.add(mail)
 	}
