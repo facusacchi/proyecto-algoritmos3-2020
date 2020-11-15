@@ -48,28 +48,33 @@ class Bootstrap {
 	
 	def crearMensajes() {
 		pepe.recibirMensaje(new Mensaje => [
-			id = 1
 			destinatario = pepe
 			cuerpo = "Hola pepe, como estas?"
 			remitente = manolo
-			fechaYHoraDeEmision = LocalDateTime.now().minusHours(38)
+			fechaYHoraDeEmision = LocalDateTime.now.minusHours(38)
 			fechaYHoraDeLectura = LocalDateTime.now.plusHours(2)
 			leido = false
 		])
 		pepe.recibirMensaje(new Mensaje => [
-			id = 2
 			destinatario = pepe
 			cuerpo = "Pepe no olvides tu abrigo!"
 			remitente = manolo
-			fechaYHoraDeEmision = LocalDateTime.now().minusHours(24)
+			fechaYHoraDeEmision = LocalDateTime.now.minusHours(24)
 			fechaYHoraDeLectura = LocalDateTime.now.plusHours(5)
 			leido = false
 		])
 		pepe.recibirMensaje(new Mensaje => [
-			id = 3
 			destinatario = pepe
 			cuerpo = "Pepe... Palala"
 			remitente = manolo
+			fechaYHoraDeEmision = LocalDateTime.now.minusHours(20)
+			fechaYHoraDeLectura = LocalDateTime.now.plusHours(20)
+			leido = false
+		])
+		nancy.recibirMensaje(new Mensaje => [
+			destinatario = nancy
+			cuerpo = "Este mensaje es para Nancy"
+			remitente = pepe
 			fechaYHoraDeEmision = LocalDateTime.now.minusHours(20)
 			fechaYHoraDeLectura = LocalDateTime.now.plusHours(20)
 			leido = false

@@ -192,6 +192,12 @@ class Usuario extends Entity {
 	}
 	
 	def recibirMensaje(Mensaje mensaje) {
+		if (!mensajesInternos.empty) {
+			val ultimoId = mensajesInternos.get(mensajesInternos.size - 1)
+			mensaje.id = ultimoId.id + 1
+		} else {
+			mensaje.id = 1
+		}
 		mensajesInternos.add(mensaje)
 	}
 	

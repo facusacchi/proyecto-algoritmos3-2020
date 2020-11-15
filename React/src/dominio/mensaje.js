@@ -1,6 +1,7 @@
 export default class Mensaje {
   constructor(fecha, emisor, leido = false, destinatario, cuerpo) {
     this.fechaYHoraDeEmision = fecha
+    this.fechaYHoraDeLectura = fecha
     this.remitente = emisor
     this.leido = leido
     this.destinatario = destinatario

@@ -40,5 +40,9 @@ class MensajeService {
         await axios.delete(`${REST_SERVER_URL}/${id}/eliminarMensaje/${mensajeId}`)
     }
 
+    async nuevoMensaje(id, mensaje) {
+        await axios.post(`${REST_SERVER_URL}/${id}/enviarMensaje`, mensaje.toJSON())
+    }
+
 }
 export const mensajeService = new MensajeService()

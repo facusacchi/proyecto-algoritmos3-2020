@@ -16,25 +16,37 @@ import org.springframework.web.bind.annotation.PathVariable
 import excepciones.BusinessException
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.DeleteMapping
+import java.time.LocalDateTime
 
 @RestController
 @CrossOrigin("http://localhost:3000")
 class MensajeController {
 
-	@PostMapping(value="/enviarMensaje/new")
-	def actualizar(@RequestBody String body, @PathVariable Integer id) {
-		if (id === 0) {
-			return ResponseEntity.badRequest.body('''Debe ingresar el parámetro id''')
+	@PostMapping(value="/{id}/enviarMensaje")
+	def crearMensaje(@RequestBody String body, @PathVariable Integer id) {
+//		def nuevoMensaje(@RequestBody String body) {
+		try {
+			if (id === null || id === 0) {
+				return ResponseEntity.badRequest.body('''Debe ingresar el parámetro id''')
+			}
+			val destinatario = RepoUsuario.instance.getById(id.toString)
+//		val destinatario = RepoUsuario.instance.getByNombre(mensaje.destinatario)
+			if (destinatario === null) {
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontró el destinatario con id <«id»>''')
+			}
+			val mensaje = mapper.readValue(body, Mensaje)
+			if (mensaje === null) {
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''Error al construir el mensaje''')
+			}
+			mensaje.fechaYHoraDeLectura = LocalDateTime.now
+			mensaje.fechaYHoraDeEmision = LocalDateTime.now
+			destinatario.recibirMensaje(mensaje)
+			ResponseEntity.ok(mapper.writeValueAsString('''Mensaje enviado'''))
+		} catch (BusinessException e) {
+			ResponseEntity.badRequest.body(mapper.writeValueAsString(e.message))
+		} catch (Exception e) {
+			ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.message)
 		}
-		val destinatario = RepoUsuario.instance.getById(id.toString)
-		if (destinatario === null) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontró el destinatario con id <«id»>''')
-		}
-		val mensaje = mapper.readValue(body, Mensaje)
-		if (mensaje === null) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''Error al construir el mensaje''')
-		}
-		destinatario.recibirMensaje(mensaje)
 	}
 
 	@PutMapping(value="/{id}/actualizarMensaje/{mensajeId}")
@@ -71,8 +83,7 @@ class MensajeController {
 		}
 		val mensajes = usuario.mensajesInternos
 		if (mensajes === null) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).
-				body('''No se encontraron mensajes del usuario con id <«id»>''')
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontraron mensajes del usuario con id <«id»>''')
 		}
 		ResponseEntity.ok(mensajes)
 	}
@@ -88,8 +99,7 @@ class MensajeController {
 		}
 		val mensaje = usuario.accederAUnMensaje(mensajeId)
 		if (mensaje === null) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).
-				body('''No se encontraron mensajes con id <«mensajeId»> del usuario <«id»>''')
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontraron mensajes con id <«mensajeId»> del usuario <«id»>''')
 		}
 		ResponseEntity.ok(mensaje)
 	}
@@ -103,11 +113,10 @@ class MensajeController {
 		if (usuario === null) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontró el usuario con id <«id»>''')
 		}
-		val mensajes = usuario.mensajesInternos.filter[mensaje | mensaje.remitente.nombreYApellido.toLowerCase.contains(valorBusqueda.toLowerCase)].toList
+		val mensajes = usuario.mensajesInternos.filter[mensaje | mensaje.remitente.nombreYApellido.toLowerCase.contains(valorBusqueda.toLowerCase)]
 		ResponseEntity.ok(mensajes)
 	}
 	
-
 	@DeleteMapping(value="/{id}/eliminarMensaje/{mensajeId}")
 	def eliminarMensaje(@PathVariable Integer id, @PathVariable Integer mensajeId) {
 		try {
@@ -120,8 +129,7 @@ class MensajeController {
 			}
 			val mensaje = usuario.accederAUnMensaje(mensajeId)
 			if (mensaje === null) {
-				return ResponseEntity.status(HttpStatus.NOT_FOUND).
-					body('''No se encontraron mensajes con id <«mensajeId»> del usuario <«id»>''')
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontraron mensajes con id <«mensajeId»> del usuario <«id»>''')
 			}
 			usuario.eliminarMensaje(mensajeId)
 			ResponseEntity.ok(mapper.writeValueAsString('''El mensaje con id "«mensajeId»" fue eliminado'''))

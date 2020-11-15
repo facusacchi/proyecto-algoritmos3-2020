@@ -14,13 +14,12 @@ export class VerMensajeComponent extends Component {
     }
 
     async componentDidMount() {
-        console.log(this.props.match.params.id)
         try {
-            const mensaje = await mensajeService.getMensajeById(1/* this.props.usuario.id */, this.props.match.params.id)
+            const mensaje = await mensajeService.getMensajeById(1/* usuario Logueado -> usuario.id */, this.props.match.params.id)
             this.setState({
                 mensaje,
             })
-            !mensaje.leido ? this.setearEstadoLectura(mensaje) : ''
+            !mensaje.leido ? this.cambiarEstadoLectura(mensaje) : ''
         } catch (e) {
             this.generarError(e)
             console.log(e)
@@ -40,20 +39,20 @@ export class VerMensajeComponent extends Component {
     leerTemplate = (mensaje) => {
         return (
             mensaje.leido ?
-                <i onClick={() => this.setearEstadoLectura(mensaje)} className="pi pi-eye icono"></i> :
-                <i onClick={() => this.setearEstadoLectura(mensaje)} className="pi pi-eye-slash icono"></i>
+                <i onClick={() => this.cambiarEstadoLectura(mensaje)} className="pi pi-eye icono"></i> :
+                <i onClick={() => this.cambiarEstadoLectura(mensaje)} className="pi pi-eye-slash icono"></i>
         )
     }
 
-    setearEstadoLectura = async (mensaje) => {
+    cambiarEstadoLectura = async (mensaje) => {
         mensaje.leido = !mensaje.leido
         await mensajeService.actualizarMensaje(1/* this.props.usuario.id */, mensaje)
         /* setMensaje([...mensaje]) */
         this.setState({})
     }
 
-    eliminarMensaje = async (mensaje) => {
-        await mensajeService.eliminarMensaje(1/* this.props.usuario.id */, mensaje.id)
+    eliminarMensaje = async (mensajeId) => {
+        await mensajeService.eliminarMensaje(1/* this.props.usuario.id */, mensajeId)
         this.props.history.push('/inbox')
     }
 
@@ -71,12 +70,12 @@ export class VerMensajeComponent extends Component {
                             <span className="nombre-contacto">De {mensaje.remitente}</span>
                             <span className="fecha-mensaje">{mensaje.fechaYHoraDeEmision}</span>
                             <div className="iconos-mensaje">
-                                <i className="pi pi-trash icono" onClick={() => this.eliminarMensaje(mensaje)} ></i>
+                                <i onClick={() => this.eliminarMensaje(mensaje.id)} className="pi pi-trash icono" ></i>
                                 {this.leerTemplate(mensaje)}
                             </div>
                         </div>
                     </div>
-                    <InputTextarea className="textarea-mensaje" value={mensaje.cuerpo} onChange={(e) => this.setState({ value: e.target.value })} readOnly />
+                    <InputTextarea className="textarea-mensaje" value={mensaje.cuerpo} readOnly />
                     <div className="boton-container">
                         <Button label="Volver" className="p-button-lg p-button-secondary boton-secundario" onClick={this.volver} />
                     </div>
