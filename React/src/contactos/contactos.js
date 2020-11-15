@@ -12,7 +12,7 @@ export class ContactosComponent extends Component {
         super(props);
         this.state = {
             contactos: [],
-            //valorBusqueda: ""
+            valorBusqueda: ""
         };
     }
 
@@ -38,8 +38,17 @@ export class ContactosComponent extends Component {
         this.props.history.push('/inbox')
     }
 
-    buscar = () => {
+    buscar = (valorBusqueda) => {
+        const contactosFiltrados = this.state.contactos.filter(contacto => contacto.nombreYApellido === valorBusqueda) // Aca va la llamada al back
+        this.setState({
+            contactos: contactosFiltrados
+        })
+    }
 
+    seleccionar = (contacto) => {
+        return(
+            <Button className="button" icon="pi pi-check" label="Seleccionar" onClick={() =>  this.props.history.push(`/nuevoMensaje/${contacto.id}`)}/>
+        )
     }
 
     render() {
@@ -49,7 +58,7 @@ export class ContactosComponent extends Component {
                     <h1 className="header-search">Búsqueda de Contactos</h1>
                     <div className="input-and-button">
                         <InputText  className="inputtext-contactos" value={this.state.valorBusqueda} onChange={(e) => this.setState({valorBusqueda: e.target.value})} />
-                        <Button className="button" onClick={ () => this.buscar } icon="pi pi-search iconoBusqueda" iconPos="right" />
+                        <Button className="button" onClick={ () => this.buscar(this.state.valorBusqueda) } icon="pi pi-search iconoBusqueda" iconPos="right" />
                     </div>
                 </div>
 
@@ -58,13 +67,14 @@ export class ContactosComponent extends Component {
                 </div>
                 <div className="table-and-button">
                     <div className="table">
-                        <DataTable className="data-table" value={this.state.contactos}>
-                            <Column className="column" field="nombreYApellido" header="Personas"></Column>
+                        <DataTable value={this.state.contactos} autoLayout={true}>
+                            <Column className="columnName" field="nombreYApellido" header="PERSONAS"></Column>
+                            <Column className="columnButton" body={this.seleccionar} ></Column>
                         </DataTable>
                     </div>
                 </div>
                     <div className="container-button">
-                        <Button label="Cancelar" className="p-button-secondary" onClick= {this.cancelar} />
+                        <Button label="Cancelar" className="p-button-secondary" onClick={this.cancelar} />
                     </div>
             </div>
         );

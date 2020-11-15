@@ -1,11 +1,9 @@
+.columnName {
 
-.data-table {
-    border-color: var(--color-terciario);
 }
 
-.column {
-    display: flex;
-    justify-content: center;
+.columnButton {
+    
 }
 
 .table {
