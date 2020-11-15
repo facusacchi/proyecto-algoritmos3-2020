@@ -4,16 +4,14 @@ import { Column } from 'primereact/column'
 import './contactos.css'
 import { Button } from 'primereact/button'
 import { InputText } from 'primereact/inputtext'
+import Usuario from '../dominio/usuario'
+import { usuarioService } from '../services/usuario-service'
 
 export class ContactosComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            contactos: [
-                /* {nombreYApellido: 'pepe'},
-                {nombreYApellido: 'lolo'},
-                {nombreYApellido: 'manolo'}, */
-            ],
+            contactos: [],
             //valorBusqueda: ""
         };
     }
@@ -21,6 +19,7 @@ export class ContactosComponent extends Component {
     async componentDidMount() {
         try {
             const contactos = await usuarioService.allInstances()
+            console.log(contactos)
             this.setState({
                 contactos,
             })
@@ -39,15 +38,18 @@ export class ContactosComponent extends Component {
         this.props.history.push('/inbox')
     }
 
-    render() {
+    buscar = () => {
 
+    }
+
+    render() {
         return (
             <div className="container">
                 <div className="search-and-button">
                     <h1 className="header-search">Búsqueda de Contactos</h1>
                     <div className="input-and-button">
                         <InputText  className="inputtext-contactos" value={this.state.valorBusqueda} onChange={(e) => this.setState({valorBusqueda: e.target.value})} />
-                        <Button className="button" onClick={this.buscar} icon="pi pi-search iconoBusqueda" iconPos="right" />
+                        <Button className="button" onClick={ () => this.buscar } icon="pi pi-search iconoBusqueda" iconPos="right" />
                     </div>
                 </div>
 

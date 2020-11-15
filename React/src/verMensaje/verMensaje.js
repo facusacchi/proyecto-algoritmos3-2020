@@ -15,11 +15,11 @@ export class VerMensajeComponent extends Component {
 
     async componentDidMount() {
         try {
-            const mensaje = await mensajeService.getMensajeById(1, this.props.match.params.id)
-            console.log(mensaje)
+            const mensaje = await mensajeService.getMensajeById(1/* this.props.usuario.id */, this.props.match.params.id)
             this.setState({
                 mensaje,
             })
+            !mensaje.leido ? this.setearEstadoLectura(mensaje) : ''
         } catch (e) {
             this.generarError(e)
             console.log(e)
@@ -33,12 +33,31 @@ export class VerMensajeComponent extends Component {
     }
 
     volver = () => {
-        this.props.history.push('/')
+        this.props.history.push('/inbox')
+    }
+
+    leerTemplate = (mensaje) => {
+        return (
+            mensaje.leido ?
+                <i onClick={() => this.setearEstadoLectura(mensaje)} className="pi pi-eye icono"></i> :
+                <i onClick={() => this.setearEstadoLectura(mensaje)} className="pi pi-eye-slash icono"></i>
+        )
+    }
+
+    setearEstadoLectura = async (mensaje) => {
+        mensaje.leido = !mensaje.leido
+        await mensajeService.actualizarMensaje(1/* this.props.usuario.id */, mensaje)
+        /* setMensaje([...mensaje]) */
+        this.setState({})
+    }
+
+    eliminarMensaje = async (mensaje) => {
+        await mensajeService.eliminarMensaje(1/* this.props.usuario.id */, mensaje.id)
+        this.props.history.push('/inbox')
     }
 
     render() {
-        const { mensaje, errorMessage } = this.state
-        /* const snackbarOpen = !!errorMessage // O se puede usar Boolean(errorMessage) */
+        const { mensaje } = this.state
         return (
             <div className="page">
                 <div className="card">
@@ -49,10 +68,10 @@ export class VerMensajeComponent extends Component {
                         </div>
                         <div className="nombre-contacto-container">
                             <span className="nombre-contacto">De {mensaje.remitente}</span>
-                            <span className="fecha-mensaje">18/09/2020 17:30</span>
+                            <span className="fecha-mensaje">{mensaje.fechaYHoraDeEmision}</span>
                             <div className="iconos-mensaje">
-                                <i className="pi pi-trash icono"></i>
-                                <i className="pi pi-eye-slash icono"></i>
+                                <i className="pi pi-trash icono" onClick={() => this.eliminarMensaje(mensaje)} ></i>
+                                {this.leerTemplate(mensaje)}
                             </div>
                         </div>
                     </div>

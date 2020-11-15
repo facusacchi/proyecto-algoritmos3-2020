@@ -52,27 +52,27 @@ class Bootstrap {
 			destinatario = pepe
 			cuerpo = "Hola pepe, como estas?"
 			remitente = manolo
-			fechaYHoraDeEmision = LocalDateTime.now()
+			fechaYHoraDeEmision = LocalDateTime.now().minusHours(38)
 			fechaYHoraDeLectura = LocalDateTime.now.plusHours(2)
-			leido = true
+			leido = false
 		])
 		pepe.recibirMensaje(new Mensaje => [
 			id = 2
 			destinatario = pepe
 			cuerpo = "Pepe no olvides tu abrigo!"
 			remitente = manolo
-			fechaYHoraDeEmision = LocalDateTime.now()
+			fechaYHoraDeEmision = LocalDateTime.now().minusHours(24)
 			fechaYHoraDeLectura = LocalDateTime.now.plusHours(5)
-			leido = true
+			leido = false
 		])
 		pepe.recibirMensaje(new Mensaje => [
 			id = 3
 			destinatario = pepe
 			cuerpo = "Pepe... Palala"
 			remitente = manolo
-			fechaYHoraDeEmision = LocalDateTime.now()
+			fechaYHoraDeEmision = LocalDateTime.now.minusHours(20)
 			fechaYHoraDeLectura = LocalDateTime.now.plusHours(20)
-			leido = true
+			leido = false
 		])
 	}
 

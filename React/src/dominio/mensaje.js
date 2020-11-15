@@ -12,5 +12,13 @@ export default class Mensaje {
     /*  ,{ asignatario: Usuario.fromJSON(mensajeJSON.asignadoA) }) */
   }
 
+  toJSON() {
+    return {
+      ...this,
+ /*      asignatario: null,
+      asignadoA: this.asignatario.nombre, */
+    }
+  }
+
 
 }
