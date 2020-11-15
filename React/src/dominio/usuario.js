@@ -1,9 +1,9 @@
 
 export default class Usuario {
-    constructor(id, nombre, username, password) {
+    constructor(id, nombreYApellido, userName, password) {
         this.id = id
-        this.nombreYApellido = nombre
-        this.userName = username
+        this.nombreYApellido = nombreYApellido
+        this.userName = userName
         this.password = password
     }
 

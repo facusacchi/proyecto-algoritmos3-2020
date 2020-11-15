@@ -6,6 +6,7 @@ import java.time.LocalDateTime
 import org.eclipse.xtend.lib.annotations.Accessors
 import com.fasterxml.jackson.annotation.JsonProperty
 import java.time.format.DateTimeFormatter
+import com.fasterxml.jackson.annotation.JsonIgnore
 
 class EnviarMensajeAlAutor extends Observador {
 	
@@ -33,6 +34,7 @@ class Mensaje {
 	String cuerpo
 	Usuario remitente
 	LocalDateTime fechaYHoraDeEmision
+	@JsonIgnore
 	LocalDateTime fechaYHoraDeLectura
 	boolean leido = false
 	//static String DATE_PATTERN = "yyyy-MM-dd"
