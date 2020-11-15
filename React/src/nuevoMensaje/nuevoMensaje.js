@@ -4,14 +4,28 @@ import { Button } from 'primereact/button';
 import { InputTextarea } from 'primereact/inputtextarea';
 import { Messages } from 'primereact/messages';
 import { Message } from 'primereact/message';
+import {usuarioService} from '../services/usuario-service'
+import Usuario from '../dominio/usuario'
 
 export class NuevoMensajeComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            destinatario: new Usuario()
         };
         this.addMessages = this.addMessages.bind(this);
+    }
+
+    async componentDidMount() {
+        const { id } = this.props.match.params
+        try {
+            const destinatario = await usuarioService.getDestinatario(id)
+            this.setState({
+                destinatario,
+            })
+        } catch (e) {
+            console.log("Error!!")
+        }
     }
 
     addMessages() {

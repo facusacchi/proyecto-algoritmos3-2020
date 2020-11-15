@@ -15,6 +15,6 @@ export const MensajesRoutes = () => (
         <Route path="/inbox" component={InboxComponent} />
         <Route path="/verMensaje/:id" component={VerMensajeComponent} />
         <Route path="/contactos" component={ContactosComponent} />
-        <Route path="/nuevoMensaje" component={NuevoMensajeComponent} />
+        <Route path="/nuevoMensaje/:id" component={NuevoMensajeComponent} />
     </Router>
 )

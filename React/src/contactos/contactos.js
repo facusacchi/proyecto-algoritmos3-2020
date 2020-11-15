@@ -19,7 +19,6 @@ export class ContactosComponent extends Component {
     async componentDidMount() {
         try {
             const contactos = await usuarioService.allInstances()
-            console.log(contactos)
             this.setState({
                 contactos,
             })

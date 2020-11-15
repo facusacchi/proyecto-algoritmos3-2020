@@ -9,5 +9,10 @@ class UsuarioService {
         return data.map(usuario => Usuario.fromJson(usuario))
     }
 
+    async getDestinatario(id) {
+        const { data } = await axios.get(`${REST_SERVER_URL}/perfilDeUsuario/${id}`)
+        return Usuario.fromJson(data)
+    }
+
 }
 export const usuarioService = new UsuarioService()

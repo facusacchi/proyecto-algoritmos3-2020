@@ -14,6 +14,7 @@ export class VerMensajeComponent extends Component {
     }
 
     async componentDidMount() {
+        console.log(this.props.match.params.id)
         try {
             const mensaje = await mensajeService.getMensajeById(1/* this.props.usuario.id */, this.props.match.params.id)
             this.setState({
