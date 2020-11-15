@@ -50,13 +50,19 @@ export class ContactosComponent extends Component {
         )
     }
 
+    alCambiarValorDeBusqueda = (event) => {
+        this.setState({
+            valorBusqueda: event.target.value
+        })
+    }
+
     render() {
         return (
             <div className="container">
                 <div className="search-and-button">
                     <h1 className="header-search">Búsqueda de Contactos</h1>
                     <div className="input-and-button">
-                        <InputText  className="inputtext-contactos" value={this.state.valorBusqueda} onChange={(e) => this.setState({valorBusqueda: e.target.value})} />
+                        <InputText  className="inputtext-contactos" value={this.state.valorBusqueda} onChange={(event) => this.alCambiarValorDeBusqueda(event)} />
                         <Button className="button" onClick={ () => this.buscar(this.state.valorBusqueda) } icon="pi pi-search iconoBusqueda" iconPos="right" />
                     </div>
                 </div>
