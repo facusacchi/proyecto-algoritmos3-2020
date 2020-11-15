@@ -66,6 +66,19 @@ class MensajeController {
 		ResponseEntity.ok(mensaje)
 	}
 	
+	@GetMapping("usuario/{id}/buscarMensaje/{valorBusqueda}")
+	def buscarMensajes(@PathVariable Integer id,@PathVariable String valorBusqueda) {
+		if (id === 0) {
+			return ResponseEntity.badRequest.body('''Debe ingresar el parámetro id''')
+		}
+		val usuario = RepoUsuario.instance.getById(id.toString)
+		if (usuario === null) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontró el usuario con id <«id»>''')
+		}
+		val mensajes = usuario.mensajesInternos.filter[mensaje | mensaje.remitente.nombreYApellido.toLowerCase.contains(valorBusqueda.toLowerCase)]
+		ResponseEntity.ok(mensajes)
+	}
+	
 	static def mapper() {
 		new ObjectMapper => [
 			configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)

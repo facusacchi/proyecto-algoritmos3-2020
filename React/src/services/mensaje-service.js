@@ -22,7 +22,8 @@ class MensajeService {
     }
 
     async buscarMensajes(valorBusqueda) {
-
+        const { data } = await axios.get(`${REST_SERVER_URL}/inbox/${id}`)
+        return data
     }
 
 }
