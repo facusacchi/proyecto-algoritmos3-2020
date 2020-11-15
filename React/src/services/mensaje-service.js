@@ -22,10 +22,10 @@ class MensajeService {
     }
 
     async buscarMensajes(valorBusqueda) {
-        const { data } = await axios.get(`${REST_SERVER_URL}/inbox/${id}`)
-        return data
+        const mensajesFiltrados = await axios.get(`${REST_SERVER_URL}/usuario/1/buscarMensaje/${valorBusqueda}`)
+        return mensajesFiltrados.data.map((mensaje) => Mensaje.fromJson(mensaje))
     }
-
+    
     async actualizarMensaje(id, mensaje) {
         /* const indiceActualizar = this.mails.findIndex((mail) => mail.id === mensaje.id)
         if (indiceActualizar === -1) {

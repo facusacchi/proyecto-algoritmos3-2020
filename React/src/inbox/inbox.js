@@ -13,6 +13,7 @@ export class InboxComponent extends Component {
     super(props);
     this.state = {
       mensajes:[],
+      valorBusqueda:""
     };
   }
 
@@ -72,15 +73,9 @@ export class InboxComponent extends Component {
 
   }
 
-  eliminarMensaje = (mensaje) => {
-//     const index = this.state.mensajes.indexOf();
-// if (index > -1) {
-//   array.splice(index, 1);
-// }
-//     this.state.mensajes.
-//     this.setState ( { })
-
-  }
+  eliminarMensaje = async (mensaje) => {
+    await mensajeService.eliminarMensaje(1/* this.props.usuario.id */, mensaje.id)
+}
  
   render() {
     return (
