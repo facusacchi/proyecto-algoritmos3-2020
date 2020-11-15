@@ -113,7 +113,7 @@ class MensajeController {
 		if (usuario === null) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontró el usuario con id <«id»>''')
 		}
-		val mensajes = usuario.mensajesInternos.filter[mensaje | mensaje.remitente.nombreYApellido.toLowerCase.contains(valorBusqueda.toLowerCase)]
+		val mensajes = usuario.mensajesInternos.filter[mensaje | mensaje.remitente.nombreYApellido.toLowerCase.contains(valorBusqueda.toLowerCase)].toList
 		ResponseEntity.ok(mensajes)
 	}
 	
