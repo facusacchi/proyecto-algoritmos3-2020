@@ -37,6 +37,10 @@ class Bootstrap {
 	Usuario pepe
 	Usuario manolo
 	Usuario nancy
+	Usuario casandra
+	Usuario lucrecia
+	Usuario pancho
+	Usuario elena
 
 	def void run() {
 		instanciarAlimentos
@@ -139,6 +143,70 @@ class Bootstrap {
 			rutina = Rutina.MEDIANO
 		]
 		RepoUsuario.instance.create(nancy)
+		
+		casandra = new Usuario => [
+			nombreYApellido = "Casandra Malandra"
+			userName = "casalandra"
+			password = "774"
+			peso = 120.0
+			estatura = 1.90
+			fechaDeNacimiento = LocalDate.of(1985,5,7)
+			agregarCondicionAlimenticia(Vegano.getInstancia)
+			agregarCondicionAlimenticia(Celiaco.getInstancia)
+			agregarAlimentosPreferidos(carneRoja)
+			agregarAlimentosPreferidos(papa)
+			agregarAlimentoDisgustado(pescado)
+			rutina = Rutina.MEDIANO
+		]
+		RepoUsuario.instance.create(casandra)
+		
+		lucrecia = new Usuario => [
+			nombreYApellido = "Lucrecia Magnesia"
+			userName = "lugenesia"
+			password = "122"
+			peso = 120.0
+			estatura = 1.90
+			fechaDeNacimiento = LocalDate.of(1985,5,7)
+			agregarCondicionAlimenticia(Vegano.getInstancia)
+			agregarCondicionAlimenticia(Celiaco.getInstancia)
+			agregarAlimentosPreferidos(carneRoja)
+			agregarAlimentosPreferidos(papa)
+			agregarAlimentoDisgustado(pescado)
+			rutina = Rutina.MEDIANO
+		]
+		RepoUsuario.instance.create(lucrecia)
+		
+		pancho = new Usuario => [
+			nombreYApellido = "Pancho Rancho"
+			userName = "zafarancho"
+			password = "999"
+			peso = 120.0
+			estatura = 1.90
+			fechaDeNacimiento = LocalDate.of(1985,5,7)
+			agregarCondicionAlimenticia(Vegano.getInstancia)
+			agregarCondicionAlimenticia(Celiaco.getInstancia)
+			agregarAlimentosPreferidos(carneRoja)
+			agregarAlimentosPreferidos(papa)
+			agregarAlimentoDisgustado(pescado)
+			rutina = Rutina.MEDIANO
+		]
+		RepoUsuario.instance.create(pancho)
+		
+		elena = new Usuario => [
+			nombreYApellido = "Elena Melena"
+			userName = "melinena"
+			password = "364"
+			peso = 120.0
+			estatura = 1.90
+			fechaDeNacimiento = LocalDate.of(1985,5,7)
+			agregarCondicionAlimenticia(Vegano.getInstancia)
+			agregarCondicionAlimenticia(Celiaco.getInstancia)
+			agregarAlimentosPreferidos(carneRoja)
+			agregarAlimentosPreferidos(papa)
+			agregarAlimentoDisgustado(pescado)
+			rutina = Rutina.MEDIANO
+		]
+		RepoUsuario.instance.create(elena)
 	}
 
 	def crearRecetas() {
