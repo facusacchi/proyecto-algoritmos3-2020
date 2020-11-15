@@ -69,6 +69,15 @@ class UsuarioController {
 		}
 	}
 	
+	@GetMapping(value="/usuarios/{valorBusqueda}")
+	def getUsuariosPorString(@PathVariable String valorBusqueda) {
+		if(valorBusqueda === null) {
+			return ResponseEntity.badRequest.body('''Parametro de busqueda incorrecto''')
+		}
+		val usuarios = RepoUsuario.instance.search(valorBusqueda)
+		ResponseEntity.ok(usuarios)
+	}
+	
 	static def mapper() {
 		new ObjectMapper => [
 			configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
