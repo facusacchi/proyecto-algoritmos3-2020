@@ -19,7 +19,7 @@ export class VerMensajeComponent extends Component {
             this.setState({
                 mensaje,
             })
-            this.setearEstadoLectura(mensaje)
+            !mensaje.leido ? this.setearEstadoLectura(mensaje) : ''
         } catch (e) {
             this.generarError(e)
             console.log(e)
@@ -51,9 +51,13 @@ export class VerMensajeComponent extends Component {
         this.setState({})
     }
 
+    eliminarMensaje = async (mensaje) => {
+        await mensajeService.eliminarMensaje(1/* this.props.usuario.id */, mensaje.id)
+        this.props.history.push('/inbox')
+    }
+
     render() {
-        const { mensaje, errorMessage } = this.state
-        /* const snackbarOpen = !!errorMessage // O se puede usar Boolean(errorMessage) */
+        const { mensaje } = this.state
         return (
             <div className="page">
                 <div className="card">
@@ -66,7 +70,7 @@ export class VerMensajeComponent extends Component {
                             <span className="nombre-contacto">De {mensaje.remitente}</span>
                             <span className="fecha-mensaje">{mensaje.fechaYHoraDeEmision}</span>
                             <div className="iconos-mensaje">
-                                <i className="pi pi-trash icono"></i>
+                                <i className="pi pi-trash icono" onClick={() => this.eliminarMensaje(mensaje)} ></i>
                                 {this.leerTemplate(mensaje)}
                             </div>
                         </div>

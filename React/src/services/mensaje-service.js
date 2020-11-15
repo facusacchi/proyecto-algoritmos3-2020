@@ -35,5 +35,9 @@ class MensajeService {
         return await axios.put(`${REST_SERVER_URL}/${id}/actualizarMensaje/${mensaje.id}`, mensaje.toJSON())
     }
 
+    async eliminarMensaje(id, mensajeId) {
+        await axios.delete(`${REST_SERVER_URL}/${id}/eliminarMensaje/${mensajeId}`)
+    }
+
 }
 export const mensajeService = new MensajeService()

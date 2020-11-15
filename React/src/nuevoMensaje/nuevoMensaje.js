@@ -22,6 +22,8 @@ export class NuevoMensajeComponent extends Component {
     }
 
     render() {
+        /*const { mensaje, errorMessage } = this.state
+        const snackbarOpen = !!errorMessage // O se puede usar Boolean(errorMessage) */
         return (
             <div className="page">
                 <div className="card">
