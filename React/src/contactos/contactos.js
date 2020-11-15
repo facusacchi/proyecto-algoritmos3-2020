@@ -4,16 +4,13 @@ import { Column } from 'primereact/column'
 import './contactos.css'
 import { Button } from 'primereact/button'
 import { InputText } from 'primereact/inputtext'
+import Usuario from '../dominio/usuario'
 
 export class ContactosComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            contactos: [
-                /* {nombreYApellido: 'pepe'},
-                {nombreYApellido: 'lolo'},
-                {nombreYApellido: 'manolo'}, */
-            ],
+            contactos: [],
             //valorBusqueda: ""
         };
     }
@@ -21,6 +18,7 @@ export class ContactosComponent extends Component {
     async componentDidMount() {
         try {
             const contactos = await usuarioService.allInstances()
+            //const contactos = [new Usuario(1,"pepe","pepito","123"), new Usuario(2,"manolo","manolito","312")]
             this.setState({
                 contactos,
             })
@@ -40,7 +38,6 @@ export class ContactosComponent extends Component {
     }
 
     render() {
-
         return (
             <div className="container">
                 <div className="search-and-button">
