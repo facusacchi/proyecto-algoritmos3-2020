@@ -16,10 +16,20 @@ export default class Mensaje {
   toJSON() {
     return {
       ...this,
- /*      asignatario: null,
+      /*asignatario: null,
       asignadoA: this.asignatario.nombre, */
     }
   }
 
+  validarMensaje() {
+    if (this.cuerpo == '') {
+      throw new UserException('Cuerpo del mensaje vacío')
+    }
+  }
+}
 
+class UserException extends Error {
+  toString() {
+    return this.message
+  }
 }

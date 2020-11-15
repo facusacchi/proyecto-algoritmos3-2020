@@ -3,7 +3,7 @@ import "../verMensaje/verMensaje.css"
 import Mensaje from '../dominio/mensaje'
 import Usuario from '../dominio/usuario'
 import { mensajeService } from '../services/mensaje-service'
-import {usuarioService} from '../services/usuario-service'
+import { usuarioService } from '../services/usuario-service'
 import { Button } from 'primereact/button';
 import { InputTextarea } from 'primereact/inputtextarea';
 import { Messages } from 'primereact/messages';
@@ -14,7 +14,7 @@ export class NuevoMensajeComponent extends Component {
         super(props);
         this.state = {
             mensaje: new Mensaje(),
-            cuerpo: String,
+            cuerpo: '',
             destinatario: new Usuario()
         };
         this.addMessages = this.addMessages.bind(this);
@@ -36,10 +36,12 @@ export class NuevoMensajeComponent extends Component {
         this.props.history.push('/inbox')
     }
 
-    addMessages() {
-        this.msgs2.show([
-            { severity: 'success', detail: 'Mensaje enviado' /* , sticky: true */ },
-            { severity: 'error', detail: 'No se pudo enviar el mensaje'/* , sticky: true */ }
+    addMessages(result) {
+        this.msg.show([
+            result == 'success' ?
+                { severity: 'success', detail: 'Mensaje enviado', sticky: true }
+                :
+                { severity: 'error', detail: result.toString() /*'No se pudo enviar el mensaje' */ }
         ]);
     }
 
@@ -47,9 +49,13 @@ export class NuevoMensajeComponent extends Component {
         mensaje.destinatario = this.state.destinatario.nombreYApellido
         mensaje.remitente = "prueba remitente desde front" /* tomar usuario Logueado -> usuario.nombreYApellido */
         mensaje.cuerpo = this.state.cuerpo
-        await mensajeService.nuevoMensaje(this.props.match.params.id, mensaje)
-        /* setMensaje([...mensaje]) */
-        /* this.setState({}) */
+        try {
+            this.state.mensaje.validarMensaje()
+            await mensajeService.nuevoMensaje(this.props.match.params.id, mensaje)
+            this.addMessages('success')
+        } catch (e) {
+            this.addMessages(e)
+        }
     }
 
     render() {
@@ -69,12 +75,12 @@ export class NuevoMensajeComponent extends Component {
                     </div>
                     <InputTextarea className="textarea-mensaje" onChange={(e) => this.setState({ cuerpo: e.target.value })} />
                     <div className="boton-container">
-                        <Button label="Enviar" className="p-button-lg boton-secundario" onClick={() => this.enviarMensaje(mensaje)} /* {this.addMessages} */ />
+                        <Button label="Enviar" className="p-button-lg boton-secundario" onClick={() => this.enviarMensaje(mensaje)} />
                         <Button label="Cancelar" className="p-button-lg p-button-secondary boton-secundario" onClick={this.volver} />
                     </div>
                 </div>
                 <div className="resultado-mensaje">
-                    <Messages ref={(el) => this.msgs2 = el} />
+                    <Messages ref={(el) => this.msg = el} />
                 </div>
             </div>
         );
