@@ -75,10 +75,10 @@ export class InboxComponent extends Component {
 
   eliminarMensaje = async (mensajeAEliminar) => {
     await mensajeService.eliminarMensaje(1,mensajeAEliminar.id)
-    //const mensajesNoEliminados = this.state.mensajes.filter((mensajito) => mensaje.id !== mensajeAEliminar)
-        //this.setState({
-            //logs: newLogs
-        //})
+    const mensajesNoEliminados = this.state.mensajes.filter((mensajito) => mensajito.id !== mensajeAEliminar.id)
+        this.setState({
+            mensajes: mensajesNoEliminados
+        })
 }
  
   render() {
