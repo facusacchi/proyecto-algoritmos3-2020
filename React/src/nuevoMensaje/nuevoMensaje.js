@@ -47,7 +47,7 @@ export class NuevoMensajeComponent extends Component {
                             <span className="mensaje-titulo">Mensaje</span>
                         </div>
                         <div className="nombre-contacto-container">
-                            <span className="nombre-contacto">{this.state.destinatario.nombreYApellido}</span>
+                            <span className="nombre-contacto">Para {this.state.destinatario.nombreYApellido}</span>
                         </div>
                     </div>
                     <InputTextarea className="textarea-mensaje" value={this.state.value} onChange={(e) => this.setState({ value: e.target.value })} />
