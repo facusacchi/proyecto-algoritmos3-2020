@@ -5,6 +5,7 @@ import './contactos.css'
 import { Button } from 'primereact/button'
 import { InputText } from 'primereact/inputtext'
 import Usuario from '../dominio/usuario'
+import { usuarioService } from '../services/usuario-service'
 
 export class ContactosComponent extends Component {
     constructor(props) {
@@ -18,7 +19,7 @@ export class ContactosComponent extends Component {
     async componentDidMount() {
         try {
             const contactos = await usuarioService.allInstances()
-            //const contactos = [new Usuario(1,"pepe","pepito","123"), new Usuario(2,"manolo","manolito","312")]
+            console.log(contactos)
             this.setState({
                 contactos,
             })
@@ -37,6 +38,10 @@ export class ContactosComponent extends Component {
         this.props.history.push('/inbox')
     }
 
+    buscar = () => {
+
+    }
+
     render() {
         return (
             <div className="container">
@@ -44,7 +49,7 @@ export class ContactosComponent extends Component {
                     <h1 className="header-search">Búsqueda de Contactos</h1>
                     <div className="input-and-button">
                         <InputText  className="inputtext-contactos" value={this.state.valorBusqueda} onChange={(e) => this.setState({valorBusqueda: e.target.value})} />
-                        <Button className="button" onClick={this.buscar} icon="pi pi-search iconoBusqueda" iconPos="right" />
+                        <Button className="button" onClick={ () => this.buscar } icon="pi pi-search iconoBusqueda" iconPos="right" />
                     </div>
                 </div>
 
