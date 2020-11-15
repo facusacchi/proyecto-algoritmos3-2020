@@ -37,8 +37,8 @@ export class ContactosComponent extends Component {
         this.props.history.push('/inbox')
     }
 
-    buscar = (valorBusqueda) => {
-        const contactosFiltrados = this.state.contactos.filter(contacto => contacto.nombreYApellido === valorBusqueda) // Aca va la llamada al back
+    buscar = async (valorBusqueda) => {
+        const contactosFiltrados = await usuarioService.getContactos(valorBusqueda)
         this.setState({
             contactos: contactosFiltrados
         })

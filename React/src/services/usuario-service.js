@@ -14,5 +14,10 @@ class UsuarioService {
         return Usuario.fromJson(data)
     }
 
+    async getContactos(valorBusqueda) {
+        const { data } = await axios.get(`${REST_SERVER_URL}/usuarios/${valorBusqueda}`)
+        return data.map(usuario => Usuario.fromJson(usuario))
+    }
+
 }
 export const usuarioService = new UsuarioService()
