@@ -58,7 +58,7 @@ export class InboxComponent extends Component {
 
   eliminarTemplate = (mensaje) => {
     return (
-          <i onClick={this.eliminarMensaje} className="pi pi-trash border"></i>
+          <i onClick={() => this.eliminarMensaje(mensaje)} className="pi pi-trash border"></i>
     )
   }
 
@@ -73,8 +73,12 @@ export class InboxComponent extends Component {
 
   }
 
-  eliminarMensaje = async (mensaje) => {
-    await mensajeService.eliminarMensaje(1/* this.props.usuario.id */, mensaje.id)
+  eliminarMensaje = async (mensajeAEliminar) => {
+    await mensajeService.eliminarMensaje(1,mensajeAEliminar.id)
+    const mensajesNoEliminados = this.state.mensajes.filter((mensajito) => mensajito.id !== mensajeAEliminar.id)
+        this.setState({
+            mensajes: mensajesNoEliminados
+        })
 }
  
   render() {
