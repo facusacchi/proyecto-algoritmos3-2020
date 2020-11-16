@@ -4,7 +4,6 @@ import { Column } from 'primereact/column'
 import './contactos.css'
 import { Button } from 'primereact/button'
 import { InputText } from 'primereact/inputtext'
-import Usuario from '../dominio/usuario'
 import { usuarioService } from '../services/usuario-service'
 
 export class ContactosComponent extends Component {
@@ -31,7 +30,7 @@ export class ContactosComponent extends Component {
         this.setState({
           errorMessage: errorMessage.toString()
         })
-      }
+    }
 
     cancelar = () => {
         this.props.history.push('/inbox')
