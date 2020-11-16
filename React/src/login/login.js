@@ -12,6 +12,7 @@ export class LoginComponent extends Component {
     this.state = {
       userName:'',
       password: '',
+      error: false
     };
   }
 
@@ -33,14 +34,10 @@ export class LoginComponent extends Component {
       usuarioService.userLogged = await usuarioService.loguearUsuario(jsonDataLogin)
       this.props.history.push('/inbox')
     } catch (e) {
-      this.generarError(e)
+      this.setState({
+        error: true
+      })
     }
-  }
-
-  generarError = (errorMessage) => {
-    this.setState({
-      errorMessage: errorMessage.toString()
-    })
   }
 
   render() {
@@ -57,6 +54,9 @@ export class LoginComponent extends Component {
             </div>
             <div className="p-p-4">
               <Button className="p-button-lg p-component p-d-block p-mx-auto" label="Ingresar" onClick={() => this.loguearUsuario()} />
+          </div>
+          <div className="mensaje-error">
+            { this.state.error && <span>Usuario o contraseña invalidos</span> }
           </div>
         </Card>
       </div>

@@ -1,7 +1,5 @@
 .cardLogin {
     width: 35rem;
-    
-
 }
 
 .centrado {
@@ -17,5 +15,11 @@
     font-size: 4em;
     font-weight: bold;
     color: red;
+}
 
+.mensaje-error {
+    color: red;
+    position: relative;
+    font-weight: bold;
+    left: 25%;
 }
