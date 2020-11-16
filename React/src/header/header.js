@@ -1,7 +1,6 @@
 import React from 'react'
 import './header.css'
 import { MenuHeader } from '../menu-header/menu-header'
-import { usuarioService } from '../services/usuario-service'
 
 export const Header = (props) => {
     const { location } = props
@@ -23,7 +22,7 @@ export const Header = (props) => {
                     TeleFood/{searchSite()}
                 </div>            
                 <div className="menu-header">
-                    <MenuHeader usuario={usuarioService.userLogged.nombreYApellido} />
+                    <MenuHeader/>
                 </div>
             </div>
         </header>

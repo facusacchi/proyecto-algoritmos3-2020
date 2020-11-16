@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Menu } from 'primereact/menu';
 import { Button } from 'primereact/button';
+import { usuarioService } from '../services/usuario-service'
 
 export class MenuHeader extends Component {
 
@@ -11,7 +12,7 @@ export class MenuHeader extends Component {
             /* {
                 label: this.props.usuario,
                 items: [ */
-            { label: this.props.usuario, icon: 'pi pi-fw pi-user', disabled: true },
+            { label: "usuarioService.userLogged.nombreYApellido", icon: 'pi pi-fw pi-user', disabled: true },
             { separator: true },
             { label: 'Inbox', icon: 'pi pi-fw pi-inbox', url: '/inbox' },
             { label: 'Enviar', icon: 'pi pi-fw pi-arrow-circle-right', url: '/contactos' },
