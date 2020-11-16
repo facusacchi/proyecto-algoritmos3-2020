@@ -7,6 +7,7 @@ import { Column } from 'primereact/column';
 import Mensaje from "../dominio/mensaje";
 import { BusquedaComponent } from "../busqueda/busqueda";
 import { mensajeService } from '../services/mensaje-service'
+import { usuarioService } from '../services/usuario-service'
 
 export class InboxComponent extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ export class InboxComponent extends Component {
 
   async componentDidMount () {
     try {
-      const mensajes = await mensajeService.allInstances(1)
+      const mensajes = await mensajeService.allInstances(usuarioService.userLogged.id)
       this.setState({mensajes : mensajes}) 
   } catch (e) {
       this.generarError(e)
