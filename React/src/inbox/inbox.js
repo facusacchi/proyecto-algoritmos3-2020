@@ -67,8 +67,9 @@ export class InboxComponent extends Component {
     this.setState({mensajes : mensajesFiltrados})
   }
 
-  setearLeido = (mensaje) => {
+  setearLeido = async(mensaje) => {
     mensaje.leido = !mensaje.leido 
+    await mensajeService.actualizarMensaje(1/* this.props.usuario.id */, mensaje)
     this.setState ({mensajes : this.state.mensajes})
   }
 
