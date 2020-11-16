@@ -33,11 +33,11 @@ export class InboxComponent extends Component {
     })
 }
 
-  leidoTemplate = ({leido}) => {
+  leidoTemplate = (mensaje) => {
     return (
-      leido ?
+      mensaje.leido ?
       //<span title="No leído"  style={{ display: 'flex', alignItems: 'center', alignContent: 'center', justifyContent: 'center' }}>
-      <i className="pi pi-inbox"></i>
+      <i onClick={()=>this.leerMensaje(mensaje)} className="pi pi-inbox"></i>
       //</span>
     :
       //<span title="No leído"  style={{ display: 'flex', alignItems: 'center', alignContent: 'center', justifyContent: 'center' }}>
@@ -79,6 +79,10 @@ export class InboxComponent extends Component {
         this.setState({
             mensajes: mensajesNoEliminados
         })
+}
+
+leerMensaje = (mensaje) => {
+  
 }
  
   render() {
