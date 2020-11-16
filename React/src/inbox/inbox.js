@@ -41,7 +41,7 @@ export class InboxComponent extends Component {
       //</span>
     :
       //<span title="No leído"  style={{ display: 'flex', alignItems: 'center', alignContent: 'center', justifyContent: 'center' }}>
-      <i className="pi pi-envelope"></i>
+      <i onClick={()=>this.leerMensaje(mensaje)} className="pi pi-envelope"></i>
       // </span>
     )
   }
@@ -51,7 +51,7 @@ export class InboxComponent extends Component {
       mensaje.leido ?
           <i onClick={() => this.setearLeido(mensaje)} className="pi pi-eye-slash border"></i> :
         //<span title="No leído" data-testid={'noLeido' + id} className="p-badge p-badge-warning icon-badge" style={{ display: 'flex', alignItems: 'center', alignContent: 'center', justifyContent: 'center' }}>
-          <i className="pi pi-eye border"></i>
+          <i onClick={() => this.setearLeido(mensaje)} className="pi pi-eye border"></i>
         //</span>
     )
   }
@@ -64,25 +64,22 @@ export class InboxComponent extends Component {
 
   buscar = async (valorBusqueda) => {
     const mensajesFiltrados= await mensajeService.buscarMensajes(valorBusqueda)
-    this.setState ( { mensajes : mensajesFiltrados })
+    this.setState({mensajes : mensajesFiltrados})
   }
 
   setearLeido = (mensaje) => {
     mensaje.leido = !mensaje.leido 
-    this.setState ( {})
-
+    this.setState ({mensajes : this.state.mensajes})
   }
 
   eliminarMensaje = async (mensajeAEliminar) => {
     await mensajeService.eliminarMensaje(1,mensajeAEliminar.id)
     const mensajesNoEliminados = this.state.mensajes.filter((mensajito) => mensajito.id !== mensajeAEliminar.id)
-        this.setState({
-            mensajes: mensajesNoEliminados
-        })
+        this.setState({mensajes: mensajesNoEliminados})
 }
 
 leerMensaje = (mensaje) => {
-  
+  this.props.history.push(`/verMensaje/${mensaje.id}`)
 }
  
   render() {
