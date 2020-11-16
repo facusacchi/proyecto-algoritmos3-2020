@@ -83,6 +83,96 @@ class Bootstrap {
 			fechaYHoraDeLectura = LocalDateTime.now.plusHours(20)
 			leido = false
 		])
+		
+		manolo.recibirMensaje(new Mensaje => [
+			destinatario = manolo
+			cuerpo = "Manolo te toca hacer la funcionalidad de login"
+			remitente = nancy
+			fechaYHoraDeEmision = LocalDateTime.now.minusHours(20)
+			fechaYHoraDeLectura = LocalDateTime.now.plusHours(20)
+			leido = false
+		])
+		
+		manolo.recibirMensaje(new Mensaje => [
+			destinatario = manolo
+			cuerpo = "Podemos utilizar PrimeReact para el maquetado"
+			remitente = casandra
+			fechaYHoraDeEmision = LocalDateTime.now.minusHours(20)
+			fechaYHoraDeLectura = LocalDateTime.now.plusHours(20)
+			leido = false
+		])
+		
+		casandra.recibirMensaje(new Mensaje => [
+			destinatario = casandra
+			cuerpo = "¿Que tal si usamos SpringBoot para el backend?"
+			remitente = manolo
+			fechaYHoraDeEmision = LocalDateTime.now.minusHours(20)
+			fechaYHoraDeLectura = LocalDateTime.now.plusHours(20)
+			leido = false
+		])
+		
+		casandra.recibirMensaje(new Mensaje => [
+			destinatario = casandra
+			cuerpo = "Estoy atrasado con Angular, necesito mas tiempo"
+			remitente = pancho
+			fechaYHoraDeEmision = LocalDateTime.now.minusHours(20)
+			fechaYHoraDeLectura = LocalDateTime.now.plusHours(20)
+			leido = false
+		])
+		
+		lucrecia.recibirMensaje(new Mensaje => [
+			destinatario = lucrecia
+			cuerpo = "Tenemos que reunirnos ¿Hacemos una meet?"
+			remitente = pancho
+			fechaYHoraDeEmision = LocalDateTime.now.minusHours(20)
+			fechaYHoraDeLectura = LocalDateTime.now.plusHours(20)
+			leido = false
+		])
+		
+		pancho.recibirMensaje(new Mensaje => [
+			destinatario = pancho
+			cuerpo = "Pancho, necesito tu confirmacion para arrancar el maquetado"
+			remitente = pepe
+			fechaYHoraDeEmision = LocalDateTime.now.minusHours(20)
+			fechaYHoraDeLectura = LocalDateTime.now.plusHours(20)
+			leido = false
+		])
+		
+		pancho.recibirMensaje(new Mensaje => [
+			destinatario = pancho
+			cuerpo = "¿Podrias ayudarme con React?"
+			remitente = elena
+			fechaYHoraDeEmision = LocalDateTime.now.minusHours(20)
+			fechaYHoraDeLectura = LocalDateTime.now.plusHours(20)
+			leido = false
+		])
+		
+		pancho.recibirMensaje(new Mensaje => [
+			destinatario = pancho
+			cuerpo = "Deberiamos tener funcionalidad hecha para la semana poxima"
+			remitente = nancy
+			fechaYHoraDeEmision = LocalDateTime.now.minusHours(20)
+			fechaYHoraDeLectura = LocalDateTime.now.plusHours(20)
+			leido = false
+		])
+		
+		elena.recibirMensaje(new Mensaje => [
+			destinatario = elena
+			cuerpo = "Gracias por armarme el endpoint que necesitaba, te debo una!"
+			remitente = pancho
+			fechaYHoraDeEmision = LocalDateTime.now.minusHours(20)
+			fechaYHoraDeLectura = LocalDateTime.now.plusHours(20)
+			leido = false
+		])
+		
+		elena.recibirMensaje(new Mensaje => [
+			destinatario = elena
+			cuerpo = "Te deje un recado con las proximas instrucciones"
+			remitente = lucrecia
+			fechaYHoraDeEmision = LocalDateTime.now.minusHours(20)
+			fechaYHoraDeLectura = LocalDateTime.now.plusHours(20)
+			leido = false
+		])
 	}
 
 	def instanciarAlimentos() {
