@@ -47,7 +47,7 @@ export class NuevoMensajeComponent extends Component {
 
     enviarMensaje = async (mensaje) => {
         mensaje.destinatario = this.state.destinatario.nombreYApellido
-        mensaje.remitente = "prueba remitente desde front" /* usuarioService.userLogged.nombreYApellido */
+        mensaje.remitente = "prueba remitente" /* usuarioService.userLogged.nombreYApellido */
         mensaje.cuerpo = this.state.cuerpo
         try {
             this.state.mensaje.validarMensaje()
