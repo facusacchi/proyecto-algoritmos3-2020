@@ -3,7 +3,6 @@ import axios from 'axios'
 import { REST_SERVER_URL } from './constants'
 
 class UsuarioService {
-    userLogged
 
     async allInstances() {
         const { data } = await axios.get(`${REST_SERVER_URL}/usuarios`)

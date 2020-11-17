@@ -5,12 +5,13 @@ import 'primeicons/primeicons.css';
 import { FooterComponent } from './footer/footer';
 import { MensajesRoutes } from './route.js'
 import 'primeflex/primeflex.css'
+import { Provider } from './context/context'
 
 const App = () => (
-    <div className="App">
+    <Provider>
       <MensajesRoutes />
       <FooterComponent/>
-    </div>
+    </Provider>
   )
 
   export default App
