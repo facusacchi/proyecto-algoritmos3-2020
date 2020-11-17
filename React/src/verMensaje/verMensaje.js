@@ -5,6 +5,8 @@ import { Button } from 'primereact/button';
 import { InputTextarea } from 'primereact/inputtextarea';
 import Mensaje from '../dominio/mensaje'
 import { mensajeService } from '../services/mensaje-service'
+import { usuarioService } from '../services/usuario-service';
+
 export class VerMensajeComponent extends Component {
     constructor(props) {
         super(props);
@@ -15,7 +17,7 @@ export class VerMensajeComponent extends Component {
 
     async componentDidMount() {
         try {
-            const mensaje = await mensajeService.getMensajeById(1/* usuario Logueado -> usuario.id */, this.props.match.params.id)
+            const mensaje = await mensajeService.getMensajeById(usuarioService.userLogged.id, this.props.match.params.id)
             this.setState({
                 mensaje,
             })
@@ -46,13 +48,12 @@ export class VerMensajeComponent extends Component {
 
     cambiarEstadoLectura = async (mensaje) => {
         mensaje.leido = !mensaje.leido
-        await mensajeService.actualizarMensaje(1/* this.props.usuario.id */, mensaje)
-        /* setMensaje([...mensaje]) */
+        await mensajeService.actualizarMensaje(usuarioService.userLogged.id, mensaje)
         this.setState({})
     }
 
     eliminarMensaje = async (mensajeId) => {
-        await mensajeService.eliminarMensaje(1/* this.props.usuario.id */, mensajeId)
+        await mensajeService.eliminarMensaje(usuarioService.userLogged.id, mensajeId)
         this.props.history.push('/inbox')
     }
 

@@ -50,9 +50,9 @@ export class InboxComponent extends Component {
   leerTemplate = (mensaje) => {
     return (
       mensaje.leido ?
-          <i onClick={() => this.setearLeido(mensaje)} className="pi pi-eye-slash border"></i> :
+          <i onClick={() => this.setearLeido(mensaje)} className="pi pi-eye border"></i> :
         //<span title="No leído" data-testid={'noLeido' + id} className="p-badge p-badge-warning icon-badge" style={{ display: 'flex', alignItems: 'center', alignContent: 'center', justifyContent: 'center' }}>
-          <i onClick={() => this.setearLeido(mensaje)} className="pi pi-eye border"></i>
+          <i onClick={() => this.setearLeido(mensaje)} className="pi pi-eye-slash border"></i>
         //</span>
     )
   }
@@ -64,12 +64,11 @@ export class InboxComponent extends Component {
   }
 
   buscar = async (valorBusqueda) => {
-    const mensajesFiltrados= await mensajeService.buscarMensajes(valorBusqueda)
+    const mensajesFiltrados= await mensajeService.buscarMensajes(usuarioService.userLogged.id, valorBusqueda)
     this.setState({mensajes : mensajesFiltrados})
   }
 
   setearLeido = async (mensaje) => {
-    //const mensajeParam = await mensajeService.getMensajeById(1/* usuario Logueado -> usuario.id */, mensaje.id)
     mensaje.leido = !mensaje.leido
     console.log(mensaje)
     await mensajeService.actualizarMensaje(usuarioService.userLogged.id/* this.props.usuario.id */, mensaje)

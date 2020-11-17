@@ -220,7 +220,7 @@ class Bootstrap {
 		RepoUsuario.instance.create(manolo)
 
 		nancy = new Usuario => [
-			nombreYApellido = "Nancy Vargas Fernandez"
+			nombreYApellido = "Nancy Vargas"
 			userName = "nan"
 			password = "123"
 			peso = 120.0

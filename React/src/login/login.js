@@ -10,7 +10,7 @@ export class LoginComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userName:'',
+      userName: '',
       password: '',
       error: false
     };
@@ -45,18 +45,21 @@ export class LoginComponent extends Component {
       <div className="centrado">
         <Card className="cardLogin">
           <div className="titulo">TeleFood</div>
-            <div className="p-fluid">
-              <span className="p-float-label">
-                <InputText id="in" value= {this.state.userName} onChange= {(event) => this.setearUserName(event)} />
-                <label htmlhtmlFor="in">Username</label>
-              </span>
-              <Password value= {this.state.password} onChange= {(event) => this.setearPassword(event)} /> <br />
-            </div>
-            <div className="p-p-4">
-              <Button className="p-button-lg p-component p-d-block p-mx-auto" label="Ingresar" onClick={() => this.loguearUsuario()} />
+          <div className="p-fluid">
+            <span className="p-float-label margin-top">
+              <InputText id="in" value={this.state.userName} onChange={(event) => this.setearUserName(event)} />
+              <label htmlFor="in">Usuario</label>
+            </span>
+            <span className="p-float-label margin-top">
+              <Password id="password" value={this.state.password} onChange={(event) => this.setearPassword(event)} feedback={false} />
+              <label htmlFor="password">Contraseña</label>
+            </span>
+          </div>
+          <div className="p-p-4">
+            <Button className="p-button-lg p-component p-d-block p-mx-auto" label="Ingresar" onClick={() => this.loguearUsuario()} />
           </div>
           <div className="mensaje-error">
-            { this.state.error && <span>Usuario o contraseña invalidos</span> }
+            {this.state.error && <span>Usuario o contraseña invalidos</span>}
           </div>
         </Card>
       </div>

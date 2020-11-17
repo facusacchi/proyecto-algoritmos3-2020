@@ -47,7 +47,7 @@ export class NuevoMensajeComponent extends Component {
 
     enviarMensaje = async (mensaje) => {
         mensaje.destinatario = this.state.destinatario.nombreYApellido
-        mensaje.remitente = "prueba remitente desde front" /* tomar usuario Logueado -> usuario.nombreYApellido */
+        mensaje.remitente = "prueba remitente desde front" /* usuarioService.userLogged.nombreYApellido */
         mensaje.cuerpo = this.state.cuerpo
         try {
             this.state.mensaje.validarMensaje()
@@ -59,8 +59,7 @@ export class NuevoMensajeComponent extends Component {
     }
 
     render() {
-        const { mensaje, destinatario, errorMessage } = this.state
-        /*const snackbarOpen = !!errorMessage // O se puede usar Boolean(errorMessage) */
+        const { mensaje, destinatario } = this.state
         return (
             <div className="page">
                 <div className="card">

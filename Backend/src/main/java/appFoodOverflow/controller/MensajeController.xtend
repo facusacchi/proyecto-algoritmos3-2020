@@ -24,13 +24,11 @@ class MensajeController {
 
 	@PostMapping(value="/{id}/enviarMensaje")
 	def crearMensaje(@RequestBody String body, @PathVariable Integer id) {
-//		def nuevoMensaje(@RequestBody String body) {
 		try {
 			if (id === null || id === 0) {
 				return ResponseEntity.badRequest.body('''Debe ingresar el parámetro id''')
 			}
 			val destinatario = RepoUsuario.instance.getById(id.toString)
-//		val destinatario = RepoUsuario.instance.getByNombre(mensaje.destinatario)
 			if (destinatario === null) {
 				return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontró el destinatario con id <«id»>''')
 			}
@@ -72,7 +70,7 @@ class MensajeController {
 		}
 	}
 
-	@GetMapping("/inbox/{id}")
+	@GetMapping("/usuario/{id}/buscarMensajes")
 	def mensajesPorId(@PathVariable Integer id) {
 		if (id === 0) {
 			return ResponseEntity.badRequest.body('''Debe ingresar el parámetro id''')
@@ -104,7 +102,7 @@ class MensajeController {
 		ResponseEntity.ok(mensaje)
 	}
 	
-	@GetMapping("usuario/{id}/buscarMensaje/{valorBusqueda}")
+	@GetMapping("/usuario/{id}/buscarMensajes/{valorBusqueda}")
 	def buscarMensajes(@PathVariable Integer id,@PathVariable String valorBusqueda) {
 		if (id === 0) {
 			return ResponseEntity.badRequest.body('''Debe ingresar el parámetro id''')
