@@ -12,7 +12,7 @@ class MensajeService {
     //obtener todos los mensajes de un usuario
     async allInstances(id) {
         const { data } = await axios.get(`${REST_SERVER_URL}/inbox/${id}`)
-        return data
+        return data.map(mensajito => Mensaje.fromJson(mensajito))
     }
 
     //obtener un mensaje en particular de un usuario
