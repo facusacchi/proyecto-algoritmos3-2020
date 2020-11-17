@@ -15,7 +15,7 @@ export class MenuHeader extends Component {
     
     componentDidMount() {
         const items = [
-            { label: usuarioService.userLogged.nombreYApellido, icon: 'pi pi-fw pi-user', disabled: true },
+            { label: "usuarioService.userLogged.nombreYApellido", icon: 'pi pi-fw pi-user', disabled: true },
             { separator: true },
             { label: 'Inbox', icon: 'pi pi-fw pi-inbox', url: '/inbox' },
             { label: 'Enviar', icon: 'pi pi-fw pi-arrow-circle-right', url: '/contactos' },
