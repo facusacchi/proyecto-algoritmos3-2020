@@ -3,7 +3,7 @@ import './header.css'
 import { MenuHeader } from '../menu-header/menu-header'
 
 export const Header = (props) => {
-    const { location } = props
+    const { location, history } = props
     const sites = [
         { path: '/inbox', site: 'Inbox' },
         { path: '/nuevomensaje', site: 'Nuevo Mensaje' },
@@ -22,7 +22,7 @@ export const Header = (props) => {
                     TeleFood/{searchSite()}
                 </div>            
                 <div className="menu-header">
-                    <MenuHeader/>
+                    <MenuHeader history={history}/>
                 </div>
             </div>
         </header>

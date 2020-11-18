@@ -17,7 +17,7 @@ export class NuevoMensajeComponent extends Component {
             cuerpo: '',
             destinatario: new Usuario()
         };
-        this.addMessages = this.addMessages.bind(this);
+        /* this.addMessages = this.addMessages.bind(this); */
     }
 
     async componentDidMount() {
@@ -36,7 +36,7 @@ export class NuevoMensajeComponent extends Component {
         this.props.history.push('/inbox')
     }
 
-    addMessages(result) {
+    addMessages = (result) => {
         this.msg.show([
             result == 'success' ?
                 { severity: 'success', detail: 'Mensaje enviado', sticky: true }
@@ -47,7 +47,7 @@ export class NuevoMensajeComponent extends Component {
 
     enviarMensaje = async (mensaje) => {
         mensaje.destinatario = this.state.destinatario.nombreYApellido
-        mensaje.remitente = "prueba remitente" /* usuarioService.userLogged.nombreYApellido */
+        mensaje.remitente = usuarioService.userLogged.nombreYApellido
         mensaje.cuerpo = this.state.cuerpo
         try {
             this.state.mensaje.validarMensaje()

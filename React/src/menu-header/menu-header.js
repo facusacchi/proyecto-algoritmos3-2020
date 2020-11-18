@@ -15,11 +15,11 @@ export class MenuHeader extends Component {
     
     componentDidMount() {
         const items = [
-            { label: "usuarioService.userLogged.nombreYApellido", icon: 'pi pi-fw pi-user', disabled: true },
+            { label: usuarioService.userLogged?.nombreYApellido, icon: 'pi pi-fw pi-user', disabled: true },
             { separator: true },
-            { label: 'Inbox', icon: 'pi pi-fw pi-inbox', url: '/inbox' },
-            { label: 'Enviar', icon: 'pi pi-fw pi-arrow-circle-right', url: '/contactos' },
-            { label: 'Salir', icon: 'pi pi-fw pi-sign-out', url: '/' }
+            { label: 'Inbox', icon: 'pi pi-fw pi-inbox', command: () => { this.props.history.push('/inbox') } },
+            { label: 'Enviar', icon: 'pi pi-fw pi-arrow-circle-right', command: () => { this.props.history.push('/contactos') } },
+            { label: 'Salir', icon: 'pi pi-fw pi-sign-out', command: () => { this.props.history.push('/') } },
         ]
 
         this.setState({
