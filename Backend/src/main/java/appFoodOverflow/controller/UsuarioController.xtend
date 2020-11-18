@@ -62,8 +62,8 @@ class UsuarioController {
 	@GetMapping(value="/usuarios")
 	def getUsuarios() {
 		try {
-			val alimentos = RepoUsuario.instance.allInstances
-			ResponseEntity.ok(alimentos)
+			val usuarios = RepoUsuario.instance.allInstances
+			ResponseEntity.ok(usuarios)
 		} catch (Exception e) {
 			ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.message)
 		}

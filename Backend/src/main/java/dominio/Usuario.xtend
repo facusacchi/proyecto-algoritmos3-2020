@@ -188,7 +188,7 @@ class Usuario extends Entity {
 	}
 	
 	override cumpleCondicionDeBusqueda(String valorBusqueda) {
-		nombreYApellido.contains(valorBusqueda) || userName.equals(valorBusqueda)
+		nombreYApellido.toLowerCase.contains(valorBusqueda.toLowerCase) || userName.toLowerCase.equals(valorBusqueda.toLowerCase)
 	}
 	
 	def recibirMensaje(Mensaje mensaje) {
