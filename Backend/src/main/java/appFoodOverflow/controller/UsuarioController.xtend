@@ -61,12 +61,11 @@ class UsuarioController {
 
 	@GetMapping(value="/usuarios")
 	def getUsuarios() {
-		try {
-			val usuarios = RepoUsuario.instance.allInstances
-			ResponseEntity.ok(usuarios)
-		} catch (Exception e) {
-			ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.message)
+		val usuarios = RepoUsuario.instance.allInstances
+		if (usuarios === null) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontron usuarios''')
 		}
+			ResponseEntity.ok(usuarios)
 	}
 	
 	@GetMapping(value="/usuarios/{valorBusqueda}")
