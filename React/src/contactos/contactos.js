@@ -18,8 +18,9 @@ export class ContactosComponent extends Component {
     async componentDidMount() {
         try {
             const contactos = await usuarioService.allInstances()
+            const contactosFiltrados = contactos.filter(contacto => contacto.nombreYApellido != usuarioService.userLogged.nombreYApellido)
             this.setState({
-                contactos,
+                contactos: contactosFiltrados
             })
           } catch (e) {
             this.generarError(e)
