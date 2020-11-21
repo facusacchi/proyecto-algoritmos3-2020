@@ -27,33 +27,29 @@ import repos.RepoUsuario
 @AutoConfigureJsonTesters
 @ContextConfiguration(classes=UsuarioController)
 @WebMvcTest
+//@DirtiesContext(classMode = ClassMode.BEFORE_EACH_TEST_METHOD)
 @DisplayName("Dado el controller de usuario")
-@DirtiesContext(classMode = ClassMode.BEFORE_EACH_TEST_METHOD)
-
 class TestsUsuarioController {
 	
 	@Autowired
 	MockMvc mockMvc
-	RepoUsuario repoUsuario = RepoUsuario.instance
-	
 	
 	@BeforeEach
 	def void init() {
-//		repoUsuario => [
-//			objects.clear
+		RepoUsuario.instance => [
 //			create(new Usuario)
 //			create(new Usuario)
 //			create(new Usuario)
 //			create(new Usuario)
 //			create(new Usuario)
-//		]
+		]
 	}
 	
 	@DisplayName("cuando pido un request a la url /usuarios obtengo un status 200 y la lista de usuarios del repo")
 	@Test
-	def void testObtenerSaludoDefault() {
+	def void testObtenerUsuarios() {
 		val responseEntity = mockMvc.perform(MockMvcRequestBuilders.get("/usuarios")).andReturn.response
-		val usuarios = responseEntity.contentAsString.fromJsonToList(Usuario)
+		//val usuarios = responseEntity.contentAsString.fromJsonToList(Usuario)
 		assertEquals(200, responseEntity.status)
 		//assertEquals(usuarios.size, 5)
 		//assertTrue(usuarios.exists[usuario|usuario.nombreYApellido.equals("Pepe Palala")])
