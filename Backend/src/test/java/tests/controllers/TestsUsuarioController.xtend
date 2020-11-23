@@ -12,7 +12,6 @@ import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.SerializationFeature
 import org.springframework.mock.web.MockHttpServletResponse
 import com.fasterxml.jackson.core.type.TypeReference
-import java.util.Map
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.web.servlet.MockMvc
 import org.junit.jupiter.api.Test
@@ -83,7 +82,7 @@ class TestsUsuarioController {
 		val responseEntity = mockMvc.perform(MockMvcRequestBuilders.get("/usuarios")).andReturn.response
 		val usuarios = responseEntity.contentAsString.fromJsonToList(Usuario)
 		assertEquals(200, responseEntity.status)
-		assertEquals(usuarios.size, 3)
+		assertEquals(3, usuarios.size)
 		assertTrue(usuarios.exists[usuario|usuario.nombreYApellido.equals("Pepe Palala")])
 		assertTrue(usuarios.exists[usuario|usuario.nombreYApellido.equals("Manolo Palala")])
 		assertTrue(usuarios.exists[usuario|usuario.nombreYApellido.equals("Nancy Vargas")])
@@ -96,6 +95,15 @@ class TestsUsuarioController {
 		val usuario = responseEntity.contentAsString.fromJson(Usuario)
 		assertEquals(200, responseEntity.status)
 		assertEquals("Pepe Palala", usuario.nombreYApellido)
+	}
+	
+	@DisplayName("cuando pido un request a la url /usuarios/{valorBusqueda} me trae al user del repo que coincide con dicho valor de busqueda")
+	@Test
+	def void obtenerUsuarioPorValor() {
+		val responseEntity = mockMvc.perform(MockMvcRequestBuilders.get("/usuarios/pep")).andReturn.response
+		val usuarios = responseEntity.contentAsString.fromJsonToList(Usuario)
+		assertEquals(200, responseEntity.status)
+		assertEquals(1, usuarios.size)
 	}
 	
 
