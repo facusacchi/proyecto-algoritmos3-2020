@@ -16,8 +16,8 @@ export class BusquedaComponent extends Component {
         return (
           <div>
             <h1>{this.props.nombreTitulo}</h1>
-            <InputText className = "ancho"  value={this.state.valorBusqueda} onChange={(e) => this.setState({valorBusqueda: e.target.value})} />
-            <Button onClick={()=>this.props.buscar(this.state.valorBusqueda)} icon="pi pi-search iconoBusqueda" iconPos="right" />
+            <InputText data-testid ="inputBusqueda" className = "ancho"  value={this.state.valorBusqueda} onChange={(e) => this.setState({valorBusqueda: e.target.value})} />
+            <Button data-testid ="buttonBuscar" onClick={()=>this.props.buscar(this.state.valorBusqueda)} icon="pi pi-search iconoBusqueda" iconPos="right" />
           </div>
         );
       } 

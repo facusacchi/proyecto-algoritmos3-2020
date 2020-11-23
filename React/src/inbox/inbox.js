@@ -38,11 +38,11 @@ export class InboxComponent extends Component {
     return (
       mensaje.leido ?
       //<span title="No leído"  style={{ display: 'flex', alignItems: 'center', alignContent: 'center', justifyContent: 'center' }}>
-      <i onClick={()=>this.leerMensaje(mensaje)} className="pi pi-inbox"></i>
+      <i data-testid = {"abrirMensajito" + mensaje.id} onClick={()=>this.leerMensaje(mensaje)} className="pi pi-inbox"></i>
       //</span>
     :
       //<span title="No leído"  style={{ display: 'flex', alignItems: 'center', alignContent: 'center', justifyContent: 'center' }}>
-      <i onClick={()=>this.leerMensaje(mensaje)} className="pi pi-envelope"></i>
+      <i data-testid = {"abrirMensajito" + mensaje.id} onClick={()=>this.leerMensaje(mensaje)} className="pi pi-envelope"></i>
       // </span>
     )
   }
