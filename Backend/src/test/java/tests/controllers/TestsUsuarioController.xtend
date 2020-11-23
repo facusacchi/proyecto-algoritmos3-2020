@@ -27,6 +27,7 @@ import dominio.Rutina
 import dominio.Celiaco
 import dominio.Vegetariano
 import dominio.Vegano
+import appFoodOverflow.controller.DataSession
 
 @AutoConfigureJsonTesters
 @ContextConfiguration(classes=UsuarioController)
@@ -111,7 +112,7 @@ class TestsUsuarioController {
 	def void actualizarUsuario() {
 		val usuarioBody = new Usuario => [
 			id = 1
-			nombreYApellido = "Pepe De Las Nieves Palala"
+			nombreYApellido = "Pepe De Las Nieves Palala"  // este es el campo que cambia en la actualizacion 
 			userName = "pepito"
 			password = "123"
 			peso = 75.0
@@ -130,6 +131,19 @@ class TestsUsuarioController {
 		assertEquals("Pepe De Las Nieves Palala", usuarioActualizado.nombreYApellido)
 	}
 	
+	@DisplayName("cuando un usuario esta en el repo, este puede loguearse si se ingresan los datos correctos")
+	@Test
+	def void loginDeUsuario() {
+		val sessionBody = new DataSession => [
+			userName = "manolito"
+			password = "456"
+		]
+		val responseEntityPost = mockMvc.perform(MockMvcRequestBuilders
+			.post("/login")
+				.content(mapper.writeValueAsString(sessionBody)))
+					.andReturn.response
+		assertEquals(200, responseEntityPost.status)		
+	}	
 
 	static def <T extends Object> List<T> fromJsonToList(String json, Class<T> expectedType) {
 		val type = mapper.getTypeFactory().constructCollectionType(List, expectedType)
