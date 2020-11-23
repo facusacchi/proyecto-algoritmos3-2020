@@ -23,6 +23,11 @@ import java.util.List
 import dominio.Usuario
 import org.junit.jupiter.api.BeforeEach
 import repos.RepoUsuario
+import java.time.LocalDate
+import dominio.Rutina
+import dominio.Celiaco
+import dominio.Vegetariano
+import dominio.Vegano
 
 @AutoConfigureJsonTesters
 @ContextConfiguration(classes=UsuarioController)
@@ -37,11 +42,37 @@ class TestsUsuarioController {
 	@BeforeEach
 	def void init() {
 		RepoUsuario.instance => [
-//			create(new Usuario)
-//			create(new Usuario)
-//			create(new Usuario)
-//			create(new Usuario)
-//			create(new Usuario)
+			create(new Usuario => [
+			nombreYApellido = "Pepe Palala"
+			userName = "pepito"
+			password = "123"
+			peso = 75.0
+			estatura = 1.75
+			fechaDeNacimiento = LocalDate.of(1990,7,28)
+			agregarCondicionAlimenticia(Celiaco.getInstancia)
+			rutina = Rutina.ACTIVO
+		])	
+			create(new Usuario => [
+			nombreYApellido = "Manolo Palala"
+			userName = "manolito"
+			password = "456"
+			peso = 120.0
+			estatura = 1.87
+			fechaDeNacimiento = LocalDate.of(1995,10,4)
+			agregarCondicionAlimenticia(Vegetariano.getInstancia)
+			rutina = Rutina.LEVE
+		])
+			create(new Usuario => [
+			nombreYApellido = "Nancy Vargas"
+			userName = "nan"
+			password = "123"
+			peso = 120.0
+			estatura = 1.90
+			fechaDeNacimiento = LocalDate.of(1985,5,7)
+			agregarCondicionAlimenticia(Vegano.getInstancia)
+			agregarCondicionAlimenticia(Celiaco.getInstancia)
+			rutina = Rutina.MEDIANO
+		])
 		]
 	}
 	
@@ -49,10 +80,12 @@ class TestsUsuarioController {
 	@Test
 	def void testObtenerUsuarios() {
 		val responseEntity = mockMvc.perform(MockMvcRequestBuilders.get("/usuarios")).andReturn.response
-		//val usuarios = responseEntity.contentAsString.fromJsonToList(Usuario)
+		val usuarios = responseEntity.contentAsString.fromJsonToList(Usuario)
 		assertEquals(200, responseEntity.status)
-		//assertEquals(usuarios.size, 5)
-		//assertTrue(usuarios.exists[usuario|usuario.nombreYApellido.equals("Pepe Palala")])
+		assertEquals(usuarios.size, 3)
+		assertTrue(usuarios.exists[usuario|usuario.nombreYApellido.equals("Pepe Palala")])
+		assertTrue(usuarios.exists[usuario|usuario.nombreYApellido.equals("Manolo Palala")])
+		assertTrue(usuarios.exists[usuario|usuario.nombreYApellido.equals("Nancy Vargas")])
 	}
 	
 //	static def getField(MockHttpServletResponse responseEntity, String fieldName) {
