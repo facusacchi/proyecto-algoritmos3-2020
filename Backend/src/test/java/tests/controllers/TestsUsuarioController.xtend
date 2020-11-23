@@ -106,26 +106,29 @@ class TestsUsuarioController {
 		assertEquals(1, usuarios.size)
 	}
 	
-//	@DisplayName("cuando pido un put request a la url /perfilDeUsuario/1 los datos del body actualizan al user con el que coincide el id")
-//	@Test
-//	def void actualizarUsuario() {
-//		val usuarioBody = new Usuario => [
-//			id = 1
-//			nombreYApellido = "Pepe De Las Nieves Palala"
-//			userName = "pepito"
-//			password = "123"
-//			peso = 75.0
-//			estatura = 1.75
-//			fechaDeNacimiento = LocalDate.of(1990,7,28)
-//			agregarCondicionAlimenticia(Celiaco.getInstancia)
-//			rutina = Rutina.ACTIVO
-//		]
-//		val responseEntityPut = mockMvc.perform(MockMvcRequestBuilders
-//			.put("/perfilDeUsuario/1")
-//				.content(mapper.writeValueAsString(usuarioBody)))
-//					.andReturn.response
-//		assertEquals(200, responseEntityPut.status)
-//	}
+	@DisplayName("cuando pido un put request a la url /perfilDeUsuario/1 los datos del body actualizan al user con el que coincide el id")
+	@Test
+	def void actualizarUsuario() {
+		val usuarioBody = new Usuario => [
+			id = 1
+			nombreYApellido = "Pepe De Las Nieves Palala"
+			userName = "pepito"
+			password = "123"
+			peso = 75.0
+			estatura = 1.75
+			fechaDeNacimiento = LocalDate.of(1990,7,28)
+			rutina = Rutina.ACTIVO
+		]
+		val responseEntityPut = mockMvc.perform(MockMvcRequestBuilders
+			.put("/perfilDeUsuario/1")
+				.content(mapper.writeValueAsString(usuarioBody)))
+					.andReturn.response
+		assertEquals(200, responseEntityPut.status)
+		val responseEntityGet = mockMvc.perform(MockMvcRequestBuilders.get("/perfilDeUsuario/1")).andReturn.response
+		val usuarioActualizado = responseEntityGet.contentAsString.fromJson(Usuario)
+		assertEquals(200, responseEntityGet.status)
+		assertEquals("Pepe De Las Nieves Palala", usuarioActualizado.nombreYApellido)
+	}
 	
 
 	static def <T extends Object> List<T> fromJsonToList(String json, Class<T> expectedType) {
