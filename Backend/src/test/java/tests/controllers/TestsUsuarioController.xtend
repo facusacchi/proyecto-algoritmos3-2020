@@ -4,14 +4,10 @@ import org.springframework.boot.test.autoconfigure.json.AutoConfigureJsonTesters
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.junit.jupiter.api.DisplayName
-import org.springframework.test.annotation.DirtiesContext
-import org.springframework.test.annotation.DirtiesContext.ClassMode
 import appFoodOverflow.controller.UsuarioController
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.SerializationFeature
-import org.springframework.mock.web.MockHttpServletResponse
-import com.fasterxml.jackson.core.type.TypeReference
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.web.servlet.MockMvc
 import org.junit.jupiter.api.Test
@@ -32,7 +28,6 @@ import appFoodOverflow.controller.DataSession
 @AutoConfigureJsonTesters
 @ContextConfiguration(classes=UsuarioController)
 @WebMvcTest
-//@DirtiesContext(classMode = ClassMode.BEFORE_EACH_TEST_METHOD)
 @DisplayName("Dado el controller de usuario")
 class TestsUsuarioController {
 	
@@ -142,7 +137,7 @@ class TestsUsuarioController {
 			.post("/login")
 				.content(mapper.writeValueAsString(sessionBody)))
 					.andReturn.response
-		assertEquals(200, responseEntityPost.status)		
+		assertEquals(200, responseEntityPost.status)
 	}	
 
 	static def <T extends Object> List<T> fromJsonToList(String json, Class<T> expectedType) {
