@@ -48,7 +48,7 @@ class UsuarioController {
 	}
 	
 	@GetMapping("/perfilDeUsuario/{id}")
-	def tareaPorId(@PathVariable Integer id) {
+	def usuarioPorId(@PathVariable Integer id) {
 		if (id === 0) {
 			return ResponseEntity.badRequest.body('''Debe ingresar el parámetro id''')
 		}

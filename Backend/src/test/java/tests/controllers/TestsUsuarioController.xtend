@@ -41,6 +41,7 @@ class TestsUsuarioController {
 	
 	@BeforeEach
 	def void init() {
+		RepoUsuario.restartInstance
 		RepoUsuario.instance => [
 			create(new Usuario => [
 			nombreYApellido = "Pepe Palala"
@@ -78,7 +79,7 @@ class TestsUsuarioController {
 	
 	@DisplayName("cuando pido un request a la url /usuarios obtengo un status 200 y la lista de usuarios del repo")
 	@Test
-	def void testObtenerUsuarios() {
+	def void obtenerUsuarios() {
 		val responseEntity = mockMvc.perform(MockMvcRequestBuilders.get("/usuarios")).andReturn.response
 		val usuarios = responseEntity.contentAsString.fromJsonToList(Usuario)
 		assertEquals(200, responseEntity.status)
@@ -88,10 +89,15 @@ class TestsUsuarioController {
 		assertTrue(usuarios.exists[usuario|usuario.nombreYApellido.equals("Nancy Vargas")])
 	}
 	
-//	static def getField(MockHttpServletResponse responseEntity, String fieldName) {
-//		mapper.readValue(responseEntity.contentAsString, new TypeReference<Map<String, Object>>() {
-//		}).get(fieldName)
-//	}
+	@DisplayName("cuando pido un request a la url /perfilDeUsuario/{id} me trae al user del repo que corresponde a ese id")
+	@Test
+	def void obtenerUsuarioPorId() {
+		val responseEntity = mockMvc.perform(MockMvcRequestBuilders.get("/perfilDeUsuario/1")).andReturn.response
+		val usuario = responseEntity.contentAsString.fromJson(Usuario)
+		assertEquals(200, responseEntity.status)
+		assertEquals("Pepe Palala", usuario.nombreYApellido)
+	}
+	
 
 	static def <T extends Object> List<T> fromJsonToList(String json, Class<T> expectedType) {
 		val type = mapper.getTypeFactory().constructCollectionType(List, expectedType)
@@ -103,5 +109,9 @@ class TestsUsuarioController {
 			configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
 			configure(SerializationFeature.INDENT_OUTPUT, true)
 		]
+	}
+	
+	static def <T extends Object> fromJson(String json, Class<T> expectedType) {
+		mapper.readValue(json, expectedType)
 	}
 }
