@@ -83,7 +83,7 @@ export class ContactosComponent extends Component {
                         </DataTable>
                     </div>
                 </div>
-                <div className="resultado-mensaje">
+                <div>
                     <Messages ref={(el) => this.msg = el} />
                 </div>
                     <div className="container-button">

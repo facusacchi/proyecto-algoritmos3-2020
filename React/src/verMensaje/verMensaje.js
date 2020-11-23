@@ -5,7 +5,8 @@ import { Button } from 'primereact/button';
 import { InputTextarea } from 'primereact/inputtextarea';
 import Mensaje from '../dominio/mensaje'
 import { mensajeService } from '../services/mensaje-service'
-import { usuarioService } from '../services/usuario-service';
+import { usuarioService } from '../services/usuario-service'
+import { Messages } from 'primereact/messages'
 
 export class VerMensajeComponent extends Component {
     constructor(props) {
@@ -23,15 +24,14 @@ export class VerMensajeComponent extends Component {
             })
             !mensaje.leido ? this.cambiarEstadoLectura(mensaje) : ''
         } catch (e) {
-            this.generarError(e)
-            console.log(e)
+            this.addMessages(e)
         }
     }
 
-    generarError = (errorMessage) => {
-        this.setState({
-            errorMessage: errorMessage.toString()
-        })
+    addMessages = (result) => {
+        this.msg.show([
+            { severity: 'error', detail: result.toString() }
+        ]);
     }
 
     volver = () => {
@@ -47,14 +47,22 @@ export class VerMensajeComponent extends Component {
     }
 
     cambiarEstadoLectura = async (mensaje) => {
-        mensaje.leido = !mensaje.leido
-        await mensajeService.actualizarMensaje(usuarioService.userLogged.id, mensaje)
-        this.setState({})
+        try {
+            mensaje.leido = !mensaje.leido
+            await mensajeService.actualizarMensaje(usuarioService.userLogged.id, mensaje)
+            this.setState({})
+        } catch(e) {
+            this.addMessages(e)
+        }
     }
 
     eliminarMensaje = async (mensajeId) => {
-        await mensajeService.eliminarMensaje(usuarioService.userLogged.id, mensajeId)
-        this.props.history.push('/inbox')
+        try {
+            await mensajeService.eliminarMensaje(usuarioService.userLogged.id, mensajeId)
+            this.props.history.push('/inbox')
+        } catch(e) {
+            this.addMessages(e)
+        }
     }
 
     render() {
@@ -77,6 +85,9 @@ export class VerMensajeComponent extends Component {
                         </div>
                     </div>
                     <InputTextarea className="textarea-mensaje" value={mensaje.cuerpo} readOnly />
+                    <div>
+                        <Messages ref={(el) => this.msg = el} />
+                    </div>
                     <div className="boton-container">
                         <Button label="Volver" className="p-button-lg p-button-secondary boton-secundario" onClick={this.volver} />
                     </div>
