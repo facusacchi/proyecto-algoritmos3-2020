@@ -76,7 +76,7 @@ class TestsUsuarioController {
 		]
 	}
 	
-	@DisplayName("cuando pido un request a la url /usuarios obtengo un status 200 y la lista de usuarios del repo")
+	@DisplayName("cuando pido un get request a la url /usuarios obtengo un status 200 y la lista de usuarios del repo")
 	@Test
 	def void obtenerUsuarios() {
 		val responseEntity = mockMvc.perform(MockMvcRequestBuilders.get("/usuarios")).andReturn.response
@@ -88,7 +88,7 @@ class TestsUsuarioController {
 		assertTrue(usuarios.exists[usuario|usuario.nombreYApellido.equals("Nancy Vargas")])
 	}
 	
-	@DisplayName("cuando pido un request a la url /perfilDeUsuario/{id} me trae al user del repo que corresponde a ese id")
+	@DisplayName("cuando pido un get request a la url /perfilDeUsuario/{id} me trae al user del repo que corresponde a ese id")
 	@Test
 	def void obtenerUsuarioPorId() {
 		val responseEntity = mockMvc.perform(MockMvcRequestBuilders.get("/perfilDeUsuario/1")).andReturn.response
@@ -97,7 +97,7 @@ class TestsUsuarioController {
 		assertEquals("Pepe Palala", usuario.nombreYApellido)
 	}
 	
-	@DisplayName("cuando pido un request a la url /usuarios/{valorBusqueda} me trae al user del repo que coincide con dicho valor de busqueda")
+	@DisplayName("cuando pido un get request a la url /usuarios/{valorBusqueda} me trae al user del repo que coincide con dicho valor de busqueda")
 	@Test
 	def void obtenerUsuarioPorValor() {
 		val responseEntity = mockMvc.perform(MockMvcRequestBuilders.get("/usuarios/pep")).andReturn.response
@@ -105,6 +105,27 @@ class TestsUsuarioController {
 		assertEquals(200, responseEntity.status)
 		assertEquals(1, usuarios.size)
 	}
+	
+//	@DisplayName("cuando pido un put request a la url /perfilDeUsuario/1 los datos del body actualizan al user con el que coincide el id")
+//	@Test
+//	def void actualizarUsuario() {
+//		val usuarioBody = new Usuario => [
+//			id = 1
+//			nombreYApellido = "Pepe De Las Nieves Palala"
+//			userName = "pepito"
+//			password = "123"
+//			peso = 75.0
+//			estatura = 1.75
+//			fechaDeNacimiento = LocalDate.of(1990,7,28)
+//			agregarCondicionAlimenticia(Celiaco.getInstancia)
+//			rutina = Rutina.ACTIVO
+//		]
+//		val responseEntityPut = mockMvc.perform(MockMvcRequestBuilders
+//			.put("/perfilDeUsuario/1")
+//				.content(mapper.writeValueAsString(usuarioBody)))
+//					.andReturn.response
+//		assertEquals(200, responseEntityPut.status)
+//	}
 	
 
 	static def <T extends Object> List<T> fromJsonToList(String json, Class<T> expectedType) {
