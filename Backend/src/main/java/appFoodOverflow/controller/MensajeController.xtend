@@ -50,7 +50,7 @@ class MensajeController {
 	@PutMapping(value="/{id}/actualizarMensaje/{mensajeId}")
 	def actualizarMensaje(@RequestBody String body, @PathVariable Integer id, @PathVariable Integer mensajeId) {
 		try {
-			if (id === null || id === 0) {
+			if (id === null || id === 0 || mensajeId === null || mensajeId === 0) {
 				return ResponseEntity.badRequest.body('''Debe ingresar el parámetro id''')
 			}
 			val mensajeActualizado = mapper.readValue(body, Mensaje)
@@ -72,7 +72,7 @@ class MensajeController {
 
 	@GetMapping("/usuario/{id}/buscarMensajes")
 	def mensajesPorId(@PathVariable Integer id) {
-		if (id === 0) {
+		if (id === null || id === 0 ) {
 			return ResponseEntity.badRequest.body('''Debe ingresar el parámetro id''')
 		}
 		val usuario = RepoUsuario.instance.getById(id.toString)
@@ -88,7 +88,7 @@ class MensajeController {
 
 	@GetMapping("/{id}/mensaje/{mensajeId}")
 	def mensajePorId(@PathVariable Integer id, @PathVariable Integer mensajeId) {
-		if (id === 0) {
+		if (id === null || id === 0 || mensajeId === null || mensajeId === 0) {
 			return ResponseEntity.badRequest.body('''Debe ingresar el parámetro id''')
 		}
 		val usuario = RepoUsuario.instance.getById(id.toString)
@@ -97,14 +97,14 @@ class MensajeController {
 		}
 		val mensaje = usuario.accederAUnMensaje(mensajeId)
 		if (mensaje === null) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontraron mensajes con id <«mensajeId»> del usuario <«id»>''')
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontró el mensaje con id <«mensajeId»> del usuario <«id»>''')
 		}
 		ResponseEntity.ok(mensaje)
 	}
 	
 	@GetMapping("/usuario/{id}/buscarMensajes/{valorBusqueda}")
 	def buscarMensajes(@PathVariable Integer id,@PathVariable String valorBusqueda) {
-		if (id === 0) {
+		if (id === null || id === 0) {
 			return ResponseEntity.badRequest.body('''Debe ingresar el parámetro id''')
 		}
 		val usuario = RepoUsuario.instance.getById(id.toString)
@@ -118,7 +118,7 @@ class MensajeController {
 	@DeleteMapping(value="/{id}/eliminarMensaje/{mensajeId}")
 	def eliminarMensaje(@PathVariable Integer id, @PathVariable Integer mensajeId) {
 		try {
-			if (id === null || id === 0) {
+			if (id === null || id === 0 || mensajeId === null || mensajeId === 0) {
 				return ResponseEntity.badRequest.body('''Debe ingresar el parámetro id''')
 			}
 			val usuario = RepoUsuario.instance.getById(id.toString)
@@ -130,7 +130,7 @@ class MensajeController {
 				return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontraron mensajes con id <«mensajeId»> del usuario <«id»>''')
 			}
 			usuario.eliminarMensaje(mensajeId)
-			ResponseEntity.ok(mapper.writeValueAsString('''El mensaje con id "«mensajeId»" fue eliminado'''))
+			ResponseEntity.ok(mapper.writeValueAsString('''El mensaje con id <«mensajeId»> fue eliminado'''))
 		} catch (RuntimeException e) {
 			ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.message)
 		}
