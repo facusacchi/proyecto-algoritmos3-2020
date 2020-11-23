@@ -5,6 +5,7 @@ import './contactos.css'
 import { Button } from 'primereact/button'
 import { InputText } from 'primereact/inputtext'
 import { usuarioService } from '../services/usuario-service'
+import { Messages } from 'primereact/messages'
 
 export class ContactosComponent extends Component {
     constructor(props) {
@@ -23,14 +24,14 @@ export class ContactosComponent extends Component {
                 contactos: contactosFiltrados
             })
           } catch (e) {
-            this.generarError(e)
+            this.addMessages(e)
           }
     }
 
-    generarError = (errorMessage) => {
-        this.setState({
-          errorMessage: errorMessage.toString()
-        })
+    addMessages = (result) => {
+        this.msg.show([
+                { severity: 'error', detail: result.toString() }
+        ]);
     }
 
     cancelar = () => {
@@ -38,10 +39,14 @@ export class ContactosComponent extends Component {
     }
 
     buscar = async (valorBusqueda) => {
-        const contactosFiltrados = await usuarioService.getContactos(valorBusqueda)
-        this.setState({
-            contactos: contactosFiltrados
-        })
+        try {
+            const contactosFiltrados = await usuarioService.getContactos(valorBusqueda)
+            this.setState({
+                contactos: contactosFiltrados
+            })
+        } catch(e) {
+            this.addMessages(e)
+        }
     }
 
     seleccionar = (contacto) => {
@@ -77,6 +82,9 @@ export class ContactosComponent extends Component {
                             <Column className="columnButton" body={this.seleccionar} ></Column>
                         </DataTable>
                     </div>
+                </div>
+                <div className="resultado-mensaje">
+                    <Messages ref={(el) => this.msg = el} />
                 </div>
                     <div className="container-button">
                         <Button label="Cancelar" className="p-button-secondary" onClick={this.cancelar} />
