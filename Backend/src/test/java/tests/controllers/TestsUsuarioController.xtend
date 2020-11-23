@@ -152,7 +152,7 @@ class TestsUsuarioController {
 				.content(mapper.writeValueAsString(sessionBody)))
 					.andReturn.response
 		assertEquals(404, responseEntityPost.status)
-		assertEquals("No se encontró el usuario con ese username o contraseña", responseEntityPost.contentAsString)
+		assertEquals("\"Usuario o contraseña invalidos\"", responseEntityPost.contentAsString)
 	}
 	
 	@DisplayName("cuando pido un usuario con id que no existe lanza una excepcion")
