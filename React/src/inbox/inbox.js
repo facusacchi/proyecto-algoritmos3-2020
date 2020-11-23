@@ -50,10 +50,8 @@ export class InboxComponent extends Component {
   leerTemplate = (mensaje) => {
     return (
       mensaje.leido ?
-          <i onClick={() => this.setearLeido(mensaje)} className="pi pi-eye border"></i> :
-        //<span title="No leído" data-testid={'noLeido' + id} className="p-badge p-badge-warning icon-badge" style={{ display: 'flex', alignItems: 'center', alignContent: 'center', justifyContent: 'center' }}>
-          <i onClick={() => this.setearLeido(mensaje)} className="pi pi-eye-slash border"></i>
-        //</span>
+      <i data-testid={"marcarNoLeido" + mensaje.id} onClick={() => this.setearLeido(mensaje)} className="pi pi-eye-slash border"></i>:
+      <i data-testid={"marcarLeido" + mensaje.id} onClick={() => this.setearLeido(mensaje)} className="pi pi-eye border"></i>
     )
   }
 
@@ -92,7 +90,7 @@ leerMensaje = (mensaje) => {
         <h2>Resultados de la búsqueda</h2>
         <DataTable value={this.state.mensajes}>
                 <Column className ="ancho-icono" body={this.leidoTemplate} ></Column>
-                <Column className ="ancho-fecha" field="fechaYHoraDeEmision" ></Column>
+                <Column className ="ancho-fecha" field="fechaYHoraDeEmision"></Column>
                 <Column className ="ancho-remitente" field="remitente" ></Column>
                 <Column className ="ancho-icono" body={this.leerTemplate} ></Column>
                 <Column className ="ancho-icono" body={this.eliminarTemplate}></Column>
