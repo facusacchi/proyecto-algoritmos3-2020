@@ -12,7 +12,8 @@ export class LoginComponent extends Component {
     this.state = {
       userName: '',
       password: '',
-      error: false
+      error: false,
+      errorMessage: ''
     };
   }
 
@@ -35,7 +36,8 @@ export class LoginComponent extends Component {
       this.props.history.push('/inbox')
     } catch (e) {
       this.setState({
-        error: true
+        error: true,
+        errorMessage: e.response ? e.response.data : e.message
       })
     }
   }
@@ -59,7 +61,7 @@ export class LoginComponent extends Component {
             <Button className="p-button-lg p-component p-d-block p-mx-auto" label="Ingresar" onClick={this.loguearUsuario} />
           </div>
           <div className="mensaje-error">
-            {this.state.error && <span>Usuario o contraseña invalidos</span>}
+            {this.state.error && <span>{this.state.errorMessage}</span>}
           </div>
         </Card>
       </div>

@@ -22,8 +22,9 @@
 }
 
 .mensaje-error {
+    width: 100%;
+    display: flex; 
+    justify-content: center;
     color: red;
-    position: relative;
     font-weight: bold;
-    left: 25%;
 }

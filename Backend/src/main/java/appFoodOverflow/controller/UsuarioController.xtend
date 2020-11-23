@@ -28,7 +28,7 @@ class UsuarioController {
 		}
 		val usuario = RepoUsuario.instance.getByLogin(dataSession.userName, dataSession.password)
 		if(usuario === null) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontró el usuario con ese username o contraseña''')
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(mapper.writeValueAsString('''Usuario o contraseña invalidos'''))
 		}
 		ResponseEntity.ok(mapper.writeValueAsString(usuario))
 	}
