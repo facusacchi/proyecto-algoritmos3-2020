@@ -54,7 +54,7 @@ class UsuarioController {
 		}
 		val usuario = RepoUsuario.instance.getById(id.toString)
 		if (usuario === null) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontró el usuario de id <«id»>''')
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontró el usuario con id <«id»>''')
 		}
 		ResponseEntity.ok(usuario)
 	}

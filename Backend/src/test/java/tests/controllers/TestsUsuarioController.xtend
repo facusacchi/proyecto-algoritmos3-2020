@@ -138,6 +138,29 @@ class TestsUsuarioController {
 				.content(mapper.writeValueAsString(sessionBody)))
 					.andReturn.response
 		assertEquals(200, responseEntityPost.status)
+	}
+	
+	@DisplayName("cuando un usuario ingresa mal la contraseña no puede loguearse y lanza una excepcion")
+	@Test
+	def void usuarioNoSePuedeLoguear() {
+		val sessionBody = new DataSession => [
+			userName = "manolito"
+			password = "999"
+		]
+		val responseEntityPost = mockMvc.perform(MockMvcRequestBuilders
+			.post("/login")
+				.content(mapper.writeValueAsString(sessionBody)))
+					.andReturn.response
+		assertEquals(404, responseEntityPost.status)
+		assertEquals("No se encontró el usuario con ese username o contraseña", responseEntityPost.contentAsString)
+	}
+	
+	@DisplayName("cuando pido un usuario con id que no existe lanza una excepcion")
+	@Test
+	def void noSeEncuentraUserConId() {
+		val responseEntity = mockMvc.perform(MockMvcRequestBuilders.get("/perfilDeUsuario/7")).andReturn.response
+		assertEquals(404, responseEntity.status)
+		assertEquals("No se encontró el usuario con id <7>", responseEntity.contentAsString)
 	}	
 
 	static def <T extends Object> List<T> fromJsonToList(String json, Class<T> expectedType) {
