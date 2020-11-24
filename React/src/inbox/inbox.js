@@ -56,15 +56,23 @@ export class InboxComponent extends Component {
   }
 
   buscar = async (valorBusqueda) => {
+    try {
     const mensajesFiltrados= await mensajeService.buscarMensajes(usuarioService.userLogged.id, valorBusqueda)
     this.setState({mensajes : mensajesFiltrados})
+    } catch (e) {
+      this.addMessages(e)
+    }
   }
 
   setearLeido = async (mensaje) => {
+    try {
     mensaje.leido = !mensaje.leido
     console.log(mensaje)
     await mensajeService.actualizarMensaje(usuarioService.userLogged.id/* this.props.usuario.id */, mensaje)
     this.setState ({mensajes : this.state.mensajes})
+    } catch (e){
+      this.addMessages(e)
+    }
   }
 
   eliminarMensaje = async (mensajeAEliminar) => {
