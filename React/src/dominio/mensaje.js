@@ -11,14 +11,11 @@ export default class Mensaje {
 
   static fromJson(mensajeJSON) {
     return Object.assign(new Mensaje(), mensajeJSON)
-    /*  ,{ asignatario: Usuario.fromJSON(mensajeJSON.asignadoA) }) */
   }
 
   toJSON() {
     return {
       ...this,
-      /*asignatario: null,
-      asignadoA: this.asignatario.nombre, */
     }
   }
 
