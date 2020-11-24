@@ -30,7 +30,7 @@ export class VerMensajeComponent extends Component {
 
     addMessages = (result) => {
         this.msg.show([
-            { severity: 'error', detail: result.toString() }
+            { severity: 'error', detail: result.response ? result.response.data : result.message }
         ]);
     }
 
@@ -51,7 +51,7 @@ export class VerMensajeComponent extends Component {
             mensaje.leido = !mensaje.leido
             await mensajeService.actualizarMensaje(usuarioService.userLogged.id, mensaje)
             this.setState({})
-        } catch(e) {
+        } catch (e) {
             this.addMessages(e)
         }
     }
@@ -60,7 +60,7 @@ export class VerMensajeComponent extends Component {
         try {
             await mensajeService.eliminarMensaje(usuarioService.userLogged.id, mensajeId)
             this.props.history.push('/inbox')
-        } catch(e) {
+        } catch (e) {
             this.addMessages(e)
         }
     }
@@ -85,12 +85,12 @@ export class VerMensajeComponent extends Component {
                         </div>
                     </div>
                     <InputTextarea className="textarea-mensaje" value={mensaje.cuerpo} readOnly />
-                    <div>
-                        <Messages ref={(el) => this.msg = el} />
-                    </div>
                     <div className="boton-container">
                         <Button label="Volver" className="p-button-lg p-button-secondary boton-secundario" onClick={this.volver} />
                     </div>
+                </div>
+                <div>
+                    <Messages ref={(el) => this.msg = el} />
                 </div>
             </div>
         );

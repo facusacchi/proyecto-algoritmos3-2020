@@ -40,7 +40,8 @@ export class ContactosComponent extends Component {
 
     buscar = async (valorBusqueda) => {
         try {
-            const contactosFiltrados = await usuarioService.getContactos(valorBusqueda)
+            const contactos = await usuarioService.getContactos(valorBusqueda)
+            const contactosFiltrados = contactos.filter(contacto => contacto.nombreYApellido != usuarioService.userLogged.nombreYApellido)
             this.setState({
                 contactos: contactosFiltrados
             })

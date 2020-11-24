@@ -61,6 +61,10 @@ class MensajeController {
 			if (usuario === null) {
 				return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontró el usuario con id <«id»>''')
 			}
+			val mensaje = usuario.accederAUnMensaje(mensajeId)
+			if (mensaje === null) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontró el mensaje con id <«mensajeId»> del usuario <«id»>''')
+			}
 			usuario.actualizarMensaje(mensajeActualizado)
 			ResponseEntity.ok(mensajeActualizado)
 		} catch (BusinessException e) {
@@ -127,7 +131,7 @@ class MensajeController {
 			}
 			val mensaje = usuario.accederAUnMensaje(mensajeId)
 			if (mensaje === null) {
-				return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontraron mensajes con id <«mensajeId»> del usuario <«id»>''')
+				return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontró el mensaje con id <«mensajeId»> del usuario <«id»>''')
 			}
 			usuario.eliminarMensaje(mensajeId)
 			ResponseEntity.ok(mapper.writeValueAsString('''El mensaje con id <«mensajeId»> fue eliminado'''))
