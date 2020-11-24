@@ -51,7 +51,7 @@ export class ContactosComponent extends Component {
 
     seleccionar = (contacto) => {
         return(
-            <Button className="button" icon="pi pi-check" label="Seleccionar" onClick={() =>  this.props.history.push(`/nuevoMensaje/${contacto.id}`)}/>
+            <Button className="button" icon="pi pi-check" label="Seleccionar" onClick={() =>  this.props.history.push(`/nuevoMensaje/${contacto.id}`)} data-testid={"seleccionar" + contacto.id}/>
         )
     }
 
@@ -67,7 +67,7 @@ export class ContactosComponent extends Component {
                 <div className="search-and-button">
                     <h1 className="header-search">Búsqueda de Contactos</h1>
                     <div className="input-and-button">
-                        <InputText  className="inputtext-contactos" value={this.state.valorBusqueda} onChange={(event) => this.alCambiarValorDeBusqueda(event)} />
+                        <InputText  className="inputtext-contactos" value={this.state.valorBusqueda} onChange={(event) => this.alCambiarValorDeBusqueda(event)} data-testid="busqueda"/>
                         <Button className="button" onClick={ () => this.buscar(this.state.valorBusqueda) } icon="pi pi-search iconoBusqueda" iconPos="right" />
                     </div>
                 </div>
@@ -76,7 +76,7 @@ export class ContactosComponent extends Component {
                     <span>Resultado de la busqueda</span>
                 </div>
                 <div className="table-and-button">
-                    <div className="table">
+                    <div className="table" data-testid="data-table">
                         <DataTable value={this.state.contactos} autoLayout={true}>
                             <Column className="columnName" field="nombreYApellido" header="PERSONAS"></Column>
                             <Column className="columnButton" body={this.seleccionar} ></Column>
