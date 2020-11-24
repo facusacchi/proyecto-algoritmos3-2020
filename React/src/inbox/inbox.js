@@ -23,17 +23,10 @@ export class InboxComponent extends Component {
     try {
       const mensajes = await mensajeService.allInstances(usuarioService.userLogged.id)
       this.setState({mensajes : mensajes}) 
-  } catch (e) {
-      this.generarError(e)
-      console.log(e)
+    } catch (e) {
+       this.addMessages(e)
+      }
   }
-  }
-
-  generarError = (errorMessage) => {
-    this.setState({
-        errorMessage: errorMessage.toString()
-    })
-}
 
   leidoTemplate = (mensaje) => {
     return (
