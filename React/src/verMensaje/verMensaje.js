@@ -41,8 +41,8 @@ export class VerMensajeComponent extends Component {
     leerTemplate = (mensaje) => {
         return (
             mensaje.leido ?
-                <i onClick={() => this.cambiarEstadoLectura(mensaje)} className="pi pi-eye icono"></i> :
-                <i onClick={() => this.cambiarEstadoLectura(mensaje)} className="pi pi-eye-slash icono"></i>
+                <i onClick={() => this.cambiarEstadoLectura(mensaje)} data-testid="icono-leido" className="pi pi-eye icono"></i> :
+                <i onClick={() => this.cambiarEstadoLectura(mensaje)} data-testid="icono-noLeido" className="pi pi-eye-slash icono"></i>
         )
     }
 
@@ -76,8 +76,8 @@ export class VerMensajeComponent extends Component {
                             <span className="mensaje-titulo">Mensaje</span>
                         </div>
                         <div className="nombre-contacto-container">
-                            <span className="nombre-contacto">De {mensaje.remitente}</span>
-                            <span className="fecha-mensaje">{mensaje.fechaYHoraDeEmision}</span>
+                            <span data-testid="remitente" className="nombre-contacto">De {mensaje.remitente}</span>
+                            <span data-testid="fecha-mensaje" className="fecha-mensaje">{mensaje.fechaYHoraDeEmision}</span>
                             <div className="iconos-mensaje">
                                 <i onClick={() => this.eliminarMensaje(mensaje.id)} className="pi pi-trash icono" ></i>
                                 {this.leerTemplate(mensaje)}
