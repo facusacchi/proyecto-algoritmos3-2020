@@ -8,6 +8,7 @@ import Mensaje from "../dominio/mensaje";
 import { BusquedaComponent } from "../busqueda/busqueda";
 import { mensajeService } from '../services/mensaje-service'
 import { usuarioService } from '../services/usuario-service'
+import { Messages } from 'primereact/messages'
 
 export class InboxComponent extends Component {
   constructor(props) {
@@ -74,14 +75,24 @@ export class InboxComponent extends Component {
   }
 
   eliminarMensaje = async (mensajeAEliminar) => {
-    await mensajeService.eliminarMensaje(usuarioService.userLogged.id,mensajeAEliminar.id)
-    const mensajesNoEliminados = this.state.mensajes.filter((mensajito) => mensajito.id !== mensajeAEliminar.id)
-        this.setState({mensajes: mensajesNoEliminados})
-}
+    try {
+      await mensajeService.eliminarMensaje(usuarioService.userLogged.id,mensajeAEliminar.id)
+      const mensajesNoEliminados = this.state.mensajes.filter((mensajito) => mensajito.id !== mensajeAEliminar.id)
+      this.setState({mensajes: mensajesNoEliminados})
+    } catch (e) {
+      this.addMessages(e)
+    }    
+  }
 
-leerMensaje = (mensaje) => {
-  this.props.history.push(`/verMensaje/${mensaje.id}`)
-}
+  addMessages = (result) => {
+    this.msg.show([
+        { severity: 'error', detail: result.response ? result.response.data : result.message }
+    ]);
+  }
+
+  leerMensaje = (mensaje) => {
+    this.props.history.push(`/verMensaje/${mensaje.id}`)
+  }
  
   render() {
     return (
@@ -94,7 +105,10 @@ leerMensaje = (mensaje) => {
                 <Column className ="ancho-remitente" field="remitente" ></Column>
                 <Column className ="ancho-icono" body={this.leerTemplate} ></Column>
                 <Column className ="ancho-icono" body={this.eliminarTemplate}></Column>
-            </DataTable>
+        </DataTable>
+        <div>
+          <Messages ref={(el) => this.msg = el} />
+        </div>
       </div>
     );
   } 
