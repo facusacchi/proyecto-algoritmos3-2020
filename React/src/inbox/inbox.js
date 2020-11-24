@@ -101,7 +101,7 @@ export class InboxComponent extends Component {
       <div className="separacion">
         <BusquedaComponent nombreTitulo="Búsqueda de mensajes" buscar={this.buscar}/>
         <h2>Resultados de la búsqueda</h2>
-        <DataTable value={this.state.mensajes}>
+        <DataTable value={this.state.mensajes} data-testid="message-table">
                 <Column className ="ancho-icono" body={this.leidoTemplate} ></Column>
                 <Column className ="ancho-fecha" field="fechaYHoraDeEmision"></Column>
                 <Column className ="ancho-remitente" field="remitente" ></Column>

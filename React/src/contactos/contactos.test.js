@@ -1,9 +1,10 @@
-import { render, waitFor, fireEvent } from "@testing-library/react";
+import { render, waitFor, fireEvent, screen, within } from "@testing-library/react";
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { usuarioService } from "../services/usuario-service";
 import Usuario from "../dominio/usuario";
 import ContactosComponent from "./contactos"
+import userEvent from '@testing-library/user-event'
 
 const mockUsuarios = [
     new Usuario(1, "Pepe Palala", "pepito", "123"),
@@ -18,8 +19,8 @@ const mockUsuarios = [
       const { getByTestId } = render(<BrowserRouter><ContactosComponent /></BrowserRouter>)
       // nueva variante -> waitFor
       await waitFor(() => {
-        expect(getByTestId('busqueda')).toBeInTheDocument()
-        expect(getByTestId('data-table')).toBeInTheDocument()
+        expect(getByTestId('busqueda-contactos')).toBeInTheDocument()
+        expect(getByTestId('contactos-table')).toBeInTheDocument()
       })
     })
 
@@ -31,4 +32,14 @@ const mockUsuarios = [
             expect(pushEspia).toBeCalledWith("/nuevoMensaje/1")
         })
     })
+
+
+
+    test('buscar pep devuelve la lista con un solo contacto, Pepe Palala', async () => {
+        const { getByTestId } = render(<BrowserRouter> <ContactosComponent /> </BrowserRouter>)
+        const busquedaComponent = getByTestId('busqueda-contactos')
+        userEvent.type(busquedaComponent, 'pep')
+        const allCountries = await screen.findAllByTestId('contactos-table')
+        expect(allCountries[0]).toHaveTextContent('Pepe Palala')
+      })
   })
