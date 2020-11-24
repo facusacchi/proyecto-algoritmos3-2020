@@ -80,6 +80,7 @@ export class InboxComponent extends Component {
       await mensajeService.eliminarMensaje(usuarioService.userLogged.id,mensajeAEliminar.id)
       const mensajesNoEliminados = this.state.mensajes.filter((mensajito) => mensajito.id !== mensajeAEliminar.id)
       this.setState({mensajes: mensajesNoEliminados})
+      this.msg.show([{ severity: 'success', detail: "Mensaje Eliminado" }]);
     } catch (e) {
       this.addMessages(e)
     }    
