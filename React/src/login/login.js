@@ -49,19 +49,19 @@ export class LoginComponent extends Component {
           <div className="titulo">TeleFood</div>
           <div className="p-fluid">
             <span className="p-float-label margin-top">
-              <InputText id="in" value={this.state.userName} onChange={this.setearUserName} />
+              <InputText id="in" value={this.state.userName} onChange={this.setearUserName} data-testid="username" />
               <label htmlFor="in">Usuario</label>
             </span>
             <span className="p-float-label margin-top">
-              <Password id="password" value={this.state.password} onChange={this.setearPassword} feedback={false} />
+              <Password id="password" value={this.state.password} onChange={this.setearPassword} feedback={false} data-testid="password" />
               <label htmlFor="password">Contraseña</label>
             </span>
           </div>
           <div className="p-p-4">
-            <Button className="p-button-lg p-component p-d-block p-mx-auto" label="Ingresar" onClick={this.loguearUsuario} />
+            <Button className="p-button-lg p-component p-d-block p-mx-auto" label="Ingresar" onClick={this.loguearUsuario} data-testid="botonIngresar" />
           </div>
           <div className="mensaje-error">
-            {this.state.error && <span>{this.state.errorMessage}</span>}
+            {this.state.error && <span data-testid="mensajeError">{this.state.errorMessage}</span>}
           </div>
         </Card>
       </div>
