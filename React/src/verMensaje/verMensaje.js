@@ -89,7 +89,7 @@ export class VerMensajeComponent extends Component {
                         <Button label="Volver" className="p-button-lg p-button-secondary boton-secundario" onClick={this.volver} />
                     </div>
                 </div>
-                <div>
+                <div className="resultado-mensaje">
                     <Messages ref={(el) => this.msg = el} />
                 </div>
             </div>
