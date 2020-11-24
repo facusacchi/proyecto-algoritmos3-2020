@@ -1,4 +1,4 @@
-import { render, waitFor, fireEvent } from "@testing-library/react";
+import { render, waitFor, fireEvent, screen } from "@testing-library/react";
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 
@@ -8,9 +8,13 @@ import Mensaje from "../dominio/mensaje";
 import { usuarioService } from "../services/usuario-service";
 import Usuario from "../dominio/usuario";
 
+import userEvent from '@testing-library/user-event'
+
+
 const mockMensajes = [
   new Mensaje("22/11/2020", "Pepito", false, "Juan", "", 13),
   new Mensaje("14/10/2020", "Jose", true, "Marta", "", 20),
+  new Mensaje("22/11/2020", "Pepito", false, "Juan", "", 35),
 ];
 
 describe("InboxComponent", () => {
@@ -58,19 +62,20 @@ describe("InboxComponent", () => {
       })
     })
 
-    // test('al buscar por nombre de remitente filtra sus mensajes', async () => {
-    //   const { getByTestId } = render(<InboxComponent />)
+    test('al buscar por nombre de remitente filtra sus mensajes', async () => {
+      const { getByTestId } = render(<InboxComponent />)
 
-    //   await waitFor(() => {
+      await waitFor(() =>  {
 
-    //     const inputBusqueda = getByTestId('inputBusqueda')
-    //     userEvent.type(inputBusqueda, 'Pep')
+        const inputBusqueda = getByTestId('inputBusqueda')
+        userEvent.type(inputBusqueda, 'Pep')
         
-    //     fireEvent.click(getByTestId('buttonBuscar'))
-    //     expect()
-    //     const spanMail = await screen.findAllByTestId('fecha')
-    //     expect(spanMail.length).toBe(1)
-    //   })
-    // })
+        fireEvent.click(getByTestId('buttonBuscar'))
+        
+        const mensajitosFiltrados = screen.findAllByTestId('tachito')
+        expect(mensajitosFiltrados.length).toBe(2)
+      })
+    })
   });
 });
+
