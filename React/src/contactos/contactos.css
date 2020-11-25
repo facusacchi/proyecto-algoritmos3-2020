@@ -1,0 +1,63 @@
+
+.table {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 85%;
+    height: auto;
+    background-color: white;
+    border-radius: 2em;
+    margin-left: 7%;
+}
+
+.container-button {
+    display: flex;
+    justify-content: flex-end;
+    margin: 2em 1em;
+    padding: 1em;
+}
+
+.span-busqueda {
+    display: flex;
+    font-size: 1.5em;
+    font-family: 'Segoe UI Regular WestEuropean', 'Segoe UI';
+    position: relative;
+    left: 5%;
+    font-weight: bold;
+}
+
+.table-and-button {
+    border-radius: 2em;
+}
+
+.p-menu {
+    position: absolute;
+    z-index: 1;
+}
+
+.inputtext-contactos {
+    margin-left: 1em;
+    width: 80%;
+}
+
+.input-and-button {
+    position: relative;
+    left: 2%;
+}
+
+.header-search {
+    font-family: 'Segoe UI Regular WestEuropean', 'Segoe UI';
+    width: 80%;
+    position: relative;
+    left: 5%;    
+}
+
+.search-and-button {
+    margin-bottom: 1.2em;
+}
+
+.button {
+    height: 2.6em;
+}

@@ -1,0 +1,30 @@
+.cardLogin {
+    width: 80%;
+}
+
+.centrado {
+   height: 90%;
+   display: flex; 
+   justify-content: center;
+   align-items: center;
+}
+
+.titulo {
+    font-family: var(--tipografia);
+    text-align: center;
+    font-size: 4em;
+    font-weight: bold;
+    color: red;
+}
+
+.margin-top {
+    margin-top: 1.5rem;
+}
+
+.mensaje-error {
+    width: 100%;
+    display: flex; 
+    justify-content: center;
+    color: red;
+    font-weight: bold;
+}

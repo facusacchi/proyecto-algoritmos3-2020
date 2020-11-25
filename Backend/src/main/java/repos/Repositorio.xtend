@@ -43,4 +43,6 @@ class Repositorio<T extends Entity> {
 	def Set<T> allInstances() {
 		return this.objects;
 	}
+	
+	
 }

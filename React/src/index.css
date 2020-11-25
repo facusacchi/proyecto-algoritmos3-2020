@@ -1,0 +1,31 @@
+
+
+:root {
+  --color-primario: #596475;
+  --color-secundario: #9d8189;
+  --color-terciario: #e3bac6;
+  --color-cuaternario: #fde8e9;
+  --color-botones: #1f2232;
+  --color-botonprofe: #f79256;
+  --boton-cancelar: #aa4465;
+  --ancho-default: 66vw;
+  --ancho-mayor: 90vw;
+  --tipografia :'Lobster', cursive;
+  
+}
+
+html {
+  font-family: var(--tipografia);
+  font-size: 12px;
+  background-color: var(--color-cuaternario);
+}
+
+body {
+  margin: 0;
+}
+
+html, body, #root, .App {
+  height: 100%;
+}
+
+

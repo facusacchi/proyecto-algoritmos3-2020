@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable
 import dominio.Usuario
 
 @RestController
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin(origins = #["http://localhost:4200", "http://localhost:3000"])
 class UsuarioController {
 
 	@PostMapping(value="/login")
@@ -28,7 +28,7 @@ class UsuarioController {
 		}
 		val usuario = RepoUsuario.instance.getByLogin(dataSession.userName, dataSession.password)
 		if(usuario === null) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontró el usuario con ese username o contraseña''')
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(mapper.writeValueAsString('''Usuario o contraseña invalidos'''))
 		}
 		ResponseEntity.ok(mapper.writeValueAsString(usuario))
 	}
@@ -48,25 +48,33 @@ class UsuarioController {
 	}
 	
 	@GetMapping("/perfilDeUsuario/{id}")
-	def tareaPorId(@PathVariable Integer id) {
+	def usuarioPorId(@PathVariable Integer id) {
 		if (id === 0) {
 			return ResponseEntity.badRequest.body('''Debe ingresar el parámetro id''')
 		}
 		val usuario = RepoUsuario.instance.getById(id.toString)
 		if (usuario === null) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontró el usuario de id <«id»>''')
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontró el usuario con id <«id»>''')
 		}
 		ResponseEntity.ok(usuario)
 	}
 
 	@GetMapping(value="/usuarios")
 	def getUsuarios() {
-		try {
-			val alimentos = RepoUsuario.instance.allInstances
-			ResponseEntity.ok(alimentos)
-		} catch (Exception e) {
-			ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.message)
+		val usuarios = RepoUsuario.instance.allInstances
+		if (usuarios === null) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body('''No se encontron usuarios''')
 		}
+			ResponseEntity.ok(usuarios)
+	}
+	
+	@GetMapping(value="/usuarios/{valorBusqueda}")
+	def getUsuariosPorString(@PathVariable String valorBusqueda) {
+		if(valorBusqueda === null) {
+			return ResponseEntity.badRequest.body('''Parametro de busqueda incorrecto''')
+		}
+		val usuarios = RepoUsuario.instance.search(valorBusqueda)
+		ResponseEntity.ok(usuarios)
 	}
 	
 	static def mapper() {

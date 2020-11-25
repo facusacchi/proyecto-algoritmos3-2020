@@ -188,24 +188,40 @@ class Usuario extends Entity {
 	}
 	
 	override cumpleCondicionDeBusqueda(String valorBusqueda) {
-		nombreYApellido.contains(valorBusqueda) || userName.equals(valorBusqueda)
+		nombreYApellido.toLowerCase.contains(valorBusqueda.toLowerCase) || userName.toLowerCase.equals(valorBusqueda.toLowerCase)
 	}
 	
 	def recibirMensaje(Mensaje mensaje) {
+		if (!mensajesInternos.empty) {
+			val ultimoId = mensajesInternos.get(mensajesInternos.size - 1)
+			mensaje.id = ultimoId.id + 1
+		} else {
+			mensaje.id = 1
+		}
 		mensajesInternos.add(mensaje)
 	}
 	
-	def accederAUnMensaje(Mensaje mensaje) {
-		mensajesInternos.findFirst[message | message.equals(mensaje)]
+	def accederAUnMensaje(Integer mensajeId) {
+		mensajesInternos.findFirst[message | message.id.equals(mensajeId)]
 	}
 	
 	def visualizarMensaje(Mensaje mensaje) {
-		System.out.println(accederAUnMensaje(mensaje).cuerpo.toString
-						 + accederAUnMensaje(mensaje).remitente.toString
-						 + accederAUnMensaje(mensaje).fechaYHoraDeEmision.toString
+		System.out.println(accederAUnMensaje(mensaje.id).cuerpo.toString
+						 + accederAUnMensaje(mensaje.id).remitente.toString
+						 + accederAUnMensaje(mensaje.id).fechaYHoraDeEmision.toString
 		)
 		mensaje.leido = true
 		mensaje.fechaYHoraDeLectura = LocalDateTime.now
+	}
+	
+	def actualizarMensaje(Mensaje mensaje) {
+		val mensajeAActualizar = accederAUnMensaje(mensaje.id)
+		mensajeAActualizar.leido = mensaje.leido
+	}
+	
+	def eliminarMensaje(Integer mensajeId) {
+		val mensajeAEliminar = accederAUnMensaje(mensajeId)
+		mensajesInternos.remove(mensajeAEliminar)
 	}
 	
 	def recibirMail(Mail mail) {

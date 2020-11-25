@@ -1,0 +1,26 @@
+.header-container {
+  font-family: Lobster;
+  font-size: 2em;
+  color: white;
+  background-color: var(--color-primario);
+  padding: 0.3rem 0;
+  display: flex;
+  justify-content: center;
+  height: 3em;
+}
+  
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.menu-header {
+  margin-right: 0.7em;
+}
+
+.title-header {
+  margin-left: 0.7em;
+}
+

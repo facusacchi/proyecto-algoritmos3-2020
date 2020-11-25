@@ -16,6 +16,8 @@ import dominio.Receta
 import dominio.Receta.Dificultad
 import dominio.Ingrediente
 import java.time.LocalDate
+import componente.observadores.Mensaje
+import java.time.LocalDateTime
 
 class Bootstrap {
 
@@ -35,12 +37,143 @@ class Bootstrap {
 	Usuario pepe
 	Usuario manolo
 	Usuario nancy
+	Usuario casandra
+	Usuario lucrecia
+	Usuario pancho
+	Usuario elena
 
 	def void run() {
 		instanciarAlimentos
 		crearUsuarios
 		crearRecetas
 		crearAlimentos
+		crearMensajes
+	}
+	
+	def crearMensajes() {
+		pepe.recibirMensaje(new Mensaje => [
+			destinatario = pepe
+			cuerpo = "Hola pepe, como estas?"
+			remitente = casandra
+			fechaYHoraDeEmision = LocalDateTime.now.minusHours(38)
+			fechaYHoraDeLectura = LocalDateTime.now.plusHours(2)
+			leido = false
+		])
+		pepe.recibirMensaje(new Mensaje => [
+			destinatario = pepe
+			cuerpo = "Pepe no olvides tu abrigo!"
+			remitente = manolo
+			fechaYHoraDeEmision = LocalDateTime.now.minusHours(24)
+			fechaYHoraDeLectura = LocalDateTime.now.plusHours(5)
+			leido = true
+		])
+		pepe.recibirMensaje(new Mensaje => [
+			destinatario = pepe
+			cuerpo = "Pepe... Palala"
+			remitente = nancy
+			fechaYHoraDeEmision = LocalDateTime.now.minusHours(20)
+			fechaYHoraDeLectura = LocalDateTime.now.plusHours(20)
+			leido = false
+		])
+		pepe.recibirMensaje(new Mensaje => [
+			destinatario = pepe
+			cuerpo = "Gracias por armarme el endpoint que necesitaba, te debo una!"
+			remitente = pancho
+			fechaYHoraDeEmision = LocalDateTime.now.minusHours(20)
+			fechaYHoraDeLectura = LocalDateTime.now.plusHours(20)
+			leido = false
+		])
+		
+		pepe.recibirMensaje(new Mensaje => [
+			destinatario = pepe
+			cuerpo = "Te deje un recado con las proximas instrucciones"
+			remitente = lucrecia
+			fechaYHoraDeEmision = LocalDateTime.now.minusHours(20)
+			fechaYHoraDeLectura = LocalDateTime.now.plusHours(20)
+			leido = false
+		])
+		
+		nancy.recibirMensaje(new Mensaje => [
+			destinatario = nancy
+			cuerpo = "Este mensaje es para Nancy"
+			remitente = pepe
+			fechaYHoraDeEmision = LocalDateTime.now.minusHours(20)
+			fechaYHoraDeLectura = LocalDateTime.now.plusHours(20)
+			leido = false
+		])
+		
+		manolo.recibirMensaje(new Mensaje => [
+			destinatario = manolo
+			cuerpo = "Manolo te toca hacer la funcionalidad de login"
+			remitente = nancy
+			fechaYHoraDeEmision = LocalDateTime.now.minusHours(20)
+			fechaYHoraDeLectura = LocalDateTime.now.plusHours(20)
+			leido = false
+		])
+		
+		manolo.recibirMensaje(new Mensaje => [
+			destinatario = manolo
+			cuerpo = "Podemos utilizar PrimeReact para el maquetado"
+			remitente = casandra
+			fechaYHoraDeEmision = LocalDateTime.now.minusHours(20)
+			fechaYHoraDeLectura = LocalDateTime.now.plusHours(20)
+			leido = false
+		])
+		
+		manolo.recibirMensaje(new Mensaje => [
+			destinatario = manolo
+			cuerpo = "¿Que tal si usamos SpringBoot para el backend?"
+			remitente = manolo
+			fechaYHoraDeEmision = LocalDateTime.now.minusHours(20)
+			fechaYHoraDeLectura = LocalDateTime.now.plusHours(20)
+			leido = false
+		])
+		
+		manolo.recibirMensaje(new Mensaje => [
+			destinatario = manolo
+			cuerpo = "Estoy atrasado con Angular, necesito mas tiempo"
+			remitente = pancho
+			fechaYHoraDeEmision = LocalDateTime.now.minusHours(20)
+			fechaYHoraDeLectura = LocalDateTime.now.plusHours(20)
+			leido = false
+		])
+		
+		lucrecia.recibirMensaje(new Mensaje => [
+			destinatario = lucrecia
+			cuerpo = "Tenemos que reunirnos ¿Hacemos una meet?"
+			remitente = pancho
+			fechaYHoraDeEmision = LocalDateTime.now.minusHours(20)
+			fechaYHoraDeLectura = LocalDateTime.now.plusHours(20)
+			leido = false
+		])
+		
+		pancho.recibirMensaje(new Mensaje => [
+			destinatario = pancho
+			cuerpo = "Pancho, necesito tu confirmacion para arrancar el maquetado"
+			remitente = pepe
+			fechaYHoraDeEmision = LocalDateTime.now.minusHours(20)
+			fechaYHoraDeLectura = LocalDateTime.now.plusHours(20)
+			leido = false
+		])
+		
+		pancho.recibirMensaje(new Mensaje => [
+			destinatario = pancho
+			cuerpo = "¿Podrias ayudarme con React?"
+			remitente = elena
+			fechaYHoraDeEmision = LocalDateTime.now.minusHours(20)
+			fechaYHoraDeLectura = LocalDateTime.now.plusHours(20)
+			leido = false
+		])
+		
+		pancho.recibirMensaje(new Mensaje => [
+			destinatario = pancho
+			cuerpo = "Deberiamos tener funcionalidad hecha para la semana poxima"
+			remitente = nancy
+			fechaYHoraDeEmision = LocalDateTime.now.minusHours(20)
+			fechaYHoraDeLectura = LocalDateTime.now.plusHours(20)
+			leido = false
+		])
+		
 	}
 
 	def instanciarAlimentos() {
@@ -87,7 +220,7 @@ class Bootstrap {
 		RepoUsuario.instance.create(manolo)
 
 		nancy = new Usuario => [
-			nombreYApellido = "Nancy Vargas Fernandez"
+			nombreYApellido = "Nancy Vargas"
 			userName = "nan"
 			password = "123"
 			peso = 120.0
@@ -101,6 +234,70 @@ class Bootstrap {
 			rutina = Rutina.MEDIANO
 		]
 		RepoUsuario.instance.create(nancy)
+		
+		casandra = new Usuario => [
+			nombreYApellido = "Casandra Malandra"
+			userName = "casalandra"
+			password = "774"
+			peso = 120.0
+			estatura = 1.90
+			fechaDeNacimiento = LocalDate.of(1985,5,7)
+			agregarCondicionAlimenticia(Vegano.getInstancia)
+			agregarCondicionAlimenticia(Celiaco.getInstancia)
+			agregarAlimentosPreferidos(carneRoja)
+			agregarAlimentosPreferidos(papa)
+			agregarAlimentoDisgustado(pescado)
+			rutina = Rutina.MEDIANO
+		]
+		RepoUsuario.instance.create(casandra)
+		
+		lucrecia = new Usuario => [
+			nombreYApellido = "Lucrecia Magnesia"
+			userName = "lugenesia"
+			password = "122"
+			peso = 120.0
+			estatura = 1.90
+			fechaDeNacimiento = LocalDate.of(1985,5,7)
+			agregarCondicionAlimenticia(Vegano.getInstancia)
+			agregarCondicionAlimenticia(Celiaco.getInstancia)
+			agregarAlimentosPreferidos(carneRoja)
+			agregarAlimentosPreferidos(papa)
+			agregarAlimentoDisgustado(pescado)
+			rutina = Rutina.MEDIANO
+		]
+		RepoUsuario.instance.create(lucrecia)
+		
+		pancho = new Usuario => [
+			nombreYApellido = "Pancho Rancho"
+			userName = "zafarancho"
+			password = "999"
+			peso = 120.0
+			estatura = 1.90
+			fechaDeNacimiento = LocalDate.of(1985,5,7)
+			agregarCondicionAlimenticia(Vegano.getInstancia)
+			agregarCondicionAlimenticia(Celiaco.getInstancia)
+			agregarAlimentosPreferidos(carneRoja)
+			agregarAlimentosPreferidos(papa)
+			agregarAlimentoDisgustado(pescado)
+			rutina = Rutina.MEDIANO
+		]
+		RepoUsuario.instance.create(pancho)
+		
+		elena = new Usuario => [
+			nombreYApellido = "Elena Melena"
+			userName = "melinena"
+			password = "364"
+			peso = 120.0
+			estatura = 1.90
+			fechaDeNacimiento = LocalDate.of(1985,5,7)
+			agregarCondicionAlimenticia(Vegano.getInstancia)
+			agregarCondicionAlimenticia(Celiaco.getInstancia)
+			agregarAlimentosPreferidos(carneRoja)
+			agregarAlimentosPreferidos(papa)
+			agregarAlimentoDisgustado(pescado)
+			rutina = Rutina.MEDIANO
+		]
+		RepoUsuario.instance.create(elena)
 	}
 
 	def crearRecetas() {

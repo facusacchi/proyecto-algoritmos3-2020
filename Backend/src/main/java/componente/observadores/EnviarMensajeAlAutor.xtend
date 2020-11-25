@@ -4,6 +4,9 @@ import dominio.Receta
 import dominio.Usuario
 import java.time.LocalDateTime
 import org.eclipse.xtend.lib.annotations.Accessors
+import com.fasterxml.jackson.annotation.JsonProperty
+import java.time.format.DateTimeFormatter
+import com.fasterxml.jackson.annotation.JsonIgnore
 
 class EnviarMensajeAlAutor extends Observador {
 	
@@ -26,12 +29,61 @@ class EnviarMensajeAlAutor extends Observador {
 
 @Accessors
 class Mensaje {
+	Integer id
 	Usuario destinatario
 	String cuerpo
 	Usuario remitente
 	LocalDateTime fechaYHoraDeEmision
+	@JsonIgnore
 	LocalDateTime fechaYHoraDeLectura
 	boolean leido = false
+	//static String DATE_PATTERN = "yyyy-MM-dd"
+	//static String DATE_PATTERN = "yyyy-MM-dd HH:mm:ss"
+	static String DATE_PATTERN = "dd-MM-yyyy HH:mm"
+	
+	def formatter() {
+		DateTimeFormatter.ofPattern(DATE_PATTERN)
+	}
+	
+	@JsonProperty("destinatario")
+	def getDestinatarioAsString() {
+		destinatario.nombreYApellido
+	}
+	
+	@JsonProperty("destinatario")
+	def setDestinatarioAsDomainObject(String destinatario) {
+		this.destinatario = new Usuario => [ nombreYApellido = destinatario ]
+	}
+	
+	@JsonProperty("remitente")
+	def getRemitenteAsString() {
+		remitente.nombreYApellido
+	}
+	
+	@JsonProperty("remitente")
+	def setRemitenteAsDomainObject(String remitente) {
+		this.remitente = new Usuario => [ nombreYApellido = remitente ]
+	}
+	
+	@JsonProperty("fechaYHoraDeEmision")
+	def getFechaDeEmisionAsString() {
+		formatter.format(this.fechaYHoraDeEmision)
+	}
+	
+	@JsonProperty("fechaYHoraDeEmision")
+	def setFechaDeEmisionAsDomainObject(String fecha) {
+		fechaYHoraDeEmision = LocalDateTime.parse(fecha, formatter)
+	}
+	
+	@JsonProperty("fechaYHoraDeLectura")
+	def getFechaDeLecturaAsString() {
+		formatter.format(this.fechaYHoraDeLectura)
+	}
+	
+	@JsonProperty("fechaYHoraDeLectura")
+	def setFechaDeLecturaAsDomainObject(String fecha) {
+		fechaYHoraDeLectura = LocalDateTime.parse(fecha, formatter)
+	}
 }
 
 @Accessors
